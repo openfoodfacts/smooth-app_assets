@@ -18,7 +18,7 @@
         },
         "fr_FR": {
           "title": "Notre application a besoin de vous !",
-          "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
+          "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
           "button_label": "Je soutiens",
           "url": "https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utf_medium=smooth-app&utm_campaign=donation-2024",
           "image": {
@@ -29,7 +29,7 @@
         },
         "fr": {
           "title": "Notre application a besoin de vous !",
-          "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
+          "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
           "button_label": "Je soutiens",
           "url": "https://world-fr.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utf_medium=smooth-app&utm_campaign=donation-2024",
           "image": {
@@ -471,6 +471,82 @@
           }
         }
       }
+    },
+    "nutriscore_v2": {
+      "start_date": "2025-01-01 00:00:00",
+      "end_date": "2025-12-31 23:59:59",
+      "url": "https://world.openfoodfacts.org/nutriscore-v2",
+      "translations": {
+        "default": {
+          "title": "It's new!",
+          "message": "The **New Calculation** of the NutriScore is available in the application",
+          "button_label": "Learn more",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+            "width": 0.2
+          }
+        },
+        "de": {
+          "title": "Es ist neu!",
+          "message": "Die **Neue Berechnung** des Nutri-Scores ist in der App verfügbar",
+          "button_label": "Mehr erfahren",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-de.svg",
+            "width": 0.2,
+            "alt": "Das Nutri-Score A Logo"
+          }
+        },
+        "es": {
+          "title": "¡Es nuevo!",
+          "message": "El **Nuevo Cálculo** del Nutri-Score está disponible en la aplicación",
+          "button_label": "Más información",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+            "width": 0.2,
+            "alt": "El logo de Nutri-Score A"
+          }
+        },
+        "fr": {
+          "title": "C’est tout nouveau !",
+          "message": "Le **Nouveau Calcul** du NutriScore est disponible dans l’application",
+          "button_label": "En savoir plus",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "width": 0.2,
+            "alt": "Le logo du NutriScore A"
+          }
+        },
+        "it": {
+          "title": "È nuovo!",
+          "message": "Il **Nuovo Calcolo** del NutriScore è disponibile nell'app",
+          "button_label": "Scopri di più",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+            "width": 0.2,
+            "alt": "Il logo NutriScore A"
+          }
+        },
+        "nl": {
+          "title": "Het is nieuw!",
+          "message": "De **Nieuwe Berekening** van de Nutri-Score is beschikbaar in de app",
+          "button_label": "Meer informatie",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-nl.svg",
+            "width": 0.2,
+            "alt": "Het Nutri-Score A-logo"
+          }
+        },
+        "pt": {
+          "title": "É novo!",
+          "message": "O **Novo Cálculo** do Nutri-Score está disponível no aplicativo",
+          "button_label": "Saiba mais",
+          "image": {
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
+            "width": 0.2,
+            "alt": "O logotipo Nutri-Score A"
+          }
+        }
+      }
     }
   },
   "tagline_feed": {
@@ -483,6 +559,19 @@
           "id": "translate_openfoodfacts"
         }
       ]
-    }
+    },
+    "_FR": {
+      "news": [
+        {
+          "id": "nutriscore_v2"
+        },
+        {
+          "id": "donation_campaign"
+        },
+        {
+          "id": "translate_openfoodfacts"
+        }
+      ]
+    },
   }
 }
