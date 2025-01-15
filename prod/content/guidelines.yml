@@ -10,7 +10,15 @@
           "button_label": "Read",
           "url": "https://world.openfoodfacts.org/nutriscore?utm_source=off&utf_medium=smooth-app&utm_campaign=",
           "images": {
-            "horizontal_app_promo_dynamic": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "_comment1": "Image should be in SVG, with PNG embeds allowed, with a resolution of XXX. ",
+            "_comment2": "The ratio should be 60% (height 60% smaller that width). ",
+            "_comment3": "If you are using a gradient, the gradient should be finished at the end of image.",
+            "_comment4": "We do not support dynamic gradients",
+            "_comment5": "Please create a RTL version of your visual"
+            "_comment6": "Please refrain from adding language or culture specific visuals, unless the topic is correlated with it. Eg for a bottle of coke, you can hide the language specific parts of the packaging"
+            "_comment7": "If you are using illustrations, please only uses ones respecting the following style: https://quentinlagrange.com/projets/open-food-facts"
+            "horizontal_app_promo_dynamic_rtl": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
+            "horizontal_app_promo_dynamic_ltr": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
             "vertical_story_promo_dynamic": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
             "square_promo_dynamic": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
             "square_promo_en": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_en.svg",
