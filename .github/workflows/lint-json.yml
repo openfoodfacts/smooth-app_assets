@@ -1,0 +1,28 @@
+name: Lint JSON
+
+on:
+  push:
+    paths:
+      - '**/*.json'
+  pull_request:
+    paths:
+      - '**/*.json'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install jsonlint
+      run: npm install -g jsonlint
+
+    - name: Lint JSON files
+      run: jsonlint '**/*.json'
