@@ -4,11 +4,11 @@ on:
   push:
     paths:
       - 'prod/tagline/android/main.json'
-      - 'prod/tagline/iphone/main.json'
+      - 'prod/tagline/ios/main.json'
   pull_request:
     paths:
       - 'prod/tagline/android/main.json'
-      - 'prod/tagline/iphone/main.json'
+      - 'prod/tagline/ios/main.json'
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -29,4 +29,4 @@ jobs:
       run: jsonlint 'prod/tagline/android/main.json'
 
     - name: Lint JSON files iphone
-      run: jsonlint 'prod/tagline/iphone/main.json'
+      run: jsonlint 'prod/tagline/ios/main.json'
