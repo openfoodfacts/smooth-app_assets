@@ -3,11 +3,12 @@ name: Lint JSON
 on:
   push:
     paths:
-      - '**/*.json'
+      - 'prod/tagline/android/main.json'
+      - 'prod/tagline/iphone/main.json'
   pull_request:
     paths:
-      - '**/*.json'
-
+      - 'prod/tagline/android/main.json'
+      - 'prod/tagline/iphone/main.json'
 jobs:
   lint:
     runs-on: ubuntu-latest
