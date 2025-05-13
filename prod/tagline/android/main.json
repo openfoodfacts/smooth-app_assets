@@ -253,6 +253,7 @@
       "start_date": "2025-02-01 00:00:00",
       "end_date": "2025-12-31 23:59:59",
       "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en",
+      "min_launches": 5,
       "translations": {
         "default": {
           "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en",
@@ -571,6 +572,76 @@
           }
         }
       }
+    },
+    "prices_eggs_campaign": {
+      "start_date": "2025-04-19 00:00:00",
+      "end_date": "2025-05-19 23:59:59",
+      "url": "https://prices.openfoodfacts.org/challenges/2",
+      "translations": {
+        "default": {
+          "title": "\uD83E\uDD5A Eggs challenge!",
+          "message": "Open Prices: Join our monthly challenge by **collecting prices of eggs**",
+          "button_label": "Learn more",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/prices_eggs_campaign/prices_en.svg",
+            "width": 0.2
+          }
+        },
+        "de": {
+          "title": "\uD83E\uDD5A Eggs challenge!",
+          "message": "Open Prices: Machen Sie bei unserer monatlichen Herausforderung mit, indem Sie **Preise für Eier sammeln**",
+          "button_label": "Mehr erfahren",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/prices_eggs_campaign/prices.svg",
+            "width": 0.2
+          }
+        },
+        "es": {
+          "title": "\uD83E\uDD5A Eggs challenge!",
+          "message": "Open Prices: Únete a nuestro desafío mensual **recopilando precios de huevos**",
+          "button_label": "Más información",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/prices_eggs_campaign/prices.svg",
+            "width": 0.2
+          }
+        },
+        "fr": {
+          "title": "\uD83E\uDD5A Défi mensuel !",
+          "message": "Contribuez à Open Prices en collectant les **prix des œufs** !",
+          "button_label": "En savoir plus",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/prices_eggs_campaign/prices_fr.svg",
+            "width": 0.2
+          }
+        },
+        "it": {
+          "title": "\uD83E\uDD5A Eggs challenge!",
+          "message": "Open Prices: Partecipa alla nostra sfida mensile **raccogliendo i prezzi delle uova**",
+          "button_label": "Scopri di più",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/prices_eggs_campaign/prices.svg",
+            "width": 0.2
+          }
+        },
+        "nl": {
+          "title": "\uD83E\uDD5A Eggs challenge!",
+          "message": "Open Prices: Doe mee aan onze maandelijkse uitdaging door **prijzen van eieren te verzamelen**",
+          "button_label": "Meer informatie",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/prices_eggs_campaign/prices.svg",
+            "width": 0.2
+          }
+        },
+        "pt": {
+          "title": "\uD83E\uDD5A Eggs challenge!",
+          "message": "Open Prices: Participe do nosso desafio mensal **coletando preços de ovos**",
+          "button_label": "Saiba mais",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/prices_eggs_campaign/prices.svg",
+            "width": 0.2
+          }
+        }
+      }
     }
   },
   "tagline_feed": {
@@ -581,6 +652,9 @@
         },
         {
           "id": "translation_campaign_2025"
+        },
+        {
+          "id": "prices_eggs_campaign"
         }
       ]
     }
