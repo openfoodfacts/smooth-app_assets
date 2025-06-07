@@ -76,6 +76,139 @@
       },
       "url": "https://world.openfoodfacts.org/nutriscore-v2"
     },
+    "off_days_2025": {
+      "end_date": "2025-06-10 23:59:59",
+      "min_launches": 5,
+      "start_date": "2025-06-06 00:00:00",
+      "translations": {
+        "ar": {
+          "button_label": "اعرف المزيد",
+          "message": "انضم إلينا في عطلة نهاية الأسبوع المجتمعية يومي 13 و14 سبتمبر 2025 في باريس (فرنسا)",
+          "title": "أيام Open Food Facts 2025"
+        },
+        "bn": {
+          "button_label": "আরও জানুন",
+          "message": "১৩ ও ১৪ সেপ্টেম্বর ২০২৫-এ প্যারিসে (ফ্রান্স) আমাদের কমিউনিটি উইকএন্ডে যোগ দিন",
+          "title": "Open Food Facts ডেজ ২০২৫"
+        },
+        "de": {
+          "button_label": "Mehr erfahren",
+          "message": "Nehmen Sie an unserem Community-Wochenende am 13. und 14. September 2025 in Paris (Frankreich) teil",
+          "title": "Open Food Facts Tage 2025"
+        },
+        "default": {
+          "button_label": "Learn more",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/off/logo.svg",
+            "width": 0.2
+          },
+          "message": "Join us for our community weekend on the 13-14 September 2025 in Paris (France)",
+          "title": "Open Food Facts Days 2025"
+        },
+        "el": {
+          "button_label": "Μάθετε περισσότερα",
+          "message": "Συμμετάσχετε στο κοινοτικό μας Σαββατοκύριακο στις 13-14 Σεπτεμβρίου 2025 στο Παρίσι (Γαλλία)",
+          "title": "Ημέρες Open Food Facts 2025"
+        },
+        "es": {
+          "button_label": "Más información",
+          "message": "Únete a nuestro fin de semana comunitario el 13 y 14 de septiembre de 2025 en París (Francia)",
+          "title": "Días de Open Food Facts 2025"
+        },
+        "fa": {
+          "button_label": "بیشتر بدانید",
+          "message": "در تعطیلات آخر هفته جامعه ما در ۱۳ و ۱۴ سپتامبر ۲۰۲۵ در پاریس (فرانسه) شرکت کنید",
+          "title": "روزهای Open Food Facts 2025"
+        },
+        "fr": {
+          "button_label": "En savoir plus",
+          "message": "Rejoignez-nous pour notre **événement annuel** gratuit à Paris les 13 et 14 septembre 2025.",
+          "title": "Journées Open Food Facts 2025",
+          "url": "https://connect.openfoodfacts.org/fr/event/journees-open-food-facts-2025-30/register"
+        },
+        "hi": {
+          "button_label": "और जानें",
+          "message": "13-14 सितंबर 2025 को पेरिस (फ्रांस) में हमारे सामुदायिक सप्ताहांत में शामिल हों",
+          "title": "Open Food Facts दिवस 2025"
+        },
+        "id": {
+          "button_label": "Pelajari lebih lanjut",
+          "message": "Bergabunglah dengan kami untuk akhir pekan komunitas pada 13-14 September 2025 di Paris (Prancis)",
+          "title": "Hari Open Food Facts 2025"
+        },
+        "it": {
+          "button_label": "Scopri di più",
+          "message": "Unisciti a noi per il weekend della community il 13-14 settembre 2025 a Parigi (Francia)",
+          "title": "Giornate Open Food Facts 2025"
+        },
+        "ja": {
+          "button_label": "詳しくはこちら",
+          "message": "2025年9月13日・14日にパリ（フランス）で開催されるコミュニティウィークエンドにご参加ください",
+          "title": "Open Food Factsデイズ2025"
+        },
+        "ko": {
+          "button_label": "자세히 알아보기",
+          "message": "2025년 9월 13~14일 프랑스 파리에서 열리는 커뮤니티 주말에 함께하세요",
+          "title": "Open Food Facts 데이 2025"
+        },
+        "ms": {
+          "button_label": "Ketahui lebih lanjut",
+          "message": "Sertai kami untuk hujung minggu komuniti pada 13-14 September 2025 di Paris (Perancis)",
+          "title": "Hari Open Food Facts 2025"
+        },
+        "nl": {
+          "button_label": "Meer informatie",
+          "message": "Doe mee aan ons communityweekend op 13 en 14 september 2025 in Parijs (Frankrijk)",
+          "title": "Open Food Facts Dagen 2025"
+        },
+        "pl": {
+          "button_label": "Dowiedz się więcej",
+          "message": "Dołącz do nas na weekend społecznościowy 13-14 września 2025 w Paryżu (Francja)",
+          "title": "Dni Open Food Facts 2025"
+        },
+        "pt": {
+          "button_label": "Saiba mais",
+          "message": "Junte-se a nós no nosso fim de semana comunitário em 13 e 14 de setembro de 2025 em Paris (França)",
+          "title": "Dias Open Food Facts 2025"
+        },
+        "ru": {
+          "button_label": "Узнать больше",
+          "message": "Присоединяйтесь к нашему сообществу на выходных 13-14 сентября 2025 года в Париже (Франция)",
+          "title": "Дни Open Food Facts 2025"
+        },
+        "sv": {
+          "button_label": "Läs mer",
+          "message": "Delta i vår communityhelg den 13-14 september 2025 i Paris (Frankrike)",
+          "title": "Open Food Facts-dagarna 2025"
+        },
+        "th": {
+          "button_label": "เรียนรู้เพิ่มเติม",
+          "message": "เข้าร่วมสุดสัปดาห์ชุมชนของเราวันที่ 13-14 กันยายน 2025 ที่ปารีส (ฝรั่งเศส)",
+          "title": "วัน Open Food Facts 2025"
+        },
+        "tr": {
+          "button_label": "Daha fazla bilgi",
+          "message": "13-14 Eylül 2025 tarihlerinde Paris'te (Fransa) topluluk hafta sonumuza katılın.",
+          "title": "Open Food Facts Günleri 2025"
+        },
+        "uk": {
+          "button_label": "Дізнатися більше",
+          "message": "Приєднуйтесь до нашого спільнотного вікенду 13-14 вересня 2025 року в Парижі (Франція)",
+          "title": "Дні Open Food Facts 2025"
+        },
+        "vi": {
+          "button_label": "Tìm hiểu thêm",
+          "message": "Tham gia cuối tuần cộng đồng của chúng tôi vào ngày 13-14 tháng 9 năm 2025 tại Paris (Pháp)",
+          "title": "Ngày Open Food Facts 2025"
+        },
+        "zh": {
+          "button_label": "了解更多",
+          "message": "欢迎于2025年9月13-14日参加我们在法国巴黎的社区周末活动。",
+          "title": "Open Food Facts日 2025"
+        }
+      },
+      "url": "https://connect.openfoodfacts.org/event/open-food-facts-days-2025-30/register"
+    },
     "off_spring_news_2025": {
       "end_date": "2025-12-31 23:59:59",
       "start_date": "2025-05-19 00:00:00",
@@ -98,7 +231,7 @@
         "default": {
           "button_label": "Learn more",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/off/logo.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/off/logo.svg",
             "width": 0.2
           },
           "message": "A recap of what's happening in the Open Food Facts community.",
@@ -210,7 +343,7 @@
     },
     "translation_campaign_2025": {
       "end_date": "2025-12-31 23:59:59",
-      "min_launches": 5,
+      "min_launches": 4,
       "start_date": "2025-02-01 00:00:00",
       "translations": {
         "ar": {
@@ -234,7 +367,7 @@
         "default": {
           "button_label": "Join the translators team",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/translation_campaign_2025/translation_campaign_2025.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/translation_campaign_2025/translation_campaign_2025.svg",
             "width": 0.2
           },
           "message": "Translate the app, our website… to help others make informed food choices",
@@ -363,24 +496,6 @@
         }
       },
       "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en"
-    },
-    "carrefour_belgium_2025": {
-      "end_date": "2025-06-10 23:59:59",
-      "min_launches": 1,
-      "start_date": "2025-05-19 00:00:00",
-      "translations": {
-        "default": {
-          "button_label": "En savoir plus",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/off/logo.svg",
-            "width": 0.2
-          },
-          "message": "**3500 produits** de la marque Carrefour sont désormais disponibles dans l'application.",
-          "title": "Les produits Carrefour en 🇧🇪 !",
-          "url": "https://newsroom.carrefour.be/faire-des-choix-sains-devient-encore-plus-facile--des-produits-carrefour-disponibles-sur-open-food-facts"
-        }
-      },
-      "url": "https://newsroom.carrefour.be/faire-des-choix-sains-devient-encore-plus-facile--des-produits-carrefour-disponibles-sur-open-food-facts"
     }
   },
   "tagline_feed": {
@@ -390,20 +505,7 @@
           "id": "off_spring_news_2025"
         },
         {
-          "id": "nutriscore_v2"
-        },
-        {
-          "id": "translation_campaign_2025"
-        }
-      ]
-    },
-    "fr_BE": {
-      "news": [
-        {
-          "id": "carrefour_belgium_2025"
-        },
-        {
-          "id": "off_spring_news_2025"
+          "id": "off_days_2025"
         },
         {
           "id": "nutriscore_v2"
