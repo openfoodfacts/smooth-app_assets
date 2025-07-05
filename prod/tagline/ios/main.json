@@ -216,7 +216,7 @@
         "de": {
           "button_label": "Mehr erfahren",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/prices_eggs_campaign/prices_default.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
             "width": 0.2
           },
           "message": "Tragen Sie zu Open Prices bei, indem Sie **Preise für Sonnencremes 🧴, Eis 🍦 & Sorbets 🍧** sammeln!",
@@ -234,7 +234,7 @@
         "es": {
           "button_label": "Más información",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/prices_eggs_campaign/prices_default.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
             "width": 0.2
           },
           "message": "Contribuye a Open Prices recopilando **precios de cremas solares 🧴, helados 🍦 y sorbetes 🍧**.",
@@ -243,7 +243,7 @@
         "fr": {
           "button_label": "En savoir plus",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/prices_eggs_campaign/prices_fr.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_fr.svg",
             "width": 0.2
           },
           "message": "Contribuez à Open Prices en collectant les **prix des crèmes solaire \uD83E\uDDF4, glaces \uD83C\uDF66 & sorbets \uD83C\uDF67** !",
@@ -252,7 +252,7 @@
         "it": {
           "button_label": "Scopri di più",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/prices_eggs_campaign/prices_default.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
             "width": 0.2
           },
           "message": "Contribuisci a Open Prices raccogliendo **i prezzi delle creme solari 🧴, gelati 🍦 e sorbetti 🍧**.",
@@ -261,7 +261,7 @@
         "nl": {
           "button_label": "Meer informatie",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/prices_eggs_campaign/prices_default.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
             "width": 0.2
           },
           "message": "Draag bij aan Open Prices door **prijzen van zonnebrand 🧴, ijs 🍦 & sorbets 🍧** te verzamelen!",
@@ -270,7 +270,7 @@
         "pt": {
           "button_label": "Saiba mais",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/prices_eggs_campaign/prices_default.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
             "width": 0.2
           },
           "message": "Contribua para o Open Prices coletando **preços de protetores solares 🧴, sorvetes 🍦 e gelados de fruta 🍧**.",
