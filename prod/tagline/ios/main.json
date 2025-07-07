@@ -209,137 +209,75 @@
       },
       "url": "https://connect.openfoodfacts.org/event/open-food-facts-days-2025-30/register"
     },
-    "off_spring_news_2025": {
-      "end_date": "2025-12-31 23:59:59",
-      "start_date": "2025-05-19 00:00:00",
+    "prices_summer_campaign": {
+      "end_date": "2025-08-31 23:59:59",
+      "start_date": "2025-07-01 00:00:00",
       "translations": {
-        "ar": {
-          "button_label": "اعرف المزيد",
-          "message": "ملخص لما يحدث في مجتمع Open Food Facts.",
-          "title": "أخبار الربيع!"
-        },
-        "bn": {
-          "button_label": "আরও জানুন",
-          "message": "Open Food Facts কমিউনিটিতে কী ঘটছে তার একটি সংক্ষিপ্ত বিবরণ।",
-          "title": "বসন্তের খবর!"
-        },
         "de": {
           "button_label": "Mehr erfahren",
-          "message": "Eine Zusammenfassung der aktuellen Ereignisse in der Open Food Facts Community.",
-          "title": "Frühlingsnachrichten!"
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
+            "width": 0.2
+          },
+          "message": "Tragen Sie zu Open Prices bei, indem Sie **Preise für Sonnencremes 🧴, Eis 🍦 & Sorbets 🍧** sammeln!",
+          "title": "😎 Sommer-Challenge!"
         },
         "default": {
           "button_label": "Learn more",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/off/logo.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_en.svg",
             "width": 0.2
           },
-          "message": "A recap of what's happening in the Open Food Facts community.",
-          "title": "Spring news 🍊!"
-        },
-        "el": {
-          "button_label": "Μάθετε περισσότερα",
-          "message": "Μια ανασκόπηση του τι συμβαίνει στην κοινότητα του Open Food Facts.",
-          "title": "Ειδήσεις Άνοιξης!"
+          "message": "Open Prices: Join our community challenge by **collecting prices of sunscreen 🧴, ice cream 🍦 & sorbets 🍧**",
+          "title": "😎 Summer challenge!"
         },
         "es": {
           "button_label": "Más información",
-          "message": "Un resumen de lo que sucede en la comunidad de Open Food Facts.",
-          "title": "¡Noticias de primavera!"
-        },
-        "fa": {
-          "button_label": "بیشتر بدانید",
-          "message": "خلاصه‌ای از آنچه در جامعه Open Food Facts اتفاق می‌افتد.",
-          "title": "اخبار بهاری!"
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
+            "width": 0.2
+          },
+          "message": "Contribuye a Open Prices recopilando **precios de cremas solares 🧴, helados 🍦 y sorbetes 🍧**.",
+          "title": "😎 ¡Desafío de verano!"
         },
         "fr": {
           "button_label": "En savoir plus",
-          "message": "Ca bouge dans la communauté Open Food Facts !",
-          "title": "Nouvelles du printemps !",
-          "url": "https://blog.openfoodfacts.org/fr/news/des-nouvelles-du-printemps-de-la-communaute-open-food-facts"
-        },
-        "hi": {
-          "button_label": "और जानें",
-          "message": "Open Food Facts समुदाय में क्या हो रहा है इसका एक संक्षिप्त विवरण।",
-          "title": "वसंत समाचार!"
-        },
-        "id": {
-          "button_label": "Pelajari lebih lanjut",
-          "message": "Ringkasan tentang apa yang terjadi di komunitas Open Food Facts.",
-          "title": "Berita musim semi!"
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_fr.svg",
+            "width": 0.2
+          },
+          "message": "Contribuez à Open Prices en collectant les **prix des crèmes solaire \uD83E\uDDF4, glaces \uD83C\uDF66 & sorbets \uD83C\uDF67** !",
+          "title": "\uD83D\uDE0E Défi de l'été !"
         },
         "it": {
           "button_label": "Scopri di più",
-          "message": "Un riepilogo di ciò che sta accadendo nella community di Open Food Facts.",
-          "title": "Novità di primavera!"
-        },
-        "ja": {
-          "button_label": "詳しくはこちら",
-          "message": "Open Food Factsコミュニティで何が起こっているかのまとめです。",
-          "title": "春のニュース！"
-        },
-        "ko": {
-          "button_label": "자세히 알아보기",
-          "message": "Open Food Facts 커뮤니티에서 일어나고 있는 일들을 요약합니다.",
-          "title": "봄 소식!"
-        },
-        "ms": {
-          "button_label": "Ketahui lebih lanjut",
-          "message": "Ringkasan tentang apa yang berlaku dalam komuniti Open Food Facts.",
-          "title": "Berita musim bunga!"
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
+            "width": 0.2
+          },
+          "message": "Contribuisci a Open Prices raccogliendo **i prezzi delle creme solari 🧴, gelati 🍦 e sorbetti 🍧**.",
+          "title": "😎 Sfida estiva!"
         },
         "nl": {
           "button_label": "Meer informatie",
-          "message": "Een overzicht van wat er gebeurt in de Open Food Facts-community.",
-          "title": "Lentenieuws!"
-        },
-        "pl": {
-          "button_label": "Dowiedz się więcej",
-          "message": "Podsumowanie tego, co dzieje się w społeczności Open Food Facts.",
-          "title": "Wiadomości wiosenne!"
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
+            "width": 0.2
+          },
+          "message": "Draag bij aan Open Prices door **prijzen van zonnebrand 🧴, ijs 🍦 & sorbets 🍧** te verzamelen!",
+          "title": "😎 Zomeruitdaging!"
         },
         "pt": {
           "button_label": "Saiba mais",
-          "message": "Um resumo do que está acontecendo na comunidade Open Food Facts.",
-          "title": "Notícias da primavera!"
-        },
-        "ru": {
-          "button_label": "Узнать больше",
-          "message": "Краткий обзор событий в сообществе Open Food Facts.",
-          "title": "Весенние новости!"
-        },
-        "sv": {
-          "button_label": "Läs mer",
-          "message": "En sammanfattning av vad som händer i Open Food Facts-communityn.",
-          "title": "Vårnyheter!"
-        },
-        "th": {
-          "button_label": "เรียนรู้เพิ่มเติม",
-          "message": "สรุปสิ่งที่เกิดขึ้นในชุมชน Open Food Facts",
-          "title": "ข่าวฤดูใบไม้ผลิ!"
-        },
-        "tr": {
-          "button_label": "Daha fazla bilgi",
-          "message": "Open Food Facts topluluğunda neler olup bittiğinin bir özeti.",
-          "title": "Bahar haberleri!"
-        },
-        "uk": {
-          "button_label": "Дізнатися більше",
-          "message": "Огляд того, що відбувається в спільноті Open Food Facts.",
-          "title": "Весняні новини!"
-        },
-        "vi": {
-          "button_label": "Tìm hiểu thêm",
-          "message": "Tóm tắt những gì đang diễn ra trong cộng đồng Open Food Facts.",
-          "title": "Tin tức mùa xuân!"
-        },
-        "zh": {
-          "button_label": "了解更多",
-          "message": "Open Food Facts 社区最新动态回顾。",
-          "title": "春季新闻！"
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_default.svg",
+            "width": 0.2
+          },
+          "message": "Contribua para o Open Prices coletando **preços de protetores solares 🧴, sorvetes 🍦 e gelados de fruta 🍧**.",
+          "title": "😎 Desafio de verão!"
         }
       },
-      "url": "https://blog.openfoodfacts.org/en/news/spring-news-from-the-open-food-facts-community"
+      "url": "https://prices.openfoodfacts.org/challenges/3"
     },
     "translation_campaign_2025": {
       "end_date": "2025-12-31 23:59:59",
@@ -502,7 +440,7 @@
     "default": {
       "news": [
         {
-          "id": "off_spring_news_2025"
+          "id": "prices_summer_campaign"
         },
         {
           "id": "off_days_2025"
