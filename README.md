@@ -14,7 +14,10 @@ This repository contains various assets needed by the mobile app, including:
 * You can customize it by country, language and operating system, with start and end dates.
 #### Otherwise
 * [File a request](https://github.com/openfoodfacts/smooth-app_assets/issues/new/choose) 
-
+### My news/announcement isn't showing
+* Ensure we're not before or after the start and end date for the news
+* Ensure your country and language are targeted by the news
+* Ensure the JSON is valid
 
 For the main repository of the app, please go to https://github.com/openfoodfacts/smooth-app
 
