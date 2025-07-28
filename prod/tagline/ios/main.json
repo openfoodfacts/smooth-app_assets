@@ -99,7 +99,7 @@
         "default": {
           "button_label": "Learn more",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/off/logo.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/off/logo.svg",
             "width": 0.2
           },
           "message": "Join us for our community weekend on the 13-14 September 2025 in Paris (France)",
@@ -279,6 +279,132 @@
       },
       "url": "https://prices.openfoodfacts.org/challenges/3"
     },
+    "summer_news": {
+      "end_date": "2025-08-15 23:59:59",
+      "start_date": "2025-07-28 00:00:00",
+      "translations": {
+        "de": {
+          "button_label": "Mehr erfahren",
+          "message": "Entdecken Sie, was diesen Sommer bei Open Food Facts passiert!",
+          "title": "☀️ Sommernachrichten!"
+        },
+        "default": {
+          "button_label": "Learn more",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/off/logo.svg",
+            "width": 0.2
+          },
+          "image_dark": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/off/logo.svg",
+            "width": 0.2
+          },
+          "message": "Discover what's happening at Open Food Facts this summer!",
+          "title": "☀️ Summer news!"
+        },
+        "el": {
+          "button_label": "Μάθετε περισσότερα",
+          "message": "Ανακαλύψτε τι συμβαίνει στο Open Food Facts αυτό το καλοκαίρι!",
+          "title": "☀️ Καλοκαιρινά νέα!"
+        },
+        "es": {
+          "button_label": "Más información",
+          "message": "¡Descubre lo que sucede en Open Food Facts este verano!",
+          "title": "☀️ Noticias de verano!"
+        },
+        "fa": {
+          "button_label": "بیشتر بدانید",
+          "message": "کشف کنید که این تابستان در Open Food Facts چه خبر است!",
+          "title": "☀️ اخبار تابستانی!"
+        },
+        "fr": {
+          "button_label": "En savoir plus",
+          "message": "Découvrez ce qui se passe chez Open Food Facts cet été !",
+          "title": "☀️ Notre actu estivale !",
+          "url": "https://blog.openfoodfacts.org/fr/news/nouvelles-estivales-dopen-food-facts"
+        },
+        "hi": {
+          "button_label": "और जानें",
+          "message": "इस गर्मी Open Food Facts में क्या हो रहा है, जानें!",
+          "title": "☀️ गर्मियों की खबरें!"
+        },
+        "id": {
+          "button_label": "Pelajari lebih lanjut",
+          "message": "Temukan apa yang terjadi di Open Food Facts musim panas ini!",
+          "title": "☀️ Berita musim panas!"
+        },
+        "it": {
+          "button_label": "Scopri di più",
+          "message": "Scopri cosa succede su Open Food Facts quest'estate!",
+          "title": "☀️ Novità estive!"
+        },
+        "ja": {
+          "button_label": "詳しくはこちら",
+          "message": "この夏、Open Food Factsで何が起こっているかをチェック！",
+          "title": "☀️ 夏のニュース！"
+        },
+        "ko": {
+          "button_label": "자세히 알아보기",
+          "message": "올여름 Open Food Facts에서 무슨 일이 일어나는지 확인하세요!",
+          "title": "☀️ 여름 소식!"
+        },
+        "ms": {
+          "button_label": "Ketahui lebih lanjut",
+          "message": "Ketahui apa yang berlaku di Open Food Facts musim panas ini!",
+          "title": "☀️ Berita musim panas!"
+        },
+        "nl": {
+          "button_label": "Meer informatie",
+          "message": "Ontdek wat er deze zomer gebeurt bij Open Food Facts!",
+          "title": "☀️ Zomernieuws!"
+        },
+        "pl": {
+          "button_label": "Dowiedz się więcej",
+          "message": "Odkryj, co dzieje się tego lata w Open Food Facts!",
+          "title": "☀️ Letnie nowości!"
+        },
+        "pt": {
+          "button_label": "Saiba mais",
+          "message": "Descubra o que está acontecendo no Open Food Facts neste verão!",
+          "title": "☀️ Novidades de verão!"
+        },
+        "ru": {
+          "button_label": "Узнать больше",
+          "message": "Узнайте, что происходит в Open Food Facts этим летом!",
+          "title": "☀️ Летние новости!"
+        },
+        "sv": {
+          "button_label": "Läs mer",
+          "message": "Upptäck vad som händer på Open Food Facts i sommar!",
+          "title": "☀️ Sommarnyheter!"
+        },
+        "th": {
+          "button_label": "เรียนรู้เพิ่มเติม",
+          "message": "ค้นหาว่าเกิดอะไรขึ้นที่ Open Food Facts ฤดูร้อนนี้!",
+          "title": "☀️ ข่าวฤดูร้อน!"
+        },
+        "tr": {
+          "button_label": "Daha fazla bilgi",
+          "message": "Bu yaz Open Food Facts'ta neler olduğunu keşfedin!",
+          "title": "☀️ Yaz haberleri!"
+        },
+        "uk": {
+          "button_label": "Дізнатися більше",
+          "message": "Дізнайтеся, що відбувається в Open Food Facts цього літа!",
+          "title": "☀️ Літні новини!"
+        },
+        "vi": {
+          "button_label": "Tìm hiểu thêm",
+          "message": "Khám phá những gì đang diễn ra tại Open Food Facts mùa hè này!",
+          "title": "☀️ Tin tức mùa hè!"
+        },
+        "zh": {
+          "button_label": "了解更多",
+          "message": "发现 Open Food Facts 今夏的新动态！",
+          "title": "☀️ 夏季新闻！"
+        }
+      },
+      "url": "https://blog.openfoodfacts.org/en/news/summer-news-from-open-food-facts"
+    },
     "translation_campaign_2025": {
       "end_date": "2025-12-31 23:59:59",
       "min_launches": 4,
@@ -305,7 +431,7 @@
         "default": {
           "button_label": "Join the translators team",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/translation_campaign_2025/translation_campaign_2025.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/translation_campaign_2025/translation_campaign_2025.svg",
             "width": 0.2
           },
           "message": "Translate the app, our website… to help others make informed food choices",
@@ -450,6 +576,9 @@
         },
         {
           "id": "translation_campaign_2025"
+        },
+        {
+          "id": "summer_news"
         }
       ]
     }
