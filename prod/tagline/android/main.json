@@ -421,7 +421,7 @@
         "fr": {
           "button_label": "Répondre au sondage",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_fr.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
             "width": 0.2
           },
           "message": "Partagez vos commentaires rapides et voyez votre impact sur Open Prices",
