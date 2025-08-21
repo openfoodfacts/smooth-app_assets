@@ -412,7 +412,7 @@
         "default": {
           "button_label": "Take Survey",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_en.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
             "width": 0.2
           },
           "message": "Share quick feedback and see your impact in Open Prices",
