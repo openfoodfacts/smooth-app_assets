@@ -405,6 +405,31 @@
       },
       "url": "https://blog.openfoodfacts.org/en/news/summer-news-from-open-food-facts"
     },
+    "open_prices_survey_2025": {
+      "end_date": "2025-12-31 23:59:59",
+      "start_date": "2025-01-27 00:00:00",
+      "translations": {
+        "default": {
+          "button_label": "Take Survey",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_en.svg",
+            "width": 0.2
+          },
+          "message": "Share quick feedback and see your impact in Open Prices",
+          "title": "Survey: help improve Open Prices"
+        },
+        "fr": {
+          "button_label": "Répondre au sondage",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_fr.svg",
+            "width": 0.2
+          },
+          "message": "Partagez vos commentaires rapides et voyez votre impact sur Open Prices",
+          "title": "Sondage : aidez à améliorer Open Prices"
+        }
+      },
+      "url": "https://forms.gle/vzL5JuaaRo8svy6Y7"
+    },
     "translation_campaign_2025": {
       "end_date": "2025-12-31 23:59:59",
       "min_launches": 4,
@@ -565,6 +590,9 @@
   "tagline_feed": {
     "default": {
       "news": [
+        {
+          "id": "open_prices_survey_2025"
+        },
         {
           "id": "prices_summer_campaign"
         },
