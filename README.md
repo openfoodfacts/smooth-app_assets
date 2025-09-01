@@ -1,4 +1,4 @@
-This repository contains various assets needed by the mobile app, including:
+This repository contains various assets needed by the mobile app and web applications, including:
 * Tagline JSON files
 * Images called by the tagline JSON files
 * Potentially more in the future
@@ -8,9 +8,10 @@ This repository contains various assets needed by the mobile app, including:
 
 ### How to add some news or announcement
 #### If you know how to edit a JSON file
-* Create a PR for Android and/or iPhone installs of the Open Food Facts app.
+* Create a PR for Android, iPhone, and/or Web applications of the Open Food Facts ecosystem.
 * Android: https://github.com/openfoodfacts/smooth-app_assets/blob/main/prod/tagline/android/main.json
 * iPhone https://github.com/openfoodfacts/smooth-app_assets/blob/main/prod/tagline/ios/main.json
+* Web: https://github.com/openfoodfacts/smooth-app_assets/blob/main/prod/tagline/web/main.json
 * You can customize it by country, language and operating system, with start and end dates.
 #### Otherwise
 * [File a request](https://github.com/openfoodfacts/smooth-app_assets/issues/new/choose) 

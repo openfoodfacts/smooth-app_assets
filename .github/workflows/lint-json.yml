@@ -5,10 +5,12 @@ on:
     paths:
       - 'prod/tagline/android/main.json'
       - 'prod/tagline/ios/main.json'
+      - 'prod/tagline/web/main.json'
   pull_request:
     paths:
       - 'prod/tagline/android/main.json'
       - 'prod/tagline/ios/main.json'
+      - 'prod/tagline/web/main.json'
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -30,3 +32,6 @@ jobs:
 
     - name: Lint JSON files iphone
       run: jsonlint 'prod/tagline/ios/main.json'
+
+    - name: Lint JSON files web
+      run: jsonlint 'prod/tagline/web/main.json'
