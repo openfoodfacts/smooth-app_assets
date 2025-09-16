@@ -1,5 +1,5 @@
 ## How to Update Messages in the Open Food Facts Mobile App
-- This guide will help newcomers update the [`/prod/tagline/android/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/android/main.json) file (used for the Android app) and the equivalent iOS file, [`/prod/tagline/ios/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/ios/main.json). Additionally, it explains how to test these updates in the app's development mode before merging changes.
+- This guide will help newcomers update the [`/prod/tagline/android/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/android/main.json) file (used for the Android app), the equivalent iOS file, [`/prod/tagline/ios/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/ios/main.json), and the web file, [`/prod/tagline/web/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/web/main.json) (used for web applications like openfoodfacts-explorer and openfoodfacts-server). Additionally, it explains how to test these updates in the app's development mode before merging changes.
 ### 1. Understand the Structure of the File
 The `main.json` file contains sections for:
 - Campaigns: Messages related to donation, call to translations, or updates (new features, news…).
@@ -56,8 +56,9 @@ JSON
     }
 }
 ```
-### 4. Edit the Equivalent iOS File
+### 4. Edit the Equivalent iOS and Web Files
 - Repeat the changes in the [`prod/tagline/ios/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/ios/main.json) file for the iOS app to keep the behavior consistent across platforms.
+- Also repeat the changes in the [`prod/tagline/web/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/web/main.json) file for web applications (openfoodfacts-explorer and openfoodfacts-server) to maintain consistency across all platforms.
 
 ### 5. Validate the JSON
 - Use a JSON validator (e.g., [jsonlint.com](https://jsonlint.com)) to ensure there are no syntax errors. Note that we will soon have automated JSON linting built into this repository.
