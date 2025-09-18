@@ -454,7 +454,7 @@
           "url": "https://translate.openfoodfacts.org/project/openfoodfacts/de"
         },
         "default": {
-          "button_label": "Join the translators team",
+          "button_label": "Join our translators team",
           "image": {
             "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/translation_campaign_2025/translation_campaign_2025.svg",
             "width": 0.2
