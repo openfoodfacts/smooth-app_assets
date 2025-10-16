@@ -447,7 +447,7 @@
         "de": {
           "button_label": "Mehr erfahren",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.png",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.svg",
             "width": 0.2
           },
           "message": "Sammeln Sie Preise von Halloween-Lebensmitteln",
@@ -456,7 +456,7 @@
         "default": {
           "button_label": "Learn more",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.png",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.svg",
             "width": 0.2
           },
           "message": "Collect prices of Halloween food items",
@@ -470,7 +470,7 @@
         "es": {
           "button_label": "Más información",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.png",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.svg",
             "width": 0.2
           },
           "message": "Recopila precios de artículos de comida de Halloween",
@@ -484,7 +484,7 @@
         "fr": {
           "button_label": "En savoir plus",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.png",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.svg",
             "width": 0.2
           },
           "message": "Collectez les prix des produits alimentaires d'Halloween",
@@ -503,7 +503,7 @@
         "it": {
           "button_label": "Scopri di più",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.png",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.svg",
             "width": 0.2
           },
           "message": "Raccogli i prezzi degli articoli alimentari di Halloween",
@@ -527,7 +527,7 @@
         "nl": {
           "button_label": "Meer informatie",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.png",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.svg",
             "width": 0.2
           },
           "message": "Verzamel prijzen van Halloween-voedselartikelen",
@@ -541,7 +541,7 @@
         "pt": {
           "button_label": "Saiba mais",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.png",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge.svg",
             "width": 0.2
           },
           "message": "Colete preços de itens alimentares de Halloween",
