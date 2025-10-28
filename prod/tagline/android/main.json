@@ -430,6 +430,161 @@
       },
       "url": "https://forms.gle/vzL5JuaaRo8svy6Y7"
     },
+    "halloween_challenge_2025": {
+      "end_date": "2025-11-10 23:59:59",
+      "start_date": "2025-10-01 00:00:00",
+      "translations": {
+        "ar": {
+          "button_label": "تعرف على المزيد",
+          "message": "جمع أسعار منتجات طعام الهالوين",
+          "title": "تحدي Open Prices للهالوين"
+        },
+        "bn": {
+          "button_label": "আরও জানুন",
+          "message": "হ্যালোইন খাবার আইটেমের দাম সংগ্রহ করুন",
+          "title": "Open Prices হ্যালোইন চ্যালেঞ্জ"
+        },
+        "de": {
+          "button_label": "Mehr erfahren",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Sammeln Sie Preise von Halloween-Produkten und Lebensmitteln",
+          "title": "Open Prices Halloween-Challenge"
+        },
+        "default": {
+          "button_label": "Learn more",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Collect prices of Halloween products and food items",
+          "title": "Open Prices Halloween Challenge"
+        },
+        "el": {
+          "button_label": "Μάθετε περισσότερα",
+          "message": "Συλλέξτε τιμές προϊόντων φαγητού Halloween",
+          "title": "Πρόκληση Halloween Open Prices"
+        },
+        "es": {
+          "button_label": "Más información",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Recopila precios de productos y artículos de comida de Halloween",
+          "title": "Desafío de Halloween de Open Prices"
+        },
+        "fa": {
+          "button_label": "بیشتر بدانید",
+          "message": "قیمت اقلام غذایی هالووین را جمع‌آوری کنید",
+          "title": "چالش هالووین Open Prices"
+        },
+        "fr": {
+          "button_label": "En savoir plus",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Collectez les prix des produits et aliments d'Halloween",
+          "title": "Défi Halloween d'Open Prices"
+        },
+        "hi": {
+          "button_label": "और जानें",
+          "message": "हैलोवीन खाद्य पदार्थों की कीमतें एकत्र करें",
+          "title": "Open Prices हैलोवीन चुनौती"
+        },
+        "id": {
+          "button_label": "Pelajari lebih lanjut",
+          "message": "Kumpulkan harga item makanan Halloween",
+          "title": "Tantangan Halloween Open Prices"
+        },
+        "it": {
+          "button_label": "Scopri di più",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Raccogli i prezzi dei prodotti e articoli alimentari di Halloween",
+          "title": "Sfida Halloween di Open Prices"
+        },
+        "ja": {
+          "button_label": "詳しくはこちら",
+          "message": "ハロウィン食品の価格を収集しましょう",
+          "title": "Open Prices ハロウィンチャレンジ"
+        },
+        "ko": {
+          "button_label": "자세히 알아보기",
+          "message": "할로윈 음식 품목의 가격을 수집하세요",
+          "title": "Open Prices 할로윈 챌린지"
+        },
+        "ms": {
+          "button_label": "Ketahui lebih lanjut",
+          "message": "Kumpul harga item makanan Halloween",
+          "title": "Cabaran Halloween Open Prices"
+        },
+        "nl": {
+          "button_label": "Meer informatie",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Verzamel prijzen van Halloween-producten en voedselartikelen",
+          "title": "Open Prices Halloween Uitdaging"
+        },
+        "pl": {
+          "button_label": "Dowiedz się więcej",
+          "message": "Zbieraj ceny artykułów spożywczych na Halloween",
+          "title": "Wyzwanie Halloween Open Prices"
+        },
+        "pt": {
+          "button_label": "Saiba mais",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Colete preços de produtos e itens alimentares de Halloween",
+          "title": "Desafio de Halloween do Open Prices"
+        },
+        "ru": {
+          "button_label": "Узнать больше",
+          "message": "Собирайте цены на продукты для Хэллоуина",
+          "title": "Хэллоуинский вызов Open Prices"
+        },
+        "sv": {
+          "button_label": "Läs mer",
+          "message": "Samla priser på Halloween-matvaror",
+          "title": "Open Prices Halloween-utmaning"
+        },
+        "th": {
+          "button_label": "เรียนรู้เพิ่มเติม",
+          "message": "เก็บรวบรวมราคาอาหารวันฮาโลวีน",
+          "title": "ความท้าทายฮาโลวีน Open Prices"
+        },
+        "tr": {
+          "button_label": "Daha fazla bilgi",
+          "message": "Halloween yiyecek ürünlerinin fiyatlarını toplayın",
+          "title": "Open Prices Halloween Meydan Okuması"
+        },
+        "uk": {
+          "button_label": "Дізнатися більше",
+          "message": "Збирайте ціни на продукти для Хеллоуїну",
+          "title": "Хеллоуїнський виклик Open Prices"
+        },
+        "vi": {
+          "button_label": "Tìm hiểu thêm",
+          "message": "Thu thập giá các mặt hàng thực phẩm Halloween",
+          "title": "Thử thách Halloween của Open Prices"
+        },
+        "zh": {
+          "button_label": "了解更多",
+          "message": "收集万圣节食品的价格",
+          "title": "Open Prices 万圣节挑战"
+        }
+      },
+      "url": "https://prices.openfoodfacts.org/challenges/7"
+    },
     "translation_campaign_2025": {
       "end_date": "2025-12-31 23:59:59",
       "min_launches": 4,
@@ -590,6 +745,9 @@
   "tagline_feed": {
     "default": {
       "news": [
+        {
+          "id": "halloween_challenge_2025"
+        },
         {
           "id": "open_prices_survey_2025"
         },
