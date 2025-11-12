@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Food Facts 4.22.0 - What's New!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Apply the new font to all headings */
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Custom brand colors */
+        .brand-green { color: #008b4c; }
+        .bg-brand-green { background-color: #008b4c; }
+        .border-brand-green { border-color: #008b4c; }
+        .bg-brand-light { background-color: #e6f3ee; }
+        .hover\:bg-brand-dark:hover { background-color: #006f3c; }
+
+        /* New branding from world.openfoodfacts.org */
+        .bg-brand-header { background-color: #f2e9e4; }
+        .bg-brand-button { background-color: #341100; }
+        .hover\:bg-brand-button-hover:hover { background-color: #502110; } /* A slightly lighter brown for hover */
+        
+        .link-style {
+            color: #341100;
+            border-bottom: 2px dotted rgb(207, 172, 158);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .link-style:hover {
+            border-bottom-style: solid;
+        }
+        
+        /* Smooth scroll for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Styles for active filter button */
+        .filter-button.active {
+            background-color: #341100;
+            color: #ffffff;
+            border-color: #341100;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- New Dismissible Tooltip -->
+    <div id="changelog-tooltip" class="relative bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 m-4 rounded-lg shadow-md" role="alert">
+        <div class="flex">
+            <div class="py-1">
+                <svg class="h-6 w-6 text-yellow-500 mr-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <p class="font-semibold">A Note on This Changelog</p>
+                <p class="text-sm">This changelog doesn't do justice to the breadth of improvements over the past few months! Some screenshots may reflect a slightly older version of features that we have since improved upon. We invite you to discover them by yourself by giving the app a few scans today.</p>
+            </div>
+        </div>
+        <button onclick="dismissTooltip()" class="absolute top-2 right-2 p-1.5 text-yellow-600 hover:text-yellow-800">
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-brand-header text-gray-800 sticky top-0 z-50 shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <!-- Replaced with official light SVG logo -->
+                        <img class="h-10" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg" alt="Open Food Facts Logo">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-brand-green mb-4">🎉 Open Food Facts Mobile App 4.22.0</h1>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-700 mb-6">What's New!</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Welcome to this massive update! This release supercharges the mobile app, focusing on the key sides of Open Food Facts: providing <span class="font-semibold">better, easier-to-understand information</span> on products, and making it simpler for you to <span class="font-semibold">grow our collective knowledge</span> through improved editing and personalisation. This builds on continuous knowledge panel updates that bring you insights like hidden sugar detection, the new Nutri-Score computation, and even CO2 & reparability info for textiles, furniture, electronics, and more.
+            </p>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <section class="mb-12 sticky top-16 z-40 bg-white py-4 shadow-sm rounded-lg">
+            <div class="space-y-4">
+                <!-- Search Input -->
+                <div>
+                    <input type="search" id="search-input" placeholder="Search all features (e.g., 'Tabs', 'Price', 'Icons')..." class="w-full p-3 border border-gray-300 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-brand-green" oninput="filterFeatures()">
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button class="filter-button active" data-theme="all" onclick="filterByTheme('all')">All Themes</button>
+                    <button class="filter-button" data-theme="design" onclick="filterByTheme('design')">🎨 Design</button>
+                    <button class="filter-button" data-theme="pricing" onclick="filterByTheme('pricing')">💰 Pricing</button>
+                    <button class="filter-button" data-theme="editing" onclick="filterByTheme('editing')">✏️ Editing</button>
+                    <button class="filter-button" data-theme="open-products" onclick="filterByTheme('open-products')">📸 Open Products</button>
+                    <button class="filter-button" data-theme="guides" onclick="filterByTheme('guides')">📚 Guides</button>
+                    <button class="filter-button" data-theme="ux" onclick="filterByTheme('ux')">📱 UX</button>
+                    <button class="filter-button" data-theme="tech" onclick="filterByTheme('tech')">🔧 Tech</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center my-16">
+            <h3 class="text-2xl font-semibold text-gray-700">No Features Found</h3>
+            <p class="text-gray-500 text-lg mt-2">Try a different search term or clear your filters.</p>
+        </div>
+
+        <!-- Feature Sections Wrapper -->
+        <div id="features-list" class="space-y-12">
+
+            <!-- Section: Beautiful New Design -->
+            <section id="design" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="design">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">🎨 Beautiful New Design</h2>
+                
+                <div class="space-y-8">
+                    <!-- Product Page with Tabs -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Redesigned Product Page with Tabs</h3>
+                        <p class="text-gray-600 mb-4">Knowledge panels are now organized in intuitive tabs that you can toggle and reorder to your preference!</p>
+                        <img src="https://github.com/user-attachments/assets/b49bfb5e-95c1-4b71-a181-c192375f8b90" alt="Product page with tabs" class="h-auto rounded-lg shadow-md border max-w-xs mx-auto block" onerror="this.src='https://placehold.co/600x400/e6f3ee/008b4c?text=Product+Page+Tabs'; this.onerror=null;">
+                    </div>
+
+                    <!-- Preferences Page -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Fresh Preferences Page Design</h3>
+                        <p class="text-gray-600 mb-4">A complete redesign with a new search feature, improved navigation, and modern card-based UI.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <img src="https://github.com/user-attachments/assets/ef5404c0-fa22-4d95-aea8-9299c713c6a6" alt="Preferences page design 1" class="h-auto rounded-lg shadow-md border max-h-[500px] max-w-xs mx-auto block" onerror="this.src='https://placehold.co/300x600/e6f3ee/008b4c?text=Settings+Screen+1'; this.onerror=null;">
+                            <img src="https://github.com/user-attachments/assets/d6dd9629-9a7e-4958-9110-5c06405cbf85" alt="Preferences page design 2" class="h-auto rounded-lg shadow-md border max-h-[500px] max-w-xs mx-auto block" onerror="this.src='https://placehold.co/300x600/e6f3ee/008b4c?text=Settings+Screen+2'; this.onerror=null;">
+                        </div>
+                    </div>
+
+                    <!-- Profile & App UI Updates -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Profile & App UI Updates</h3>
+                        <p class="text-gray-600 mb-4">Massive visual refresh with 80+ new icons and an improved profile page.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <img src="https://github.com/user-attachments/assets/33d1f7e4-e661-4f75-9a90-f5b0a5d55876" alt="New icons" class="w-full rounded-lg shadow-md border" onerror="this.src='httpsExamples of such tags include [Image of the human digestive system],  etc. Be very economical in your use of image tags, only add multiple tags if each additional tag is adding instructive value beyond pure illustration. Place the image tag immediately before or after the relevant text without disrupting the flow of the response.co/400x300/e6f3ee/008b4c?text=New+Icons'; this.onerror=null;">
+                            <img src="https://github.com/user-attachments/assets/22f6620d-eec6-4e1e-98d0-ee6d2e2a7070" alt="Refreshed AppBar" class="w-full rounded-lg shadow-md border" onerror="this.src='https.placehold.co/400x200/e6f3ee/008b4c?text=New+AppBar'; this.onerror=null;">
+                            <img src="https://github.com/user-attachments/assets/49841c5a-0dfe-49b0-875b-86d81742a249" alt="Improved Profile Page" class="h-auto rounded-lg shadow-md border max-h-[400px] max-w-xs mx-auto block" onerror="this.src='https.placehold.co/300x500/e6f3ee/008b4c?text=Profile+Page'; this.onerror=null;">
+                        </div>
+                    </div>
+
+                    <!-- Food Icons -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Food Icons on Product Pages</h3>
+                        <p class="text-gray-600 mb-4">Beautiful food category icons now appear on product pages, including NOVA group indicators!</p>
+                        <img src="https://github.com/user-attachments/assets/44cafde1-ed4f-4d24-a238-f2fd8792d8d4" alt="Food icons on product page" class="h-auto rounded-lg shadow-md border max-w-xs mx-auto block" onerror="this.src='https://placehold.co/600x300/e6f3ee/008b4c?text=Food+Icons'; this.onerror=null;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Enhanced Price Experience -->
+            <section id="pricing" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="pricing">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">💰 Enhanced Price Experience</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Redesigned Price Lists</h3>
+                        <p class="text-gray-600 mb-4">A beautiful new design for viewing and comparing product prices!</p>
+                        <img src="https://github.com/user-attachments/assets/03ce5e86-faa3-4257-948e-d23a716000bd" alt="Price list redesign" class="h-auto rounded-lg shadow-md border max-w-xs mx-auto block" onerror="this.src='https://placehold.co/600x400/e6f3ee/008b4c?text=Price+Lists'; this.onerror=null;">
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">More Price Features</h3>
+                        <!-- *** UPDATED THIS LIST *** -->
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Browse top price products</li>
+                            <li>Add prices for category products</li>
+                            <li>View price statistics</li>
+                            <li>Infinite scrolling in price lists</li>
+                            <li>Bulk proof upload page</li>
+                            <li>Shortcut to the price contribution assistant</li>
+                            <li>Show previously added prices on proof page</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Product Editing -->
+            <section id="editing" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="editing">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">✏️ Product Editing Made Easier</h2>
+                
+                <!-- *** UPDATED THIS GRID *** -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-brand-green">Multi-lingual Product Names</h3>
+                        <p class="text-gray-700">You can now add product names in multiple languages!</p>
+                    </div>
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-brand-green">Editable Brands</h3>
+                        <p class="text-gray-700">Easily edit product brand information directly in the app.</p>
+                    </div>
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-brand-green">Improved Nutrition Input</h3>
+                        <p class="text-gray-700">Better data entry with auto-focus on new fields.</p>
+                    </div>
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-brand-green">Robotoff AI-Powered Editing</h3>
+                        <p class="text-gray-700">Nutrition extraction and questions integrated into product edition.</p>
+                    </div>
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-brand-green">Edit Traces</h3>
+                        <p class="text-gray-700">Added the ability to edit traces (e.g., "may contain nuts").</p>
+                    </div>
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-brand-green">Access Packaging Photos</h3>
+                        <p class="text-gray-700">Access packaging photos directly in the packaging components screen.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section: Cosmetics, Pet Food and other products -->
+            <!-- This section has been merged with Open Products Facts below -->
+
+            <!-- Section: Open Products Facts -->
+            <section id="open-products" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="open-products">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">📸 Open Products Facts, 🧴 Cosmetics, 🐾 Pet Food & More</h2>
+                
+                <div class="space-y-4">
+                    <p class="text-gray-600">The app is now your portal to the "Wikipedia of all products." We've merged Open Food Facts, Open Beauty Facts, Open Pet Food Facts, and more into one universal platform.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li><span class="font-semibold text-gray-700">Universal Search:</span> Search for food, cosmetics, pet food, and more, all from one app, with access to over 4 million products.</li>
+                        <li><span class="font-semibold text-gray-700">Folksonomy Engine:</span> Add extra information to *any* product, like its width, height, color, spicyness level (the infamous Scoville scale), and much more.</li>
+                        <li><span class="font-semibold text-gray-700">Create Custom Lists:</span> Organize your products into private lists. You could create a list for your "Morning Routine" or "Living Room Items".</li>
+                        <li><span class="font-semibold text-gray-700">Private & Sharable:</span> Your lists remain private on your phone by default, but can be easily shared with anyone you want or exported.</li>
+                        <li><span class="font-semibold text-gray-700">Carbon Footprint:</span> New integrations to track and display carbon footprint data for a wider range of products.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section: Learning & Guides -->
+            <section id="guides" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="guides">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">📚 Learning & Guides</h2>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold mb-3">New Open Food Facts Guides</h3>
+                    <p class="text-gray-600 mb-4">Access comprehensive guides for Open Food Facts, Open Beauty Facts, Open Pet Food Facts, Open Products Facts, Open Prices, Ultra-processing, Green-Score, and more!</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <img src="https://github.com/user-attachments/assets/7052b60a-3daa-4a67-96a0-2e85683f7705" alt="Guides screen 1" class="h-auto rounded-lg shadow-md border max-h-[500px] max-w-xs mx-auto block" onerror="this.src='httpshttps://placehold.co/300x600/e6f3ee/008b4c?text=Guides+Screen+1'; this.onerror=null;">
+                        <img src="https://github.com/user-attachments/assets/569161ef-61d0-49d9-a86f-e8b1b07170ce" alt="Guides screen 2" class="h-auto rounded-lg shadow-md border max-h-[500px] max-w-xs mx-auto block" onerror="this.src='https://placehold.co/300x600/e6f3ee/008b4c?text=Guides+Screen+2'; this.onerror=null;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: User Experience -->
+            <section id="ux" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="ux">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">📱 User Experience Improvements</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Export & Import Product Lists</h3>
+                        <p class="text-gray-600 mb-4">You can now export and import your product lists as CSV files!</p>
+                        <img src="https://github.com/user-attachments/assets/7256e505-0457-4f7b-a86b-ffb50ebdf503" alt="List export feature" class="h-auto rounded-lg shadow-md border max-w-xs mx-auto block" onerror="this.src='https://placehold.co/600x400/e6f3ee/008b4c?text=List+Export'; this.onerror=null;">
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Social Media Integration</h3>
+                        <p class="text-gray-600">Added Mastodon, TikTok, and BlueSky social media accounts to links!</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-3">Other Improvements</h3>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Better Modal Sheets & Dialogs</li>
+                            <li>Improved Photo Viewing</li>
+                            <li>Better Navigation with in-app WebView</li>
+                            <li>New Community Features & Links</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- *** NEW SECTION *** -->
+            
+            <!-- Section: Technical Improvements -->
+            <section id="tech" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="tech">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">🔧 Technical Improvements</h2>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>The app now runs on <span class="font-semibold text-gray-700">Flutter 3.32</span> for better performance.</li>
+                    <li>Upgraded localization for better country names.</li>
+                    <li>Now uses <span class="font-semibold text-gray-700">Nominatim location search</span> for better address finding.</li>
+                    <li>Improved database management and data syncing.</li>
+                </ul>
+            </section>
+            
+            <!-- Section: Bug Fixes -->
+            <section id="bugs" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="tech">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">🐛 Bug Fixes & Polish</h2>
+                <p class="text-gray-600 mb-4">We've also fixed numerous bugs and made many quality-of-life improvements:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Better dark mode support across all screens</li>
+                    <li>Fixed loading indicators and animations</li>
+                    <li>Improved number formatting throughout the app</li>
+                    <li>Better error handling and user feedback</li>
+                    <li>Smoother scrolling and transitions</li>
+                </ul>
+            </section>
+
+            <!-- Section: Thank You -->
+            <section id="thanks" class="feature-card bg-brand-light p-6 rounded-xl shadow-lg text-center" data-theme="community">
+                <h2 class="text-3xl font-bold text-brand-green mb-4">🙏 Thank You!</h2>
+                <p class="text-gray-700 text-lg mb-6 max-w-2xl mx-auto">
+                    This release represents months of hard work by our amazing community of contributors! Special thanks to everyone who submitted PRs, reported issues, tested features, and helped translate the app.
+                </p>
+                <p class="text-gray-600 text-md mt-6 mb-6">
+                    This work is made possible by the support of our partners, including <a href="httpshttps://www.afnic.fr/" target="_blank" rel="noopener" class="link-style">AFNIC</a> and the <a href="https://nlnet.nl/" target="_blank" rel="noopener" class="link-style">NLNet Foundation</a>.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="https://github.com/openfoodfacts/smooth-app" target="_blank" rel="noopener" class="link-style">
+                        Join on GitHub
+                    </a>
+                    <a href="https://slack.openfoodfacts.org" target="_blank" rel="noopener" class="link-style">
+                        Join on Slack
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section: Get the Update -->
+            <section id="download" class="feature-card bg-white p-8 rounded-xl shadow-lg text-center" data-theme="download">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">📥 Get the Update</h2>
+                <p class="text-gray-600 text-lg mb-8">Update your Open Food Facts app today to enjoy all these new features!</p>
+                <!-- Updated this section to use official image buttons -->
+                <div class="flex flex-wrap justify-center items-center gap-4">
+                    <a data-app-store="google" href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&amp;hl=en&amp;utm_source=off&amp;utm_campaign=search_and_links_promo_en" title="Open Food Facts on Google Play">
+                        <img src="https://static.openfoodfacts.org/images/misc/playstore/img/en_get.svg" loading="lazy" alt="Available on Google Play" width="120" height="40" class="hover:opacity-90 transition-opacity">
+                    </a>
+                    <a href="https://f-droid.org/packages/openfoodfacts.github.scrachx.openfood" title="Open Food Facts on F-Droid">
+                        <img src="https://static.openfoodfacts.org/images/misc/f-droid/get-it-on-en.png" loading="lazy" alt="Available on F-Droid" height="40" width="120" class="hover:opacity-90 transition-opacity">
+                    </a>
+                    <a href="https://github.com/openfoodfacts/smooth-app/releases/latest" title="Open Food Facts app on Github">
+                        <img src="https://static.openfoodfacts.org/images/misc/app-landing-page/download-apk/download-apk_en.svg" loading="lazy" alt="Download the APK" height="40" width="120" class="hover:opacity-90 transition-opacity">
+                    </a>
+                    <a data-app-store="apple" href="https://apps.apple.com/app/open-food-facts/id588797948?utm_source=off&amp;utm_campaign=search_and_links_promo_en" title="Open Food Facts on the Apple App Store">
+                        <img src="https://static.openfoodfacts.org/images/misc/appstore/black/appstore_US.svg" loading="lazy" alt="Available on the App Store" width="120" height="40" class="hover:opacity-90 transition-opacity">
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section: What's Next -->
+            <section id="next" class="feature-card bg-white p-6 rounded-xl shadow-lg" data-theme="ux">
+                <h2 class="text-3xl font-bold text-brand-green mb-6 border-b-2 border-brand-green pb-2">🚀 What's Next?</h2>
+                <p class="text-gray-600 mb-4">We're not stopping here! Our team and community are already working on the next wave of improvements.</p>
+                
+                <h3 class="text-2xl font-semibold mb-3">Coming Soon...</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>A powerful new way to <span class="font-semibold text-gray-700">flag specific ingredients</span> in food or cosmetics you want to avoid.</li>
+                    <li>A complete revamp of <span class="font-semibold text-gray-700">food preferences</span> to make them more intuitive and powerful.</li>
+                </ul>
+            </section>
+
+        </div>
+        <!-- End of Feature Sections Wrapper -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 mt-12 py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <img class="h-12 mx-auto mb-6" src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-dark.svg" alt="Open Food Facts Logo (Dark)">
+            <p><strong>Version:</strong> 4.22.0 | <strong>Release Date:</strong> November 7, 2025</p>
+            <p class="mt-2">
+                <a href="https.github.com/openfoodfacts/smooth-app/pull/6597" target="_blank" rel="noopener" class="text-green-400 hover:text-green-300 underline">
+                    View Full Changelog on GitHub
+                </a>
+            </p>
+            <p class="mt-4 text-sm">&copy; 2025 Open Food Facts. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Search and Filter -->
+    <script>
+        let currentTheme = 'all';
+        const searchInput = document.getElementById('search-input');
+        const filterButtons = document.querySelectorAll('.filter-button');
+        const featureCards = document.querySelectorAll('.feature-card');
+        const noResults = document.getElementById('no-results');
+
+        // Add Tailwind classes for filter buttons
+        filterButtons.forEach(button => {
+            button.classList.add(
+                'px-4', 'py-2', 'border', 'border-gray-300', 'rounded-full', 
+                'font-semibold', 'text-gray-700', 'hover:bg-gray-100', 
+                'transition', 'duration-200'
+            );
+        });
+
+        function filterByTheme(theme) {
+            currentTheme = theme;
+            
+            // Update button active states
+            filterButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.dataset.theme === theme) {
+                    button.classList.add('active');
+                }
+            });
+
+            // Trigger main filter function
+            filterFeatures();
+        }
+
+        function filterFeatures() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            featureCards.forEach(card => {
+                const cardTheme = card.dataset.theme;
+                const cardText = card.textContent.toLowerCase();
+
+                // Check theme match
+                const themeMatch = (currentTheme === 'all' || cardTheme === currentTheme);
+
+                // Check search term match
+                const searchMatch = (cardText.includes(searchTerm));
+
+                // Show or hide card
+                if (themeMatch && searchMatch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show or hide "No Results" message
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- New JavaScript for Tooltip Dismiss -->
+    <script>
+        function dismissTooltip() {
+            document.getElementById('changelog-tooltip').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
