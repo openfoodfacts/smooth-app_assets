@@ -585,6 +585,23 @@
       },
       "url": "https://prices.openfoodfacts.org/challenges/7"
     },
+    "nutriscore_petition_2025": {
+      "end_date": "2025-12-31 23:59:59",
+      "start_date": "2025-11-21 00:00:00",
+      "translations": {
+        "fr": {
+          "button_label": "Signer la pétition",
+          "image": {
+            "alt": "Le logo du Nutri-Score",
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "width": 0.2
+          },
+          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
+          "title": "Agissez pour le Nutri-Score !"
+        }
+      },
+      "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
+    },
     "translation_campaign_2025": {
       "end_date": "2025-12-31 23:59:59",
       "min_launches": 4,
@@ -745,6 +762,34 @@
   "tagline_feed": {
     "default": {
       "news": [
+        {
+          "id": "halloween_challenge_2025"
+        },
+        {
+          "id": "open_prices_survey_2025"
+        },
+        {
+          "id": "prices_summer_campaign"
+        },
+        {
+          "id": "off_days_2025"
+        },
+        {
+          "id": "nutriscore_v2"
+        },
+        {
+          "id": "translation_campaign_2025"
+        },
+        {
+          "id": "summer_news"
+        }
+      ]
+    },
+    "fr": {
+      "news": [
+        {
+          "id": "nutriscore_petition_2025"
+        },
         {
           "id": "halloween_challenge_2025"
         },
