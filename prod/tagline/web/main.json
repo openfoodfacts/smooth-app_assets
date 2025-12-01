@@ -589,7 +589,17 @@
       "end_date": "2025-12-31 23:59:59",
       "start_date": "2025-11-21 00:00:00",
       "translations": {
-        "fr": {
+        "default": {
+          "button_label": "Signer la pétition",
+          "image": {
+            "alt": "Le logo du Nutri-Score",
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "width": 0.2
+          },
+          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
+          "title": "Agissez pour le Nutri-Score !"
+        },
+        "fr_FR": {
           "button_label": "Signer la pétition",
           "image": {
             "alt": "Le logo du Nutri-Score",
