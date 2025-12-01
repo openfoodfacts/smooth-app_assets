@@ -12,6 +12,9 @@ on:
       - 'prod/tagline/ios/main.json'
       - 'prod/tagline/web/main.json'
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
