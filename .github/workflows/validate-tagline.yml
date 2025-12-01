@@ -1,0 +1,29 @@
+name: Validate Tagline JSON
+
+on:
+  push:
+    paths:
+      - 'prod/tagline/android/main.json'
+      - 'prod/tagline/ios/main.json'
+      - 'prod/tagline/web/main.json'
+  pull_request:
+    paths:
+      - 'prod/tagline/android/main.json'
+      - 'prod/tagline/ios/main.json'
+      - 'prod/tagline/web/main.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Validate tagline JSON files
+      run: python tests/validate_tagline_json.py
