@@ -152,10 +152,13 @@ def validate_news_item(news_id, news_item, field_name):
         is_default = (locale == 'default')
         validate_translation(translation, locale, f"{field_name}.translations.{locale}", is_default)
     
-    # min_launches must be an integer if present
+    # min_launches must be a non-negative integer if present
     min_launches = news_item.get('min_launches')
-    if min_launches is not None and not isinstance(min_launches, int):
-        raise ValidationError(f"{field_name}.min_launches must be an integer, got {type(min_launches).__name__}")
+    if min_launches is not None:
+        if not isinstance(min_launches, int):
+            raise ValidationError(f"{field_name}.min_launches must be an integer, got {type(min_launches).__name__}")
+        if min_launches < 0:
+            raise ValidationError(f"{field_name}.min_launches must be non-negative, got {min_launches}")
     
     # Validate style if present
     validate_style(news_item.get('style'), f"{field_name}.style")
@@ -203,7 +206,7 @@ def validate_feed_locale(locale_data, field_name):
         validate_feed_locale_item(item, f"{field_name}.news[{i}]")
 
 
-def validate_tagline_feed(tagline_feed, news_ids, field_name="tagline_feed"):
+def validate_tagline_feed(tagline_feed, news_ids, field_name="tagline_feed", check_references=True):
     """Validate the tagline_feed section."""
     if not isinstance(tagline_feed, dict):
         raise ValidationError(f"{field_name} must be an object, got {type(tagline_feed).__name__}")
@@ -216,14 +219,15 @@ def validate_tagline_feed(tagline_feed, news_ids, field_name="tagline_feed"):
     for locale, locale_data in tagline_feed.items():
         validate_feed_locale(locale_data, f"{field_name}.{locale}")
         
-        # Check that all referenced news IDs exist
-        news = locale_data.get('news', [])
-        for i, item in enumerate(news):
-            item_id = item.get('id')
-            if item_id and item_id not in news_ids:
-                raise ValidationError(
-                    f"{field_name}.{locale}.news[{i}].id references non-existent news item '{item_id}'"
-                )
+        # Check that all referenced news IDs exist (only if news section is valid)
+        if check_references:
+            news = locale_data.get('news', [])
+            for i, item in enumerate(news):
+                item_id = item.get('id')
+                if item_id and item_id not in news_ids:
+                    raise ValidationError(
+                        f"{field_name}.{locale}.news[{i}].id references non-existent news item '{item_id}'"
+                    )
 
 
 def validate_tagline_json(data, file_path=""):
@@ -255,11 +259,19 @@ def validate_tagline_json(data, file_path=""):
     elif not isinstance(tagline_feed, dict):
         errors.append(f"{prefix}'tagline_feed' must be an object, got {type(tagline_feed).__name__}")
     else:
-        news_ids = set(news.keys()) if isinstance(news, dict) else set()
-        try:
-            validate_tagline_feed(tagline_feed, news_ids)
-        except ValidationError as e:
-            errors.append(f"{prefix}{e}")
+        # Only validate news ID references if news section is valid
+        if isinstance(news, dict):
+            news_ids = set(news.keys())
+            try:
+                validate_tagline_feed(tagline_feed, news_ids, check_references=True)
+            except ValidationError as e:
+                errors.append(f"{prefix}{e}")
+        else:
+            # Still validate tagline_feed structure, but skip reference checks
+            try:
+                validate_tagline_feed(tagline_feed, set(), check_references=False)
+            except ValidationError as e:
+                errors.append(f"{prefix}{e}")
     
     return errors
 
