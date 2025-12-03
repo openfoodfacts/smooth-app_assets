@@ -599,7 +599,7 @@
           "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
           "title": "Agissez pour le Nutri-Score !"
         },
-        "fr-FR": {
+        "fr_FR": {
           "button_label": "Signer la pétition",
           "image": {
             "alt": "Le logo du Nutri-Score",
@@ -795,7 +795,7 @@
         }
       ]
     },
-    "fr-FR": {
+    "fr_FR": {
       "news": [
         {
           "id": "nutriscore_petition_2025"
