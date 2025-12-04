@@ -1,400 +1,5 @@
 {
   "news": {
-    "donation_campaign_2026": {
-      "end_date": "2027-01-31 23:59:59",
-      "min_launches": 5,
-      "start_date": "2026-10-25 00:00:00",
-      "translations": {
-        "ar": {
-          "button_label": "دعم",
-          "message": "ساعدنا في إبلاغ **ملايين المستهلكين** بما يأكلونه!",
-          "title": "تطبيقنا يحتاجك!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ar?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "bg": {
-          "button_label": "Подкрепа",
-          "message": "Помогнете ни да информираме **милиони потребители** какво ядат!",
-          "title": "Нашето приложение се нуждае от вас!",
-          "url": "https://world.openfoodfacts.org/даряване-на-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "ca": {
-          "button_label": "Suport",
-          "message": "Ajuda'ns a informar **milions de consumidors** sobre el que mengen!",
-          "title": "La nostra aplicació et necessita!",
-          "url": "https://world.openfoodfacts.org/dona-a-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "cs": {
-          "button_label": "Podpořte",
-          "message": "Pomozte nám informovat **miliony spotřebitelů** o tom, co jedí!",
-          "title": "Naše aplikace vás potřebuje!",
-          "url": "https://world.openfoodfacts.org/darujte-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "da": {
-          "button_label": "Støtte",
-          "message": "Hjælp os med at informere **millioner af forbrugere** om, hvad de spiser!",
-          "title": "Vores applikation har brug for dig!",
-          "url": "https://world.openfoodfacts.org/doner-til-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "de": {
-          "button_label": "Unterstützen",
-          "message": "Hilf uns, **Millionen von Verbrauchern** darüber zu informieren, was sie essen!",
-          "title": "Unsere Anwendung braucht dich!",
-          "url": "https://world.openfoodfacts.org/spenden?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "default": {
-          "button_label": "Support",
-          "image": {
-            "alt": "Support the Open Food Facts project",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/refs/heads/main/html/images/illustrations/donate-heart.svg",
-            "width": 0.2
-          },
-          "message": "Help us inform **millions of consumers** about what they eat!",
-          "title": "Our application needs you!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "el": {
-          "button_label": "Υποστήριξη",
-          "message": "Βοηθήστε μας να ενημερώσουμε **εκατομμύρια καταναλωτές** για το τι τρώνε!",
-          "title": "Η εφαρμογή μας σε χρειάζεται!",
-          "url": "https://world.openfoodfacts.org/dorea-se-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "es": {
-          "button_label": "Apoyar",
-          "message": "¡Ayúdanos a informar a **millones de consumidores** sobre lo que comen!",
-          "title": "¡Nuestra aplicación te necesita!",
-          "url": "https://world.openfoodfacts.org/dar-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "et": {
-          "button_label": "Toeta",
-          "message": "Aidake meil teavitada **miljoneid tarbijaid** sellest, mida nad söövad!",
-          "title": "Meie rakendus vajab sind!",
-          "url": "https://world.openfoodfacts.org/anneta-to-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "fi": {
-          "button_label": "Tuki",
-          "message": "Auta meitä kertomaan **miljoonille kuluttajille** siitä, mitä he syövät!",
-          "title": "Sovelluksemme tarvitsee sinua!",
-          "url": "https://world.openfoodfacts.org/lahjoita-open-food-factsille?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "fr": {
-          "button_label": "Je soutiens",
-          "image": {
-            "alt": "Soutenir le projet Open Food Facts",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/refs/heads/main/html/images/illustrations/donate-heart.svg",
-            "width": 0.2
-          },
-          "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
-          "title": "Notre application a besoin de vous !",
-          "url": "https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "he": {
-          "button_label": "תמיכה",
-          "message": "עזור לנו ליידע **מיליוני צרכנים** מה הם אוכלים!",
-          "title": "האפליקציה שלנו צריכה אותך!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-he?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "ht": {
-          "button_label": "Sipòte",
-          "message": "Ede nou enfòme **plizyè milyon konsomatè** sou sa yo manje!",
-          "title": "Aplikasyon nou an bezwen ou!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ht?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "hu": {
-          "button_label": "Támogatás",
-          "message": "Segítsen bennünket, hogy **fogyasztók millióit** tájékoztassuk arról, hogy mit esznek!",
-          "title": "Alkalmazásunknak szüksége van Önre!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-hu?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "id": {
-          "button_label": "Dukung",
-          "message": "Bantu kami memberi tahu **jutaan konsumen** tentang apa yang mereka makan!",
-          "title": "Aplikasi kami membutuhkan Anda!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-id?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "it": {
-          "button_label": "Sostieni",
-          "message": "Aiutaci a informare **milioni di consumatori** su ciò che mangiano!",
-          "title": "La nostra applicazione ha bisogno di te!",
-          "url": "https://world.openfoodfacts.org/dona-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "ja": {
-          "button_label": "サポート",
-          "message": "何を食べているかについて**何百万人もの消費者**に知らせるのを手伝ってください！",
-          "title": "私たちのアプリケーションはあなたを必要としています！",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ja?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "ko": {
-          "button_label": "지원",
-          "message": "**수백만 소비자**에게 그들이 먹는 것에 대해 알리는 데 도움을 주세요!",
-          "title": "우리 애플리케이션이 당신을 필요로 합니다!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ko?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "lb": {
-          "button_label": "Ënnerstëtzen",
-          "message": "Hëlleft eis **Milliounen vu Konsumenten** z'informéieren iwwer wat si iessen!",
-          "title": "Eis Applikatioun brauch dech!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-lb?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "lt": {
-          "button_label": "Palaikymas",
-          "message": "Padėkite mums informuoti **milijonus vartotojų** apie tai, ką jie valgo!",
-          "title": "Mūsų programai reikia jūsų!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-lt?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "mg": {
-          "button_label": "Tohana",
-          "message": "Ampio anay hampahafantatra **mpanjifa an-tapitrisany** momba izay hohaniny!",
-          "title": "Mila anao ny fampiharanay!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-mg?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "ms": {
-          "button_label": "Sokong",
-          "message": "Bantu kami memaklumkan **jutaan pengguna** tentang apa yang mereka makan!",
-          "title": "Aplikasi kami memerlukan anda!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ms?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "nb": {
-          "button_label": "Støtte",
-          "message": "Hjelp oss å informere **millioner av forbrukere** om hva de spiser!",
-          "title": "Vår applikasjon trenger deg!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-nb?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "nl": {
-          "button_label": "Ondersteunen",
-          "message": "Help ons om **miljoenen consumenten** te informeren over wat ze eten!",
-          "title": "Onze applicatie heeft u nodig!",
-          "url": "https://world.openfoodfacts.org/doneren-aan-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "pl": {
-          "button_label": "Wspieram",
-          "message": "Pomóż nam informować **miliony konsumentów** o tym, co jedzą!",
-          "title": "Nasza aplikacja potrzebuje Ciebie!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-pl?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "pt": {
-          "button_label": "Apoiar",
-          "message": "Ajude-nos a informar **milhões de consumidores** sobre o que eles comem!",
-          "title": "Nosso aplicativo precisa de você!",
-          "url": "https://world.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "ro": {
-          "button_label": "Suport",
-          "message": "Ajută-ne să informăm **milioane de consumatori** despre ce mănâncă!",
-          "title": "Aplicația noastră are nevoie de tine!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ro?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "ru": {
-          "button_label": "Поддержать",
-          "message": "Помогите нам информировать **миллионы потребителей** о том, что они едят!",
-          "title": "Наше приложение нуждается в вас!",
-          "url": "https://world.openfoodfacts.org/pozhertvovat-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "sk": {
-          "button_label": "Podpora",
-          "message": "Pomôžte nám informovať **milióny spotrebiteľov** o tom, čo jedia!",
-          "title": "Naša aplikácia vás potrebuje!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-sk?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "sl": {
-          "button_label": "Podpora",
-          "message": "Pomagajte nam obveščati **milijone potrošnikov** o tem, kaj jedo!",
-          "title": "Naša aplikacija vas potrebuje!",
-          "url": "https://world.openfoodfacts.org/doniraj-k-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "sv": {
-          "button_label": "Stöd",
-          "message": "Hjälp oss att informera **miljontals konsumenter** om vad de äter!",
-          "title": "Vår applikation behöver dig!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-sv?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "th": {
-          "button_label": "สนับสนุน",
-          "message": "ช่วยเราบอก **ผู้บริโภคหลายล้านคน** ว่าพวกเขากินอะไร!",
-          "title": "แอปพลิเคชันของเราต้องการคุณ!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-th?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "tr": {
-          "button_label": "Destek",
-          "message": "**Milyonlarca tüketiciyi** ne yedikleri konusunda bilgilendirmemize yardımcı olun!",
-          "title": "Uygulamamızın size ihtiyacı var!",
-          "url": "https://world.openfoodfacts.org/open-food-factse-bagista-bulununs?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "uk": {
-          "button_label": "Підтримати",
-          "message": "Допоможіть нам інформувати **мільйони споживачів** про те, що вони їдять!",
-          "title": "Наш додаток потребує вас!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ua?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "vi": {
-          "button_label": "Hỗ trợ",
-          "message": "Giúp chúng tôi thông báo cho **hàng triệu người tiêu dùng** về những gì họ ăn!",
-          "title": "Ứng dụng của chúng tôi cần bạn!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-vi?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        },
-        "zh": {
-          "button_label": "支持",
-          "message": "帮助我们告知**数百万消费者**他们吃的是什么！",
-          "title": "我们的应用程序需要你！",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-zh?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-        }
-      },
-      "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
-    },
-    "halloween_challenge_2025": {
-      "end_date": "2025-11-10 23:59:59",
-      "start_date": "2025-10-01 00:00:00",
-      "translations": {
-        "ar": {
-          "button_label": "تعرف على المزيد",
-          "message": "جمع أسعار منتجات طعام الهالوين",
-          "title": "تحدي Open Prices للهالوين"
-        },
-        "bn": {
-          "button_label": "আরও জানুন",
-          "message": "হ্যালোইন খাবার আইটেমের দাম সংগ্রহ করুন",
-          "title": "Open Prices হ্যালোইন চ্যালেঞ্জ"
-        },
-        "de": {
-          "button_label": "Mehr erfahren",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Sammeln Sie Preise von Halloween-Produkten und Lebensmitteln",
-          "title": "Open Prices Halloween-Challenge"
-        },
-        "default": {
-          "button_label": "Learn more",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Collect prices of Halloween products and food items",
-          "title": "Open Prices Halloween Challenge"
-        },
-        "el": {
-          "button_label": "Μάθετε περισσότερα",
-          "message": "Συλλέξτε τιμές προϊόντων φαγητού Halloween",
-          "title": "Πρόκληση Halloween Open Prices"
-        },
-        "es": {
-          "button_label": "Más información",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Recopila precios de productos y artículos de comida de Halloween",
-          "title": "Desafío de Halloween de Open Prices"
-        },
-        "fa": {
-          "button_label": "بیشتر بدانید",
-          "message": "قیمت اقلام غذایی هالووین را جمع‌آوری کنید",
-          "title": "چالش هالووین Open Prices"
-        },
-        "fr": {
-          "button_label": "En savoir plus",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Collectez les prix des produits et aliments d'Halloween",
-          "title": "Défi Halloween d'Open Prices"
-        },
-        "hi": {
-          "button_label": "और जानें",
-          "message": "हैलोवीन खाद्य पदार्थों की कीमतें एकत्र करें",
-          "title": "Open Prices हैलोवीन चुनौती"
-        },
-        "id": {
-          "button_label": "Pelajari lebih lanjut",
-          "message": "Kumpulkan harga item makanan Halloween",
-          "title": "Tantangan Halloween Open Prices"
-        },
-        "it": {
-          "button_label": "Scopri di più",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Raccogli i prezzi dei prodotti e articoli alimentari di Halloween",
-          "title": "Sfida Halloween di Open Prices"
-        },
-        "ja": {
-          "button_label": "詳しくはこちら",
-          "message": "ハロウィン食品の価格を収集しましょう",
-          "title": "Open Prices ハロウィンチャレンジ"
-        },
-        "ko": {
-          "button_label": "자세히 알아보기",
-          "message": "할로윈 음식 품목의 가격을 수집하세요",
-          "title": "Open Prices 할로윈 챌린지"
-        },
-        "ms": {
-          "button_label": "Ketahui lebih lanjut",
-          "message": "Kumpul harga item makanan Halloween",
-          "title": "Cabaran Halloween Open Prices"
-        },
-        "nl": {
-          "button_label": "Meer informatie",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Verzamel prijzen van Halloween-producten en voedselartikelen",
-          "title": "Open Prices Halloween Uitdaging"
-        },
-        "pl": {
-          "button_label": "Dowiedz się więcej",
-          "message": "Zbieraj ceny artykułów spożywczych na Halloween",
-          "title": "Wyzwanie Halloween Open Prices"
-        },
-        "pt": {
-          "button_label": "Saiba mais",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Colete preços de produtos e itens alimentares de Halloween",
-          "title": "Desafio de Halloween do Open Prices"
-        },
-        "ru": {
-          "button_label": "Узнать больше",
-          "message": "Собирайте цены на продукты для Хэллоуина",
-          "title": "Хэллоуинский вызов Open Prices"
-        },
-        "sv": {
-          "button_label": "Läs mer",
-          "message": "Samla priser på Halloween-matvaror",
-          "title": "Open Prices Halloween-utmaning"
-        },
-        "th": {
-          "button_label": "เรียนรู้เพิ่มเติม",
-          "message": "เก็บรวบรวมราคาอาหารวันฮาโลวีน",
-          "title": "ความท้าทายฮาโลวีน Open Prices"
-        },
-        "tr": {
-          "button_label": "Daha fazla bilgi",
-          "message": "Halloween yiyecek ürünlerinin fiyatlarını toplayın",
-          "title": "Open Prices Halloween Meydan Okuması"
-        },
-        "uk": {
-          "button_label": "Дізнатися більше",
-          "message": "Збирайте ціни на продукти для Хеллоуїну",
-          "title": "Хеллоуїнський виклик Open Prices"
-        },
-        "vi": {
-          "button_label": "Tìm hiểu thêm",
-          "message": "Thu thập giá các mặt hàng thực phẩm Halloween",
-          "title": "Thử thách Halloween của Open Prices"
-        },
-        "zh": {
-          "button_label": "了解更多",
-          "message": "收集万圣节食品的价格",
-          "title": "Open Prices 万圣节挑战"
-        }
-      },
-      "url": "https://prices.openfoodfacts.org/challenges/7"
-    },
     "nutriscore_v2": {
       "end_date": "2025-12-31 23:59:59",
       "start_date": "2025-01-01 00:00:00",
@@ -604,31 +209,6 @@
       },
       "url": "https://connect.openfoodfacts.org/event/open-food-facts-days-2025-30/register"
     },
-    "open_prices_survey_2025": {
-      "end_date": "2025-08-28 23:59:59",
-      "start_date": "2025-01-27 00:00:00",
-      "translations": {
-        "default": {
-          "button_label": "Take Survey",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
-            "width": 0.2
-          },
-          "message": "Share quick feedback and see your impact in Open Prices",
-          "title": "Survey: help improve Open Prices"
-        },
-        "fr": {
-          "button_label": "Répondre au sondage",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
-            "width": 0.2
-          },
-          "message": "Partagez vos commentaires rapides et voyez votre impact sur Open Prices",
-          "title": "Sondage : aidez à améliorer Open Prices"
-        }
-      },
-      "url": "https://forms.gle/vzL5JuaaRo8svy6Y7"
-    },
     "prices_summer_campaign": {
       "end_date": "2025-08-31 23:59:59",
       "start_date": "2025-07-01 00:00:00",
@@ -666,8 +246,8 @@
             "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_campaign/prices_fr.svg",
             "width": 0.2
           },
-          "message": "Contribuez à Open Prices en collectant les **prix des crèmes solaire 🧴, glaces 🍦 & sorbets 🍧** !",
-          "title": "😎 Défi de l'été !"
+          "message": "Contribuez à Open Prices en collectant les **prix des crèmes solaire \uD83E\uDDF4, glaces \uD83C\uDF66 & sorbets \uD83C\uDF67** !",
+          "title": "\uD83D\uDE0E Défi de l'été !"
         },
         "it": {
           "button_label": "Scopri di più",
@@ -825,6 +405,186 @@
       },
       "url": "https://blog.openfoodfacts.org/en/news/summer-news-from-open-food-facts"
     },
+    "open_prices_survey_2025": {
+      "end_date": "2025-08-28 23:59:59",
+      "start_date": "2025-01-27 00:00:00",
+      "translations": {
+        "default": {
+          "button_label": "Take Survey",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
+            "width": 0.2
+          },
+          "message": "Share quick feedback and see your impact in Open Prices",
+          "title": "Survey: help improve Open Prices"
+        },
+        "fr": {
+          "button_label": "Répondre au sondage",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
+            "width": 0.2
+          },
+          "message": "Partagez vos commentaires rapides et voyez votre impact sur Open Prices",
+          "title": "Sondage : aidez à améliorer Open Prices"
+        }
+      },
+      "url": "https://forms.gle/vzL5JuaaRo8svy6Y7"
+    },
+    "halloween_challenge_2025": {
+      "end_date": "2025-11-10 23:59:59",
+      "start_date": "2025-10-01 00:00:00",
+      "translations": {
+        "ar": {
+          "button_label": "تعرف على المزيد",
+          "message": "جمع أسعار منتجات طعام الهالوين",
+          "title": "تحدي Open Prices للهالوين"
+        },
+        "bn": {
+          "button_label": "আরও জানুন",
+          "message": "হ্যালোইন খাবার আইটেমের দাম সংগ্রহ করুন",
+          "title": "Open Prices হ্যালোইন চ্যালেঞ্জ"
+        },
+        "de": {
+          "button_label": "Mehr erfahren",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Sammeln Sie Preise von Halloween-Produkten und Lebensmitteln",
+          "title": "Open Prices Halloween-Challenge"
+        },
+        "default": {
+          "button_label": "Learn more",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Collect prices of Halloween products and food items",
+          "title": "Open Prices Halloween Challenge"
+        },
+        "el": {
+          "button_label": "Μάθετε περισσότερα",
+          "message": "Συλλέξτε τιμές προϊόντων φαγητού Halloween",
+          "title": "Πρόκληση Halloween Open Prices"
+        },
+        "es": {
+          "button_label": "Más información",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Recopila precios de productos y artículos de comida de Halloween",
+          "title": "Desafío de Halloween de Open Prices"
+        },
+        "fa": {
+          "button_label": "بیشتر بدانید",
+          "message": "قیمت اقلام غذایی هالووین را جمع‌آوری کنید",
+          "title": "چالش هالووین Open Prices"
+        },
+        "fr": {
+          "button_label": "En savoir plus",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Collectez les prix des produits et aliments d'Halloween",
+          "title": "Défi Halloween d'Open Prices"
+        },
+        "hi": {
+          "button_label": "और जानें",
+          "message": "हैलोवीन खाद्य पदार्थों की कीमतें एकत्र करें",
+          "title": "Open Prices हैलोवीन चुनौती"
+        },
+        "id": {
+          "button_label": "Pelajari lebih lanjut",
+          "message": "Kumpulkan harga item makanan Halloween",
+          "title": "Tantangan Halloween Open Prices"
+        },
+        "it": {
+          "button_label": "Scopri di più",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Raccogli i prezzi dei prodotti e articoli alimentari di Halloween",
+          "title": "Sfida Halloween di Open Prices"
+        },
+        "ja": {
+          "button_label": "詳しくはこちら",
+          "message": "ハロウィン食品の価格を収集しましょう",
+          "title": "Open Prices ハロウィンチャレンジ"
+        },
+        "ko": {
+          "button_label": "자세히 알아보기",
+          "message": "할로윈 음식 품목의 가격을 수집하세요",
+          "title": "Open Prices 할로윈 챌린지"
+        },
+        "ms": {
+          "button_label": "Ketahui lebih lanjut",
+          "message": "Kumpul harga item makanan Halloween",
+          "title": "Cabaran Halloween Open Prices"
+        },
+        "nl": {
+          "button_label": "Meer informatie",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Verzamel prijzen van Halloween-producten en voedselartikelen",
+          "title": "Open Prices Halloween Uitdaging"
+        },
+        "pl": {
+          "button_label": "Dowiedz się więcej",
+          "message": "Zbieraj ceny artykułów spożywczych na Halloween",
+          "title": "Wyzwanie Halloween Open Prices"
+        },
+        "pt": {
+          "button_label": "Saiba mais",
+          "image": {
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
+            "width": 0.2
+          },
+          "message": "Colete preços de produtos e itens alimentares de Halloween",
+          "title": "Desafio de Halloween do Open Prices"
+        },
+        "ru": {
+          "button_label": "Узнать больше",
+          "message": "Собирайте цены на продукты для Хэллоуина",
+          "title": "Хэллоуинский вызов Open Prices"
+        },
+        "sv": {
+          "button_label": "Läs mer",
+          "message": "Samla priser på Halloween-matvaror",
+          "title": "Open Prices Halloween-utmaning"
+        },
+        "th": {
+          "button_label": "เรียนรู้เพิ่มเติม",
+          "message": "เก็บรวบรวมราคาอาหารวันฮาโลวีน",
+          "title": "ความท้าทายฮาโลวีน Open Prices"
+        },
+        "tr": {
+          "button_label": "Daha fazla bilgi",
+          "message": "Halloween yiyecek ürünlerinin fiyatlarını toplayın",
+          "title": "Open Prices Halloween Meydan Okuması"
+        },
+        "uk": {
+          "button_label": "Дізнатися більше",
+          "message": "Збирайте ціни на продукти для Хеллоуїну",
+          "title": "Хеллоуїнський виклик Open Prices"
+        },
+        "vi": {
+          "button_label": "Tìm hiểu thêm",
+          "message": "Thu thập giá các mặt hàng thực phẩm Halloween",
+          "title": "Thử thách Halloween của Open Prices"
+        },
+        "zh": {
+          "button_label": "了解更多",
+          "message": "收集万圣节食品的价格",
+          "title": "Open Prices 万圣节挑战"
+        }
+      },
+      "url": "https://prices.openfoodfacts.org/challenges/7"
+    },
     "translation_campaign_2025": {
       "end_date": "2025-12-31 23:59:59",
       "min_launches": 4,
@@ -980,6 +740,232 @@
         }
       },
       "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en"
+    },
+    "donation_campaign_2026": {
+      "end_date": "2027-01-31 23:59:59",
+      "min_launches": 5,
+      "start_date": "2026-10-25 00:00:00",
+      "translations": {
+        "ar": {
+          "button_label": "أدعم",
+          "message": "ساعدنا في إبلاغ **ملايين المستهلكين** بما يأكلونه!",
+          "title": "تطبيقنا يحتاجك!",
+          "url": "https://world-ar.openfoodfacts.org/donate-to-open-food-facts-ar?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "bg": {
+          "button_label": "Поддръжка",
+          "message": "Помогнете ни да информираме **милиони потребители** какво ядат!",
+          "title": "Нашето приложение се нуждае от вас!",
+          "url": "https://world-bg.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "bn": {
+          "button_label": "সমর্থন",
+          "message": "আমাদের **লক্ষ লক্ষ ভোক্তাদের** তাদের খাবার সম্পর্কে জানাতে সাহায্য করুন!",
+          "title": "আমাদের অ্যাপ্লিকেশন আপনার প্রয়োজন!"
+        },
+        "ca": {
+          "button_label": "Suport",
+          "message": "Ajuda'ns a informar **milions de consumidors** sobre el que mengen!",
+          "title": "La nostra aplicació et necessita!",
+          "url": "https://world-ca.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "cs": {
+          "button_label": "Podpora",
+          "message": "Pomozte nám informovat **miliony spotřebitelů** o tom, co jedí!",
+          "title": "Naše aplikace vás potřebuje!",
+          "url": "https://world-cs.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "da": {
+          "button_label": "Support",
+          "message": "Hjælp os med at informere **millioner af forbrugere** om, hvad de spiser!",
+          "title": "Vores ansøgning har brug for dig!",
+          "url": "https://world-da.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "de": {
+          "button_label": "Unterstützen",
+          "message": "Helfen Sie uns, **Millionen von Verbrauchern** darüber zu informieren, was sie essen!",
+          "title": "Unsere Anwendung braucht Sie!",
+          "url": "https://world-de.openfoodfacts.org/spenden?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "default": {
+          "button_label": "Support",
+          "image": {
+            "alt": "Support the Open Food Facts project",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/refs/heads/main/html/images/illustrations/donate-heart.svg",
+            "width": 0.2
+          },
+          "message": "Help us inform **millions of consumers** on what they eat!",
+          "title": "Our application needs you!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "el": {
+          "button_label": "Υποστηρίζω",
+          "message": "Βοηθήστε μας να ενημερώσουμε **εκατομμύρια καταναλωτές** για το τι τρώνε!",
+          "title": "Η εφαρμογή μας σας χρειάζεται!",
+          "url": "https://world-el.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "es": {
+          "button_label": "Apoyar",
+          "message": "¡Ayúdanos a informar a **millones de consumidores** sobre lo que comen!",
+          "title": "¡Nuestra aplicación te necesita!",
+          "url": "https://world-es.openfoodfacts.org/haz-su-donacion-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "fa": {
+          "button_label": "حمایت",
+          "message": "به ما کمک کنید تا **میلیون‌ها مصرف‌کننده** را در مورد آنچه می‌خورند مطلع کنیم!",
+          "title": "برنامه ما به شما نیاز دارد!"
+        },
+        "fi": {
+          "button_label": "Tuki",
+          "message": "Auta meitä kertomaan **miljoonille kuluttajille** siitä, mitä he syövät!",
+          "title": "Sovelluksemme tarvitsee sinua!",
+          "url": "https://world-fi.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "fr": {
+          "button_label": "Je soutiens",
+          "image": {
+            "alt": "Soutenir le projet Open Food Facts",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/refs/heads/main/html/images/illustrations/donate-heart.svg",
+            "width": 0.2
+          },
+          "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
+          "title": "Notre application a besoin de vous !",
+          "url": "https://world-fr.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "he": {
+          "button_label": "תמיכה",
+          "message": "עזור לנו ליידע **מיליוני צרכנים** מה הם אוכלים!",
+          "title": "האפליקציה שלנו צריכה אותך!",
+          "url": "https://world-he.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "hi": {
+          "button_label": "समर्थन",
+          "message": "हमें **लाखों उपभोक्ताओं** को उनके खाने के बारे में सूचित करने में मदद करें!",
+          "title": "हमारे ऐप को आपकी जरूरत है!"
+        },
+        "hu": {
+          "button_label": "Támogatás",
+          "message": "Segítsen bennünket, hogy **fogyasztók millióit** tájékoztassuk arról, hogy mit esznek!",
+          "title": "Alkalmazásunknak szüksége van Önre!",
+          "url": "https://world-hu.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "id": {
+          "button_label": "Dukung",
+          "message": "Bantu kami memberi tahu **jutaan konsumen** tentang apa yang mereka makan!",
+          "title": "Aplikasi kami membutuhkan Anda!",
+          "url": "https://world-id.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "it": {
+          "button_label": "Sostieni",
+          "message": "Aiutaci a informare **milioni di consumatori** su ciò che mangiano!",
+          "title": "La nostra applicazione ha bisogno di te!",
+          "url": "https://world-it.openfoodfacts.org/dona-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "ja": {
+          "button_label": "サポート",
+          "message": "何を食べているかについて**何百万人もの消費者**に知らせるのを手伝ってください！",
+          "title": "私たちのアプリケーションはあなたを必要としています！"
+        },
+        "ko": {
+          "button_label": "지원",
+          "message": "**수백만 소비자**에게 그들이 먹는 것에 대해 알리는 데 도움을 주세요!",
+          "title": "우리 애플리케이션이 당신을 필요로 합니다!"
+        },
+        "lt": {
+          "button_label": "Palaikymas",
+          "message": "Padėkite mums informuoti **milijonus vartotojų** apie tai, ką jie valgo!",
+          "title": "Mūsų programai reikia jūsų!",
+          "url": "https://world-lt.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "ms": {
+          "button_label": "Sokong",
+          "message": "Bantu kami memaklumkan **jutaan pengguna** tentang apa yang mereka makan!",
+          "title": "Aplikasi kami memerlukan anda!"
+        },
+        "nb": {
+          "button_label": "Støtte",
+          "message": "Hjelp oss å informere **millioner av forbrukere** om hva de spiser!",
+          "title": "Vår applikasjon trenger deg!",
+          "url": "https://world-nb.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "nl": {
+          "button_label": "Ondersteunen",
+          "message": "Help ons om **miljoenen consumenten** te informeren over wat ze eten!",
+          "title": "Onze applicatie heeft u nodig!",
+          "url": "https://world-nl.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "pl": {
+          "button_label": "Wspieram",
+          "message": "Pomóż nam informować **miliony konsumentów** o tym, co jedzą!",
+          "title": "Nasza aplikacja potrzebuje Ciebie!",
+          "url": "https://world-pl.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "pt": {
+          "button_label": "Apoiar",
+          "message": "Ajude-nos a informar **milhões de consumidores** sobre o que eles comem!",
+          "title": "Nosso aplicativo precisa de você!",
+          "url": "https://world-pt.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "ro": {
+          "button_label": "Suport",
+          "message": "Ajută-ne să informăm **milioane de consumatori** despre ce mănâncă!",
+          "title": "Aplicația noastră are nevoie de tine!",
+          "url": "https://world-ro.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "ru": {
+          "button_label": "Поддержать",
+          "message": "Помогите нам информировать **миллионы потребителей** о том, что они едят!",
+          "title": "Наше приложение нуждается в вас!",
+          "url": "https://world-ru.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "sk": {
+          "button_label": "Podpora",
+          "message": "Pomôžte nám informovať **milióny spotrebiteľov** o tom, čo jedia!",
+          "title": "Naša aplikácia vás potrebuje!",
+          "url": "https://world-sk.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "sl": {
+          "button_label": "Podpora",
+          "message": "Pomagajte nam obveščati **milijone potrošnikov** o tem, kaj jedo!",
+          "title": "Naša aplikacija vas potrebuje!",
+          "url": "https://world-sl.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "sv": {
+          "button_label": "Stöd",
+          "message": "Hjälp oss att informera **miljontals konsumenter** om vad de äter!",
+          "title": "Vår applikation behöver dig!",
+          "url": "https://world-sv.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "th": {
+          "button_label": "สนับสนุน",
+          "message": "ช่วยเราบอก **ผู้บริโภคหลายล้านคน** ว่าพวกเขากินอะไร!",
+          "title": "แอปพลิเคชันของเราต้องการคุณ!"
+        },
+        "tr": {
+          "button_label": "Destek",
+          "message": "**Milyonlarca tüketiciyi** ne yedikleri konusunda bilgilendirmemize yardımcı olun!",
+          "title": "Uygulamamızın size ihtiyacı var!",
+          "url": "https://world-tr.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "uk": {
+          "button_label": "Підтримати",
+          "message": "Допоможіть нам інформувати **мільйони споживачів** про те, що вони їдять!",
+          "title": "Наш додаток потребує вас!",
+          "url": "https://world-uk.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "vi": {
+          "button_label": "Hỗ trợ",
+          "message": "Giúp chúng tôi thông báo cho **hàng triệu người tiêu dùng** về những gì họ ăn!",
+          "title": "Ứng dụng của chúng tôi cần bạn!"
+        },
+        "zh": {
+          "button_label": "支持",
+          "message": "帮助我们告知**数百万消费者**他们吃的是什么！",
+          "title": "我们的应用程序需要你！",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        }
+      },
+      "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
     }
   },
   "tagline_feed": {
