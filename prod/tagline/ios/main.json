@@ -825,7 +825,7 @@
           "button_label": "Je soutiens",
           "image": {
             "alt": "Soutenir le projet Open Food Facts",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/donation_campaign/donation_campaign_fr.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-server/refs/heads/main/html/images/illustrations/donate-heart.svg",
             "width": 0.2
           },
           "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
