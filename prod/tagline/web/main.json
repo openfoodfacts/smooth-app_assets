@@ -791,7 +791,7 @@
           "button_label": "Support",
           "image": {
             "alt": "Support the Open Food Facts project",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donation_campaign_en.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/web/assets/donation_campaign/donation_campaign_en.svg",
             "width": 0.2
           },
           "message": "Help us inform **millions of consumers** on what they eat!",
@@ -825,7 +825,7 @@
           "button_label": "Je soutiens",
           "image": {
             "alt": "Soutenir le projet Open Food Facts",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donation_campaign_fr.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/web/assets/donation_campaign/donation_campaign_fr.svg",
             "width": 0.2
           },
           "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
