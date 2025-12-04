@@ -792,7 +792,7 @@
           "image": {
             "alt": "Support the Open Food Facts project",
             "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/copilot/reenable-donation-campaign-2026/prod/tagline/android/assets/donation_campaign/donate-heart.svg",
-            "width": 0.6
+            "width": 0.2
           },
           "message": "Help us inform **millions of consumers** on what they eat!",
           "title": "Our application needs you!",
@@ -826,7 +826,7 @@
           "image": {
             "alt": "Soutenir le projet Open Food Facts",
             "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/copilot/reenable-donation-campaign-2026/prod/tagline/android/assets/donation_campaign/donate-heart.svg",
-            "width": 0.6
+            "width": 0.2
           },
           "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
           "title": "Notre application a besoin de vous !",
