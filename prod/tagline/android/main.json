@@ -424,6 +424,23 @@
         }
       },
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+    },
+    "nutriscore_petition_2025": {
+      "end_date": "2026-06-30 23:59:59",
+      "start_date": "2025-11-21 00:00:00",
+      "translations": {
+        "default": {
+          "button_label": "Signer la pétition",
+          "image": {
+            "alt": "Le logo du Nutri-Score",
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "width": 0.2
+          },
+          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
+          "title": "Agissez pour le Nutri-Score !"
+        }
+      },
+      "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
     }
   },
   "tagline_feed": {
@@ -431,6 +448,19 @@
       "news": [
         {
           "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "fr_FR": {
+      "news": [
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "nutriscore_petition_2025"
         },
         {
           "id": "openprices_challenge_01_06"
