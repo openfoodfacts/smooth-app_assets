@@ -1,772 +1,195 @@
 {
   "news": {
-    "nutriscore_v2": {
-      "end_date": "2025-12-31 23:59:59",
-      "start_date": "2025-01-01 00:00:00",
-      "translations": {
-        "de": {
-          "button_label": "Mehr erfahren",
-          "image": {
-            "alt": "Das Nutri-Score A Logo",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-de.svg",
-            "width": 0.2
-          },
-          "message": "Die **Neue Berechnung** des Nutri-Scores ist in der App verfügbar",
-          "title": "Es ist neu!"
-        },
-        "default": {
-          "button_label": "Learn more",
-          "image": {
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2
-          },
-          "message": "The **New Calculation** of the NutriScore is available in the application",
-          "title": "It's new!"
-        },
-        "es": {
-          "button_label": "Más información",
-          "image": {
-            "alt": "El logo de Nutri-Score A",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2
-          },
-          "message": "El **Nuevo Cálculo** del Nutri-Score está disponible en la aplicación",
-          "title": "¡Es nuevo!"
-        },
-        "fr": {
-          "button_label": "En savoir plus",
-          "image": {
-            "alt": "Le logo du NutriScore A",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
-            "width": 0.2
-          },
-          "message": "Le **Nouveau Calcul** du NutriScore est disponible dans l’application",
-          "title": "C’est tout nouveau !"
-        },
-        "it": {
-          "button_label": "Scopri di più",
-          "image": {
-            "alt": "Il logo NutriScore A",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2
-          },
-          "message": "Il **Nuovo Calcolo** del NutriScore è disponibile nell'app",
-          "title": "È nuovo!"
-        },
-        "nl": {
-          "button_label": "Meer informatie",
-          "image": {
-            "alt": "Het Nutri-Score A-logo",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-nl.svg",
-            "width": 0.2
-          },
-          "message": "De **Nieuwe Berekening** van de Nutri-Score is beschikbaar in de app",
-          "title": "Het is nieuw!"
-        },
-        "pt": {
-          "button_label": "Saiba mais",
-          "image": {
-            "alt": "O logotipo Nutri-Score A",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-en.svg",
-            "width": 0.2
-          },
-          "message": "O **Novo Cálculo** do Nutri-Score está disponível no aplicativo",
-          "title": "É novo!"
-        }
-      },
-      "url": "https://world.openfoodfacts.org/nutriscore-v2"
-    },
-    "off_days_2025": {
-      "end_date": "2025-09-12 23:59:59",
-      "min_launches": 5,
-      "start_date": "2025-06-06 00:00:00",
+    "openprices_challenge_01_06": {
+      "start_date": "2026-01-15 00:00:00",
+      "end_date": "2026-02-14 23:59:59",
       "translations": {
         "ar": {
           "button_label": "اعرف المزيد",
-          "message": "انضم إلينا في عطلة نهاية الأسبوع المجتمعية يومي 13 و14 سبتمبر 2025 في باريس (فرنسا)",
-          "title": "أيام Open Food Facts 2025"
+          "message": "الأسعار المفتوحة: انضم إلى تحدي مجتمعنا من خلال **جمع أسعار الأطعمة المجمدة ❄️**",
+          "title": "❄️ تحدي الطعام المجمد!"
+        },
+        "bg": {
+          "button_label": "Научете повече",
+          "message": "Open Prices: Присъединете се към нашето общностно предизвикателство, като **събирате цени на замразени храни ❄️**",
+          "title": "❄️ Предизвикателство за замразени храни!"
         },
         "bn": {
           "button_label": "আরও জানুন",
-          "message": "১৩ ও ১৪ সেপ্টেম্বর ২০২৫-এ প্যারিসে (ফ্রান্স) আমাদের কমিউনিটি উইকএন্ডে যোগ দিন",
-          "title": "Open Food Facts ডেজ ২০২৫"
+          "message": "Open Prices: **হিমায়িত খাবারের দাম সংগ্রহ করে ❄️** আমাদের কমিউনিটি চ্যালেঞ্জে যোগ দিন",
+          "title": "❄️ হিমায়িত খাবারের চ্যালেঞ্জ!"
+        },
+        "ca": {
+          "button_label": "Més informació",
+          "message": "Open Prices: Uneix-te al nostre repte comunitari **recollint preus d'aliments congelats ❄️**",
+          "title": "❄️ Repte d'aliments congelats!"
+        },
+        "cs": {
+          "button_label": "Zjistit více",
+          "message": "Open Prices: Připojte se k naší komunitní výzvě **sběrem cen mražených potravin ❄️**",
+          "title": "❄️ Výzva mražených potravin!"
+        },
+        "da": {
+          "button_label": "Lær mere",
+          "message": "Open Prices: Deltag i vores fællesskabsudfordring ved at **indsamle priser på frosne fødevarer ❄️**",
+          "title": "❄️ Frosne fødevarer-udfordring!"
         },
         "de": {
           "button_label": "Mehr erfahren",
-          "message": "Nehmen Sie an unserem Community-Wochenende am 13. und 14. September 2025 in Paris (Frankreich) teil",
-          "title": "Open Food Facts Tage 2025"
+          "message": "Open Prices: Nehmen Sie an unserer Community-Herausforderung teil, indem Sie **Preise für Tiefkühlkost sammeln ❄️**",
+          "title": "❄️ Tiefkühlkost-Herausforderung!"
         },
         "default": {
           "button_label": "Learn more",
           "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/off/logo.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_challenge/2026_january/frozen.svg",
             "width": 0.2
           },
-          "message": "Join us for our community weekend on the 13-14 September 2025 in Paris (France)",
-          "title": "Open Food Facts Days 2025"
+          "message": "Open Prices: Join our community challenge by **collecting prices of frozen food ❄️**",
+          "title": "❄️ Frozen food challenge!"
         },
         "el": {
           "button_label": "Μάθετε περισσότερα",
-          "message": "Συμμετάσχετε στο κοινοτικό μας Σαββατοκύριακο στις 13-14 Σεπτεμβρίου 2025 στο Παρίσι (Γαλλία)",
-          "title": "Ημέρες Open Food Facts 2025"
+          "message": "Open Prices: Συμμετάσχετε στην πρόκληση της κοινότητάς μας **συλλέγοντας τιμές κατεψυγμένων τροφίμων ❄️**",
+          "title": "❄️ Πρόκληση κατεψυγμένων τροφίμων!"
         },
         "es": {
           "button_label": "Más información",
-          "message": "Únete a nuestro fin de semana comunitario el 13 y 14 de septiembre de 2025 en París (Francia)",
-          "title": "Días de Open Food Facts 2025"
+          "message": "Open Prices: Únete a nuestro desafío comunitario **recopilando precios de alimentos congelados ❄️**",
+          "title": "❄️ ¡Desafío de alimentos congelados!"
         },
         "fa": {
           "button_label": "بیشتر بدانید",
-          "message": "در تعطیلات آخر هفته جامعه ما در ۱۳ و ۱۴ سپتامبر ۲۰۲۵ در پاریس (فرانسه) شرکت کنید",
-          "title": "روزهای Open Food Facts 2025"
+          "message": "Open Prices: با **جمع‌آوری قیمت‌های غذاهای منجمد ❄️** به چالش جامعه ما بپیوندید",
+          "title": "❄️ چالش غذای منجمد!"
+        },
+        "fi": {
+          "button_label": "Lue lisää",
+          "message": "Open Prices: Liity yhteisöhaasteeseen **keräämällä pakastettujen elintarvikkeiden hintoja ❄️**",
+          "title": "❄️ Pakastettujen elintarvikkeiden haaste!"
         },
         "fr": {
           "button_label": "En savoir plus",
-          "message": "Rejoignez-nous pour notre **événement annuel** gratuit les 13 et 14/09 à Paris.",
-          "title": "Journées Open Food Facts 2025",
-          "url": "https://connect.openfoodfacts.org/fr/event/journees-open-food-facts-2025-30/register"
+          "message": "Open Prices : Rejoignez notre défi mensuel en **collectant les prix des produits surgelés ❄️**",
+          "title": "❄️ Défi Produits surgelés !"
+        },
+        "he": {
+          "button_label": "למד עוד",
+          "message": "Open Prices: הצטרף לאתגר הקהילה שלנו על ידי **איסוף מחירים של מזון קפוא ❄️**",
+          "title": "❄️ אתגר מזון קפוא!"
         },
         "hi": {
           "button_label": "और जानें",
-          "message": "13-14 सितंबर 2025 को पेरिस (फ्रांस) में हमारे सामुदायिक सप्ताहांत में शामिल हों",
-          "title": "Open Food Facts दिवस 2025"
+          "message": "Open Prices: **जमे हुए भोजन की कीमतें एकत्र करके ❄️** हमारी समुदाय चुनौती में शामिल हों",
+          "title": "❄️ जमे हुए भोजन की चुनौती!"
+        },
+        "hu": {
+          "button_label": "Tudj meg többet",
+          "message": "Open Prices: Csatlakozzon közösségi kihívásunkhoz **fagyasztott élelmiszerek árainak gyűjtésével ❄️**",
+          "title": "❄️ Fagyasztott élelmiszer kihívás!"
         },
         "id": {
           "button_label": "Pelajari lebih lanjut",
-          "message": "Bergabunglah dengan kami untuk akhir pekan komunitas pada 13-14 September 2025 di Paris (Prancis)",
-          "title": "Hari Open Food Facts 2025"
+          "message": "Open Prices: Bergabunglah dengan tantangan komunitas kami dengan **mengumpulkan harga makanan beku ❄️**",
+          "title": "❄️ Tantangan makanan beku!"
         },
         "it": {
           "button_label": "Scopri di più",
-          "message": "Unisciti a noi per il weekend della community il 13-14 settembre 2025 a Parigi (Francia)",
-          "title": "Giornate Open Food Facts 2025"
+          "message": "Open Prices: Unisciti alla nostra sfida della comunità **raccogliendo i prezzi dei cibi surgelati ❄️**",
+          "title": "❄️ Sfida dei cibi surgelati!"
         },
         "ja": {
-          "button_label": "詳しくはこちら",
-          "message": "2025年9月13日・14日にパリ（フランス）で開催されるコミュニティウィークエンドにご参加ください",
-          "title": "Open Food Factsデイズ2025"
+          "button_label": "詳しく見る",
+          "message": "Open Prices: **冷凍食品の価格を収集して ❄️** コミュニティチャレンジに参加しましょう",
+          "title": "❄️ 冷凍食品チャレンジ！"
         },
         "ko": {
           "button_label": "자세히 알아보기",
-          "message": "2025년 9월 13~14일 프랑스 파리에서 열리는 커뮤니티 주말에 함께하세요",
-          "title": "Open Food Facts 데이 2025"
+          "message": "Open Prices: **냉동 식품 가격을 수집하여 ❄️** 커뮤니티 챌린지에 참여하세요",
+          "title": "❄️ 냉동 식품 챌린지!"
+        },
+        "lt": {
+          "button_label": "Sužinoti daugiau",
+          "message": "Open Prices: Prisijunkite prie mūsų bendruomenės iššūkio **rinkdami šaldytų produktų kainas ❄️**",
+          "title": "❄️ Šaldytų produktų iššūkis!"
         },
         "ms": {
           "button_label": "Ketahui lebih lanjut",
-          "message": "Sertai kami untuk hujung minggu komuniti pada 13-14 September 2025 di Paris (Perancis)",
-          "title": "Hari Open Food Facts 2025"
+          "message": "Open Prices: Sertai cabaran komuniti kami dengan **mengumpul harga makanan beku ❄️**",
+          "title": "❄️ Cabaran makanan beku!"
+        },
+        "nb": {
+          "button_label": "Lær mer",
+          "message": "Open Prices: Bli med på vår fellesskapsutfordring ved å **samle priser på frossenvarer ❄️**",
+          "title": "❄️ Frossenvarer-utfordring!"
         },
         "nl": {
           "button_label": "Meer informatie",
-          "message": "Doe mee aan ons communityweekend op 13 en 14 september 2025 in Parijs (Frankrijk)",
-          "title": "Open Food Facts Dagen 2025"
+          "message": "Open Prices: Doe mee aan onze community-uitdaging door **prijzen van diepvriesproducten te verzamelen ❄️**",
+          "title": "❄️ Diepvriesproducten-uitdaging!"
         },
         "pl": {
           "button_label": "Dowiedz się więcej",
-          "message": "Dołącz do nas na weekend społecznościowy 13-14 września 2025 w Paryżu (Francja)",
-          "title": "Dni Open Food Facts 2025"
+          "message": "Open Prices: Dołącz do naszego wyzwania społeczności, **zbierając ceny mrożonek ❄️**",
+          "title": "❄️ Wyzwanie mrożonek!"
         },
         "pt": {
           "button_label": "Saiba mais",
-          "message": "Junte-se a nós no nosso fim de semana comunitário em 13 e 14 de setembro de 2025 em Paris (França)",
-          "title": "Dias Open Food Facts 2025"
+          "message": "Open Prices: Participe do nosso desafio da comunidade **coletando preços de alimentos congelados ❄️**",
+          "title": "❄️ Desafio de alimentos congelados!"
+        },
+        "ro": {
+          "button_label": "Află mai multe",
+          "message": "Open Prices: Alătură-te provocării comunității noastre **colectând prețuri pentru alimente congelate ❄️**",
+          "title": "❄️ Provocarea alimentelor congelate!"
         },
         "ru": {
           "button_label": "Узнать больше",
-          "message": "Присоединяйтесь к нашему сообществу на выходных 13-14 сентября 2025 года в Париже (Франция)",
-          "title": "Дни Open Food Facts 2025"
+          "message": "Open Prices: Присоединяйтесь к нашему общественному челленджу, **собирая цены на замороженные продукты ❄️**",
+          "title": "❄️ Челлендж замороженных продуктов!"
+        },
+        "sk": {
+          "button_label": "Zistiť viac",
+          "message": "Open Prices: Pripojte sa k našej komunitnej výzve **zbieraním cien mrazených potravín ❄️**",
+          "title": "❄️ Výzva mrazených potravín!"
+        },
+        "sl": {
+          "button_label": "Izvedite več",
+          "message": "Open Prices: Pridružite se našemu izziva skupnosti z **zbiranjem cen zamrznjene hrane ❄️**",
+          "title": "❄️ Izziv zamrznjene hrane!"
         },
         "sv": {
-          "button_label": "Läs mer",
-          "message": "Delta i vår communityhelg den 13-14 september 2025 i Paris (Frankrike)",
-          "title": "Open Food Facts-dagarna 2025"
+          "button_label": "Lär dig mer",
+          "message": "Open Prices: Gå med i vår community-utmaning genom att **samla priser på fryst mat ❄️**",
+          "title": "❄️ Fryst mat-utmaning!"
         },
         "th": {
           "button_label": "เรียนรู้เพิ่มเติม",
-          "message": "เข้าร่วมสุดสัปดาห์ชุมชนของเราวันที่ 13-14 กันยายน 2025 ที่ปารีส (ฝรั่งเศส)",
-          "title": "วัน Open Food Facts 2025"
+          "message": "Open Prices: เข้าร่วมความท้าทายของชุมชนของเราโดย **การรวบรวมราคาอาหารแช่แข็ง ❄️**",
+          "title": "❄️ ความท้าทายอาหารแช่แข็ง!"
         },
         "tr": {
           "button_label": "Daha fazla bilgi",
-          "message": "13-14 Eylül 2025 tarihlerinde Paris'te (Fransa) topluluk hafta sonumuza katılın.",
-          "title": "Open Food Facts Günleri 2025"
+          "message": "Open Prices: **Dondurulmuş gıda fiyatlarını toplayarak ❄️** topluluk meydan okumamuza katılın",
+          "title": "❄️ Dondurulmuş gıda meydan okuması!"
         },
         "uk": {
           "button_label": "Дізнатися більше",
-          "message": "Приєднуйтесь до нашого спільнотного вікенду 13-14 вересня 2025 року в Парижі (Франція)",
-          "title": "Дні Open Food Facts 2025"
+          "message": "Open Prices: Приєднуйтесь до нашого челенджу спільноти, **збираючи ціни на заморожені продукти ❄️**",
+          "title": "❄️ Челендж заморожених продуктів!"
         },
         "vi": {
           "button_label": "Tìm hiểu thêm",
-          "message": "Tham gia cuối tuần cộng đồng của chúng tôi vào ngày 13-14 tháng 9 năm 2025 tại Paris (Pháp)",
-          "title": "Ngày Open Food Facts 2025"
+          "message": "Open Prices: Tham gia thử thách cộng đồng của chúng tôi bằng cách **thu thập giá thực phẩm đông lạnh ❄️**",
+          "title": "❄️ Thử thách thực phẩm đông lạnh!"
         },
         "zh": {
           "button_label": "了解更多",
-          "message": "欢迎于2025年9月13-14日参加我们在法国巴黎的社区周末活动。",
-          "title": "Open Food Facts日 2025"
+          "message": "Open Prices: 通过**收集冷冻食品价格 ❄️** 加入我们的社区挑战",
+          "title": "❄️ 冷冻食品挑战！"
         }
       },
-      "url": "https://connect.openfoodfacts.org/event/open-food-facts-days-2025-30/register"
-    },
-    "prices_summer_campaign": {
-      "end_date": "2025-08-31 23:59:59",
-      "start_date": "2025-07-01 00:00:00",
-      "translations": {
-        "de": {
-          "button_label": "Mehr erfahren",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_default.svg",
-            "width": 0.2
-          },
-          "message": "Tragen Sie zu Open Prices bei, indem Sie **Preise für Sonnencremes 🧴, Eis 🍦 & Sorbets 🍧** sammeln!",
-          "title": "😎 Sommer-Challenge!"
-        },
-        "default": {
-          "button_label": "Learn more",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_en.svg",
-            "width": 0.2
-          },
-          "message": "Open Prices: Join our community challenge by **collecting prices of sunscreen 🧴, ice cream 🍦 & sorbets 🍧**",
-          "title": "😎 Summer challenge!"
-        },
-        "es": {
-          "button_label": "Más información",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_default.svg",
-            "width": 0.2
-          },
-          "message": "Contribuye a Open Prices recopilando **precios de cremas solares 🧴, helados 🍦 y sorbetes 🍧**.",
-          "title": "😎 ¡Desafío de verano!"
-        },
-        "fr": {
-          "button_label": "En savoir plus",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_fr.svg",
-            "width": 0.2
-          },
-          "message": "Contribuez à Open Prices en collectant les **prix des crèmes solaire \uD83E\uDDF4, glaces \uD83C\uDF66 & sorbets \uD83C\uDF67** !",
-          "title": "\uD83D\uDE0E Défi de l'été !"
-        },
-        "it": {
-          "button_label": "Scopri di più",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_default.svg",
-            "width": 0.2
-          },
-          "message": "Contribuisci a Open Prices raccogliendo **i prezzi delle creme solari 🧴, gelati 🍦 e sorbetti 🍧**.",
-          "title": "😎 Sfida estiva!"
-        },
-        "nl": {
-          "button_label": "Meer informatie",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_default.svg",
-            "width": 0.2
-          },
-          "message": "Draag bij aan Open Prices door **prijzen van zonnebrand 🧴, ijs 🍦 & sorbets 🍧** te verzamelen!",
-          "title": "😎 Zomeruitdaging!"
-        },
-        "pt": {
-          "button_label": "Saiba mais",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/prices_default.svg",
-            "width": 0.2
-          },
-          "message": "Contribua para o Open Prices coletando **preços de protetores solares 🧴, sorvetes 🍦 e gelados de fruta 🍧**.",
-          "title": "😎 Desafio de verão!"
-        }
-      },
-      "url": "https://prices.openfoodfacts.org/challenges/3"
-    },
-    "summer_news": {
-      "end_date": "2025-08-15 23:59:59",
-      "start_date": "2025-07-28 00:00:00",
-      "translations": {
-        "de": {
-          "button_label": "Mehr erfahren",
-          "message": "Entdecken Sie, was diesen Sommer bei Open Food Facts passiert!",
-          "title": "☀️ Sommernachrichten!"
-        },
-        "default": {
-          "button_label": "Learn more",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/off/logo.svg",
-            "width": 0.2
-          },
-          "image_dark": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/off/logo.svg",
-            "width": 0.2
-          },
-          "message": "Discover what's happening at Open Food Facts this summer!",
-          "title": "☀️ Summer news!"
-        },
-        "el": {
-          "button_label": "Μάθετε περισσότερα",
-          "message": "Ανακαλύψτε τι συμβαίνει στο Open Food Facts αυτό το καλοκαίρι!",
-          "title": "☀️ Καλοκαιρινά νέα!"
-        },
-        "es": {
-          "button_label": "Más información",
-          "message": "¡Descubre lo que sucede en Open Food Facts este verano!",
-          "title": "☀️ Noticias de verano!"
-        },
-        "fa": {
-          "button_label": "بیشتر بدانید",
-          "message": "کشف کنید که این تابستان در Open Food Facts چه خبر است!",
-          "title": "☀️ اخبار تابستانی!"
-        },
-        "fr": {
-          "button_label": "En savoir plus",
-          "message": "Découvrez ce qui se passe chez Open Food Facts cet été !",
-          "title": "☀️ Notre actu estivale !",
-          "url": "https://blog.openfoodfacts.org/fr/news/nouvelles-estivales-dopen-food-facts"
-        },
-        "hi": {
-          "button_label": "और जानें",
-          "message": "इस गर्मी Open Food Facts में क्या हो रहा है, जानें!",
-          "title": "☀️ गर्मियों की खबरें!"
-        },
-        "id": {
-          "button_label": "Pelajari lebih lanjut",
-          "message": "Temukan apa yang terjadi di Open Food Facts musim panas ini!",
-          "title": "☀️ Berita musim panas!"
-        },
-        "it": {
-          "button_label": "Scopri di più",
-          "message": "Scopri cosa succede su Open Food Facts quest'estate!",
-          "title": "☀️ Novità estive!"
-        },
-        "ja": {
-          "button_label": "詳しくはこちら",
-          "message": "この夏、Open Food Factsで何が起こっているかをチェック！",
-          "title": "☀️ 夏のニュース！"
-        },
-        "ko": {
-          "button_label": "자세히 알아보기",
-          "message": "올여름 Open Food Facts에서 무슨 일이 일어나는지 확인하세요!",
-          "title": "☀️ 여름 소식!"
-        },
-        "ms": {
-          "button_label": "Ketahui lebih lanjut",
-          "message": "Ketahui apa yang berlaku di Open Food Facts musim panas ini!",
-          "title": "☀️ Berita musim panas!"
-        },
-        "nl": {
-          "button_label": "Meer informatie",
-          "message": "Ontdek wat er deze zomer gebeurt bij Open Food Facts!",
-          "title": "☀️ Zomernieuws!"
-        },
-        "pl": {
-          "button_label": "Dowiedz się więcej",
-          "message": "Odkryj, co dzieje się tego lata w Open Food Facts!",
-          "title": "☀️ Letnie nowości!"
-        },
-        "pt": {
-          "button_label": "Saiba mais",
-          "message": "Descubra o que está acontecendo no Open Food Facts neste verão!",
-          "title": "☀️ Novidades de verão!"
-        },
-        "ru": {
-          "button_label": "Узнать больше",
-          "message": "Узнайте, что происходит в Open Food Facts этим летом!",
-          "title": "☀️ Летние новости!"
-        },
-        "sv": {
-          "button_label": "Läs mer",
-          "message": "Upptäck vad som händer på Open Food Facts i sommar!",
-          "title": "☀️ Sommarnyheter!"
-        },
-        "th": {
-          "button_label": "เรียนรู้เพิ่มเติม",
-          "message": "ค้นหาว่าเกิดอะไรขึ้นที่ Open Food Facts ฤดูร้อนนี้!",
-          "title": "☀️ ข่าวฤดูร้อน!"
-        },
-        "tr": {
-          "button_label": "Daha fazla bilgi",
-          "message": "Bu yaz Open Food Facts'ta neler olduğunu keşfedin!",
-          "title": "☀️ Yaz haberleri!"
-        },
-        "uk": {
-          "button_label": "Дізнатися більше",
-          "message": "Дізнайтеся, що відбувається в Open Food Facts цього літа!",
-          "title": "☀️ Літні новини!"
-        },
-        "vi": {
-          "button_label": "Tìm hiểu thêm",
-          "message": "Khám phá những gì đang diễn ra tại Open Food Facts mùa hè này!",
-          "title": "☀️ Tin tức mùa hè!"
-        },
-        "zh": {
-          "button_label": "了解更多",
-          "message": "发现 Open Food Facts 今夏的新动态！",
-          "title": "☀️ 夏季新闻！"
-        }
-      },
-      "url": "https://blog.openfoodfacts.org/en/news/summer-news-from-open-food-facts"
-    },
-    "open_prices_survey_2025": {
-      "end_date": "2025-08-28 23:59:59",
-      "start_date": "2025-01-27 00:00:00",
-      "translations": {
-        "default": {
-          "button_label": "Take Survey",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
-            "width": 0.2
-          },
-          "message": "Share quick feedback and see your impact in Open Prices",
-          "title": "Survey: help improve Open Prices"
-        },
-        "fr": {
-          "button_label": "Répondre au sondage",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/openfoodfacts-design/refs/heads/main/images/logos/openprices/op-logo-vertical-light.svg",
-            "width": 0.2
-          },
-          "message": "Partagez vos commentaires rapides et voyez votre impact sur Open Prices",
-          "title": "Sondage : aidez à améliorer Open Prices"
-        }
-      },
-      "url": "https://forms.gle/vzL5JuaaRo8svy6Y7"
-    },
-    "halloween_challenge_2025": {
-      "end_date": "2025-11-10 23:59:59",
-      "start_date": "2025-10-01 00:00:00",
-      "translations": {
-        "ar": {
-          "button_label": "تعرف على المزيد",
-          "message": "جمع أسعار منتجات طعام الهالوين",
-          "title": "تحدي Open Prices للهالوين"
-        },
-        "bn": {
-          "button_label": "আরও জানুন",
-          "message": "হ্যালোইন খাবার আইটেমের দাম সংগ্রহ করুন",
-          "title": "Open Prices হ্যালোইন চ্যালেঞ্জ"
-        },
-        "de": {
-          "button_label": "Mehr erfahren",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Sammeln Sie Preise von Halloween-Produkten und Lebensmitteln",
-          "title": "Open Prices Halloween-Challenge"
-        },
-        "default": {
-          "button_label": "Learn more",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Collect prices of Halloween products and food items",
-          "title": "Open Prices Halloween Challenge"
-        },
-        "el": {
-          "button_label": "Μάθετε περισσότερα",
-          "message": "Συλλέξτε τιμές προϊόντων φαγητού Halloween",
-          "title": "Πρόκληση Halloween Open Prices"
-        },
-        "es": {
-          "button_label": "Más información",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Recopila precios de productos y artículos de comida de Halloween",
-          "title": "Desafío de Halloween de Open Prices"
-        },
-        "fa": {
-          "button_label": "بیشتر بدانید",
-          "message": "قیمت اقلام غذایی هالووین را جمع‌آوری کنید",
-          "title": "چالش هالووین Open Prices"
-        },
-        "fr": {
-          "button_label": "En savoir plus",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Collectez les prix des produits et aliments d’Halloween",
-          "title": "Défi Halloween d’Open Prices"
-        },
-        "hi": {
-          "button_label": "और जानें",
-          "message": "हैलोवीन खाद्य पदार्थों की कीमतें एकत्र करें",
-          "title": "Open Prices हैलोवीन चुनौती"
-        },
-        "id": {
-          "button_label": "Pelajari lebih lanjut",
-          "message": "Kumpulkan harga item makanan Halloween",
-          "title": "Tantangan Halloween Open Prices"
-        },
-        "it": {
-          "button_label": "Scopri di più",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Raccogli i prezzi dei prodotti e articoli alimentari di Halloween",
-          "title": "Sfida Halloween di Open Prices"
-        },
-        "ja": {
-          "button_label": "詳しくはこちら",
-          "message": "ハロウィン食品の価格を収集しましょう",
-          "title": "Open Prices ハロウィンチャレンジ"
-        },
-        "ko": {
-          "button_label": "자세히 알아보기",
-          "message": "할로윈 음식 품목의 가격을 수집하세요",
-          "title": "Open Prices 할로윈 챌린지"
-        },
-        "ms": {
-          "button_label": "Ketahui lebih lanjut",
-          "message": "Kumpul harga item makanan Halloween",
-          "title": "Cabaran Halloween Open Prices"
-        },
-        "nl": {
-          "button_label": "Meer informatie",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Verzamel prijzen van Halloween-producten en voedselartikelen",
-          "title": "Open Prices Halloween Uitdaging"
-        },
-        "pl": {
-          "button_label": "Dowiedz się więcej",
-          "message": "Zbieraj ceny artykułów spożywczych na Halloween",
-          "title": "Wyzwanie Halloween Open Prices"
-        },
-        "pt": {
-          "button_label": "Saiba mais",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/openprices_campaign/halloween-challenge-lite.svg",
-            "width": 0.2
-          },
-          "message": "Colete preços de produtos e itens alimentares de Halloween",
-          "title": "Desafio de Halloween do Open Prices"
-        },
-        "ru": {
-          "button_label": "Узнать больше",
-          "message": "Собирайте цены на продукты для Хэллоуина",
-          "title": "Хэллоуинский вызов Open Prices"
-        },
-        "sv": {
-          "button_label": "Läs mer",
-          "message": "Samla priser på Halloween-matvaror",
-          "title": "Open Prices Halloween-utmaning"
-        },
-        "th": {
-          "button_label": "เรียนรู้เพิ่มเติม",
-          "message": "เก็บรวบรวมราคาอาหารวันฮาโลวีน",
-          "title": "ความท้าทายฮาโลวีน Open Prices"
-        },
-        "tr": {
-          "button_label": "Daha fazla bilgi",
-          "message": "Halloween yiyecek ürünlerinin fiyatlarını toplayın",
-          "title": "Open Prices Halloween Meydan Okuması"
-        },
-        "uk": {
-          "button_label": "Дізнатися більше",
-          "message": "Збирайте ціни на продукти для Хеллоуїну",
-          "title": "Хеллоуїнський виклик Open Prices"
-        },
-        "vi": {
-          "button_label": "Tìm hiểu thêm",
-          "message": "Thu thập giá các mặt hàng thực phẩm Halloween",
-          "title": "Thử thách Halloween của Open Prices"
-        },
-        "zh": {
-          "button_label": "了解更多",
-          "message": "收集万圣节食品的价格",
-          "title": "Open Prices 万圣节挑战"
-        }
-      },
-      "url": "https://prices.openfoodfacts.org/challenges/7"
-    },
-    "nutriscore_petition_2025": {
-      "end_date": "2025-12-31 23:59:59",
-      "start_date": "2025-11-21 00:00:00",
-      "translations": {
-        "default": {
-          "button_label": "Signer la pétition",
-          "image": {
-            "alt": "Le logo du Nutri-Score",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
-            "width": 0.2
-          },
-          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
-          "title": "Agissez pour le Nutri-Score !"
-        },
-        "fr_FR": {
-          "button_label": "Signer la pétition",
-          "image": {
-            "alt": "Le logo du Nutri-Score",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
-            "width": 0.2
-          },
-          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
-          "title": "Agissez pour le Nutri-Score !"
-        }
-      },
-      "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
-    },
-    "translation_campaign_2025": {
-      "end_date": "2025-12-31 23:59:59",
-      "min_launches": 4,
-      "start_date": "2025-02-01 00:00:00",
-      "translations": {
-        "ar": {
-          "button_label": "انضم إلى فريق المترجمين",
-          "message": "ترجم التطبيق، موقعنا الإلكتروني... لمساعدة الآخرين على اتخاذ قرارات غذائية مستنيرة",
-          "title": "ساعدنا في ترجمة Open Food Facts",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ar"
-        },
-        "bn": {
-          "button_label": "অনুবাদক দলের সাথে যোগ দিন",
-          "message": "অ্যাপ, আমাদের ওয়েবসাইট... অনুবাদ করুন যাতে অন্যরা সচেতন খাদ্য পছন্দ করতে পারে",
-          "title": "Open Food Facts অনুবাদ করতে আমাদের সাহায্য করুন",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/bn"
-        },
-        "de": {
-          "button_label": "Treten Sie dem Übersetzerteam bei",
-          "message": "Übersetzen Sie die App, unsere Website... um anderen zu helfen, fundierte Ernährungsentscheidungen zu treffen",
-          "title": "Helfen Sie uns, Open Food Facts zu übersetzen",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/de"
-        },
-        "default": {
-          "button_label": "Join the translators team",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/translation_campaign_2025/translation_campaign_2025.svg",
-            "width": 0.2
-          },
-          "message": "Translate the app, our website… to help others make informed food choices",
-          "title": "Help us translate Open Food Facts",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en"
-        },
-        "el": {
-          "button_label": "Γίνετε μέλος της ομάδας μεταφραστών",
-          "message": "Μεταφράστε την εφαρμογή, τον ιστότοπό μας... για να βοηθήσετε τους άλλους να κάνουν ενημερωμένες διατροφικές επιλογές",
-          "title": "Βοηθήστε μας να μεταφράσουμε το Open Food Facts",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/el"
-        },
-        "es": {
-          "button_label": "Únete al equipo de traductores",
-          "message": "Traduce la aplicación, nuestro sitio web... para ayudar a otros a tomar decisiones alimentarias informadas",
-          "title": "Ayúdanos a traducir Open Food Facts",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/es"
-        },
-        "fa": {
-          "button_label": "به تیم مترجمین بپیوندید",
-          "message": "برنامه، وب‌سایت و موارد دیگر را ترجمه کنید تا به دیگران در انتخاب آگاهانه مواد غذایی کمک کنید",
-          "title": "شفافیت غذایی را به زبان خود بیاورید",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/fa"
-        },
-        "fr": {
-          "button_label": "Rejoignez l'équipe de traducteurs",
-          "message": "Traduire l'application, notre site web... pour **aider les autres à faire des choix alimentaires éclairés**.",
-          "title": "Aidez-nous à traduire Open Food Facts !",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/fr"
-        },
-        "hi": {
-          "button_label": "अनुवादक टीम में शामिल हों",
-          "message": "ऐप, हमारी वेबसाइट... का अनुवाद करें ताकि दूसरों को सूचित खाद्य विकल्प बनाने में मदद मिल सके",
-          "title": "Open Food Facts का अनुवाद करने में हमारी मदद करें",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/hi"
-        },
-        "id": {
-          "button_label": "Bergabunglah dengan tim penerjemah",
-          "message": "Terjemahkan aplikasi, situs web, dan lainnya untuk membantu orang lain membuat pilihan makanan yang tepat",
-          "title": "Hadirkan transparansi makanan dalam bahasa Anda",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/id"
-        },
-        "it": {
-          "button_label": "Unisciti al team di traduttori",
-          "message": "Traduci l'app, il sito web e altro ancora per aiutare gli altri a fare scelte alimentari informate",
-          "title": "Porta la trasparenza alimentare nella tua lingua",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/it"
-        },
-        "ja": {
-          "button_label": "翻訳チームに参加する",
-          "message": "アプリ、ウェブサイトなどを翻訳して、他の人が情報に基づいた食品の選択をするのを手伝ってください",
-          "title": "食品の透明性をあなたの言語で",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ja"
-        },
-        "ko": {
-          "button_label": "번역 팀에 합류하기",
-          "message": "앱, 웹사이트 등을 번역하여 다른 사람들이 정보에 입각한 식품 선택을 할 수 있도록 돕습니다.",
-          "title": "식품 투명성을 귀하의 언어로 가져오세요",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ko"
-        },
-        "ms": {
-          "button_label": "Sertai pasukan penterjemah",
-          "message": "Terjemahkan aplikasi, laman web dan banyak lagi untuk membantu orang lain membuat pilihan makanan yang bijak",
-          "title": "Bawa ketelusan makanan ke bahasa anda",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ms"
-        },
-        "nl": {
-          "button_label": "Word lid van het vertalersteam",
-          "message": "Vertaal de app, website en meer om anderen te helpen weloverwogen voedselkeuzes te maken",
-          "title": "Breng voedseltransparantie naar uw taal",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/nl"
-        },
-        "pl": {
-          "button_label": "Dołącz do zespołu tłumaczy",
-          "message": "Przetłumacz aplikację, stronę internetową i wiele więcej, aby pomóc innym w podejmowaniu świadomych wyborów żywieniowych",
-          "title": "Przynieś przejrzystość żywności do swojego języka",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/pl"
-        },
-        "pt": {
-          "button_label": "Junte-se à equipe de tradutores",
-          "message": "Traduza o aplicativo, o site e muito mais para ajudar outras pessoas a fazer escolhas alimentares informadas",
-          "title": "Traga transparência alimentar para o seu idioma",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/pt"
-        },
-        "ru": {
-          "button_label": "Присоединиться к команде переводчиков",
-          "message": "Переведите приложение, веб-сайт и многое другое, чтобы помочь другим сделать осознанный выбор продуктов питания",
-          "title": "Обеспечьте прозрачность пищевых продуктов на вашем языке",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/ru"
-        },
-        "sv": {
-          "button_label": "Gå med i översättarteamet",
-          "message": "Översätt appen, webbplatsen och mer för att hjälpa andra att göra välgrundade val av livsmedel",
-          "title": "Ge din språklig insyn i livsmedel",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/sv"
-        },
-        "th": {
-          "button_label": "เข้าร่วมทีมนักแปล",
-          "message": "แปลแอป เว็บไซต์ และอื่นๆ เพื่อช่วยให้ผู้อื่นตัดสินใจเลือกอาหารได้อย่างชาญฉลาด",
-          "title": "นำความโปร่งใสด้านอาหารมาสู่ภาษาของคุณ",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/th"
-        },
-        "tr": {
-          "button_label": "Çevirmenler ekibine katılın",
-          "message": "Uygulamayı, web sitesini ve daha fazlasını çevirerek başkalarının bilinçli gıda seçimleri yapmasına yardımcı olun",
-          "title": "Gıda şeffaflığını dilinize getirin",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/tr"
-        },
-        "uk": {
-          "button_label": "Приєднатися до команди перекладачів",
-          "message": "Перекладіть додаток, веб-сайт та багато іншого, щоб допомогти іншим зробити усвідомлений вибір продуктів харчування",
-          "title": "Зробіть прозорість харчових продуктів доступною вашою мовою",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/uk"
-        },
-        "vi": {
-          "button_label": "Tham gia đội ngũ dịch thuật",
-          "message": "Dịch ứng dụng, trang web và hơn thế nữa để giúp người khác đưa ra lựa chọn thực phẩm sáng suốt",
-          "title": "Mang tính minh bạch về thực phẩm đến ngôn ngữ của bạn",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/vi"
-        },
-        "zh": {
-          "button_label": "加入翻译团队",
-          "message": "翻译应用程序、网站等，帮助他人做出明智的食品选择",
-          "title": "将食品透明度带到您的语言",
-          "url": "https://translate.openfoodfacts.org/project/openfoodfacts/zh"
-        }
-      },
-      "url": "https://translate.openfoodfacts.org/project/openfoodfacts/en"
+      "url": "https://prices.openfoodfacts.org/challenge"
     },
     "donation_campaign_2026": {
       "end_date": "2027-01-31 23:59:59",
@@ -1001,6 +424,33 @@
         }
       },
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+    },
+    "nutriscore_petition_2025": {
+      "end_date": "2026-06-30 23:59:59",
+      "start_date": "2025-11-21 00:00:00",
+      "translations": {
+        "fr": {
+          "button_label": "Signer la pétition",
+          "image": {
+            "alt": "Le logo du Nutri-Score",
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "width": 0.2
+          },
+          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
+          "title": "Agissez pour le Nutri-Score !"
+        },
+        "fr_FR": {
+          "button_label": "Signer la pétition",
+          "image": {
+            "alt": "Le logo du Nutri-Score",
+            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "width": 0.2
+          },
+          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
+          "title": "Agissez pour le Nutri-Score !"
+        }
+      },
+      "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
     }
   },
   "tagline_feed": {
@@ -1008,6 +458,9 @@
       "news": [
         {
           "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1020,25 +473,7 @@
           "id": "donation_campaign_2026"
         },
         {
-          "id": "halloween_challenge_2025"
-        },
-        {
-          "id": "open_prices_survey_2025"
-        },
-        {
-          "id": "prices_summer_campaign"
-        },
-        {
-          "id": "off_days_2025"
-        },
-        {
-          "id": "nutriscore_v2"
-        },
-        {
-          "id": "translation_campaign_2025"
-        },
-        {
-          "id": "summer_news"
+          "id": "openprices_challenge_01_06"
         }
       ]
     }
