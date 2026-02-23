@@ -1,5 +1,82 @@
 {
   "news": {
+    "divinfood_survey_2026": {
+      "start_date": "2026-02-23 00:00:00",
+      "end_date": "2026-06-30 23:59:59",
+      "translations": {
+        "cs": {
+          "button_label": "Zúčastnit se průzkumu",
+          "message": "Pomoz nám podpořit **agrobiodiverzitu** v potravinách jako součást evropského projektu DIVINFOOD!",
+          "title": "🌿 Průzkum DIVINFOOD"
+        },
+        "da": {
+          "button_label": "Svar på undersøgelsen",
+          "message": "Hjælp os med at fremme **agrobiodiversitet** i fødevarer som en del af det europæiske DIVINFOOD-projekt!",
+          "title": "🌿 DIVINFOOD-undersøgelse"
+        },
+        "de": {
+          "button_label": "An Umfrage teilnehmen",
+          "message": "Hilf uns, **Agrobiodiversität** in Lebensmitteln im Rahmen des europäischen Projekts DIVINFOOD zu fördern!",
+          "title": "🌿 DIVINFOOD-Umfrage"
+        },
+        "default": {
+          "button_label": "Answer the survey",
+          "image": {
+            "alt": "DIVINFOOD logo",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/divinfood/divinfood-horizontal.png",
+            "width": 0.4
+          },
+          "message": "Help us promote **agrobiodiversity** in food as part of the European DIVINFOOD project!",
+          "title": "🌿 DIVINFOOD survey"
+        },
+        "el": {
+          "button_label": "Απάντησε στη δημοσκόπηση",
+          "message": "Βοήθησέ μας να προωθήσουμε την **αγρο-βιοποικιλότητα** στα τρόφιμα στο πλαίσιο του ευρωπαϊκού έργου DIVINFOOD!",
+          "title": "🌿 Δημοσκόπηση DIVINFOOD"
+        },
+        "es": {
+          "button_label": "Responder a la encuesta",
+          "message": "¡Ayúdanos a promover la **agrobiodiversidad** en los alimentos como parte del proyecto europeo DIVINFOOD!",
+          "title": "🌿 Encuesta DIVINFOOD"
+        },
+        "fr": {
+          "button_label": "Répondre à l'enquête",
+          "message": "Aidez-nous à promouvoir l'**agrobiodiversité** dans les aliments dans le cadre du projet européen DIVINFOOD !",
+          "title": "🌿 Enquête DIVINFOOD"
+        },
+        "hu": {
+          "button_label": "Válaszoljon a felmérésre",
+          "message": "Segítsen nekünk előmozdítani az **agrobiodiverzitást** az élelmiszerekben az európai DIVINFOOD projekt részeként!",
+          "title": "🌿 DIVINFOOD felmérés"
+        },
+        "it": {
+          "button_label": "Rispondi al sondaggio",
+          "message": "Aiutaci a promuovere l'**agrobiodiversità** negli alimenti nell'ambito del progetto europeo DIVINFOOD!",
+          "title": "🌿 Sondaggio DIVINFOOD"
+        },
+        "pl": {
+          "button_label": "Weź udział w ankiecie",
+          "message": "Pomożesz nam promować **agrobioróżnorodność** w żywności w ramach europejskiego projektu DIVINFOOD!",
+          "title": "🌿 Ankieta DIVINFOOD"
+        },
+        "pt": {
+          "button_label": "Responder à pesquisa",
+          "message": "Ajude-nos a promover a **agrobiodiversidade** nos alimentos como parte do projeto europeu DIVINFOOD!",
+          "title": "🌿 Pesquisa DIVINFOOD"
+        },
+        "ro": {
+          "button_label": "Participă la sondaj",
+          "message": "Ajută-ne să promovăm **agrobiodiversitatea** în alimente în cadrul proiectului european DIVINFOOD!",
+          "title": "🌿 Sondaj DIVINFOOD"
+        },
+        "sv": {
+          "button_label": "Svara på undersökningen",
+          "message": "Hjälp oss att främja **agrobiodiversitet** i mat som en del av det europeiska DIVINFOOD-projektet!",
+          "title": "🌿 DIVINFOOD-undersökning"
+        }
+      },
+      "url": "https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity"
+    },
     "openprices_challenge_01_06": {
       "start_date": "2026-01-15 00:00:00",
       "end_date": "2026-02-14 23:59:59",
@@ -447,6 +524,9 @@
     "default": {
       "news": [
         {
+          "id": "divinfood_survey_2026"
+        },
+        {
           "id": "donation_campaign_2026"
         },
         {
@@ -456,6 +536,9 @@
     },
     "fr_FR": {
       "news": [
+        {
+          "id": "divinfood_survey_2026"
+        },
         {
           "id": "donation_campaign_2026"
         },
