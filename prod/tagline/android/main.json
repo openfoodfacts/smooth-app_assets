@@ -23,7 +23,7 @@
           "button_label": "Answer the survey",
           "image": {
             "alt": "DIVINFOOD logo",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/divinfood/divinfood.svg",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/divinfood/divinfood.png",
             "width": 0.2
           },
           "message": "Help us promote **agrobiodiversity** in food as part of the European DIVINFOOD project!",
