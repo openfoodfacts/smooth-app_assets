@@ -524,9 +524,6 @@
     "default": {
       "news": [
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
         },
         {
@@ -536,9 +533,6 @@
     },
     "fr_FR": {
       "news": [
-        {
-          "id": "divinfood_survey_2026"
-        },
         {
           "id": "donation_campaign_2026"
         },
