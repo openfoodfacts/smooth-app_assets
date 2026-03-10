@@ -1,0 +1,69 @@
+{
+  "promos": {
+    "guides": [
+      {
+        "id": "nutriscore_promo",
+        "type": "web",
+        "priority": 1,
+        "translations": {
+          "default": {
+            "title": "Understanding Nutri-Score",
+            "subtitle": "A simple grade for nutritional quality.",
+            "button_label": "Learn More",
+            "image_url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/promo/nutriscore_promo_en.svg",
+            "target_url": "https://world.openfoodfacts.org/nutriscore"
+          },
+          "fr_FR": {
+            "title": "Comprendre le Nutri-Score",
+            "subtitle": "Une note simple pour la qualité nutritionnelle.",
+            "button_label": "Découvrir",
+            "image_url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/promo/nutriscore_promo_fr.svg",
+            "target_url": "https://fr.openfoodfacts.org/nutri-score"
+          }
+        }
+      },
+      {
+        "id": "ecoscore_promo",
+        "type": "native",
+        "priority": 2,
+        "translations": {
+          "default": {
+            "title": "Discover the Eco-Score",
+            "subtitle": "The environmental impact of your food.",
+            "button_label": "Read Guide",
+            "image_url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/promo/ecoscore_promo_en.svg",
+            "target_id": "ecoscore_guide"
+          },
+          "fr_FR": {
+            "title": "Découvrez l'Éco-Score",
+            "subtitle": "L'impact environnemental de vos aliments.",
+            "button_label": "Lire le guide",
+            "image_url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/promo/ecoscore_promo_fr.svg",
+            "target_id": "ecoscore_guide"
+          }
+        }
+      },
+      {
+        "id": "nova_promo",
+        "type": "web",
+        "priority": 3,
+        "translations": {
+          "default": {
+            "title": "NOVA Food Groups",
+            "subtitle": "Learn about food processing levels.",
+            "button_label": "Explore",
+            "image_url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/promo/nova_promo_en.svg",
+            "target_url": "https://world.openfoodfacts.org/nova"
+          },
+          "fr_FR": {
+            "title": "Groupes d'aliments NOVA",
+            "subtitle": "Apprenez-en plus sur la transformation des aliments.",
+            "button_label": "Explorer",
+            "image_url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/promo/nova_promo_fr.svg",
+            "target_url": "https://fr.openfoodfacts.org/nova"
+          }
+        }
+      }
+    ]
+  }
+}
