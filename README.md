@@ -1,6 +1,6 @@
 This repository contains various assets needed by the mobile app and web applications, including:
 * Tagline JSON files
-* Images called by the tagline JSON files
+* Images called by the tagline JSON files (can now be small optimized SVGs or PNGs as of 2025)
 * Potentially more in the future
 
 ### Tagline 
