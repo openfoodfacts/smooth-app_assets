@@ -75,7 +75,7 @@ Example campaign structure:
 - Run: `jsonlint 'prod/tagline/ios/main.json'`
 - **Both commands must succeed** - any JSON syntax error breaks the mobile app
 - Validation is very fast (~0.13 seconds per file)
-- CI workflow automatically validates JSON files on push
+- CI workflow automatically validates these two tagline JSON files on push when they are modified
 - **Expected warning**: `npm warn deprecated nomnom@1.8.1` during jsonlint installation - this is normal and can be ignored
 
 ### Testing Changes in Mobile App
