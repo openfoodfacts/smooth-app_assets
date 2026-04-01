@@ -1,6 +1,6 @@
 # Open Food Facts Mobile App Assets
 
-**Always reference these instructions first and only fallback to search or bash commands when you encounter unexpected information that does not match the info here.**
+**Use these instructions as your starting point, but always verify commands, versions, and timing information directly in the environment (for example with search or bash commands), especially when making changes or when accuracy is important.**
 
 This repository contains static assets for the Open Food Facts mobile application, including JSON configuration files for in-app announcements/taglines and associated image assets. The repository serves both Android and iOS versions of the mobile app.
 
