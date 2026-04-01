@@ -120,8 +120,8 @@ prod/
 ```
 
 #### Main JSON Files Are Large
-- `prod/tagline/android/main.json` - 586 lines with multiple campaigns and translations
-- `prod/tagline/ios/main.json` - 586 lines, identical content structure to Android
+- `prod/tagline/android/main.json` - large JSON file with multiple campaigns and translations
+- `prod/tagline/ios/main.json` - large JSON file with content structure identical to Android
 
 #### Available Asset Folders
 ```bash
