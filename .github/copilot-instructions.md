@@ -7,11 +7,11 @@ This repository contains static assets for the Open Food Facts mobile applicatio
 ## Working Effectively
 
 ### Repository Setup and Validation
-- Install Node.js (any version 14+ works, current system has 20.19.4)
-- Install JSON validator: `npm install -g jsonlint` -- takes ~0.5 seconds, shows deprecation warning (normal)
-- Validate Android JSON: `jsonlint 'prod/tagline/android/main.json'` -- takes ~0.13 seconds
-- Validate iOS JSON: `jsonlint 'prod/tagline/ios/main.json'` -- takes ~0.13 seconds
-- **Complete validation workflow**: `jsonlint 'prod/tagline/android/main.json' && jsonlint 'prod/tagline/ios/main.json'` -- takes ~0.25 seconds total
+- Install Node.js (any version 14+ works; an active LTS release is recommended)
+- Install JSON validator: `npm install -g jsonlint` (typically installs quickly and may show a deprecation warning; this is normal)
+- Validate Android JSON: `jsonlint 'prod/tagline/android/main.json'` (this check is typically fast)
+- Validate iOS JSON: `jsonlint 'prod/tagline/ios/main.json'` (this check is typically fast)
+- **Complete validation workflow**: `jsonlint 'prod/tagline/android/main.json' && jsonlint 'prod/tagline/ios/main.json'` (usually completes quickly on modern hardware)
 
 ### Key Repository Structure
 ```
