@@ -172,10 +172,10 @@ iOS JSON valid
 - **Must pass validation** before merge is allowed
 
 ### Performance Expectations
-- **JSON validation**: ~0.13 seconds per file, ~0.25 seconds for both files
-- **Installation time**: ~0.5 seconds for jsonlint (shows deprecation warning - this is normal)
-- **No long-running operations** in this repository
-- **No timeout concerns** - all operations complete in under 1 second
+- **JSON validation**: ~0.13 seconds per file, ~0.25 seconds for both files (on a typical development machine)
+- **Installation time**: ~0.5 seconds for jsonlint (shows deprecation warning - this is normal, measured on a typical development machine)
+- **No long-running operations** are expected in this repository
+- **No expected timeout concerns** - operations typically complete in under 1 second in our reference environment, but actual times may vary by machine and network
 
 ## Emergency Troubleshooting
 
