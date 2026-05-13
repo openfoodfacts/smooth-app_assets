@@ -269,233 +269,214 @@
       "start_date": "2025-10-25 00:00:00",
       "translations": {
         "ar": {
-          "button_label": "أدعم",
-          "message": "ساعدنا في إبلاغ **ملايين المستهلكين** بما يأكلونه!",
-          "title": "تطبيقنا يحتاجك!",
-          "url": "https://world-ar.openfoodfacts.org/donate-to-open-food-facts-ar?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "تبرع الآن",
+          "message": "Open Food Facts **مجاني ومستقل** بفضل دعمكم. ساعدونا في إبلاغ **ملايين المستهلكين** بما يأكلونه!",
+          "title": "🙏 Open Food Facts يحتاجك!"
         },
         "bg": {
-          "button_label": "Поддръжка",
-          "message": "Помогнете ни да информираме **милиони потребители** какво ядат!",
-          "title": "Нашето приложение се нуждае от вас!",
-          "url": "https://world-bg.openfoodfacts.org/даряване-на-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Дарете сега",
+          "message": "Open Food Facts е **безплатен и независим** благодарение на вашата подкрепа. Помогнете ни да информираме **милиони потребители** какво ядат!",
+          "title": "🙏 Open Food Facts се нуждае от вас!"
         },
         "bn": {
-          "button_label": "সমর্থন",
-          "message": "আমাদের **লক্ষ লক্ষ ভোক্তাদের** তাদের খাবার সম্পর্কে জানাতে সাহায্য করুন!",
-          "title": "আমাদের অ্যাপ্লিকেশন আপনার প্রয়োজন!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "এখন দান করুন",
+          "message": "আপনার সমর্থনের জন্য Open Food Facts **বিনামূল্যে এবং স্বাধীন**। আমাদের **লক্ষ লক্ষ ভোক্তাদের** তাদের খাবার সম্পর্কে জানাতে সাহায্য করুন!",
+          "title": "🙏 Open Food Facts আপনার প্রয়োজন!"
         },
         "ca": {
-          "button_label": "Suport",
-          "message": "Ajuda'ns a informar **milions de consumidors** sobre el que mengen!",
-          "title": "La nostra aplicació et necessita!",
-          "url": "https://world-ca.openfoodfacts.org/dona-a-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Dona ara",
+          "message": "Open Food Facts és **gratuït i independent** gràcies al vostre suport. Ajudeu-nos a informar **milions de consumidors** sobre el que mengen!",
+          "title": "🙏 Open Food Facts et necessita!"
         },
         "cs": {
-          "button_label": "Podpora",
-          "message": "Pomozte nám informovat **miliony spotřebitelů** o tom, co jedí!",
-          "title": "Naše aplikace vás potřebuje!",
-          "url": "https://world-cs.openfoodfacts.org/darujte-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Darujte nyní",
+          "message": "Open Food Facts je **zdarma a nezávislý** díky vaší podpoře. Pomozte nám informovat **miliony spotřebitelů** o tom, co jedí!",
+          "title": "🙏 Open Food Facts vás potřebuje!"
         },
         "da": {
-          "button_label": "Support",
-          "message": "Hjælp os med at informere **millioner af forbrugere** om, hvad de spiser!",
-          "title": "Vores ansøgning har brug for dig!",
-          "url": "https://world-da.openfoodfacts.org/doner-til-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Donér nu",
+          "message": "Open Food Facts er **gratis og uafhængig** takket være din støtte. Hjælp os med at informere **millioner af forbrugere** om, hvad de spiser!",
+          "title": "🙏 Open Food Facts har brug for dig!"
         },
         "de": {
-          "button_label": "Unterstützen",
-          "message": "Helfen Sie uns, **Millionen von Verbrauchern** darüber zu informieren, was sie essen!",
-          "title": "Unsere Anwendung braucht Sie!",
-          "url": "https://world-de.openfoodfacts.org/spenden?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Jetzt spenden",
+          "message": "Open Food Facts ist **kostenlos und unabhängig** dank Ihrer Unterstützung. Helfen Sie uns, **Millionen von Verbrauchern** darüber zu informieren, was sie essen!",
+          "title": "🙏 Open Food Facts braucht Sie!"
         },
         "default": {
-          "button_label": "Support",
+          "button_label": "Donate now",
           "image": {
             "alt": "Support the Open Food Facts project",
             "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png",
             "width": 0.2
           },
-          "message": "Help us inform **millions of consumers** on what they eat!",
-          "title": "Our application needs you!",
+          "message": "Open Food Facts is **free and independent** thanks to your support. Help us inform **millions of consumers** on what they eat!",
+          "title": "🙏 Open Food Facts needs you!",
           "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
         },
         "el": {
-          "button_label": "Υποστηρίζω",
-          "message": "Βοηθήστε μας να ενημερώσουμε **εκατομμύρια καταναλωτές** για το τι τρώνε!",
-          "title": "Η εφαρμογή μας σας χρειάζεται!",
-          "url": "https://world-el.openfoodfacts.org/dorea-se-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Δωρίστε τώρα",
+          "message": "Το Open Food Facts είναι **δωρεάν και ανεξάρτητο** χάρη στη στήριξή σας. Βοηθήστε μας να ενημερώσουμε **εκατομμύρια καταναλωτές** για το τι τρώνε!",
+          "title": "🙏 Το Open Food Facts σας χρειάζεται!"
         },
         "es": {
-          "button_label": "Apoyar",
-          "message": "¡Ayúdanos a informar a **millones de consumidores** sobre lo que comen!",
-          "title": "¡Nuestra aplicación te necesita!",
-          "url": "https://world-es.openfoodfacts.org/haz-su-donacion-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Donar ahora",
+          "message": "¡Open Food Facts es **gratuito e independiente** gracias a tu apoyo. Ayúdanos a informar a **millones de consumidores** sobre lo que comen!",
+          "title": "🙏 ¡Open Food Facts te necesita!"
         },
         "fa": {
-          "button_label": "حمایت",
-          "message": "به ما کمک کنید تا **میلیون‌ها مصرف‌کننده** را در مورد آنچه می‌خورند مطلع کنیم!",
-          "title": "برنامه ما به شما نیاز دارد!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "اکنون کمک مالی کنید",
+          "message": "Open Food Facts با کمک شما **رایگان و مستقل** است. به ما کمک کنید تا **میلیون‌ها مصرف‌کننده** را در مورد آنچه می‌خورند مطلع کنیم!",
+          "title": "🙏 Open Food Facts به شما نیاز دارد!"
         },
         "fi": {
-          "button_label": "Tuki",
-          "message": "Auta meitä kertomaan **miljoonille kuluttajille** siitä, mitä he syövät!",
-          "title": "Sovelluksemme tarvitsee sinua!",
-          "url": "https://world-fi.openfoodfacts.org/lahjoita-open-food-factsille?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Lahjoita nyt",
+          "message": "Open Food Facts on **ilmainen ja riippumaton** tukesi ansiosta. Auta meitä kertomaan **miljoonille kuluttajille** siitä, mitä he syövät!",
+          "title": "🙏 Open Food Facts tarvitsee sinua!"
         },
         "fr": {
-          "button_label": "Je soutiens",
-          "image": {
-            "alt": "Soutenir le projet Open Food Facts",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/donation_campaign/donate-heart.png",
-            "width": 0.2
-          },
-          "message": "Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
-          "title": "Notre application a besoin de vous !",
-          "url": "https://world-fr.openfoodfacts.org/donner-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Faire un don maintenant",
+          "message": "Open Food Facts est **gratuit et indépendant** grâce à votre soutien. Aidez-nous à informer **des millions de consommateurs** sur ce qu'ils mangent !",
+          "title": "🙏 Open Food Facts a besoin de vous !"
         },
         "he": {
-          "button_label": "תמיכה",
-          "message": "עזור לנו ליידע **מיליוני צרכנים** מה הם אוכלים!",
-          "title": "האפליקציה שלנו צריכה אותך!",
-          "url": "https://world-he.openfoodfacts.org/donate-to-open-food-facts-he?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "תרמו עכשיו",
+          "message": "Open Food Facts הוא **חינמי ועצמאי** הודות לתמיכתכם. עזרו לנו ליידע **מיליוני צרכנים** מה הם אוכלים!",
+          "title": "🙏 Open Food Facts צריך אותך!"
         },
         "hi": {
-          "button_label": "समर्थन",
-          "message": "हमें **लाखों उपभोक्ताओं** को उनके खाने के बारे में सूचित करने में मदद करें!",
-          "title": "हमारे ऐप को आपकी जरूरत है!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "अभी दान करें",
+          "message": "Open Food Facts आपके समर्थन की बदौलत **मुफ़्त और स्वतंत्र** है। हमें **लाखों उपभोक्ताओं** को उनके खाने के बारे में सूचित करने में मदद करें!",
+          "title": "🙏 Open Food Facts को आपकी जरूरत है!"
         },
         "hu": {
-          "button_label": "Támogatás",
-          "message": "Segítsen bennünket, hogy **fogyasztók millióit** tájékoztassuk arról, hogy mit esznek!",
-          "title": "Alkalmazásunknak szüksége van Önre!",
-          "url": "https://world-hu.openfoodfacts.org/donate-to-open-food-facts-hu?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Adományozzon most",
+          "message": "Az Open Food Facts **ingyenes és független** az Ön támogatásának köszönhetően. Segítsen bennünket, hogy **fogyasztók millióit** tájékoztassuk arról, hogy mit esznek!",
+          "title": "🙏 Az Open Food Facts-nek szüksége van Önre!"
         },
         "id": {
-          "button_label": "Dukung",
-          "message": "Bantu kami memberi tahu **jutaan konsumen** tentang apa yang mereka makan!",
-          "title": "Aplikasi kami membutuhkan Anda!",
-          "url": "https://world-id.openfoodfacts.org/donate-to-open-food-facts-id?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Donasikan sekarang",
+          "message": "Open Food Facts **gratis dan independen** berkat dukungan Anda. Bantu kami memberi tahu **jutaan konsumen** tentang apa yang mereka makan!",
+          "title": "🙏 Open Food Facts membutuhkan Anda!"
         },
         "it": {
-          "button_label": "Sostieni",
-          "message": "Aiutaci a informare **milioni di consumatori** su ciò che mangiano!",
-          "title": "La nostra applicazione ha bisogno di te!",
-          "url": "https://world-it.openfoodfacts.org/dona-a-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Dona ora",
+          "message": "Open Food Facts è **gratuito e indipendente** grazie al tuo supporto. Aiutaci a informare **milioni di consumatori** su ciò che mangiano!",
+          "title": "🙏 Open Food Facts ha bisogno di te!"
         },
         "ja": {
-          "button_label": "サポート",
-          "message": "何を食べているかについて**何百万人もの消費者**に知らせるのを手伝ってください！",
-          "title": "私たちのアプリケーションはあなたを必要としています！",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ja?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "今すぐ寄付する",
+          "message": "あなたのサポートのおかげで、Open Food Factsは**無料で独立**しています。何を食べているかについて**何百万人もの消費者**に知らせるのを手伝ってください！",
+          "title": "🙏 Open Food Factsはあなたを必要としています！"
         },
         "ko": {
-          "button_label": "지원",
-          "message": "**수백만 소비자**에게 그들이 먹는 것에 대해 알리는 데 도움을 주세요!",
-          "title": "우리 애플리케이션이 당신을 필요로 합니다!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ko?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "지금 기부하기",
+          "message": "Open Food Facts는 여러분의 지원 덕분에 **무료이며 독립적**입니다. **수백만 소비자**에게 그들이 먹는 것에 대해 알리는 데 도움을 주세요!",
+          "title": "🙏 Open Food Facts가 당신을 필요로 합니다!"
         },
         "lt": {
-          "button_label": "Palaikymas",
-          "message": "Padėkite mums informuoti **milijonus vartotojų** apie tai, ką jie valgo!",
-          "title": "Mūsų programai reikia jūsų!",
-          "url": "https://world-lt.openfoodfacts.org/donate-to-open-food-facts-lt?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Paaukokite dabar",
+          "message": "Open Food Facts yra **nemokama ir nepriklausoma** jūsų paramos dėka. Padėkite mums informuoti **milijonus vartotojų** apie tai, ką jie valgo!",
+          "title": "🙏 Open Food Facts reikia jūsų!"
         },
         "ms": {
-          "button_label": "Sokong",
-          "message": "Bantu kami memaklumkan **jutaan pengguna** tentang apa yang mereka makan!",
-          "title": "Aplikasi kami memerlukan anda!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-ms?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Derma sekarang",
+          "message": "Open Food Facts adalah **percuma dan bebas** berkat sokongan anda. Bantu kami memaklumkan **jutaan pengguna** tentang apa yang mereka makan!",
+          "title": "🙏 Open Food Facts memerlukan anda!"
         },
         "nb": {
-          "button_label": "Støtte",
-          "message": "Hjelp oss å informere **millioner av forbrukere** om hva de spiser!",
-          "title": "Vår applikasjon trenger deg!",
-          "url": "https://world-nb.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Donér nå",
+          "message": "Open Food Facts er **gratis og uavhengig** takket være din støtte. Hjelp oss å informere **millioner av forbrukere** om hva de spiser!",
+          "title": "🙏 Open Food Facts trenger deg!"
         },
         "nl": {
-          "button_label": "Ondersteunen",
-          "message": "Help ons om **miljoenen consumenten** te informeren over wat ze eten!",
-          "title": "Onze applicatie heeft u nodig!",
-          "url": "https://world-nl.openfoodfacts.org/doneren-aan-openfoodfacts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Doneer nu",
+          "message": "Open Food Facts is **gratis en onafhankelijk** dankzij uw steun. Help ons om **miljoenen consumenten** te informeren over wat ze eten!",
+          "title": "🙏 Open Food Facts heeft u nodig!"
         },
         "pl": {
-          "button_label": "Wspieram",
-          "message": "Pomóż nam informować **miliony konsumentów** o tym, co jedzą!",
-          "title": "Nasza aplikacja potrzebuje Ciebie!",
-          "url": "https://world-pl.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Przekaż darowiznę teraz",
+          "message": "Open Food Facts jest **bezpłatny i niezależny** dzięki Twojemu wsparciu. Pomóż nam informować **miliony konsumentów** o tym, co jedzą!",
+          "title": "🙏 Open Food Facts potrzebuje Ciebie!"
         },
         "pt": {
-          "button_label": "Apoiar",
-          "message": "Ajude-nos a informar **milhões de consumidores** sobre o que eles comem!",
-          "title": "Nosso aplicativo precisa de você!",
-          "url": "https://world-pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Doe agora",
+          "message": "O Open Food Facts é **gratuito e independente** graças ao seu apoio. Ajude-nos a informar **milhões de consumidores** sobre o que comem!",
+          "title": "🙏 O Open Food Facts precisa de você!"
         },
         "ro": {
-          "button_label": "Suport",
-          "message": "Ajută-ne să informăm **milioane de consumatori** despre ce mănâncă!",
-          "title": "Aplicația noastră are nevoie de tine!",
-          "url": "https://world-ro.openfoodfacts.org/donate-to-open-food-facts-ro?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Donați acum",
+          "message": "Open Food Facts este **gratuit și independent** datorită sprijinului dvs. Ajutați-ne să informăm **milioane de consumatori** despre ce mănâncă!",
+          "title": "🙏 Open Food Facts are nevoie de tine!"
         },
         "ru": {
-          "button_label": "Поддержать",
-          "message": "Помогите нам информировать **миллионы потребителей** о том, что они едят!",
-          "title": "Наше приложение нуждается в вас!",
-          "url": "https://ru.openfoodfacts.org/pozhertvovat-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Пожертвовать сейчас",
+          "message": "Open Food Facts **бесплатен и независим** благодаря вашей поддержке. Помогите нам информировать **миллионы потребителей** о том, что они едят!",
+          "title": "🙏 Open Food Facts нуждается в вас!"
         },
         "sk": {
-          "button_label": "Podpora",
-          "message": "Pomôžte nám informovať **milióny spotrebiteľov** o tom, čo jedia!",
-          "title": "Naša aplikácia vás potrebuje!",
-          "url": "https://world-sk.openfoodfacts.org/donate-to-open-food-facts-sk?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Darujte teraz",
+          "message": "Open Food Facts je **zadarmo a nezávislý** vďaka vašej podpore. Pomôžte nám informovať **milióny spotrebiteľov** o tom, čo jedia!",
+          "title": "🙏 Open Food Facts vás potrebuje!"
         },
         "sl": {
-          "button_label": "Podpora",
-          "message": "Pomagajte nam obveščati **milijone potrošnikov** o tem, kaj jedo!",
-          "title": "Naša aplikacija vas potrebuje!",
-          "url": "https://world-sl.openfoodfacts.org/doniraj-k-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Donirajte zdaj",
+          "message": "Open Food Facts je **brezplačen in neodvisen** zahvaljujoč vaši podpori. Pomagajte nam obveščati **milijone potrošnikov** o tem, kaj jedo!",
+          "title": "🙏 Open Food Facts vas potrebuje!"
         },
         "sv": {
-          "button_label": "Stöd",
-          "message": "Hjälp oss att informera **miljontals konsumenter** om vad de äter!",
-          "title": "Vår applikation behöver dig!",
-          "url": "https://world-sv.openfoodfacts.org/donate-to-open-food-facts-sv?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Donera nu",
+          "message": "Open Food Facts är **gratis och oberoende** tack vare ditt stöd. Hjälp oss att informera **miljontals konsumenter** om vad de äter!",
+          "title": "🙏 Open Food Facts behöver dig!"
         },
         "th": {
-          "button_label": "สนับสนุน",
-          "message": "ช่วยเราบอก **ผู้บริโภคหลายล้านคน** ว่าพวกเขากินอะไร!",
-          "title": "แอปพลิเคชันของเราต้องการคุณ!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-th?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "บริจาคตอนนี้",
+          "message": "Open Food Facts **ฟรีและเป็นอิสระ** ต้องขอบคุณการสนับสนุนของคุณ ช่วยเราบอก **ผู้บริโภคหลายล้านคน** ว่าพวกเขากินอะไร!",
+          "title": "🙏 Open Food Facts ต้องการคุณ!"
         },
         "tr": {
-          "button_label": "Destek",
-          "message": "**Milyonlarca tüketiciyi** ne yedikleri konusunda bilgilendirmemize yardımcı olun!",
-          "title": "Uygulamamızın size ihtiyacı var!",
-          "url": "https://world-tr.openfoodfacts.org/open-food-factse-bagista-bulununs?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Şimdi bağış yapın",
+          "message": "Open Food Facts, desteğiniz sayesinde **ücretsiz ve bağımsızdır**. **Milyonlarca tüketiciyi** ne yedikleri konusunda bilgilendirmemize yardımcı olun!",
+          "title": "🙏 Open Food Facts'ın size ihtiyacı var!"
         },
         "uk": {
-          "button_label": "Підтримати",
-          "message": "Допоможіть нам інформувати **мільйони споживачів** про те, що вони їдять!",
-          "title": "Наш додаток потребує вас!",
-          "url": "https://world-uk.openfoodfacts.org/donate-to-open-food-facts-ua?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Пожертвуйте зараз",
+          "message": "Open Food Facts є **безкоштовним і незалежним** завдяки вашій підтримці. Допоможіть нам інформувати **мільйони споживачів** про те, що вони їдять!",
+          "title": "🙏 Open Food Facts потребує вас!"
         },
         "vi": {
-          "button_label": "Hỗ trợ",
-          "message": "Giúp chúng tôi thông báo cho **hàng triệu người tiêu dùng** về những gì họ ăn!",
-          "title": "Ứng dụng của chúng tôi cần bạn!",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts-vi?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "Quyên góp ngay",
+          "message": "Open Food Facts **miễn phí và độc lập** nhờ sự hỗ trợ của bạn. Giúp chúng tôi thông báo cho **hàng triệu người tiêu dùng** về những gì họ ăn!",
+          "title": "🙏 Open Food Facts cần bạn!"
         },
         "zh": {
-          "button_label": "支持",
-          "message": "帮助我们告知**数百万消费者**他们吃的是什么！",
-          "title": "我们的应用程序需要你！",
-          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+          "button_label": "立即捐款",
+          "message": "感谢您的支持，Open Food Facts**免费且独立**。帮助我们告知**数百万消费者**他们吃的是什么！",
+          "title": "🙏 Open Food Facts需要您！"
+        },
+        "hr": {
+          "button_label": "Donirajte sada",
+          "message": "Open Food Facts je **besplatan i neovisan** zahvaljujući vašoj podršci. Pomozite nam informirati **milijune potrošača** o tome što jedu!",
+          "title": "🙏 Open Food Facts treba vas!"
+        },
+        "lv": {
+          "button_label": "Ziedojiet tagad",
+          "message": "Open Food Facts ir **bezmaksas un neatkarīgs** pateicoties jūsu atbalstam. Palīdziet mums informēt **miljonus patērētāju** par to, ko viņi ēd!",
+          "title": "🙏 Open Food Facts vajadzīgs jūsu atbalsts!"
+        },
+        "sr": {
+          "button_label": "Донирајте сада",
+          "message": "Open Food Facts је **бесплатан и независан** захваљујући вашој подршци. Помозите нам да информишемо **милионе потрошача** о томе штаједу!",
+          "title": "🙏 Open Food Facts вам је потребна ваша помоћ!"
         }
       },
-      "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+      "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026",
+      "style": {
+        "title_background": "#E55B2D",
+        "title_text_color": "#FFFFFF",
+        "button_background": "#E55B2D",
+        "button_text_color": "#FFFFFF"
+      }
     },
     "nutriscore_petition_2025": {
       "end_date": "2026-06-30 23:59:59",
@@ -519,9 +500,6 @@
     "default": {
       "news": [
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
         },
         {
@@ -532,13 +510,7 @@
     "fr_FR": {
       "news": [
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "nutriscore_petition_2025"
         },
         {
           "id": "openprices_challenge_01_06"
