@@ -493,6 +493,102 @@
           "message": "帮助我们告知**数百万消费者**他们吃的是什么！",
           "title": "我们的应用程序需要你！",
           "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "az": {
+          "button_label": "Dəstək ol",
+          "message": "**Milyonlarla istehlakçını** yedikləri barədə məlumatlandırmağımıza kömək edin!",
+          "title": "Tətbiqimizin sizə ehtiyacı var!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "eo": {
+          "button_label": "Subteni",
+          "message": "Helpu nin informi **milionojn da konsumantoj** pri tio, kion ili manĝas!",
+          "title": "Nia aplikaĵo bezonas vin!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "et": {
+          "button_label": "Toeta",
+          "message": "Aita meil teavitada **miljoneid tarbijaid** sellest, mida nad söövad!",
+          "title": "Meie rakendus vajab sind!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "eu": {
+          "button_label": "Lagundu",
+          "message": "Lagun iezaguzu **milioika kontsumitzaileri** jaten dutena azaltzen!",
+          "title": "Gure aplikazioak zu behar zaitu!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "gl": {
+          "button_label": "Apoiar",
+          "message": "Axúdanos a informar a **millóns de persoas consumidoras** sobre o que comen!",
+          "title": "A nosa aplicación necesítate!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "hr": {
+          "button_label": "Podrži",
+          "message": "Pomozite nam informirati **milijune potrošača** o tome što jedu!",
+          "title": "Naša aplikacija vas treba!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "is": {
+          "button_label": "Styðja",
+          "message": "Hjálpaðu okkur að upplýsa **milljónir neytenda** um hvað þau borða!",
+          "title": "Forritið okkar þarfnast þín!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "ka": {
+          "button_label": "მხარდაჭერა",
+          "message": "დაგვეხმარეთ, რომ **მილიონობით მომხმარებელი** უკეთ გავარკვიოთ, რას ჭამენ!",
+          "title": "ჩვენს აპლიკაციას თქვენ სჭირდებით!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "kk": {
+          "button_label": "Қолдау",
+          "message": "Бізге **миллиондаған тұтынушыларға** не жейтінін түсіндіруге көмектесіңіз!",
+          "title": "Біздің қосымшаға сіз керек!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "lv": {
+          "button_label": "Atbalstīt",
+          "message": "Palīdziet mums informēt **miljoniem patērētāju** par to, ko viņi ēd!",
+          "title": "Mūsu lietotnei jūs esat vajadzīgs!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "mk": {
+          "button_label": "Поддржи",
+          "message": "Помогнете ни да информираме **милиони потрошувачи** за тоа што јадат!",
+          "title": "На нашата апликација ѝ требате!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "mt": {
+          "button_label": "Appoġġa",
+          "message": "Għinna ninfurmaw **miljuni ta' konsumaturi** dwar x'qed jieklu!",
+          "title": "L-applikazzjoni tagħna teħtieġek!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "sr": {
+          "button_label": "Podrži",
+          "message": "Pomozite nam da informišemo **milione potrošača** o tome šta jedu!",
+          "title": "Naša aplikacija vas treba!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "ta": {
+          "button_label": "ஆதரிக்கவும்",
+          "message": "அவர்கள் என்ன சாப்பிடுகிறார்கள் என்பதை **மில்லியன் கணக்கான நுகர்வோருக்கு** தெரியப்படுத்த எங்களுக்கு உதவுங்கள்!",
+          "title": "எங்கள் பயன்பாட்டிற்கு நீங்கள் தேவை!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "te": {
+          "button_label": "మద్దతు ఇవ్వండి",
+          "message": "**మిలియన్ల వినియోగదారులు** ఏమి తింటున్నారో వారికి తెలియజేయడంలో మాకు సహాయపడండి!",
+          "title": "మా యాప్‌కు మీరు అవసరం!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
+        },
+        "ur": {
+          "button_label": "حمایت کریں",
+          "message": "**لاکھوں صارفین** کو یہ بتانے میں ہماری مدد کریں کہ وہ کیا کھاتے ہیں!",
+          "title": "ہماری ایپ کو آپ کی ضرورت ہے!",
+          "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
         }
       },
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
