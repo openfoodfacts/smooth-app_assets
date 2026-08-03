@@ -1,0 +1,59 @@
+name: Update campaign figures
+
+# Reads the live donation figures off the campaign page and commits them into
+# the tagline JSON files, so the app's donation card can show a number that
+# moves instead of only an adjective.
+#
+# The app caches the tagline feed for a day, so daily is as fresh as it can
+# usefully be. Running more often would only add requests for a total that
+# moves by a few euros a day.
+#
+# Safe to merge before anything reads the fields: apps ignore JSON keys they do
+# not know, and the script refuses to write anything that fails its checks, so
+# the worst case is that the figures stay as they were.
+
+on:
+  schedule:
+    # 06:17 UTC daily. GitHub treats cron as best effort and can run it late.
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-campaign-figures
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Read the campaign figures and update the tagline files
+        run: python tools/update_campaign_figures.py
+
+      - name: Validate tagline JSON files
+        run: python tests/validate_tagline_json.py
+
+      - name: Commit the new figures, if any changed
+        run: |
+          if git diff --quiet -- prod/tagline; then
+            echo "No change in the figures, nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prod/tagline/android/main.json \
+                  prod/tagline/ios/main.json \
+                  prod/tagline/web/main.json
+          git commit -m "chore: update the donation campaign figures"
+          git push
