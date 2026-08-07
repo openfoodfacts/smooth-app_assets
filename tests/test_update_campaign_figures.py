@@ -10,7 +10,9 @@ leaves the tagline files exactly as they were.
 Run with: python tests/test_update_campaign_figures.py
 """
 
+import io
 import json
+import os
 import pathlib
 import sys
 import tempfile
@@ -20,23 +22,39 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from tools.update_campaign_figures import (  # noqa: E402
     FigureError,
     NEWS_ID,
+    REPO_ROOT,
+    TAGLINE_FILES,
     apply_updates,
+    campaign_is_published,
     parse_amount,
     plan_update,
+    previous_raised,
+    publish,
     scrape_figures,
     scrape_page_percent,
     validate_figures,
 )
 
-# Shaped like the real block: three bold paragraphs, only one of them the goal.
+# Shaped like the real block: three bold paragraphs, only one of them the goal,
+# and the drawn width floored to 25 the way Donorbox floors it against 25.97%.
 PAGE = '''
-<style> .progress .meter { width: 26%; } </style>
+<style> .progress .meter { width: 25%; } </style>
 <div class="campaign">
   <p class="bold" id="total-raised">44.155,91 €</p>
   <p id="paid-count" class="bold">517</p>
   <p class="bold">170.000 €</p>
 </div>
 '''
+
+
+def a_tagline_file(directory, name, raised=None):
+    """Write a minimal tagline file and return its path."""
+    item = {'url': 'https://example.org'}
+    if raised is not None:
+        item['raised'] = raised
+    path = pathlib.Path(directory) / name
+    path.write_text(json.dumps({'news': {NEWS_ID: item}}), encoding='utf-8')
+    return str(path)
 
 
 def expect_error(description, function, *arguments):
@@ -73,8 +91,13 @@ def test_refuses_a_page_it_cannot_read():
 
 
 def test_reads_the_percentage_the_page_draws():
-    assert scrape_page_percent(PAGE) == 26.0
-    assert scrape_page_percent('<p>no bar here</p>') is None
+    assert scrape_page_percent(PAGE) == 25.0
+
+
+def test_refuses_a_page_that_draws_no_progress_bar():
+    # Failing closed matters here: this number exists to catch a page whose
+    # markup moved, so a missing bar is the case it is for, not an excuse.
+    expect_error('a page with no meter', scrape_page_percent, '<p>no bar here</p>')
 
 
 def test_refuses_figures_the_page_itself_contradicts():
@@ -85,10 +108,17 @@ def test_refuses_figures_the_page_itself_contradicts():
         validate_figures,
         {'raised': 44155.91, 'goal': 26170000.0, 'currency': 'EUR'},
         None,
-        26.0,
+        25.0,
     )
-    # The real figures agree with it, to well inside the tolerance.
-    validate_figures({'raised': 44155.91, 'goal': 170000.0, 'currency': 'EUR'}, None, 26.0)
+    # The real figures agree with it, inside the tolerance Donorbox's flooring
+    # already eats about half of: 25.97 computed against a drawn 25.
+    validate_figures({'raised': 44155.91, 'goal': 170000.0, 'currency': 'EUR'}, None, 25.0)
+
+
+def test_ignores_a_meter_clamped_at_full():
+    # An over-funded campaign draws 100% whatever the real ratio, so the bar
+    # states nothing and must not be used to refuse a legitimate figure.
+    validate_figures({'raised': 200000.0, 'goal': 170000.0, 'currency': 'EUR'}, None, 100.0)
 
 
 def test_refuses_implausible_figures():
@@ -109,16 +139,20 @@ def test_refuses_implausible_figures():
         {'raised': 30000.0, 'goal': 170000.0, 'currency': 'EUR'},
         44155.91,
     )
-    # A total that multiplies overnight is a misparse, not a good day. The app
-    # renders the unclamped percentage, so this would read "294%" on the card.
+    # Raising more than the whole goal in one run is a misparse, not a good day.
+    # The app renders the unclamped percentage, so this would read "294%".
     expect_error(
-        'a raised that jumped past 3x',
+        'a raised that jumped by more than the goal',
         validate_figures,
         {'raised': 500000.0, 'goal': 170000.0, 'currency': 'EUR'},
         44155.91,
     )
     # A small drop is plausible and must still go through.
     validate_figures({'raised': 43000.0, 'goal': 170000.0, 'currency': 'EUR'}, 44155.91)
+    # So must a long gap between runs. Bounding the rise by a multiple of the
+    # last published figure would refuse this and then never recover, because a
+    # refusal writes nothing and the figure it compares against never moves.
+    validate_figures({'raised': 140000.0, 'goal': 170000.0, 'currency': 'EUR'}, 44155.91)
 
 
 def test_planning_writes_nothing():
@@ -147,9 +181,12 @@ def test_planning_reports_a_file_it_cannot_use():
         broken.write_text('{not json', encoding='utf-8')
         expect_error('a file that is not JSON', plan_update, str(broken), figures)
 
-        # Valid JSON, but not the shape we index into.
+        # Valid JSON, but not the shape we index into. The last one is the news
+        # item itself being a scalar, which reaches the update rather than the
+        # lookup, so it fails differently.
         for name, content in (('list.json', '[]'), ('scalar.json', '5'),
-                              ('news-list.json', '{"news": []}')):
+                              ('news-list.json', '{"news": []}'),
+                              ('item.json', '{"news": {"%s": 5}}' % NEWS_ID)):
             wrong_shape = pathlib.Path(directory) / name
             wrong_shape.write_text(content, encoding='utf-8')
             expect_error(f'{content} at the top level', plan_update,
@@ -164,33 +201,90 @@ def test_planning_reports_a_file_it_cannot_use():
 
 
 def test_a_bad_third_file_leaves_the_first_two_untouched():
-    """The behaviour the maintainer asked about, end to end.
+    """The behaviour the maintainer asked about, through the real write path.
 
-    Planning all three before writing any is what makes this pass. Writing each
-    file as it is planned would leave the first two already changed.
+    This calls `publish`, which is all `main` does, so writing each file as it
+    is planned would fail here instead of passing quietly.
     """
     figures = {'currency': 'EUR', 'goal': 170000.0, 'raised': 44155.91}
-    good = json.dumps({'news': {NEWS_ID: {'url': 'https://example.org'}}})
 
     with tempfile.TemporaryDirectory() as directory:
-        paths = []
-        for name in ('android.json', 'ios.json'):
-            path = pathlib.Path(directory) / name
-            path.write_text(good, encoding='utf-8')
-            paths.append(str(path))
+        paths = [a_tagline_file(directory, name)
+                 for name in ('android.json', 'ios.json')]
+        before = [pathlib.Path(path).read_text(encoding='utf-8') for path in paths]
+
         broken = pathlib.Path(directory) / 'web.json'
         broken.write_text('{not json', encoding='utf-8')
         paths.append(str(broken))
 
-        try:
-            {path: plan_update(path, figures) for path in paths}
-        except FigureError:
-            pass
-        else:
-            raise AssertionError('the broken third file should have been refused')
+        expect_error('a broken third file', publish, figures, paths)
 
-        for path in paths[:2]:
-            assert pathlib.Path(path).read_text(encoding='utf-8') == good, path
+        for path, original in zip(paths, before):
+            assert pathlib.Path(path).read_text(encoding='utf-8') == original, path
+
+
+def test_takes_the_highest_previously_published_figure():
+    with tempfile.TemporaryDirectory() as directory:
+        paths = [
+            a_tagline_file(directory, 'android.json', raised=100.0),
+            a_tagline_file(directory, 'ios.json', raised=44155.91),
+            a_tagline_file(directory, 'web.json', raised=44155.91),
+        ]
+        # The first file has drifted. Comparing against it would let the other
+        # two be halved without the drop guard noticing.
+        assert previous_raised(paths) == 44155.91
+
+
+def test_says_so_when_there_is_no_baseline():
+    with tempfile.TemporaryDirectory() as directory:
+        path = a_tagline_file(directory, 'android.json')
+
+        stderr, sys.stderr = sys.stderr, io.StringIO()
+        try:
+            assert previous_raised([path]) is None
+            reported = sys.stderr.getvalue()
+        finally:
+            sys.stderr = stderr
+
+        # Silence here would disable the only historical guard with no trace.
+        assert 'no previously published figure' in reported, reported
+
+
+def test_knows_when_the_campaign_is_over_and_when_it_cannot_tell():
+    with tempfile.TemporaryDirectory() as directory:
+        present = a_tagline_file(directory, 'android.json')
+        assert campaign_is_published([present]) is True
+
+        gone = pathlib.Path(directory) / 'empty.json'
+        gone.write_text('{"news": {}}', encoding='utf-8')
+        assert campaign_is_published([str(gone)]) is False
+
+        # An unreadable file is not evidence that the campaign ended, so it
+        # must not be reported as "nothing to update" and exit 0.
+        broken = pathlib.Path(directory) / 'broken.json'
+        broken.write_text('{not json', encoding='utf-8')
+        expect_error('an unreadable file', campaign_is_published, [str(broken)])
+
+        wrong_shape = pathlib.Path(directory) / 'shape.json'
+        wrong_shape.write_text('{"news": 5}', encoding='utf-8')
+        expect_error('a non container news field', campaign_is_published,
+                     [str(wrong_shape)])
+
+
+def test_resolves_relative_paths_against_the_repository():
+    """A run from any directory has to find the tagline files.
+
+    Asserted by changing directory, since resolving against the caller's cwd is
+    exactly the regression this guards, and it would pass from the repo root.
+    """
+    here = os.getcwd()
+    with tempfile.TemporaryDirectory() as elsewhere:
+        try:
+            os.chdir(elsewhere)
+            for path in TAGLINE_FILES:
+                assert (REPO_ROOT / path).is_file(), path
+        finally:
+            os.chdir(here)
 
 
 def test_dry_run_writes_nothing():

@@ -45,13 +45,14 @@ TAGLINE_FILES = (
 # Donorbox prints a symbol, the app needs an ISO code for its currency format.
 CURRENCY_BY_SYMBOL = {'€': 'EUR', '$': 'USD', '£': 'GBP'}
 
-# A parse that silently goes wrong is worse than yesterday's number, so a move
-# larger than either of these is treated as a bad read rather than as a good day.
+# A parse that silently goes wrong is worse than yesterday's number, so a drop
+# larger than this is treated as a bad read rather than as refunds.
 MAX_PLAUSIBLE_DROP = 0.10
-MAX_PLAUSIBLE_RISE = 3.0
 
 # The page draws its own progress bar. Our arithmetic has to agree with it, in
 # percentage points, or one of the two numbers we read was not what we thought.
+# Donorbox floors its width, so about 1 of these 2 points is its rounding rather
+# than slack. Every misparse seen so far lands at least 4 points out.
 MAX_PERCENT_DISAGREEMENT = 2.0
 
 USER_AGENT = (
@@ -141,13 +142,23 @@ def scrape_figures(html):
 
 
 def scrape_page_percent(html):
-    """Return the percentage the page draws in its own progress bar, or None.
+    """Return the percentage the page draws in its own progress bar.
 
     This is the campaign's own arithmetic, so it is the one number on the page
     that can contradict ours.
+
+    Missing it is an error rather than a skipped check. The whole point of this
+    number is to catch a run where the markup moved under us, so treating
+    "the markup moved" as "check not applicable" would disable it exactly when
+    it is needed.
     """
     match = re.search(r'\.meter\s*\{[^}]*width:\s*(?P<value>[\d.]+)%', html)
-    return float(match.group('value')) if match else None
+    if match is None:
+        raise FigureError(
+            'no progress bar width on the page, so nothing corroborates the '
+            'figures we read. The markup changed'
+        )
+    return float(match.group('value'))
 
 
 def validate_figures(figures, previous_raised=None, page_percent=None):
@@ -169,12 +180,20 @@ def validate_figures(figures, previous_raised=None, page_percent=None):
                 f'raised dropped from {previous_raised} to {raised}, more than '
                 f'{MAX_PLAUSIBLE_DROP:.0%}, refusing to publish it'
             )
-        if raised > previous_raised * MAX_PLAUSIBLE_RISE:
+        # Bounded by the goal rather than by a multiple of the previous figure.
+        # A multiple would be self-locking: once it refuses, nothing is written,
+        # so the figure it compares against never advances and every later run
+        # refuses too. Raising more than the entire goal in one day is the
+        # impossible part, and that does not go stale.
+        if raised - previous_raised > goal:
             raise FigureError(
-                f'raised jumped from {previous_raised} to {raised}, more than '
-                f'{MAX_PLAUSIBLE_RISE:g}x, refusing to publish it'
+                f'raised jumped from {previous_raised} to {raised}, i.e. by '
+                f'more than the whole {goal} goal in one run, refusing it'
             )
-    if page_percent is not None:
+    # A meter pinned at 100 has been clamped, so it no longer states a ratio and
+    # cannot corroborate an over-funded campaign. `raised > goal * 3` still caps
+    # that case.
+    if page_percent is not None and page_percent < 100:
         computed = raised / goal * 100
         if abs(computed - page_percent) > MAX_PERCENT_DISAGREEMENT:
             raise FigureError(
@@ -199,17 +218,25 @@ def plan_update(path, figures):
         original = (REPO_ROOT / path).read_text(encoding='utf-8')
         document = json.loads(original)
         item = document['news'][NEWS_ID]
-    except (OSError, ValueError, TypeError) as error:
-        # TypeError: valid JSON, but not the object shape we index into.
+        item.update(figures)
+        document['news'][NEWS_ID] = {key: item[key] for key in sorted(item)}
+        updated = json.dumps(document, indent=2, ensure_ascii=False) + '\n'
+    except (OSError, ValueError, TypeError, AttributeError) as error:
+        # Anything but a readable object of the shape we index into.
         raise FigureError(f'could not read {path}: {error}') from error
     except KeyError as error:
         raise FigureError(f'{path} has no news item {NEWS_ID!r}') from error
 
-    item.update(figures)
-    document['news'][NEWS_ID] = {key: item[key] for key in sorted(item)}
-
-    updated = json.dumps(document, indent=2, ensure_ascii=False) + '\n'
     return None if updated == original else updated
+
+
+def plan_all(paths, figures):
+    """Plan every file before any of them is written.
+
+    This is the all-or-nothing step: one unreadable file raises before a single
+    write has happened, so the others keep the figures they had.
+    """
+    return {path: plan_update(path, figures) for path in paths}
 
 
 def previous_raised(paths=TAGLINE_FILES):
@@ -242,32 +269,44 @@ def previous_raised(paths=TAGLINE_FILES):
 def campaign_is_published(paths=TAGLINE_FILES):
     """True while at least one tagline file still carries the campaign item.
 
-    Once the campaign is over the item is removed from the feed, and this run
-    has nothing left to do. That is a clean exit, not a failure: a scheduled job
-    that goes red every morning forever gets deleted.
+    Once the campaign is over the item is removed from the feed and this run has
+    nothing left to do, which is a clean exit rather than a failure: a scheduled
+    job that goes red every morning forever gets deleted.
+
+    A file we cannot read is not evidence of that, so it raises. Otherwise three
+    corrupt files would report "the campaign is over" and exit 0 for good.
     """
+    published = False
     for path in paths:
         try:
             document = json.loads((REPO_ROOT / path).read_text(encoding='utf-8'))
-        except (OSError, ValueError):
-            continue
-        if isinstance(document, dict) and NEWS_ID in document.get('news', {}):
-            return True
-    return False
+            published = published or NEWS_ID in document['news']
+        except (OSError, ValueError, TypeError, KeyError) as error:
+            raise FigureError(f'could not read {path}: {error}') from error
+    return published
 
 
 def apply_updates(plans, dry_run=False):
-    """Write every planned file. Returns the paths that changed.
-
-    Split out of `main` so the all-or-nothing ordering can be tested without a
-    network call: nothing here decides anything, it only writes what planning
-    already produced.
-    """
+    """Write every planned file. Returns the paths that changed."""
     changed = [path for path, content in plans.items() if content is not None]
     if not dry_run:
         for path in changed:
-            (REPO_ROOT / path).write_text(plans[path], encoding='utf-8')
+            # newline='' writes the '\n' we built rather than os.linesep, so the
+            # bytes are the same whichever platform runs this.
+            (REPO_ROOT / path).write_text(
+                plans[path], encoding='utf-8', newline=''
+            )
     return changed
+
+
+def publish(figures, paths=TAGLINE_FILES, dry_run=False):
+    """Plan every file, then write. Returns the paths that changed.
+
+    This is the whole write path, and `main` does nothing else, so a test can
+    drive the real sequencing without a network call. Keep it that way: the
+    ordering only holds because planning finishes before writing starts.
+    """
+    return apply_updates(plan_all(paths, figures), dry_run)
 
 
 def main():
@@ -279,25 +318,23 @@ def main():
     )
     arguments = parser.parse_args()
 
-    if not campaign_is_published():
-        print(f'no {NEWS_ID} item in the tagline files, nothing to update')
-        return 0
-
     try:
+        if not campaign_is_published():
+            print(f'no {NEWS_ID} item in the tagline files, nothing to update')
+            return 0
+
         html = fetch_page()
         figures = scrape_figures(html)
         validate_figures(figures, previous_raised(), scrape_page_percent(html))
-        plans = {path: plan_update(path, figures) for path in TAGLINE_FILES}
+        print(
+            'read {raised:.2f} of {goal:.2f} {currency}'.format(**figures),
+            f'({figures["raised"] / figures["goal"]:.1%})',
+        )
+        changed = publish(figures, TAGLINE_FILES, arguments.dry_run)
     except FigureError as error:
         print(f'campaign figures not updated: {error}', file=sys.stderr)
         return 1
 
-    print(
-        'read {raised:.2f} of {goal:.2f} {currency}'.format(**figures),
-        f'({figures["raised"] / figures["goal"]:.1%})',
-    )
-
-    changed = apply_updates(plans, arguments.dry_run)
     if not changed:
         print('figures unchanged, nothing to commit')
     else:
