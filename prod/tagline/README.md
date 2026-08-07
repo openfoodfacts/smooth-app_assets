@@ -67,7 +67,9 @@ JSON
   ```bash
   python tools/update_campaign_figures.py --dry-run
   ```
-  It refuses to write implausible numbers, so a failed run leaves the previous figures in place on purpose. A stale number is better than a wrong one.
+  It refuses to write a number it cannot justify, so a failed run leaves the previous figures in place on purpose. A stale number is better than a wrong one. Concretely it refuses when: the page markup changed, the currency is unknown, a figure will not parse, the total collapsed or multiplied since last time, or **our own arithmetic disagrees by more than two points with the percentage Donorbox itself draws in its progress bar**. That last one is the useful check: it compares our reading against the campaign's own.
+
+  `python tests/test_update_campaign_figures.py` exercises those refusals without touching the network.
 - Editing them by hand is still fine, for example if the campaign moves to a different platform. The workflow will simply overwrite them on its next run.
 - Removing any one of the three makes the app fall back to a plain card with no meter, so they are safe to delete.
 
