@@ -162,7 +162,12 @@ def scrape_page_percent(html):
 
 
 def validate_figures(figures, previous_raised=None, page_percent=None):
-    """Refuse anything that would make the meter lie."""
+    """Refuse anything that would make the meter lie.
+
+    Every refusal leaves the published figures alone, so a run that is wrongly
+    refused stays refused until someone corrects the JSON by hand. The bounds
+    below are set wide enough that only a misparse should reach them.
+    """
     raised, goal = figures['raised'], figures['goal']
 
     if raised <= 0:
@@ -190,17 +195,27 @@ def validate_figures(figures, previous_raised=None, page_percent=None):
                 f'raised jumped from {previous_raised} to {raised}, i.e. by '
                 f'more than the whole {goal} goal in one run, refusing it'
             )
-    # A meter pinned at 100 has been clamped, so it no longer states a ratio and
-    # cannot corroborate an over-funded campaign. `raised > goal * 3` still caps
-    # that case.
-    if page_percent is not None and page_percent < 100:
-        computed = raised / goal * 100
-        if abs(computed - page_percent) > MAX_PERCENT_DISAGREEMENT:
-            raise FigureError(
-                f'we read {raised} of {goal}, i.e. {computed:.1f}%, but the '
-                f'page draws {page_percent:.1f}%. One of the two figures is '
-                'not the one we think it is'
-            )
+    if page_percent is not None:
+        if page_percent >= 100:
+            # Clamped, so it no longer states a ratio. It does still say the
+            # goal was reached, and skipping the check outright would let a
+            # misparsed goal through exactly when nothing else can catch one.
+            # Same tolerance the other branch gets: the evidence that Donorbox
+            # floors rather than rounds is one observation, and a wrong refusal
+            # here would wedge the run at the campaign's best moment.
+            if raised < goal * (1 - MAX_PERCENT_DISAGREEMENT / 100):
+                raise FigureError(
+                    f'the page draws a full meter, so {raised} should have '
+                    f'reached the {goal} goal. One of the two is wrong'
+                )
+        else:
+            computed = raised / goal * 100
+            if abs(computed - page_percent) > MAX_PERCENT_DISAGREEMENT:
+                raise FigureError(
+                    f'we read {raised} of {goal}, i.e. {computed:.1f}%, but the '
+                    f'page draws {page_percent:.1f}%. One of the two figures is '
+                    'not the one we think it is'
+                )
 
 
 def plan_update(path, figures):

@@ -115,10 +115,25 @@ def test_refuses_figures_the_page_itself_contradicts():
     validate_figures({'raised': 44155.91, 'goal': 170000.0, 'currency': 'EUR'}, None, 25.0)
 
 
-def test_ignores_a_meter_clamped_at_full():
+def test_reads_a_clamped_meter_as_the_goal_being_reached():
     # An over-funded campaign draws 100% whatever the real ratio, so the bar
-    # states nothing and must not be used to refuse a legitimate figure.
+    # states no ratio and must not refuse a legitimate figure.
     validate_figures({'raised': 200000.0, 'goal': 170000.0, 'currency': 'EUR'}, None, 100.0)
+
+    # It does still say the goal was reached. Skipping the check outright here
+    # would wave through a misparsed goal at the one moment nothing else can
+    # catch one, since `raised > goal * 3` only guards a misparsed raised.
+    expect_error(
+        'a full meter under a goal we never reached',
+        validate_figures,
+        {'raised': 175000.0, 'goal': 26170000.0, 'currency': 'EUR'},
+        174000.0,
+        100.0,
+    )
+
+    # A hair short of the goal is within the same tolerance the other branch
+    # gets, in case the page ever rounds the width up instead of flooring it.
+    validate_figures({'raised': 169500.0, 'goal': 170000.0, 'currency': 'EUR'}, None, 100.0)
 
 
 def test_refuses_implausible_figures():
