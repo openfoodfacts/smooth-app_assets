@@ -150,19 +150,23 @@ def validate_figures(figures, previous_raised=None):
         )
 
 
-def update_file(path, figures, dry_run=False):
-    """Write the figures onto the campaign's news item. Returns True if changed.
+def plan_update(path, figures):
+    """Return the new content for [path], or None when it would not change.
+
+    Nothing is written here: every file is planned before any is written, so a
+    file that cannot be read leaves the others untouched rather than half of
+    them updated.
 
     The files are not consistently key sorted as a whole, so the document is
     dumped in its original order and only this one item is sorted, which keeps
     the diff to the lines that actually changed.
     """
-    file = pathlib.Path(path)
-    original = file.read_text(encoding='utf-8')
-    document = json.loads(original)
-
     try:
+        original = pathlib.Path(path).read_text(encoding='utf-8')
+        document = json.loads(original)
         item = document['news'][NEWS_ID]
+    except (OSError, ValueError) as error:
+        raise FigureError(f'could not read {path}: {error}') from error
     except KeyError as error:
         raise FigureError(f'{path} has no news item {NEWS_ID!r}') from error
 
@@ -170,11 +174,7 @@ def update_file(path, figures, dry_run=False):
     document['news'][NEWS_ID] = {key: item[key] for key in sorted(item)}
 
     updated = json.dumps(document, indent=2, ensure_ascii=False) + '\n'
-    if updated == original:
-        return False
-    if not dry_run:
-        file.write_text(updated, encoding='utf-8')
-    return True
+    return None if updated == original else updated
 
 
 def previous_raised(path=TAGLINE_FILES[0]):
@@ -197,6 +197,7 @@ def main():
     try:
         figures = scrape_figures(fetch_page())
         validate_figures(figures, previous_raised())
+        plans = {path: plan_update(path, figures) for path in TAGLINE_FILES}
     except FigureError as error:
         print(f'campaign figures not updated: {error}', file=sys.stderr)
         return 1
@@ -206,8 +207,11 @@ def main():
         f'({figures["raised"] / figures["goal"]:.1%})',
     )
 
-    changed = [path for path in TAGLINE_FILES
-               if update_file(path, figures, arguments.dry_run)]
+    changed = [path for path, content in plans.items() if content is not None]
+    if not arguments.dry_run:
+        for path in changed:
+            pathlib.Path(path).write_text(plans[path], encoding='utf-8')
+
     if not changed:
         print('figures unchanged, nothing to commit')
     else:
