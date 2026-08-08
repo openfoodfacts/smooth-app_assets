@@ -6,11 +6,15 @@ on:
       - 'prod/tagline/android/main.json'
       - 'prod/tagline/ios/main.json'
       - 'prod/tagline/web/main.json'
+      - 'tools/update_campaign_figures.py'
+      - 'tests/**'
   pull_request:
     paths:
       - 'prod/tagline/android/main.json'
       - 'prod/tagline/ios/main.json'
       - 'prod/tagline/web/main.json'
+      - 'tools/update_campaign_figures.py'
+      - 'tests/**'
 
 permissions:
   contents: read
@@ -30,3 +34,6 @@ jobs:
 
     - name: Validate tagline JSON files
       run: python tests/validate_tagline_json.py
+
+    - name: Check the campaign figure updater refuses bad input
+      run: python tests/test_update_campaign_figures.py

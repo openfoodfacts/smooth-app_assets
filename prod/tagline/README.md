@@ -60,6 +60,19 @@ JSON
 - Repeat the changes in the [`prod/tagline/ios/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/ios/main.json) file for the iOS app to keep the behavior consistent across platforms.
 - Also repeat the changes in the [`prod/tagline/web/main.json`](https://github.com/openfoodfacts/smooth-app_assets/prod/tagline/web/main.json) file for web applications (openfoodfacts-explorer and openfoodfacts-server) to maintain consistency across all platforms.
 
+### 4b. Fundraising campaigns: the figures are filled in automatically
+- A campaign can carry three optional fields on its news item, next to `min_launches`: `raised`, `goal` and `currency` (an ISO code such as `EUR`). When all three are present, the app draws a progress meter on the card showing how the campaign is doing.
+- **You do not normally edit these by hand.** The [`Update campaign figures`](https://github.com/openfoodfacts/smooth-app_assets/actions/workflows/update-campaign-figures.yml) workflow runs once a day, reads the figures from the Donorbox campaign page, and commits them. You can also trigger it yourself from the Actions tab.
+- If the figures ever look wrong or stale, run the script locally to see what it reads without changing anything:
+  ```bash
+  python tools/update_campaign_figures.py --dry-run
+  ```
+  It refuses to write a number it cannot justify, so a failed run leaves the previous figures in place on purpose. A stale number is better than a wrong one. Concretely it refuses when: the page markup changed, the currency is unknown, a figure will not parse, the total collapsed or multiplied since last time, or **our own arithmetic disagrees by more than two points with the percentage Donorbox itself draws in its progress bar**. That last one is the useful check: it compares our reading against the campaign's own.
+
+  `python tests/test_update_campaign_figures.py` exercises those refusals without touching the network.
+- Editing them by hand is still fine, for example if the campaign moves to a different platform. The workflow will simply overwrite them on its next run.
+- Removing any one of the three makes the app fall back to a plain card with no meter, so they are safe to delete.
+
 ### 5. Validate the JSON
 - Use a JSON validator (e.g., [jsonlint.com](https://jsonlint.com)) to ensure there are no syntax errors. Note that we will soon have automated JSON linting built into this repository.
 
