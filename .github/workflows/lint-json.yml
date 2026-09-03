@@ -11,6 +11,8 @@ on:
       - 'prod/tagline/android/main.json'
       - 'prod/tagline/ios/main.json'
       - 'prod/tagline/web/main.json'
+permissions:
+  contents: read
 jobs:
   lint:
     runs-on: ubuntu-latest
