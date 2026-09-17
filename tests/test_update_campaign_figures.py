@@ -22,12 +22,14 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from tools.update_campaign_figures import (  # noqa: E402
     FigureError,
     NEWS_ID,
+    NEWS_IDS,
     REPO_ROOT,
     TAGLINE_FILES,
     apply_updates,
     campaign_is_published,
     parse_amount,
     plan_update,
+    previous_published,
     previous_raised,
     publish,
     scrape_figures,
@@ -67,7 +69,7 @@ def expect_error(description, function, *arguments):
 
 def test_scrapes_the_page():
     figures = scrape_figures(PAGE)
-    assert figures == {'currency': 'EUR', 'goal': 170000.0, 'raised': 44155.91}, figures
+    assert figures == {'currency': 'EUR', 'count': 517, 'goal': 170000.0, 'raised': 44155.91}, figures
 
 
 def test_reads_both_separator_conventions():
@@ -88,6 +90,24 @@ def test_refuses_a_page_it_cannot_read():
     )
     expect_error('a currency we do not know', scrape_figures, PAGE.replace('€', '¤'))
     expect_error('text with no digits at all', parse_amount, 'soon')
+    expect_error('markup without #paid-count', scrape_figures,
+                 PAGE.replace('id="paid-count"', ''))
+    expect_error('a count with no digits', scrape_figures,
+                 PAGE.replace('>517<', '>soon<'))
+
+
+def test_reads_a_localised_count():
+    assert scrape_figures(PAGE.replace('>517<', '>1.517<'))['count'] == 1517
+
+
+def test_refuses_an_implausible_count():
+    figures = {'raised': 44155.91, 'goal': 170000.0, 'currency': 'EUR', 'count': 0}
+    expect_error('a zero count', validate_figures, figures)
+    figures['count'] = 400
+    expect_error('a count that collapses', validate_figures, figures, None, None, 517)
+    # Refunds happen; a small drop goes through.
+    figures['count'] = 510
+    validate_figures(figures, None, None, 517)
 
 
 def test_reads_the_percentage_the_page_draws():
@@ -106,19 +126,19 @@ def test_refuses_figures_the_page_itself_contradicts():
     expect_error(
         'a goal that disagrees with the drawn percentage',
         validate_figures,
-        {'raised': 44155.91, 'goal': 26170000.0, 'currency': 'EUR'},
+        {'raised': 44155.91, 'goal': 26170000.0, 'currency': 'EUR', 'count': 517},
         None,
         25.0,
     )
     # The real figures agree with it, inside the tolerance Donorbox's flooring
     # already eats about half of: 25.97 computed against a drawn 25.
-    validate_figures({'raised': 44155.91, 'goal': 170000.0, 'currency': 'EUR'}, None, 25.0)
+    validate_figures({'raised': 44155.91, 'goal': 170000.0, 'currency': 'EUR', 'count': 517}, None, 25.0)
 
 
 def test_reads_a_clamped_meter_as_the_goal_being_reached():
     # An over-funded campaign draws 100% whatever the real ratio, so the bar
     # states no ratio and must not refuse a legitimate figure.
-    validate_figures({'raised': 200000.0, 'goal': 170000.0, 'currency': 'EUR'}, None, 100.0)
+    validate_figures({'raised': 200000.0, 'goal': 170000.0, 'currency': 'EUR', 'count': 517}, None, 100.0)
 
     # It does still say the goal was reached. Skipping the check outright here
     # would wave through a misparsed goal at the one moment nothing else can
@@ -126,32 +146,32 @@ def test_reads_a_clamped_meter_as_the_goal_being_reached():
     expect_error(
         'a full meter under a goal we never reached',
         validate_figures,
-        {'raised': 175000.0, 'goal': 26170000.0, 'currency': 'EUR'},
+        {'raised': 175000.0, 'goal': 26170000.0, 'currency': 'EUR', 'count': 517},
         174000.0,
         100.0,
     )
 
     # A hair short of the goal is within the same tolerance the other branch
     # gets, in case the page ever rounds the width up instead of flooring it.
-    validate_figures({'raised': 169500.0, 'goal': 170000.0, 'currency': 'EUR'}, None, 100.0)
+    validate_figures({'raised': 169500.0, 'goal': 170000.0, 'currency': 'EUR', 'count': 517}, None, 100.0)
 
 
 def test_refuses_implausible_figures():
     expect_error(
         'a raised far above the goal',
         validate_figures,
-        {'raised': 900000.0, 'goal': 170000.0, 'currency': 'EUR'},
+        {'raised': 900000.0, 'goal': 170000.0, 'currency': 'EUR', 'count': 517},
     )
     expect_error(
         'a zero goal',
         validate_figures,
-        {'raised': 100.0, 'goal': 0.0, 'currency': 'EUR'},
+        {'raised': 100.0, 'goal': 0.0, 'currency': 'EUR', 'count': 517},
     )
     # A total that collapses is a bad parse, not a day of refunds.
     expect_error(
         'a raised that dropped by more than 10%',
         validate_figures,
-        {'raised': 30000.0, 'goal': 170000.0, 'currency': 'EUR'},
+        {'raised': 30000.0, 'goal': 170000.0, 'currency': 'EUR', 'count': 517},
         44155.91,
     )
     # Raising more than the whole goal in one run is a misparse, not a good day.
@@ -159,19 +179,19 @@ def test_refuses_implausible_figures():
     expect_error(
         'a raised that jumped by more than the goal',
         validate_figures,
-        {'raised': 500000.0, 'goal': 170000.0, 'currency': 'EUR'},
+        {'raised': 500000.0, 'goal': 170000.0, 'currency': 'EUR', 'count': 517},
         44155.91,
     )
     # A small drop is plausible and must still go through.
-    validate_figures({'raised': 43000.0, 'goal': 170000.0, 'currency': 'EUR'}, 44155.91)
+    validate_figures({'raised': 43000.0, 'goal': 170000.0, 'currency': 'EUR', 'count': 517}, 44155.91)
     # So must a long gap between runs. Bounding the rise by a multiple of the
     # last published figure would refuse this and then never recover, because a
     # refusal writes nothing and the figure it compares against never moves.
-    validate_figures({'raised': 140000.0, 'goal': 170000.0, 'currency': 'EUR'}, 44155.91)
+    validate_figures({'raised': 140000.0, 'goal': 170000.0, 'currency': 'EUR', 'count': 517}, 44155.91)
 
 
 def test_planning_writes_nothing():
-    figures = {'currency': 'EUR', 'goal': 170000.0, 'raised': 44155.91}
+    figures = {'currency': 'EUR', 'count': 517, 'goal': 170000.0, 'raised': 44155.91}
     with tempfile.TemporaryDirectory() as directory:
         path = pathlib.Path(directory) / 'main.json'
         original = json.dumps({'news': {NEWS_ID: {'url': 'https://example.org'}}})
@@ -185,8 +205,28 @@ def test_planning_writes_nothing():
         assert path.read_text(encoding='utf-8') == original
 
 
+def test_planning_updates_every_donation_item_the_file_has():
+    figures = {'currency': 'EUR', 'goal': 170000.0, 'raised': 44155.91, 'count': 517}
+    with tempfile.TemporaryDirectory() as directory:
+        path = pathlib.Path(directory) / 'web.json'
+        path.write_text(json.dumps({'news': {
+            'other_news': {'url': 'https://example.org'},
+            NEWS_IDS[0]: {'url': 'https://example.org'},
+            NEWS_IDS[1]: {'url': 'https://example.org'},
+        }}), encoding='utf-8')
+
+        news = json.loads(plan_update(str(path), figures))['news']
+
+        assert news[NEWS_IDS[0]]['count'] == 517
+        assert news[NEWS_IDS[1]]['count'] == 517
+        # An item the file does not carry is not invented, and an unrelated
+        # item is not touched.
+        assert NEWS_IDS[2] not in news
+        assert news['other_news'] == {'url': 'https://example.org'}
+
+
 def test_planning_reports_a_file_it_cannot_use():
-    figures = {'currency': 'EUR', 'goal': 170000.0, 'raised': 44155.91}
+    figures = {'currency': 'EUR', 'count': 517, 'goal': 170000.0, 'raised': 44155.91}
     with tempfile.TemporaryDirectory() as directory:
         missing_item = pathlib.Path(directory) / 'no-item.json'
         missing_item.write_text('{"news": {}}', encoding='utf-8')
@@ -221,7 +261,7 @@ def test_a_bad_third_file_leaves_the_first_two_untouched():
     This calls `publish`, which is all `main` does, so writing each file as it
     is planned would fail here instead of passing quietly.
     """
-    figures = {'currency': 'EUR', 'goal': 170000.0, 'raised': 44155.91}
+    figures = {'currency': 'EUR', 'count': 517, 'goal': 170000.0, 'raised': 44155.91}
 
     with tempfile.TemporaryDirectory() as directory:
         paths = [a_tagline_file(directory, name)
@@ -250,6 +290,17 @@ def test_takes_the_highest_previously_published_figure():
         assert previous_raised(paths) == 44155.91
 
 
+def test_takes_the_highest_count_across_items():
+    with tempfile.TemporaryDirectory() as directory:
+        path = pathlib.Path(directory) / 'web.json'
+        path.write_text(json.dumps({'news': {
+            NEWS_IDS[0]: {'count': 517},
+            NEWS_IDS[2]: {'count': 600},
+            NEWS_IDS[1]: {'count': 'soon'},
+        }}), encoding='utf-8')
+        assert previous_published('count', [str(path)]) == 600
+
+
 def test_says_so_when_there_is_no_baseline():
     with tempfile.TemporaryDirectory() as directory:
         path = a_tagline_file(directory, 'android.json')
@@ -262,7 +313,7 @@ def test_says_so_when_there_is_no_baseline():
             sys.stderr = stderr
 
         # Silence here would disable the only historical guard with no trace.
-        assert 'no previously published figure' in reported, reported
+        assert 'no previously published raised' in reported, reported
 
 
 def test_knows_when_the_campaign_is_over_and_when_it_cannot_tell():
