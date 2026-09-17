@@ -96,13 +96,16 @@ def test_refuses_a_page_it_cannot_read():
                  PAGE.replace('>517<', '>soon<'))
 
 
-def test_reads_a_localised_count():
+def test_strips_separators_from_the_count():
     assert scrape_figures(PAGE.replace('>517<', '>1.517<'))['count'] == 1517
 
 
 def test_refuses_an_implausible_count():
     figures = {'raised': 44155.91, 'goal': 170000.0, 'currency': 'EUR', 'count': 0}
     expect_error('a zero count', validate_figures, figures)
+    # A donor-goal display like "517 / 1.000" would concatenate into 5171000.
+    figures['count'] = scrape_figures(PAGE.replace('>517<', '>517 / 1.000<'))['count']
+    expect_error('more gifts than units raised', validate_figures, figures)
     figures['count'] = 400
     expect_error('a count that collapses', validate_figures, figures, None, None, 517)
     # Refunds happen; a small drop goes through.
@@ -228,9 +231,11 @@ def test_planning_updates_every_donation_item_the_file_has():
 def test_planning_reports_a_file_it_cannot_use():
     figures = {'currency': 'EUR', 'count': 517, 'goal': 170000.0, 'raised': 44155.91}
     with tempfile.TemporaryDirectory() as directory:
+        # A file with no donation item is skipped, not refused: the campaign
+        # item is retired from all three files while the web banner items stay.
         missing_item = pathlib.Path(directory) / 'no-item.json'
         missing_item.write_text('{"news": {}}', encoding='utf-8')
-        expect_error('a file without the news item', plan_update, str(missing_item), figures)
+        assert plan_update(str(missing_item), figures) is None
 
         broken = pathlib.Path(directory) / 'broken.json'
         broken.write_text('{not json', encoding='utf-8')
@@ -324,6 +329,11 @@ def test_knows_when_the_campaign_is_over_and_when_it_cannot_tell():
         gone = pathlib.Path(directory) / 'empty.json'
         gone.write_text('{"news": {}}', encoding='utf-8')
         assert campaign_is_published([str(gone)]) is False
+
+        # The banner items outlive the campaign item and still need figures.
+        banner_only = pathlib.Path(directory) / 'web.json'
+        banner_only.write_text(json.dumps({'news': {NEWS_IDS[2]: {}}}), encoding='utf-8')
+        assert campaign_is_published([str(gone), str(banner_only)]) is True
 
         # An unreadable file is not evidence that the campaign ended, so it
         # must not be reported as "nothing to update" and exit 0.
