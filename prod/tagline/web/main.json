@@ -505,6 +505,36 @@
       },
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
     },
+    "donation_banner_2026": {
+      "count": 768,
+      "currency": "EUR",
+      "end_date": "2027-01-31 23:59:59",
+      "goal": 170000.0,
+      "raised": 47554.36,
+      "start_date": "2025-10-25 00:00:00",
+      "translations": {
+        "default": {
+          "title": "This page is free because {count} people paid for it.",
+          "message": "Open Food Facts is a non-profit. No ads, no industry money, 4.6 million products kept open by volunteers. We need {goal} to run the servers and one engineer in {year}. If you looked something up today, €3 a month keeps it free for a year."
+        }
+      },
+      "url": "https://world.openfoodfacts.org/donate-to-open-food-facts"
+    },
+    "donation_quiet_2026": {
+      "count": 768,
+      "currency": "EUR",
+      "end_date": "2026-10-31 23:59:59",
+      "goal": 170000.0,
+      "raised": 47554.36,
+      "start_date": "2026-02-01 00:00:00",
+      "translations": {
+        "default": {
+          "title": "Open Food Facts is free because {count} people pay for it.",
+          "message": "€3 a month keeps it that way."
+        }
+      },
+      "url": "https://world.openfoodfacts.org/donate-to-open-food-facts"
+    },
     "nutriscore_petition_2025": {
       "end_date": "2026-06-30 23:59:59",
       "start_date": "2025-11-21 00:00:00",
