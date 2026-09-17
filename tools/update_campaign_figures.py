@@ -192,6 +192,12 @@ def validate_figures(figures, previous_raised=None, page_percent=None,
         raise FigureError(f'raised must be positive, got {raised}')
     if count < 1:
         raise FigureError(f'count must be at least 1, got {count}')
+    # No gift is smaller than one unit of currency, so more gifts than units
+    # raised means two numbers ran together in the count's text node.
+    if count > raised:
+        raise FigureError(
+            f'{count} gifts cannot have raised only {raised}, that is a bad parse'
+        )
     if previous_count is not None and count < previous_count * (1 - MAX_PLAUSIBLE_DROP):
         raise FigureError(
             f'count dropped from {previous_count} to {count}, more than '
@@ -250,6 +256,10 @@ def plan_update(path, figures):
     file that cannot be read leaves the others untouched rather than half of
     them updated.
 
+    A file that carries none of the donation items has nothing to update, so
+    it is skipped rather than refused: the campaign item is retired from all
+    three files at once, while the web feed's banner items outlive it.
+
     The files are not consistently key sorted as a whole, so the document is
     dumped in its original order and only the updated items are sorted, which
     keeps the diff to the lines that actually changed.
@@ -257,13 +267,14 @@ def plan_update(path, figures):
     try:
         original = (REPO_ROOT / path).read_text(encoding='utf-8')
         document = json.loads(original)
-        present = [news_id for news_id in NEWS_IDS if news_id in document['news']]
+        news = document['news']
+        present = [news_id for news_id in NEWS_IDS if news_id in news.keys()]
         if not present:
-            raise FigureError(f'{path} has none of the news items {NEWS_IDS!r}')
+            return None
         for news_id in present:
-            item = document['news'][news_id]
+            item = news[news_id]
             item.update(figures)
-            document['news'][news_id] = {key: item[key] for key in sorted(item)}
+            news[news_id] = {key: item[key] for key in sorted(item)}
         updated = json.dumps(document, indent=2, ensure_ascii=False) + '\n'
     except (OSError, ValueError, TypeError, AttributeError, KeyError) as error:
         # Anything but a readable object of the shape we index into.
@@ -372,7 +383,7 @@ def main():
 
     try:
         if not campaign_is_published():
-            print(f'no {NEWS_ID} item in the tagline files, nothing to update')
+            print('no donation item left in the tagline files, nothing to update')
             return 0
 
         html = fetch_page()
