@@ -521,11 +521,562 @@
         }
       },
       "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
+    },
+    "photos_for_impact_2026": {
+      "end_date": "2026-12-31 23:59:59",
+      "min_launches": 1,
+      "start_date": "2026-09-18 00:00:00",
+      "style": {
+        "title_background": "#2D72D2",
+        "title_text_color": "#FFFFFF",
+        "title_indicator_color": "#FFB800",
+        "message_background": "#F0F4F8",
+        "message_text_color": "#1C2024",
+        "button_background": "#347644",
+        "button_text_color": "#FFFFFF",
+        "content_background_color": "#FFFFFF"
+      },
+      "translations": {
+        "default": {
+          "title": "Missing products in your country! 📸",
+          "message": "We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
+          "button_label": "See missing foods",
+          "image": {
+            "alt": "Photos for Impact",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/tagline/web/assets/photos_for_impact/photos_for_impact.svg",
+            "width": 0.2
+          }
+        },
+        "en": {
+          "title": "Missing products in your country! 📸",
+          "message": "We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
+          "button_label": "See missing foods"
+        },
+        "de": {
+          "title": "Fehlende Produkte in deinem Land! 📸",
+          "message": "In Open Food Facts fehlen **wichtige Grundnahrungsmittel**. Fotografiere fehlende Produkte und hilf allen!",
+          "button_label": "Produkte ansehen"
+        },
+        "fr": {
+          "title": "Produits manquants dans votre pays ! 📸",
+          "message": "Il manque des **produits du quotidien** dans Open Food Facts. Photographiez-les pour aider tout le monde !",
+          "button_label": "Voir les produits"
+        },
+        "it": {
+          "title": "Prodotti mancanti nel tuo paese! 📸",
+          "message": "Mancano **alimenti essenziali** in Open Food Facts. Fotografa i prodotti mancanti per aiutare tutti a mangiare meglio!",
+          "button_label": "Vedi i prodotti"
+        },
+        "es": {
+          "title": "¡Faltan productos en tu país! 📸",
+          "message": "Faltan **alimentos cotidianos** en Open Food Facts. ¡Fotografía los productos que faltan para ayudar a todos!",
+          "button_label": "Ver productos"
+        },
+        "nl": {
+          "title": "Ontbrekende producten in jouw land! 📸",
+          "message": "We missen **alledaagse basisvoedingsmiddelen** in Open Food Facts. Fotografeer ontbrekende producten!",
+          "button_label": "Bekijk producten"
+        },
+        "de_AT": {
+          "title": "🇦🇹 77.5% in Österreich erfasst! 📸",
+          "message": "In Open Food Facts fehlen noch **25 wichtige Produkte** in Österreich. Fotografiere sie beim Einkaufen!",
+          "button_label": "25 Produkte ansehen"
+        },
+        "en_AT": {
+          "title": "🇦🇹 77.5% complete in Austria! 📸",
+          "message": "Open Food Facts is missing **25 everyday products** in Austria. Snap them while shopping!",
+          "button_label": "See 25 foods"
+        },
+        "fr_BE": {
+          "title": "🇧🇪 90.5% enregistrés en Belgique ! 📸",
+          "message": "Il manque encore **9 produits du quotidien** en Belgique. Photographiez-les en magasin !",
+          "button_label": "Voir les 9 produits"
+        },
+        "nl_BE": {
+          "title": "🇧🇪 90.5% vastgelegd in België! 📸",
+          "message": "We missen nog **9 alledaagse producten** in België. Fotografeer ze tijdens het winkelen!",
+          "button_label": "Bekijk 9 producten"
+        },
+        "de_BE": {
+          "title": "🇧🇪 90.5% in Belgien erfasst! 📸",
+          "message": "In Open Food Facts fehlen noch **9 Produkte** in Belgien. Fotografiere sie beim Einkaufen!",
+          "button_label": "9 Produkte ansehen"
+        },
+        "en_BE": {
+          "title": "🇧🇪 90.5% complete in Belgium! 📸",
+          "message": "Open Food Facts is missing **9 everyday products** in Belgium. Snap them while shopping!",
+          "button_label": "See 9 foods"
+        },
+        "bg_BG": {
+          "title": "🇧🇬 90.0% събрани в България! 📸",
+          "message": "В Open Food Facts липсват само **2 продукта** в България. Снимайте ги в магазина!",
+          "button_label": "Вижте 2-те продукта"
+        },
+        "bg": {
+          "title": "🇧🇬 90.0% събрани в България! 📸",
+          "message": "В Open Food Facts липсват само **2 продукта** в България. Снимайте ги в магазина!",
+          "button_label": "Вижте 2-те продукта"
+        },
+        "en_BG": {
+          "title": "🇧🇬 90.0% complete in Bulgaria! 📸",
+          "message": "Only **2 products** missing in Bulgaria. Snap them in store to reach 100%!",
+          "button_label": "See 2 foods"
+        },
+        "hr_HR": {
+          "title": "🇭🇷 62.1% zabilježeno u Hrvatskoj! 📸",
+          "message": "U Open Food Factsu nedostaju još **33 namirnice** u Hrvatskoj. Fotografirajte ih u trgovini!",
+          "button_label": "Pogledaj 33 namirnica"
+        },
+        "hr": {
+          "title": "🇭🇷 62.1% zabilježeno u Hrvatskoj! 📸",
+          "message": "U Open Food Factsu nedostaju još **33 namirnice** u Hrvatskoj. Fotografirajte ih u trgovini!",
+          "button_label": "Pogledaj 33 namirnica"
+        },
+        "en_HR": {
+          "title": "🇭🇷 62.1% complete in Croatia! 📸",
+          "message": "Open Food Facts is missing **33 everyday products** in Croatia. Snap them while shopping!",
+          "button_label": "See 33 foods"
+        },
+        "el_CY": {
+          "title": "🇨🇾 41.0% καταγεγραμμένα στην Κύπρο! 📸",
+          "message": "Λείπουν ακόμα **36 βασικά προϊόντα** στην Κύπρο. Φωτογραφίστε τα στα ψώνια σας!",
+          "button_label": "Δείτε τα 36 προϊόντα"
+        },
+        "el": {
+          "title": "🇨🇾 41.0% καταγεγραμμένα στην Κύπρο! 📸",
+          "message": "Λείπουν ακόμα **36 βασικά προϊόντα** στην Κύπρο. Φωτογραφίστε τα στα ψώνια σας!",
+          "button_label": "Δείτε τα 36 προϊόντα"
+        },
+        "en_CY": {
+          "title": "🇨🇾 41.0% complete in Cyprus! 📸",
+          "message": "Open Food Facts is missing **36 everyday products** in Cyprus. Snap them while shopping!",
+          "button_label": "See 36 foods"
+        },
+        "cs_CZ": {
+          "title": "🇨🇿 75.4% hotovo v Česku! 📸",
+          "message": "V Open Food Facts chybí ještě **17 potravin** v ČR. Vyfoťte je při nákupu!",
+          "button_label": "Zobrazit 17 potravin"
+        },
+        "cs_CS": {
+          "title": "🇨🇿 75.4% hotovo v Česku! 📸",
+          "message": "V Open Food Facts chybí ještě **17 potravin** v ČR. Vyfoťte je při nákupu!",
+          "button_label": "Zobrazit 17 potravin"
+        },
+        "cs": {
+          "title": "🇨🇿 75.4% hotovo v Česku! 📸",
+          "message": "V Open Food Facts chybí ještě **17 potravin** v ČR. Vyfoťte je při nákupu!",
+          "button_label": "Zobrazit 17 potravin"
+        },
+        "en_CZ": {
+          "title": "🇨🇿 75.4% complete in Czechia! 📸",
+          "message": "Open Food Facts is missing **17 everyday products** in Czechia. Snap them while shopping!",
+          "button_label": "See 17 foods"
+        },
+        "en_CS": {
+          "title": "🇨🇿 75.4% complete in Czechia! 📸",
+          "message": "Open Food Facts is missing **17 everyday products** in Czechia. Snap them while shopping!",
+          "button_label": "See 17 foods"
+        },
+        "da_DK": {
+          "title": "🇩🇰 66.9% registreret i Danmark! 📸",
+          "message": "Vi mangler stadig **46 hverdagsprodukter** i Danmark. Tag billeder af dem, når du handler!",
+          "button_label": "Se 46 produkter"
+        },
+        "da": {
+          "title": "🇩🇰 66.9% registreret i Danmark! 📸",
+          "message": "Vi mangler stadig **46 hverdagsprodukter** i Danmark. Tag billeder af dem, når du handler!",
+          "button_label": "Se 46 produkter"
+        },
+        "en_DK": {
+          "title": "🇩🇰 66.9% complete in Denmark! 📸",
+          "message": "Open Food Facts is missing **46 everyday products** in Denmark. Snap them while shopping!",
+          "button_label": "See 46 foods"
+        },
+        "et_EE": {
+          "title": "🇪🇪 38.6% registreeritud Eestis! 📸",
+          "message": "Open Food Factsist on puudu veel **51 toodet** Eestis. Pildista neid poes!",
+          "button_label": "Vaata 51 toodet"
+        },
+        "et": {
+          "title": "🇪🇪 38.6% registreeritud Eestis! 📸",
+          "message": "Open Food Factsist on puudu veel **51 toodet** Eestis. Pildista neid poes!",
+          "button_label": "Vaata 51 toodet"
+        },
+        "en_EE": {
+          "title": "🇪🇪 38.6% complete in Estonia! 📸",
+          "message": "Open Food Facts is missing **51 everyday products** in Estonia. Snap them while shopping!",
+          "button_label": "See 51 foods"
+        },
+        "fi_FI": {
+          "title": "🇫🇮 69.6% katettu Suomessa! 📸",
+          "message": "Open Food Factsista puuttuu vielä **35 tuotetta** Suomessa. Ota niistä kuva kaupassa!",
+          "button_label": "Katso 35 tuotetta"
+        },
+        "fi": {
+          "title": "🇫🇮 69.6% katettu Suomessa! 📸",
+          "message": "Open Food Factsista puuttuu vielä **35 tuotetta** Suomessa. Ota niistä kuva kaupassa!",
+          "button_label": "Katso 35 tuotetta"
+        },
+        "sv_FI": {
+          "title": "🇫🇮 69.6% registrerat i Finland! 📸",
+          "message": "Det saknas fortfarande **35 vardagsvaror** i Finland. Fota dem när du handlar!",
+          "button_label": "Se 35 produkter"
+        },
+        "sv": {
+          "title": "🇫🇮 69.6% registrerat i Finland! 📸",
+          "message": "Det saknas fortfarande **35 vardagsvaror** i Finland. Fota dem när du handlar!",
+          "button_label": "Se 35 produkter"
+        },
+        "en_FI": {
+          "title": "🇫🇮 69.6% complete in Finland! 📸",
+          "message": "Open Food Facts is missing **35 everyday products** in Finland. Snap them while shopping!",
+          "button_label": "See 35 foods"
+        },
+        "fr_FR": {
+          "title": "🇫🇷 92.6% enregistrés en France ! 📸",
+          "message": "Il manque seulement **11 produits essentiels** en France. Photographiez-les pour compléter la base !",
+          "button_label": "Voir les 11 produits"
+        },
+        "en_FR": {
+          "title": "🇫🇷 92.6% complete in France! 📸",
+          "message": "Only **11 staple products** missing in France. Snap them in store to complete the basket!",
+          "button_label": "See 11 foods"
+        },
+        "de_DE": {
+          "title": "🇩🇪 82.5% in Deutschland erfasst! 📸",
+          "message": "In Open Food Facts fehlen noch **18 Grundnahrungsmittel** in Deutschland. Fotografiere sie beim Einkaufen!",
+          "button_label": "18 Produkte ansehen"
+        },
+        "en_DE": {
+          "title": "🇩🇪 82.5% complete in Germany! 📸",
+          "message": "Open Food Facts is missing **18 everyday products** in Germany. Snap them while shopping!",
+          "button_label": "See 18 foods"
+        },
+        "el_GR": {
+          "title": "🇬🇷 62.0% καταγεγραμμένα στην Ελλάδα! 📸",
+          "message": "Λείπουν ακόμα **19 βασικά προϊόντα** στην Ελλάδα. Φωτογραφίστε τα στα ψώνια σας!",
+          "button_label": "Δείτε τα 19 προϊόντα"
+        },
+        "el_EL": {
+          "title": "🇬🇷 62.0% καταγεγραμμένα στην Ελλάδα! 📸",
+          "message": "Λείπουν ακόμα **19 βασικά προϊόντα** στην Ελλάδα. Φωτογραφίστε τα στα ψώνια σας!",
+          "button_label": "Δείτε τα 19 προϊόντα"
+        },
+        "en_GR": {
+          "title": "🇬🇷 62.0% complete in Greece! 📸",
+          "message": "Open Food Facts is missing **19 everyday products** in Greece. Snap them while shopping!",
+          "button_label": "See 19 foods"
+        },
+        "en_EL": {
+          "title": "🇬🇷 62.0% complete in Greece! 📸",
+          "message": "Open Food Facts is missing **19 everyday products** in Greece. Snap them while shopping!",
+          "button_label": "See 19 foods"
+        },
+        "hu_HU": {
+          "title": "🇭🇺 54.2% rögzítve Magyarországon! 📸",
+          "message": "Az Open Food Facts-ból még **55 termék** hiányzik Magyarországon. Fotózd le őket vásárláskor!",
+          "button_label": "55 termék megtekintése"
+        },
+        "hu": {
+          "title": "🇭🇺 54.2% rögzítve Magyarországon! 📸",
+          "message": "Az Open Food Facts-ból még **55 termék** hiányzik Magyarországon. Fotózd le őket vásárláskor!",
+          "button_label": "55 termék megtekintése"
+        },
+        "en_HU": {
+          "title": "🇭🇺 54.2% complete in Hungary! 📸",
+          "message": "Open Food Facts is missing **55 everyday products** in Hungary. Snap them while shopping!",
+          "button_label": "See 55 foods"
+        },
+        "en_IE": {
+          "title": "🇮🇪 75.4% complete in Ireland! 📸",
+          "message": "Open Food Facts is missing **32 everyday products** in Ireland. Snap them while shopping!",
+          "button_label": "See 32 foods"
+        },
+        "it_IT": {
+          "title": "🇮🇹 89.3% registrati in Italia! 📸",
+          "message": "Mancano solo **8 alimenti essenziali** in Italia. Fotografali per completare il paniere!",
+          "button_label": "Vedi gli 8 prodotti"
+        },
+        "en_IT": {
+          "title": "🇮🇹 89.3% complete in Italy! 📸",
+          "message": "Only **8 staple products** missing in Italy. Snap them in store to complete the basket!",
+          "button_label": "See 8 foods"
+        },
+        "lv_LV": {
+          "title": "🇱🇻 48.2% reģistrēti Latvijā! 📸",
+          "message": "Open Food Facts trūkst vēl **57 svarīgu produktu** Latvijā. Nofotografē tos veikalā!",
+          "button_label": "Skatīt 57 produktus"
+        },
+        "lv": {
+          "title": "🇱🇻 48.2% reģistrēti Latvijā! 📸",
+          "message": "Open Food Facts trūkst vēl **57 svarīgu produktu** Latvijā. Nofotografē tos veikalā!",
+          "button_label": "Skatīt 57 produktus"
+        },
+        "en_LV": {
+          "title": "🇱🇻 48.2% complete in Latvia! 📸",
+          "message": "Open Food Facts is missing **57 everyday products** in Latvia. Snap them while shopping!",
+          "button_label": "See 57 foods"
+        },
+        "lt_LT": {
+          "title": "🇱🇹 42.6% užregistruota Lietuvoje! 📸",
+          "message": "Open Food Facts trūksta dar **58 produktų** Lietuvoje. Nufotografuok juos parduotuvėje!",
+          "button_label": "Žiūrėti 58 produktus"
+        },
+        "lt": {
+          "title": "🇱🇹 42.6% užregistruota Lietuvoje! 📸",
+          "message": "Open Food Facts trūksta dar **58 produktų** Lietuvoje. Nufotografuok juos parduotuvėje!",
+          "button_label": "Žiūrėti 58 produktus"
+        },
+        "en_LT": {
+          "title": "🇱🇹 42.6% complete in Lithuania! 📸",
+          "message": "Open Food Facts is missing **58 everyday products** in Lithuania. Snap them while shopping!",
+          "button_label": "See 58 foods"
+        },
+        "fr_LU": {
+          "title": "🇱🇺 68.6% enregistrés au Luxembourg ! 📸",
+          "message": "Il manque encore **33 produits du quotidien** au Luxembourg. Photographiez-les en magasin !",
+          "button_label": "Voir les 33 produits"
+        },
+        "de_LU": {
+          "title": "🇱🇺 68.6% in Luxemburg erfasst! 📸",
+          "message": "In Open Food Facts fehlen noch **33 Produkte** in Luxemburg. Fotografiere sie beim Einkaufen!",
+          "button_label": "33 Produkte ansehen"
+        },
+        "en_LU": {
+          "title": "🇱🇺 68.6% complete in Luxembourg! 📸",
+          "message": "Open Food Facts is missing **33 everyday products** in Luxembourg. Snap them while shopping!",
+          "button_label": "See 33 foods"
+        },
+        "mt_MT": {
+          "title": "🇲🇹 36.1% reġistrati f'Malta! 📸",
+          "message": "F'Open Food Facts jonqos **39 prodott essenzjali** f'Malta. Ħu ritratt tagħhom waqt li tixtri!",
+          "button_label": "Ara d-39 prodott"
+        },
+        "mt": {
+          "title": "🇲🇹 36.1% reġistrati f'Malta! 📸",
+          "message": "F'Open Food Facts jonqos **39 prodott essenzjali** f'Malta. Ħu ritratt tagħhom waqt li tixtri!",
+          "button_label": "Ara d-39 prodott"
+        },
+        "en_MT": {
+          "title": "🇲🇹 36.1% complete in Malta! 📸",
+          "message": "Open Food Facts is missing **39 everyday products** in Malta. Snap them while shopping!",
+          "button_label": "See 39 foods"
+        },
+        "sr_ME": {
+          "title": "🇲🇪 Samo 17.6% u Crnoj Gori! 📸",
+          "message": "U Open Food Factsu nedostaje još **75 osnovnih proizvoda** u Crnoj Gori. Fotografišite ih u prodavnici!",
+          "button_label": "Pogledaj 75 namirnica"
+        },
+        "sr": {
+          "title": "🇲🇪 Samo 17.6% u Crnoj Gori! 📸",
+          "message": "U Open Food Factsu nedostaje još **75 osnovnih proizvoda** u Crnoj Gori. Fotografišite ih u prodavnici!",
+          "button_label": "Pogledaj 75 namirnica"
+        },
+        "en_ME": {
+          "title": "🇲🇪 Only 17.6% complete in Montenegro! 📸",
+          "message": "Open Food Facts is missing **75 everyday products** in Montenegro. Snap them while shopping!",
+          "button_label": "See 75 foods"
+        },
+        "nl_NL": {
+          "title": "🇳🇱 79.8% vastgelegd in Nederland! 📸",
+          "message": "We missen nog **26 basisproducten** in Nederland. Fotografeer ze tijdens je boodschappen!",
+          "button_label": "Bekijk 26 producten"
+        },
+        "en_NL": {
+          "title": "🇳🇱 79.8% complete in the Netherlands! 📸",
+          "message": "Open Food Facts is missing **26 everyday products** in the Netherlands. Snap them while shopping!",
+          "button_label": "See 26 foods"
+        },
+        "nb_NO": {
+          "title": "🇳🇴 70.7% registrert i Norge! 📸",
+          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
+          "button_label": "Se 27 produkter"
+        },
+        "nb": {
+          "title": "🇳🇴 70.7% registrert i Norge! 📸",
+          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
+          "button_label": "Se 27 produkter"
+        },
+        "no_NO": {
+          "title": "🇳🇴 70.7% registrert i Norge! 📸",
+          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
+          "button_label": "Se 27 produkter"
+        },
+        "no": {
+          "title": "🇳🇴 70.7% registrert i Norge! 📸",
+          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
+          "button_label": "Se 27 produkter"
+        },
+        "en_NO": {
+          "title": "🇳🇴 70.7% complete in Norway! 📸",
+          "message": "Open Food Facts is missing **27 everyday products** in Norway. Snap them while shopping!",
+          "button_label": "See 27 foods"
+        },
+        "pl_PL": {
+          "title": "🇵🇱 63.4% zarejestrowane w Polsce! 📸",
+          "message": "W Open Food Facts brakuje jeszcze **30 produktów** w Polsce. Zrób im zdjęcia w sklepie!",
+          "button_label": "Zobacz 30 produktów"
+        },
+        "pl": {
+          "title": "🇵🇱 63.4% zarejestrowane w Polsce! 📸",
+          "message": "W Open Food Facts brakuje jeszcze **30 produktów** w Polsce. Zrób im zdjęcia w sklepie!",
+          "button_label": "Zobacz 30 produktów"
+        },
+        "en_PL": {
+          "title": "🇵🇱 63.4% complete in Poland! 📸",
+          "message": "Open Food Facts is missing **30 everyday products** in Poland. Snap them while shopping!",
+          "button_label": "See 30 foods"
+        },
+        "pt_PT": {
+          "title": "🇵🇹 63.9% registados em Portugal! 📸",
+          "message": "Faltam ainda **30 alimentos essenciais** em Portugal. Fotografe-os durante as compras!",
+          "button_label": "Ver 30 produtos"
+        },
+        "pt": {
+          "title": "🇵🇹 63.9% registados em Portugal! 📸",
+          "message": "Faltam ainda **30 alimentos essenciais** em Portugal. Fotografe-os durante as compras!",
+          "button_label": "Ver 30 produtos"
+        },
+        "en_PT": {
+          "title": "🇵🇹 63.9% complete in Portugal! 📸",
+          "message": "Open Food Facts is missing **30 everyday products** in Portugal. Snap them while shopping!",
+          "button_label": "See 30 foods"
+        },
+        "ro_RO": {
+          "title": "🇷🇴 62.5% înregistrate în România! 📸",
+          "message": "Lipsesc încă **27 produse de bază** în România. Fotografiază-le la cumpărături!",
+          "button_label": "Vezi cele 27 produse"
+        },
+        "ro": {
+          "title": "🇷🇴 62.5% înregistrate în România! 📸",
+          "message": "Lipsesc încă **27 produse de bază** în România. Fotografiază-le la cumpărături!",
+          "button_label": "Vezi cele 27 produse"
+        },
+        "en_RO": {
+          "title": "🇷🇴 62.5% complete in Romania! 📸",
+          "message": "Open Food Facts is missing **27 everyday products** in Romania. Snap them while shopping!",
+          "button_label": "See 27 foods"
+        },
+        "sr_RS": {
+          "title": "🇷🇸 54.3% zabeleženo u Srbiji! 📸",
+          "message": "U Open Food Factsu nedostaju još **32 namirnice** u Srbiji. Fotografišite ih u prodavnici!",
+          "button_label": "Pogledaj 32 namirnica"
+        },
+        "en_RS": {
+          "title": "🇷🇸 54.3% complete in Serbia! 📸",
+          "message": "Open Food Facts is missing **32 everyday products** in Serbia. Snap them while shopping!",
+          "button_label": "See 32 foods"
+        },
+        "sk_SK": {
+          "title": "🇸🇰 57.1% hotovo na Slovensku! 📸",
+          "message": "V Open Food Facts chýba ešte **30 základných potravín** na Slovensku. Odfoťte ich pri nákupe!",
+          "button_label": "Zobraziť 30 potravín"
+        },
+        "sk": {
+          "title": "🇸🇰 57.1% hotovo na Slovensku! 📸",
+          "message": "V Open Food Facts chýba ešte **30 základných potravín** na Slovensku. Odfoťte ich pri nákupe!",
+          "button_label": "Zobraziť 30 potravín"
+        },
+        "en_SK": {
+          "title": "🇸🇰 57.1% complete in Slovakia! 📸",
+          "message": "Open Food Facts is missing **30 everyday products** in Slovakia. Snap them while shopping!",
+          "button_label": "See 30 foods"
+        },
+        "sl_SI": {
+          "title": "🇸🇮 42.3% zabeleženih v Sloveniji! 📸",
+          "message": "V Open Food Facts manjka še **60 izdelkov** v Sloveniji. Fotografirajte jih v trgovini!",
+          "button_label": "Ogled 60 izdelkov"
+        },
+        "sl_SV": {
+          "title": "🇸🇮 42.3% zabeleženih v Sloveniji! 📸",
+          "message": "V Open Food Facts manjka še **60 izdelkov** v Sloveniji. Fotografirajte jih v trgovini!",
+          "button_label": "Ogled 60 izdelkov"
+        },
+        "sl": {
+          "title": "🇸🇮 42.3% zabeleženih v Sloveniji! 📸",
+          "message": "V Open Food Facts manjka še **60 izdelkov** v Sloveniji. Fotografirajte jih v trgovini!",
+          "button_label": "Ogled 60 izdelkov"
+        },
+        "en_SI": {
+          "title": "🇸🇮 42.3% complete in Slovenia! 📸",
+          "message": "Open Food Facts is missing **60 everyday products** in Slovenia. Snap them while shopping!",
+          "button_label": "See 60 foods"
+        },
+        "en_SV": {
+          "title": "🇸🇮 42.3% complete in Slovenia! 📸",
+          "message": "Open Food Facts is missing **60 everyday products** in Slovenia. Snap them while shopping!",
+          "button_label": "See 60 foods"
+        },
+        "es_ES": {
+          "title": "🇪🇸 87.1% registrados en España! 📸",
+          "message": "Solo faltan **8 alimentos cotidianos** en España. ¡Fotografíalos para completar la lista!",
+          "button_label": "Ver los 8 productos"
+        },
+        "ca_ES": {
+          "title": "🇪🇸 87.1% registrats a Espanya! 📸",
+          "message": "Només falten **8 aliments quotidians** a Espanya. Fotografia'ls per completar la llista!",
+          "button_label": "Veure els 8 productes"
+        },
+        "ca": {
+          "title": "🇪🇸 87.1% registrats a Espanya! 📸",
+          "message": "Només falten **8 aliments quotidians** a Espanya. Fotografia'ls per completar la llista!",
+          "button_label": "Veure els 8 productes"
+        },
+        "en_ES": {
+          "title": "🇪🇸 87.1% complete in Spain! 📸",
+          "message": "Only **8 staple products** missing in Spain. Snap them in store to complete the basket!",
+          "button_label": "See 8 foods"
+        },
+        "sv_SE": {
+          "title": "🇸🇪 78.4% registrerat i Sverige! 📸",
+          "message": "Det saknas fortfarande **27 vardagsvaror** i Sverige. Fota dem när du handlar!",
+          "button_label": "Se 27 produkter"
+        },
+        "en_SE": {
+          "title": "🇸🇪 78.4% complete in Sweden! 📸",
+          "message": "Open Food Facts is missing **27 everyday products** in Sweden. Snap them while shopping!",
+          "button_label": "See 27 foods"
+        },
+        "de_CH": {
+          "title": "🇨🇭 72.9% in der Schweiz erfasst! 📸",
+          "message": "In Open Food Facts fehlen noch **58 wichtige Produkte** in der Schweiz. Hilf mit beim Einkaufen!",
+          "button_label": "58 Produkte ansehen"
+        },
+        "fr_CH": {
+          "title": "🇨🇭 72.9% enregistrés en Suisse ! 📸",
+          "message": "Il manque encore **58 produits du quotidien** en Suisse. Photographiez-les lors de vos courses !",
+          "button_label": "Voir les 58 produits"
+        },
+        "it_CH": {
+          "title": "🇨🇭 72.9% registrati in Svizzera! 📸",
+          "message": "Mancano ancora **58 alimenti essenziali** in Svizzera. Fotografali mentre fai la spesa!",
+          "button_label": "Vedi 58 prodotti"
+        },
+        "en_CH": {
+          "title": "🇨🇭 72.9% complete in Switzerland! 📸",
+          "message": "Open Food Facts is missing **58 everyday products** in Switzerland. Snap them while shopping!",
+          "button_label": "See 58 foods"
+        },
+        "en_UK": {
+          "title": "🇬🇧 87.1% complete in the UK! 📸",
+          "message": "Open Food Facts is missing **19 everyday products** in the UK. Snap missing items when you shop!",
+          "button_label": "See 19 foods"
+        },
+        "en_GB": {
+          "title": "🇬🇧 87.1% complete in the UK! 📸",
+          "message": "Open Food Facts is missing **19 everyday products** in the UK. Snap missing items when you shop!",
+          "button_label": "See 19 foods"
+        }
+      },
+      "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/"
     }
   },
   "tagline_feed": {
     "default": {
       "news": [
+        {
+          "id": "photos_for_impact_2026"
+        },
         {
           "id": "divinfood_survey_2026"
         },
@@ -547,6 +1098,690 @@
         },
         {
           "id": "nutriscore_petition_2025"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_AT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=at"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_BE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=be"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_BG": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=bg"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_HR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=hr"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_CY": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cy"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_CZ": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cs"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_CS": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cs"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_DK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=dk"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_EE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ee"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_FI": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fi"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_FR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fr"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_DE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=de"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_GR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=el"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_EL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=el"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_HU": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=hu"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_IE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ie"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_IT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=it"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_LV": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lv"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_LT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lt"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_LU": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lu"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_MT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=mt"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_ME": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=me"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_NL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=nl"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_NO": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=no"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_PL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=pl"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_PT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=pt"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_RO": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ro"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_RS": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=rs"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_SK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=sk"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_SI": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=si"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_SV": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=si"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_ES": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=es"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_SE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=se"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_CH": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ch"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_UK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=uk"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
+        },
+        {
+          "id": "openprices_challenge_01_06"
+        }
+      ]
+    },
+    "_GB": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=uk"
+          }
+        },
+        {
+          "id": "divinfood_survey_2026"
+        },
+        {
+          "id": "donation_campaign_2026"
         },
         {
           "id": "openprices_challenge_01_06"
