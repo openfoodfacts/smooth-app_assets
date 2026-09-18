@@ -1,273 +1,5 @@
 {
   "news": {
-    "divinfood_survey_2026": {
-      "start_date": "2026-02-23 00:00:00",
-      "end_date": "2026-03-09 23:59:59",
-      "translations": {
-        "cs": {
-          "button_label": "Zúčastnit se průzkumu",
-          "message": "Pomoz nám podpořit **agrobiodiverzitu** v potravinách jako součást evropského projektu DIVINFOOD!",
-          "title": "🌿 Průzkum DIVINFOOD"
-        },
-        "da": {
-          "button_label": "Svar på undersøgelsen",
-          "message": "Hjælp os med at fremme **agrobiodiversitet** i fødevarer som en del af det europæiske DIVINFOOD-projekt!",
-          "title": "🌿 DIVINFOOD-undersøgelse"
-        },
-        "de": {
-          "button_label": "An Umfrage teilnehmen",
-          "message": "Hilf uns, **Agrobiodiversität** in Lebensmitteln im Rahmen des europäischen Projekts DIVINFOOD zu fördern!",
-          "title": "🌿 DIVINFOOD-Umfrage"
-        },
-        "default": {
-          "button_label": "Answer the survey",
-          "image": {
-            "alt": "DIVINFOOD logo",
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/android/assets/divinfood/divinfood.svg",
-            "width": 0.2
-          },
-          "message": "Help us promote **agrobiodiversity** in food as part of the European DIVINFOOD project!",
-          "title": "🌿 DIVINFOOD survey"
-        },
-        "el": {
-          "button_label": "Απάντησε στη δημοσκόπηση",
-          "message": "Βοήθησέ μας να προωθήσουμε την **αγρο-βιοποικιλότητα** στα τρόφιμα στο πλαίσιο του ευρωπαϊκού έργου DIVINFOOD!",
-          "title": "🌿 Δημοσκόπηση DIVINFOOD"
-        },
-        "es": {
-          "button_label": "Responder a la encuesta",
-          "message": "¡Ayúdanos a promover la **agrobiodiversidad** en los alimentos como parte del proyecto europeo DIVINFOOD!",
-          "title": "🌿 Encuesta DIVINFOOD"
-        },
-        "fr": {
-          "button_label": "Répondre à l'enquête",
-          "message": "Aidez-nous à promouvoir l'**agrobiodiversité** dans les aliments dans le cadre du projet européen DIVINFOOD !",
-          "title": "🌿 Enquête DIVINFOOD"
-        },
-        "hu": {
-          "button_label": "Válaszoljon a felmérésre",
-          "message": "Segítsen nekünk előmozdítani az **agrobiodiverzitást** az élelmiszerekben az európai DIVINFOOD projekt részeként!",
-          "title": "🌿 DIVINFOOD felmérés"
-        },
-        "it": {
-          "button_label": "Rispondi al sondaggio",
-          "message": "Aiutaci a promuovere l'**agrobiodiversità** negli alimenti nell'ambito del progetto europeo DIVINFOOD!",
-          "title": "🌿 Sondaggio DIVINFOOD"
-        },
-        "pl": {
-          "button_label": "Weź udział w ankiecie",
-          "message": "Pomożesz nam promować **agrobioróżnorodność** w żywności w ramach europejskiego projektu DIVINFOOD!",
-          "title": "🌿 Ankieta DIVINFOOD"
-        },
-        "pt": {
-          "button_label": "Responder à pesquisa",
-          "message": "Ajude-nos a promover a **agrobiodiversidade** nos alimentos como parte do projeto europeu DIVINFOOD!",
-          "title": "🌿 Pesquisa DIVINFOOD"
-        },
-        "ro": {
-          "button_label": "Participă la sondaj",
-          "message": "Ajută-ne să promovăm **agrobiodiversitatea** în alimente în cadrul proiectului european DIVINFOOD!",
-          "title": "🌿 Sondaj DIVINFOOD"
-        },
-        "sv": {
-          "button_label": "Svara på undersökningen",
-          "message": "Hjälp oss att främja **agrobiodiversitet** i mat som en del av det europeiska DIVINFOOD-projektet!",
-          "title": "🌿 DIVINFOOD-undersökning"
-        }
-      },
-      "url": "https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity"
-    },
-    "openprices_challenge_01_06": {
-      "start_date": "2026-01-15 00:00:00",
-      "end_date": "2026-02-14 23:59:59",
-      "translations": {
-        "ar": {
-          "button_label": "اعرف المزيد",
-          "message": "الأسعار المفتوحة: انضم إلى تحدي مجتمعنا من خلال **جمع أسعار الأطعمة المجمدة ❄️**",
-          "title": "❄️ تحدي الطعام المجمد!"
-        },
-        "bg": {
-          "button_label": "Научете повече",
-          "message": "Open Prices: Присъединете се към нашето общностно предизвикателство, като **събирате цени на замразени храни ❄️**",
-          "title": "❄️ Предизвикателство за замразени храни!"
-        },
-        "bn": {
-          "button_label": "আরও জানুন",
-          "message": "Open Prices: **হিমায়িত খাবারের দাম সংগ্রহ করে ❄️** আমাদের কমিউনিটি চ্যালেঞ্জে যোগ দিন",
-          "title": "❄️ হিমায়িত খাবারের চ্যালেঞ্জ!"
-        },
-        "ca": {
-          "button_label": "Més informació",
-          "message": "Open Prices: Uneix-te al nostre repte comunitari **recollint preus d'aliments congelats ❄️**",
-          "title": "❄️ Repte d'aliments congelats!"
-        },
-        "cs": {
-          "button_label": "Zjistit více",
-          "message": "Open Prices: Připojte se k naší komunitní výzvě **sběrem cen mražených potravin ❄️**",
-          "title": "❄️ Výzva mražených potravin!"
-        },
-        "da": {
-          "button_label": "Lær mere",
-          "message": "Open Prices: Deltag i vores fællesskabsudfordring ved at **indsamle priser på frosne fødevarer ❄️**",
-          "title": "❄️ Frosne fødevarer-udfordring!"
-        },
-        "de": {
-          "button_label": "Mehr erfahren",
-          "message": "Open Prices: Nehmen Sie an unserer Community-Herausforderung teil, indem Sie **Preise für Tiefkühlkost sammeln ❄️**",
-          "title": "❄️ Tiefkühlkost-Herausforderung!"
-        },
-        "default": {
-          "button_label": "Learn more",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/web/assets/openprices_challenge/2026_january/frozen.svg",
-            "width": 0.2
-          },
-          "message": "Open Prices: Join our community challenge by **collecting prices of frozen food ❄️**",
-          "title": "❄️ Frozen food challenge!"
-        },
-        "el": {
-          "button_label": "Μάθετε περισσότερα",
-          "message": "Open Prices: Συμμετάσχετε στην πρόκληση της κοινότητάς μας **συλλέγοντας τιμές κατεψυγμένων τροφίμων ❄️**",
-          "title": "❄️ Πρόκληση κατεψυγμένων τροφίμων!"
-        },
-        "es": {
-          "button_label": "Más información",
-          "message": "Open Prices: Únete a nuestro desafío comunitario **recopilando precios de alimentos congelados ❄️**",
-          "title": "❄️ ¡Desafío de alimentos congelados!"
-        },
-        "fa": {
-          "button_label": "بیشتر بدانید",
-          "message": "Open Prices: با **جمع‌آوری قیمت‌های غذاهای منجمد ❄️** به چالش جامعه ما بپیوندید",
-          "title": "❄️ چالش غذای منجمد!"
-        },
-        "fi": {
-          "button_label": "Lue lisää",
-          "message": "Open Prices: Liity yhteisöhaasteeseen **keräämällä pakastettujen elintarvikkeiden hintoja ❄️**",
-          "title": "❄️ Pakastettujen elintarvikkeiden haaste!"
-        },
-        "fr": {
-          "button_label": "En savoir plus",
-          "message": "Open Prices : Rejoignez notre défi mensuel en **collectant les prix des produits surgelés ❄️**",
-          "title": "❄️ Défi Produits surgelés !"
-        },
-        "he": {
-          "button_label": "למד עוד",
-          "message": "Open Prices: הצטרף לאתגר הקהילה שלנו על ידי **איסוף מחירים של מזון קפוא ❄️**",
-          "title": "❄️ אתגר מזון קפוא!"
-        },
-        "hi": {
-          "button_label": "और जानें",
-          "message": "Open Prices: **जमे हुए भोजन की कीमतें एकत्र करके ❄️** हमारी समुदाय चुनौती में शामिल हों",
-          "title": "❄️ जमे हुए भोजन की चुनौती!"
-        },
-        "hu": {
-          "button_label": "Tudj meg többet",
-          "message": "Open Prices: Csatlakozzon közösségi kihívásunkhoz **fagyasztott élelmiszerek árainak gyűjtésével ❄️**",
-          "title": "❄️ Fagyasztott élelmiszer kihívás!"
-        },
-        "id": {
-          "button_label": "Pelajari lebih lanjut",
-          "message": "Open Prices: Bergabunglah dengan tantangan komunitas kami dengan **mengumpulkan harga makanan beku ❄️**",
-          "title": "❄️ Tantangan makanan beku!"
-        },
-        "it": {
-          "button_label": "Scopri di più",
-          "message": "Open Prices: Unisciti alla nostra sfida della comunità **raccogliendo i prezzi dei cibi surgelati ❄️**",
-          "title": "❄️ Sfida dei cibi surgelati!"
-        },
-        "ja": {
-          "button_label": "詳しく見る",
-          "message": "Open Prices: **冷凍食品の価格を収集して ❄️** コミュニティチャレンジに参加しましょう",
-          "title": "❄️ 冷凍食品チャレンジ！"
-        },
-        "ko": {
-          "button_label": "자세히 알아보기",
-          "message": "Open Prices: **냉동 식품 가격을 수집하여 ❄️** 커뮤니티 챌린지에 참여하세요",
-          "title": "❄️ 냉동 식품 챌린지!"
-        },
-        "lt": {
-          "button_label": "Sužinoti daugiau",
-          "message": "Open Prices: Prisijunkite prie mūsų bendruomenės iššūkio **rinkdami šaldytų produktų kainas ❄️**",
-          "title": "❄️ Šaldytų produktų iššūkis!"
-        },
-        "ms": {
-          "button_label": "Ketahui lebih lanjut",
-          "message": "Open Prices: Sertai cabaran komuniti kami dengan **mengumpul harga makanan beku ❄️**",
-          "title": "❄️ Cabaran makanan beku!"
-        },
-        "nb": {
-          "button_label": "Lær mer",
-          "message": "Open Prices: Bli med på vår fellesskapsutfordring ved å **samle priser på frossenvarer ❄️**",
-          "title": "❄️ Frossenvarer-utfordring!"
-        },
-        "nl": {
-          "button_label": "Meer informatie",
-          "message": "Open Prices: Doe mee aan onze community-uitdaging door **prijzen van diepvriesproducten te verzamelen ❄️**",
-          "title": "❄️ Diepvriesproducten-uitdaging!"
-        },
-        "pl": {
-          "button_label": "Dowiedz się więcej",
-          "message": "Open Prices: Dołącz do naszego wyzwania społeczności, **zbierając ceny mrożonek ❄️**",
-          "title": "❄️ Wyzwanie mrożonek!"
-        },
-        "pt": {
-          "button_label": "Saiba mais",
-          "message": "Open Prices: Participe do nosso desafio da comunidade **coletando preços de alimentos congelados ❄️**",
-          "title": "❄️ Desafio de alimentos congelados!"
-        },
-        "ro": {
-          "button_label": "Află mai multe",
-          "message": "Open Prices: Alătură-te provocării comunității noastre **colectând prețuri pentru alimente congelate ❄️**",
-          "title": "❄️ Provocarea alimentelor congelate!"
-        },
-        "ru": {
-          "button_label": "Узнать больше",
-          "message": "Open Prices: Присоединяйтесь к нашему общественному челленджу, **собирая цены на замороженные продукты ❄️**",
-          "title": "❄️ Челлендж замороженных продуктов!"
-        },
-        "sk": {
-          "button_label": "Zistiť viac",
-          "message": "Open Prices: Pripojte sa k našej komunitnej výzve **zbieraním cien mrazených potravín ❄️**",
-          "title": "❄️ Výzva mrazených potravín!"
-        },
-        "sl": {
-          "button_label": "Izvedite več",
-          "message": "Open Prices: Pridružite se našemu izziva skupnosti z **zbiranjem cen zamrznjene hrane ❄️**",
-          "title": "❄️ Izziv zamrznjene hrane!"
-        },
-        "sv": {
-          "button_label": "Lär dig mer",
-          "message": "Open Prices: Gå med i vår community-utmaning genom att **samla priser på fryst mat ❄️**",
-          "title": "❄️ Fryst mat-utmaning!"
-        },
-        "th": {
-          "button_label": "เรียนรู้เพิ่มเติม",
-          "message": "Open Prices: เข้าร่วมความท้าทายของชุมชนของเราโดย **การรวบรวมราคาอาหารแช่แข็ง ❄️**",
-          "title": "❄️ ความท้าทายอาหารแช่แข็ง!"
-        },
-        "tr": {
-          "button_label": "Daha fazla bilgi",
-          "message": "Open Prices: **Dondurulmuş gıda fiyatlarını toplayarak ❄️** topluluk meydan okumamuza katılın",
-          "title": "❄️ Dondurulmuş gıda meydan okuması!"
-        },
-        "uk": {
-          "button_label": "Дізнатися більше",
-          "message": "Open Prices: Приєднуйтесь до нашого челенджу спільноти, **збираючи ціни на заморожені продукти ❄️**",
-          "title": "❄️ Челендж заморожених продуктів!"
-        },
-        "vi": {
-          "button_label": "Tìm hiểu thêm",
-          "message": "Open Prices: Tham gia thử thách cộng đồng của chúng tôi bằng cách **thu thập giá thực phẩm đông lạnh ❄️**",
-          "title": "❄️ Thử thách thực phẩm đông lạnh!"
-        },
-        "zh": {
-          "button_label": "了解更多",
-          "message": "Open Prices: 通过**收集冷冻食品价格 ❄️** 加入我们的社区挑战",
-          "title": "❄️ 冷冻食品挑战！"
-        }
-      },
-      "url": "https://prices.openfoodfacts.org/challenge"
-    },
     "donation_campaign_2026": {
       "currency": "EUR",
       "end_date": "2027-01-31 23:59:59",
@@ -505,23 +237,6 @@
       },
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
     },
-    "nutriscore_petition_2025": {
-      "end_date": "2026-06-30 23:59:59",
-      "start_date": "2025-11-21 00:00:00",
-      "translations": {
-        "default": {
-          "button_label": "Signer la pétition",
-          "image": {
-            "alt": "Le logo du Nutri-Score",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
-            "width": 0.2
-          },
-          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
-          "title": "Agissez pour le Nutri-Score !"
-        }
-      },
-      "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
-    },
     "photos_for_impact_2026": {
       "end_date": "2026-12-31 23:59:59",
       "min_launches": 1,
@@ -539,7 +254,7 @@
       "translations": {
         "default": {
           "title": "Missing foods!",
-          "message": "Snap **missing everyday foods** when you shop!",
+          "message": "Snap **missing foods** when you shop!",
           "button_label": "See list",
           "image": {
             "alt": "Photos for Impact",
@@ -549,32 +264,32 @@
         },
         "en": {
           "title": "Missing foods!",
-          "message": "Snap **missing everyday foods** when you shop!",
+          "message": "Snap **missing foods** when you shop!",
           "button_label": "See list"
         },
         "de": {
           "title": "Produkte gesucht!",
-          "message": "Fotografiere **fehlende Produkte** beim Einkaufen!",
+          "message": "Fotografiere **fehlende Produkte**!",
           "button_label": "Liste ansehen"
         },
         "fr": {
           "title": "Produits recherchés",
-          "message": "Photographiez les **produits manquants** en magasin !",
+          "message": "Photographiez les **produits manquants** !",
           "button_label": "Voir la liste"
         },
         "it": {
           "title": "Prodotti cercati!",
-          "message": "Fotografa **alimenti mancanti** quando fai la spesa!",
+          "message": "Fotografa gli **alimenti mancanti**!",
           "button_label": "Vedi lista"
         },
         "es": {
           "title": "¡Faltan productos!",
-          "message": "¡Fotografía **alimentos cotidianos** en el súper!",
+          "message": "¡Fotografía **alimentos que faltan**!",
           "button_label": "Ver lista"
         },
         "nl": {
           "title": "Producten gezocht!",
-          "message": "Fotografeer **ontbrekende producten** in de winkel!",
+          "message": "Fotografeer **ontbrekende producten**!",
           "button_label": "Bekijk lijst"
         },
         "de_AT": {
@@ -1078,29 +793,14 @@
           "id": "photos_for_impact_2026"
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
     "fr_FR": {
       "news": [
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "nutriscore_petition_2025"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1113,13 +813,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1132,13 +826,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1151,13 +839,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1170,13 +852,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1189,13 +865,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1208,13 +878,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1227,13 +891,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1246,13 +904,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1265,13 +917,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1284,13 +930,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1303,13 +943,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1322,13 +956,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1341,13 +969,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1360,13 +982,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1379,13 +995,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1398,13 +1008,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1417,13 +1021,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1436,13 +1034,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1455,13 +1047,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1474,13 +1060,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1493,13 +1073,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1512,13 +1086,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1531,13 +1099,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1550,13 +1112,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1569,13 +1125,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1588,13 +1138,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1607,13 +1151,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1626,13 +1164,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1645,13 +1177,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1664,13 +1190,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1683,13 +1203,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1702,13 +1216,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1721,13 +1229,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1740,13 +1242,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1759,13 +1255,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     },
@@ -1778,13 +1268,7 @@
           }
         },
         {
-          "id": "divinfood_survey_2026"
-        },
-        {
           "id": "donation_campaign_2026"
-        },
-        {
-          "id": "openprices_challenge_01_06"
         }
       ]
     }

@@ -241,44 +241,55 @@
       "end_date": "2026-12-31 23:59:59",
       "min_launches": 1,
       "start_date": "2026-09-18 00:00:00",
+      "style": {
+        "title_background": "#2D72D2",
+        "title_text_color": "#FFFFFF",
+        "title_indicator_color": "#FFB800",
+        "message_background": "#F0F4F8",
+        "message_text_color": "#1C2024",
+        "button_background": "#347644",
+        "button_text_color": "#FFFFFF",
+        "content_background_color": "#FFFFFF"
+      },
       "translations": {
         "default": {
           "title": "Missing foods!",
-          "message": "Snap **missing everyday foods** when you shop!",
+          "message": "Snap **missing foods** when you shop!",
           "button_label": "See list",
           "image": {
+            "alt": "Photos for Impact",
             "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/tagline/android/assets/photos_for_impact/photos_for_impact.svg",
             "width": 0.2
           }
         },
         "en": {
           "title": "Missing foods!",
-          "message": "Snap **missing everyday foods** when you shop!",
+          "message": "Snap **missing foods** when you shop!",
           "button_label": "See list"
         },
         "de": {
           "title": "Produkte gesucht!",
-          "message": "Fotografiere **fehlende Produkte** beim Einkaufen!",
+          "message": "Fotografiere **fehlende Produkte**!",
           "button_label": "Liste ansehen"
         },
         "fr": {
           "title": "Produits recherchés",
-          "message": "Photographiez les **produits manquants** en magasin !",
+          "message": "Photographiez les **produits manquants** !",
           "button_label": "Voir la liste"
         },
         "it": {
           "title": "Prodotti cercati!",
-          "message": "Fotografa **alimenti mancanti** quando fai la spesa!",
+          "message": "Fotografa gli **alimenti mancanti**!",
           "button_label": "Vedi lista"
         },
         "es": {
           "title": "¡Faltan productos!",
-          "message": "¡Fotografía **alimentos cotidianos** en el súper!",
+          "message": "¡Fotografía **alimentos que faltan**!",
           "button_label": "Ver lista"
         },
         "nl": {
           "title": "Producten gezocht!",
-          "message": "Fotografeer **ontbrekende producten** in de winkel!",
+          "message": "Fotografeer **ontbrekende producten**!",
           "button_label": "Bekijk lijst"
         },
         "de_AT": {

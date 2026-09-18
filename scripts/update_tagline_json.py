@@ -218,37 +218,37 @@ def generate_translations(stats):
     translations = {
         "default": {
             "title": "Missing foods!",
-            "message": "Snap **missing everyday foods** when you shop!",
+            "message": "Snap **missing foods** when you shop!",
             "button_label": "See list"
         },
         "en": {
             "title": "Missing foods!",
-            "message": "Snap **missing everyday foods** when you shop!",
+            "message": "Snap **missing foods** when you shop!",
             "button_label": "See list"
         },
         "de": {
             "title": "Produkte gesucht!",
-            "message": "Fotografiere **fehlende Produkte** beim Einkaufen!",
+            "message": "Fotografiere **fehlende Produkte**!",
             "button_label": "Liste ansehen"
         },
         "fr": {
             "title": "Produits recherchés",
-            "message": "Photographiez les **produits manquants** en magasin !",
+            "message": "Photographiez les **produits manquants** !",
             "button_label": "Voir la liste"
         },
         "it": {
             "title": "Prodotti cercati!",
-            "message": "Fotografa **alimenti mancanti** quando fai la spesa!",
+            "message": "Fotografa gli **alimenti mancanti**!",
             "button_label": "Vedi lista"
         },
         "es": {
             "title": "¡Faltan productos!",
-            "message": "¡Fotografía **alimentos cotidianos** en el súper!",
+            "message": "¡Fotografía **alimentos que faltan**!",
             "button_label": "Ver lista"
         },
         "nl": {
             "title": "Producten gezocht!",
-            "message": "Fotografeer **ontbrekende producten** in de winkel!",
+            "message": "Fotografeer **ontbrekende producten**!",
             "button_label": "Bekijk lijst"
         }
     }
@@ -283,10 +283,22 @@ def generate_translations(stats):
     return translations
 
 
+EXPIRED_CAMPAIGNS = {
+    'divinfood_survey_2026',
+    'openprices_challenge_01_06',
+    'nutriscore_petition_2025',
+    'prices_summer_campaign'
+}
+
+
 def update_platform(platform, stats):
     file_path = os.path.join(PROD_DIR, platform, 'main.json')
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
+
+    # Prune expired campaigns for cross-platform consistency
+    for expired in EXPIRED_CAMPAIGNS:
+        data['news'].pop(expired, None)
 
     img_url = f"https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/tagline/{platform}/assets/photos_for_impact/photos_for_impact.svg"
     img_obj = {
@@ -311,6 +323,12 @@ def update_platform(platform, stats):
 
     tagline_feed = data.setdefault('tagline_feed', {})
     default_feed = tagline_feed.setdefault('default', {'news': []})
+    
+    # Filter expired items from all feeds in tagline_feed
+    for feed_key, feed_val in tagline_feed.items():
+        if isinstance(feed_val, dict) and 'news' in feed_val:
+            feed_val['news'] = [n for n in feed_val['news'] if n.get('id') not in EXPIRED_CAMPAIGNS and n.get('id') in data['news']]
+
     existing_ids = [n['id'] for n in default_feed['news']]
     if CAMPAIGN_ID not in existing_ids:
         default_feed['news'].insert(0, {"id": CAMPAIGN_ID})
