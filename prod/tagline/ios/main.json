@@ -516,11 +516,167 @@
         }
       },
       "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
+    },
+    "photos_for_impact_2026": {
+      "end_date": "2026-12-31 23:59:59",
+      "min_launches": 1,
+      "start_date": "2026-09-18 00:00:00",
+      "style": {
+        "title_background": "#2D72D2",
+        "title_text_color": "#FFFFFF",
+        "title_indicator_color": "#FFB800",
+        "message_background": "#F0F4F8",
+        "message_text_color": "#1C2024",
+        "button_background": "#347644",
+        "button_text_color": "#FFFFFF",
+        "content_background_color": "#FFFFFF"
+      },
+      "translations": {
+        "default": {
+          "title": "Missing products in your country! 📸",
+          "message": "We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
+          "button_label": "See missing foods",
+          "image": {
+            "alt": "Photos for Impact",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/tagline/ios/assets/photos_for_impact/photos_for_impact.svg",
+            "width": 0.2
+          }
+        },
+        "en": {
+          "title": "Missing products in your country! 📸",
+          "message": "We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
+          "button_label": "See missing foods"
+        },
+        "de": {
+          "title": "Fehlende Produkte in deinem Land! 📸",
+          "message": "In Open Food Facts fehlen **wichtige Grundnahrungsmittel**. Fotografiere fehlende Produkte und hilf allen, sich besser zu ernähren!",
+          "button_label": "Produkte ansehen"
+        },
+        "fr": {
+          "title": "Produits manquants dans votre pays ! 📸",
+          "message": "Il manque des **produits du quotidien** dans Open Food Facts. Photographiez-les pour aider tout le monde à mieux manger !",
+          "button_label": "Voir les produits"
+        },
+        "it": {
+          "title": "Prodotti mancanti nel tuo paese! 📸",
+          "message": "Mancano **alimenti essenziali** in Open Food Facts. Fotografa i prodotti mancanti per aiutare tutti a mangiare meglio!",
+          "button_label": "Vedi i prodotti"
+        },
+        "es": {
+          "title": "¡Faltan productos en tu país! 📸",
+          "message": "Faltan **alimentos cotidianos** en Open Food Facts. ¡Fotografía los productos que faltan para ayudar a todos a comer mejor!",
+          "button_label": "Ver productos"
+        },
+        "nl": {
+          "title": "Ontbrekende producten in jouw land! 📸",
+          "message": "We missen **alledaagse basisvoedingsmiddelen** in Open Food Facts. Fotografeer ontbrekende producten en help iedereen gezonder te kiezen!",
+          "button_label": "Bekijk producten"
+        },
+        "da": {
+          "title": "Mangler produkter i dit land! 📸",
+          "message": "Vi mangler **hverdagsfødevarer** i Open Food Facts. Tag billeder af manglende varer og hjælp alle med at spise bedre!",
+          "button_label": "Se produkter"
+        },
+        "sv": {
+          "title": "Saknade produkter i ditt land! 📸",
+          "message": "Det saknas **vardagsmat** i Open Food Facts. Fota saknade produkter och hjälp alla att äta bättre!",
+          "button_label": "Se produkter"
+        },
+        "nb": {
+          "title": "Mangler produkter i ditt land! 📸",
+          "message": "Vi mangler **hverdagsmat** i Open Food Facts. Ta bilde av manglende produkter for å hjelpe alle til å spise bedre!",
+          "button_label": "Se produkter"
+        },
+        "no": {
+          "title": "Mangler produkter i ditt land! 📸",
+          "message": "Vi mangler **hverdagsmat** i Open Food Facts. Ta bilde av manglende produkter for å hjelpe alle til å spise bedre!",
+          "button_label": "Se produkter"
+        },
+        "pl": {
+          "title": "Brakujące produkty w Twoim kraju! 📸",
+          "message": "W Open Food Facts brakuje **podstawowych produktów spożywczych**. Zrób zdjęcia brakujących artykułów i pomóż innym!",
+          "button_label": "Zobacz produkty"
+        },
+        "pt": {
+          "title": "Produtos em falta no seu país! 📸",
+          "message": "Faltam **alimentos do dia a dia** na Open Food Facts. Fotografe os produtos em falta e ajude todos a comer melhor!",
+          "button_label": "Ver produtos"
+        },
+        "el": {
+          "title": "Λείπουν προϊόντα στη χώρα σας! 📸",
+          "message": "Λείπουν **βασικά τρόφιμα** από το Open Food Facts. Φωτογραφίστε τα προϊόντα που λείπουν για να βοηθήσετε όλους!",
+          "button_label": "Δείτε τα προϊόντα"
+        },
+        "hu": {
+          "title": "Hiányzó termékek az országodban! 📸",
+          "message": "Alapvető **mindennapi élelmiszerek** hiányoznak az Open Food Facts-ból. Fotózd le a hiányzó termékeket és segíts másoknak!",
+          "button_label": "Termékek megtekintése"
+        },
+        "cs": {
+          "title": "Chybějící potraviny ve vaší zemi! 📸",
+          "message": "V Open Food Facts chybí **každodenní základní potraviny**. Vyfoťte chybějící produkty a pomozte ostatním lépe jíst!",
+          "button_label": "Zobrazit potraviny"
+        },
+        "sk": {
+          "title": "Chýbajúce potraviny vo vašej krajine! 📸",
+          "message": "V Open Food Facts chýbajú **každodenné základné potraviny**. Odfoťte chýbajúce výrobky a pomôžte všetkým lepšie jesť!",
+          "button_label": "Zobraziť potraviny"
+        },
+        "fi": {
+          "title": "Puuttuvia tuotteita maassasi! 📸",
+          "message": "Open Food Factsista puuttuu **jokapäiväisiä peruselintarvikkeita**. Kuvaa puuttuvat tuotteet ja auta muita syömään paremmin!",
+          "button_label": "Katso tuotteet"
+        },
+        "et": {
+          "title": "Puuduvad tooted sinu riigis! 📸",
+          "message": "Open Food Factsist on puudu **igapäevased toidukaubad**. Pildista puuduvaid tooteid ja aita teistel paremini süüa!",
+          "button_label": "Vaata tooteid"
+        },
+        "lv": {
+          "title": "Trūkstošie produkti tavā valstī! 📸",
+          "message": "Open Food Facts trūkst **ikdienas pārtikas preču**. Nofotografē trūkstošos produktus un palīdzi visiem izvēlēties labāk!",
+          "button_label": "Skatīt produktus"
+        },
+        "lt": {
+          "title": "Trūkstami produktai tavo šalyje! 📸",
+          "message": "Open Food Facts trūkst **kasdienių maisto produktų**. Nufotografuok trūkstamus produktus ir padėk kitiems valgyti geriau!",
+          "button_label": "Žiūrėti produktus"
+        },
+        "hr": {
+          "title": "Nedostajući proizvodi u vašoj zemlji! 📸",
+          "message": "U Open Food Factsu nedostaju **svakodnevne namirnice**. Fotografirajte proizvode koji nedostaju i pomozite drugima!",
+          "button_label": "Pogledaj namirnice"
+        },
+        "sr": {
+          "title": "Proizvodi koji nedostaju u tvojoj zemlji! 📸",
+          "message": "U Open Food Factsu nedostaju **osnovne namirnice**. Fotografišite proizvode koji nedostaju i pomozite svima!",
+          "button_label": "Pogledaj namirnice"
+        },
+        "ro": {
+          "title": "Produse lipsă din țara ta! 📸",
+          "message": "Lipsesc **alimente de bază** din Open Food Facts. Fotografiază produsele lipsă pentru a ajuta comunitatea să mănânce mai bine!",
+          "button_label": "Vezi produsele"
+        },
+        "bg": {
+          "title": "Липсващи продукти във вашата страна! 📸",
+          "message": "В Open Food Facts липсват **ежедневни храни**. Снимайте липсващите продукти и помогнете на всички да се хранят по-добре!",
+          "button_label": "Виж продуктите"
+        },
+        "sl": {
+          "title": "Manjkajoči izdelki v vaši državi! 📸",
+          "message": "V Open Food Facts manjkajo **vsakdanja osnovna živila**. Fotografirajte manjkajoče izdelke in pomagajte vsem bolje jesti!",
+          "button_label": "Ogled izdelkov"
+        }
+      },
+      "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/"
     }
   },
   "tagline_feed": {
     "default": {
       "news": [
+        {
+          "id": "photos_for_impact_2026"
+        },
         {
           "id": "donation_campaign_2026"
         }
@@ -528,6 +684,474 @@
     },
     "fr_FR": {
       "news": [
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_AT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=at"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_BE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=be"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_BG": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=bg"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_HR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=hr"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CY": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cy"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CZ": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cs"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CS": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cs"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_DK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=dk"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_EE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ee"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_FI": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fi"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_FR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fr"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_DE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=de"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_GR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=el"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_EL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=el"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_HU": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=hu"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_IE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ie"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_IT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=it"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_LV": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lv"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_LT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lt"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_LU": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lu"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_MT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=mt"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_ME": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=me"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_NL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=nl"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_NO": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=no"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_PL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=pl"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_PT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=pt"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_RO": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ro"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_RS": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=rs"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=sk"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SI": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=si"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SV": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=si"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_ES": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=es"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=se"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CH": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ch"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_UK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=uk"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_GB": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=uk"
+          }
+        },
         {
           "id": "donation_campaign_2026"
         }
