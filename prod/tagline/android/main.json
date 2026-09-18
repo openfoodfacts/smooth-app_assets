@@ -521,11 +521,21 @@
       "end_date": "2026-12-31 23:59:59",
       "min_launches": 1,
       "start_date": "2026-09-18 00:00:00",
+      "style": {
+        "title_background": "#2D72D2",
+        "title_text_color": "#FFFFFF",
+        "title_indicator_color": "#FFB800",
+        "message_background": "#F0F4F8",
+        "message_text_color": "#1C2024",
+        "button_background": "#347644",
+        "button_text_color": "#FFFFFF",
+        "content_background_color": "#FFFFFF"
+      },
       "translations": {
         "default": {
-          "title": "Missing products in your country! 📸",
-          "message": "We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
-          "button_label": "See missing foods",
+          "title": "Missing foods!",
+          "message": "Snap **missing everyday foods** when you shop!",
+          "button_label": "See list",
           "image": {
             "alt": "Photos for Impact",
             "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/tagline/android/assets/photos_for_impact/photos_for_impact.svg",
@@ -533,524 +543,524 @@
           }
         },
         "en": {
-          "title": "Missing products in your country! 📸",
-          "message": "We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
-          "button_label": "See missing foods"
+          "title": "Missing foods!",
+          "message": "Snap **missing everyday foods** when you shop!",
+          "button_label": "See list"
         },
         "de": {
-          "title": "Fehlende Produkte in deinem Land! 📸",
-          "message": "In Open Food Facts fehlen **wichtige Grundnahrungsmittel**. Fotografiere fehlende Produkte und hilf allen!",
-          "button_label": "Produkte ansehen"
+          "title": "Produkte gesucht!",
+          "message": "Fotografiere **fehlende Produkte** beim Einkaufen!",
+          "button_label": "Liste ansehen"
         },
         "fr": {
-          "title": "Produits manquants dans votre pays ! 📸",
-          "message": "Il manque des **produits du quotidien** dans Open Food Facts. Photographiez-les pour aider tout le monde !",
-          "button_label": "Voir les produits"
+          "title": "Produits recherchés",
+          "message": "Photographiez les **produits manquants** en magasin !",
+          "button_label": "Voir la liste"
         },
         "it": {
-          "title": "Prodotti mancanti nel tuo paese! 📸",
-          "message": "Mancano **alimenti essenziali** in Open Food Facts. Fotografa i prodotti mancanti per aiutare tutti a mangiare meglio!",
-          "button_label": "Vedi i prodotti"
+          "title": "Prodotti cercati!",
+          "message": "Fotografa **alimenti mancanti** quando fai la spesa!",
+          "button_label": "Vedi lista"
         },
         "es": {
-          "title": "¡Faltan productos en tu país! 📸",
-          "message": "Faltan **alimentos cotidianos** en Open Food Facts. ¡Fotografía los productos que faltan para ayudar a todos!",
-          "button_label": "Ver productos"
+          "title": "¡Faltan productos!",
+          "message": "¡Fotografía **alimentos cotidianos** en el súper!",
+          "button_label": "Ver lista"
         },
         "nl": {
-          "title": "Ontbrekende producten in jouw land! 📸",
-          "message": "We missen **alledaagse basisvoedingsmiddelen** in Open Food Facts. Fotografeer ontbrekende producten!",
-          "button_label": "Bekijk producten"
+          "title": "Producten gezocht!",
+          "message": "Fotografeer **ontbrekende producten** in de winkel!",
+          "button_label": "Bekijk lijst"
         },
         "de_AT": {
-          "title": "🇦🇹 77.5% in Österreich erfasst! 📸",
-          "message": "In Open Food Facts fehlen noch **25 wichtige Produkte** in Österreich. Fotografiere sie beim Einkaufen!",
-          "button_label": "25 Produkte ansehen"
+          "title": "🇦🇹 25 Produkte fehlen!",
+          "message": "Fotografiere **25 Produkte** beim Einkaufen!",
+          "button_label": "Liste ansehen"
         },
         "en_AT": {
-          "title": "🇦🇹 77.5% complete in Austria! 📸",
-          "message": "Open Food Facts is missing **25 everyday products** in Austria. Snap them while shopping!",
-          "button_label": "See 25 foods"
+          "title": "🇦🇹 25 foods missing!",
+          "message": "Snap **25 foods** when you shop!",
+          "button_label": "See list"
         },
         "fr_BE": {
-          "title": "🇧🇪 90.5% enregistrés en Belgique ! 📸",
-          "message": "Il manque encore **9 produits du quotidien** en Belgique. Photographiez-les en magasin !",
-          "button_label": "Voir les 9 produits"
+          "title": "🇧🇪 9 produits manquants",
+          "message": "Photographiez **9 produits** en magasin !",
+          "button_label": "Voir la liste"
         },
         "nl_BE": {
-          "title": "🇧🇪 90.5% vastgelegd in België! 📸",
-          "message": "We missen nog **9 alledaagse producten** in België. Fotografeer ze tijdens het winkelen!",
-          "button_label": "Bekijk 9 producten"
+          "title": "🇧🇪 9 producten gezocht!",
+          "message": "Fotografeer **9 producten** in de winkel!",
+          "button_label": "Bekijk lijst"
         },
         "de_BE": {
-          "title": "🇧🇪 90.5% in Belgien erfasst! 📸",
-          "message": "In Open Food Facts fehlen noch **9 Produkte** in Belgien. Fotografiere sie beim Einkaufen!",
-          "button_label": "9 Produkte ansehen"
+          "title": "🇧🇪 9 Produkte fehlen!",
+          "message": "Fotografiere **9 Produkte** beim Einkaufen!",
+          "button_label": "Liste ansehen"
         },
         "en_BE": {
-          "title": "🇧🇪 90.5% complete in Belgium! 📸",
-          "message": "Open Food Facts is missing **9 everyday products** in Belgium. Snap them while shopping!",
-          "button_label": "See 9 foods"
+          "title": "🇧🇪 9 foods missing!",
+          "message": "Snap **9 foods** when you shop!",
+          "button_label": "See list"
         },
         "bg_BG": {
-          "title": "🇧🇬 90.0% събрани в България! 📸",
-          "message": "В Open Food Facts липсват само **2 продукта** в България. Снимайте ги в магазина!",
-          "button_label": "Вижте 2-те продукта"
+          "title": "🇧🇬 2 липсващи продукта",
+          "message": "Снимайте **2 продукта** в магазина!",
+          "button_label": "Виж списъка"
         },
         "bg": {
-          "title": "🇧🇬 90.0% събрани в България! 📸",
-          "message": "В Open Food Facts липсват само **2 продукта** в България. Снимайте ги в магазина!",
-          "button_label": "Вижте 2-те продукта"
+          "title": "🇧🇬 2 липсващи продукта",
+          "message": "Снимайте **2 продукта** в магазина!",
+          "button_label": "Виж списъка"
         },
         "en_BG": {
-          "title": "🇧🇬 90.0% complete in Bulgaria! 📸",
-          "message": "Only **2 products** missing in Bulgaria. Snap them in store to reach 100%!",
-          "button_label": "See 2 foods"
+          "title": "🇧🇬 2 foods missing!",
+          "message": "Snap **2 foods** when you shop!",
+          "button_label": "See list"
         },
         "hr_HR": {
-          "title": "🇭🇷 62.1% zabilježeno u Hrvatskoj! 📸",
-          "message": "U Open Food Factsu nedostaju još **33 namirnice** u Hrvatskoj. Fotografirajte ih u trgovini!",
-          "button_label": "Pogledaj 33 namirnica"
+          "title": "🇭🇷 Fali 33 proizvoda!",
+          "message": "Fotografirajte **33 artikala** u trgovini!",
+          "button_label": "Vidi popis"
         },
         "hr": {
-          "title": "🇭🇷 62.1% zabilježeno u Hrvatskoj! 📸",
-          "message": "U Open Food Factsu nedostaju još **33 namirnice** u Hrvatskoj. Fotografirajte ih u trgovini!",
-          "button_label": "Pogledaj 33 namirnica"
+          "title": "🇭🇷 Fali 33 proizvoda!",
+          "message": "Fotografirajte **33 artikala** u trgovini!",
+          "button_label": "Vidi popis"
         },
         "en_HR": {
-          "title": "🇭🇷 62.1% complete in Croatia! 📸",
-          "message": "Open Food Facts is missing **33 everyday products** in Croatia. Snap them while shopping!",
-          "button_label": "See 33 foods"
+          "title": "🇭🇷 33 foods missing!",
+          "message": "Snap **33 foods** when you shop!",
+          "button_label": "See list"
         },
         "el_CY": {
-          "title": "🇨🇾 41.0% καταγεγραμμένα στην Κύπρο! 📸",
-          "message": "Λείπουν ακόμα **36 βασικά προϊόντα** στην Κύπρο. Φωτογραφίστε τα στα ψώνια σας!",
-          "button_label": "Δείτε τα 36 προϊόντα"
+          "title": "🇨🇾 Λείπουν 36 τρόφιμα!",
+          "message": "Φωτογραφίστε **36 προϊόντα** στα ψώνια!",
+          "button_label": "Δείτε λίστα"
         },
         "el": {
-          "title": "🇨🇾 41.0% καταγεγραμμένα στην Κύπρο! 📸",
-          "message": "Λείπουν ακόμα **36 βασικά προϊόντα** στην Κύπρο. Φωτογραφίστε τα στα ψώνια σας!",
-          "button_label": "Δείτε τα 36 προϊόντα"
+          "title": "🇨🇾 Λείπουν 36 τρόφιμα!",
+          "message": "Φωτογραφίστε **36 προϊόντα** στα ψώνια!",
+          "button_label": "Δείτε λίστα"
         },
         "en_CY": {
-          "title": "🇨🇾 41.0% complete in Cyprus! 📸",
-          "message": "Open Food Facts is missing **36 everyday products** in Cyprus. Snap them while shopping!",
-          "button_label": "See 36 foods"
+          "title": "🇨🇾 36 foods missing!",
+          "message": "Snap **36 foods** when you shop!",
+          "button_label": "See list"
         },
         "cs_CZ": {
-          "title": "🇨🇿 75.4% hotovo v Česku! 📸",
-          "message": "V Open Food Facts chybí ještě **17 potravin** v ČR. Vyfoťte je při nákupu!",
-          "button_label": "Zobrazit 17 potravin"
+          "title": "🇨🇿 Chybí 17 potravin!",
+          "message": "Vyfoťte **17 potravin** při nákupu!",
+          "button_label": "Zobrazit"
         },
         "cs_CS": {
-          "title": "🇨🇿 75.4% hotovo v Česku! 📸",
-          "message": "V Open Food Facts chybí ještě **17 potravin** v ČR. Vyfoťte je při nákupu!",
-          "button_label": "Zobrazit 17 potravin"
+          "title": "🇨🇿 Chybí 17 potravin!",
+          "message": "Vyfoťte **17 potravin** při nákupu!",
+          "button_label": "Zobrazit"
         },
         "cs": {
-          "title": "🇨🇿 75.4% hotovo v Česku! 📸",
-          "message": "V Open Food Facts chybí ještě **17 potravin** v ČR. Vyfoťte je při nákupu!",
-          "button_label": "Zobrazit 17 potravin"
+          "title": "🇨🇿 Chybí 17 potravin!",
+          "message": "Vyfoťte **17 potravin** při nákupu!",
+          "button_label": "Zobrazit"
         },
         "en_CZ": {
-          "title": "🇨🇿 75.4% complete in Czechia! 📸",
-          "message": "Open Food Facts is missing **17 everyday products** in Czechia. Snap them while shopping!",
-          "button_label": "See 17 foods"
+          "title": "🇨🇿 17 foods missing!",
+          "message": "Snap **17 foods** when you shop!",
+          "button_label": "See list"
         },
         "en_CS": {
-          "title": "🇨🇿 75.4% complete in Czechia! 📸",
-          "message": "Open Food Facts is missing **17 everyday products** in Czechia. Snap them while shopping!",
-          "button_label": "See 17 foods"
+          "title": "🇨🇿 17 foods missing!",
+          "message": "Snap **17 foods** when you shop!",
+          "button_label": "See list"
         },
         "da_DK": {
-          "title": "🇩🇰 66.9% registreret i Danmark! 📸",
-          "message": "Vi mangler stadig **46 hverdagsprodukter** i Danmark. Tag billeder af dem, når du handler!",
-          "button_label": "Se 46 produkter"
+          "title": "🇩🇰 46 varer mangler!",
+          "message": "Tag foto af **46 varer** i butikken!",
+          "button_label": "Se liste"
         },
         "da": {
-          "title": "🇩🇰 66.9% registreret i Danmark! 📸",
-          "message": "Vi mangler stadig **46 hverdagsprodukter** i Danmark. Tag billeder af dem, når du handler!",
-          "button_label": "Se 46 produkter"
+          "title": "🇩🇰 46 varer mangler!",
+          "message": "Tag foto af **46 varer** i butikken!",
+          "button_label": "Se liste"
         },
         "en_DK": {
-          "title": "🇩🇰 66.9% complete in Denmark! 📸",
-          "message": "Open Food Facts is missing **46 everyday products** in Denmark. Snap them while shopping!",
-          "button_label": "See 46 foods"
+          "title": "🇩🇰 46 foods missing!",
+          "message": "Snap **46 foods** when you shop!",
+          "button_label": "See list"
         },
         "et_EE": {
-          "title": "🇪🇪 38.6% registreeritud Eestis! 📸",
-          "message": "Open Food Factsist on puudu veel **51 toodet** Eestis. Pildista neid poes!",
-          "button_label": "Vaata 51 toodet"
+          "title": "🇪🇪 51 toodet puudu!",
+          "message": "Pildista **51 toodet** poes käies!",
+          "button_label": "Vaata tooteid"
         },
         "et": {
-          "title": "🇪🇪 38.6% registreeritud Eestis! 📸",
-          "message": "Open Food Factsist on puudu veel **51 toodet** Eestis. Pildista neid poes!",
-          "button_label": "Vaata 51 toodet"
+          "title": "🇪🇪 51 toodet puudu!",
+          "message": "Pildista **51 toodet** poes käies!",
+          "button_label": "Vaata tooteid"
         },
         "en_EE": {
-          "title": "🇪🇪 38.6% complete in Estonia! 📸",
-          "message": "Open Food Facts is missing **51 everyday products** in Estonia. Snap them while shopping!",
-          "button_label": "See 51 foods"
+          "title": "🇪🇪 51 foods missing!",
+          "message": "Snap **51 foods** when you shop!",
+          "button_label": "See list"
         },
         "fi_FI": {
-          "title": "🇫🇮 69.6% katettu Suomessa! 📸",
-          "message": "Open Food Factsista puuttuu vielä **35 tuotetta** Suomessa. Ota niistä kuva kaupassa!",
-          "button_label": "Katso 35 tuotetta"
+          "title": "🇫🇮 35 tuotetta puuttuu!",
+          "message": "Kuvaa **35 tuotetta** kaupassa käydessä!",
+          "button_label": "Katso lista"
         },
         "fi": {
-          "title": "🇫🇮 69.6% katettu Suomessa! 📸",
-          "message": "Open Food Factsista puuttuu vielä **35 tuotetta** Suomessa. Ota niistä kuva kaupassa!",
-          "button_label": "Katso 35 tuotetta"
+          "title": "🇫🇮 35 tuotetta puuttuu!",
+          "message": "Kuvaa **35 tuotetta** kaupassa käydessä!",
+          "button_label": "Katso lista"
         },
         "sv_FI": {
-          "title": "🇫🇮 69.6% registrerat i Finland! 📸",
-          "message": "Det saknas fortfarande **35 vardagsvaror** i Finland. Fota dem när du handlar!",
-          "button_label": "Se 35 produkter"
+          "title": "🇫🇮 35 varor saknas!",
+          "message": "Fota **35 varor** när du handlar!",
+          "button_label": "Se lista"
         },
         "sv": {
-          "title": "🇫🇮 69.6% registrerat i Finland! 📸",
-          "message": "Det saknas fortfarande **35 vardagsvaror** i Finland. Fota dem när du handlar!",
-          "button_label": "Se 35 produkter"
+          "title": "🇫🇮 35 varor saknas!",
+          "message": "Fota **35 varor** när du handlar!",
+          "button_label": "Se lista"
         },
         "en_FI": {
-          "title": "🇫🇮 69.6% complete in Finland! 📸",
-          "message": "Open Food Facts is missing **35 everyday products** in Finland. Snap them while shopping!",
-          "button_label": "See 35 foods"
+          "title": "🇫🇮 35 foods missing!",
+          "message": "Snap **35 foods** when you shop!",
+          "button_label": "See list"
         },
         "fr_FR": {
-          "title": "🇫🇷 92.6% enregistrés en France ! 📸",
-          "message": "Il manque seulement **11 produits essentiels** en France. Photographiez-les pour compléter la base !",
-          "button_label": "Voir les 11 produits"
+          "title": "🇫🇷 11 produits manquants",
+          "message": "Photographiez **11 produits** en magasin !",
+          "button_label": "Voir la liste"
         },
         "en_FR": {
-          "title": "🇫🇷 92.6% complete in France! 📸",
-          "message": "Only **11 staple products** missing in France. Snap them in store to complete the basket!",
-          "button_label": "See 11 foods"
+          "title": "🇫🇷 11 foods missing!",
+          "message": "Snap **11 foods** when you shop!",
+          "button_label": "See list"
         },
         "de_DE": {
-          "title": "🇩🇪 82.5% in Deutschland erfasst! 📸",
-          "message": "In Open Food Facts fehlen noch **18 Grundnahrungsmittel** in Deutschland. Fotografiere sie beim Einkaufen!",
-          "button_label": "18 Produkte ansehen"
+          "title": "🇩🇪 18 Produkte fehlen!",
+          "message": "Fotografiere **18 Produkte** beim Einkaufen!",
+          "button_label": "Liste ansehen"
         },
         "en_DE": {
-          "title": "🇩🇪 82.5% complete in Germany! 📸",
-          "message": "Open Food Facts is missing **18 everyday products** in Germany. Snap them while shopping!",
-          "button_label": "See 18 foods"
+          "title": "🇩🇪 18 foods missing!",
+          "message": "Snap **18 foods** when you shop!",
+          "button_label": "See list"
         },
         "el_GR": {
-          "title": "🇬🇷 62.0% καταγεγραμμένα στην Ελλάδα! 📸",
-          "message": "Λείπουν ακόμα **19 βασικά προϊόντα** στην Ελλάδα. Φωτογραφίστε τα στα ψώνια σας!",
-          "button_label": "Δείτε τα 19 προϊόντα"
+          "title": "🇬🇷 Λείπουν 19 τρόφιμα!",
+          "message": "Φωτογραφίστε **19 προϊόντα** στα ψώνια!",
+          "button_label": "Δείτε λίστα"
         },
         "el_EL": {
-          "title": "🇬🇷 62.0% καταγεγραμμένα στην Ελλάδα! 📸",
-          "message": "Λείπουν ακόμα **19 βασικά προϊόντα** στην Ελλάδα. Φωτογραφίστε τα στα ψώνια σας!",
-          "button_label": "Δείτε τα 19 προϊόντα"
+          "title": "🇬🇷 Λείπουν 19 τρόφιμα!",
+          "message": "Φωτογραφίστε **19 προϊόντα** στα ψώνια!",
+          "button_label": "Δείτε λίστα"
         },
         "en_GR": {
-          "title": "🇬🇷 62.0% complete in Greece! 📸",
-          "message": "Open Food Facts is missing **19 everyday products** in Greece. Snap them while shopping!",
-          "button_label": "See 19 foods"
+          "title": "🇬🇷 19 foods missing!",
+          "message": "Snap **19 foods** when you shop!",
+          "button_label": "See list"
         },
         "en_EL": {
-          "title": "🇬🇷 62.0% complete in Greece! 📸",
-          "message": "Open Food Facts is missing **19 everyday products** in Greece. Snap them while shopping!",
-          "button_label": "See 19 foods"
+          "title": "🇬🇷 19 foods missing!",
+          "message": "Snap **19 foods** when you shop!",
+          "button_label": "See list"
         },
         "hu_HU": {
-          "title": "🇭🇺 54.2% rögzítve Magyarországon! 📸",
-          "message": "Az Open Food Facts-ból még **55 termék** hiányzik Magyarországon. Fotózd le őket vásárláskor!",
-          "button_label": "55 termék megtekintése"
+          "title": "🇭🇺 55 termék hiányzik!",
+          "message": "Fotózz le **55 terméket** vásárláskor!",
+          "button_label": "Lista"
         },
         "hu": {
-          "title": "🇭🇺 54.2% rögzítve Magyarországon! 📸",
-          "message": "Az Open Food Facts-ból még **55 termék** hiányzik Magyarországon. Fotózd le őket vásárláskor!",
-          "button_label": "55 termék megtekintése"
+          "title": "🇭🇺 55 termék hiányzik!",
+          "message": "Fotózz le **55 terméket** vásárláskor!",
+          "button_label": "Lista"
         },
         "en_HU": {
-          "title": "🇭🇺 54.2% complete in Hungary! 📸",
-          "message": "Open Food Facts is missing **55 everyday products** in Hungary. Snap them while shopping!",
-          "button_label": "See 55 foods"
+          "title": "🇭🇺 55 foods missing!",
+          "message": "Snap **55 foods** when you shop!",
+          "button_label": "See list"
         },
         "en_IE": {
-          "title": "🇮🇪 75.4% complete in Ireland! 📸",
-          "message": "Open Food Facts is missing **32 everyday products** in Ireland. Snap them while shopping!",
-          "button_label": "See 32 foods"
+          "title": "🇮🇪 32 foods missing!",
+          "message": "Snap **32 foods** when you shop!",
+          "button_label": "See list"
         },
         "it_IT": {
-          "title": "🇮🇹 89.3% registrati in Italia! 📸",
-          "message": "Mancano solo **8 alimenti essenziali** in Italia. Fotografali per completare il paniere!",
-          "button_label": "Vedi gli 8 prodotti"
+          "title": "🇮🇹 Mancano 8 prodotti!",
+          "message": "Fotografa **8 alimenti** mentre fai la spesa!",
+          "button_label": "Vedi lista"
         },
         "en_IT": {
-          "title": "🇮🇹 89.3% complete in Italy! 📸",
-          "message": "Only **8 staple products** missing in Italy. Snap them in store to complete the basket!",
-          "button_label": "See 8 foods"
+          "title": "🇮🇹 8 foods missing!",
+          "message": "Snap **8 foods** when you shop!",
+          "button_label": "See list"
         },
         "lv_LV": {
-          "title": "🇱🇻 48.2% reģistrēti Latvijā! 📸",
-          "message": "Open Food Facts trūkst vēl **57 svarīgu produktu** Latvijā. Nofotografē tos veikalā!",
-          "button_label": "Skatīt 57 produktus"
+          "title": "🇱🇻 Trūkst 57 produktu!",
+          "message": "Nofotografē **57 preces** veikalā!",
+          "button_label": "Skatīt"
         },
         "lv": {
-          "title": "🇱🇻 48.2% reģistrēti Latvijā! 📸",
-          "message": "Open Food Facts trūkst vēl **57 svarīgu produktu** Latvijā. Nofotografē tos veikalā!",
-          "button_label": "Skatīt 57 produktus"
+          "title": "🇱🇻 Trūkst 57 produktu!",
+          "message": "Nofotografē **57 preces** veikalā!",
+          "button_label": "Skatīt"
         },
         "en_LV": {
-          "title": "🇱🇻 48.2% complete in Latvia! 📸",
-          "message": "Open Food Facts is missing **57 everyday products** in Latvia. Snap them while shopping!",
-          "button_label": "See 57 foods"
+          "title": "🇱🇻 57 foods missing!",
+          "message": "Snap **57 foods** when you shop!",
+          "button_label": "See list"
         },
         "lt_LT": {
-          "title": "🇱🇹 42.6% užregistruota Lietuvoje! 📸",
-          "message": "Open Food Facts trūksta dar **58 produktų** Lietuvoje. Nufotografuok juos parduotuvėje!",
-          "button_label": "Žiūrėti 58 produktus"
+          "title": "🇱🇹 Trūksta 58 prekių!",
+          "message": "Nufotografuok **58 prekes** parduotuvėje!",
+          "button_label": "Žiūrėti"
         },
         "lt": {
-          "title": "🇱🇹 42.6% užregistruota Lietuvoje! 📸",
-          "message": "Open Food Facts trūksta dar **58 produktų** Lietuvoje. Nufotografuok juos parduotuvėje!",
-          "button_label": "Žiūrėti 58 produktus"
+          "title": "🇱🇹 Trūksta 58 prekių!",
+          "message": "Nufotografuok **58 prekes** parduotuvėje!",
+          "button_label": "Žiūrėti"
         },
         "en_LT": {
-          "title": "🇱🇹 42.6% complete in Lithuania! 📸",
-          "message": "Open Food Facts is missing **58 everyday products** in Lithuania. Snap them while shopping!",
-          "button_label": "See 58 foods"
+          "title": "🇱🇹 58 foods missing!",
+          "message": "Snap **58 foods** when you shop!",
+          "button_label": "See list"
         },
         "fr_LU": {
-          "title": "🇱🇺 68.6% enregistrés au Luxembourg ! 📸",
-          "message": "Il manque encore **33 produits du quotidien** au Luxembourg. Photographiez-les en magasin !",
-          "button_label": "Voir les 33 produits"
+          "title": "🇱🇺 33 produits manquants",
+          "message": "Photographiez **33 produits** en magasin !",
+          "button_label": "Voir la liste"
         },
         "de_LU": {
-          "title": "🇱🇺 68.6% in Luxemburg erfasst! 📸",
-          "message": "In Open Food Facts fehlen noch **33 Produkte** in Luxemburg. Fotografiere sie beim Einkaufen!",
-          "button_label": "33 Produkte ansehen"
+          "title": "🇱🇺 33 Produkte fehlen!",
+          "message": "Fotografiere **33 Produkte** beim Einkaufen!",
+          "button_label": "Liste ansehen"
         },
         "en_LU": {
-          "title": "🇱🇺 68.6% complete in Luxembourg! 📸",
-          "message": "Open Food Facts is missing **33 everyday products** in Luxembourg. Snap them while shopping!",
-          "button_label": "See 33 foods"
+          "title": "🇱🇺 33 foods missing!",
+          "message": "Snap **33 foods** when you shop!",
+          "button_label": "See list"
         },
         "mt_MT": {
-          "title": "🇲🇹 36.1% reġistrati f'Malta! 📸",
-          "message": "F'Open Food Facts jonqos **39 prodott essenzjali** f'Malta. Ħu ritratt tagħhom waqt li tixtri!",
-          "button_label": "Ara d-39 prodott"
+          "title": "🇲🇹 Jonqos 39 prodott!",
+          "message": "Ħu ritratt ta' **39 prodott** waqt ix-xiri!",
+          "button_label": "Ara l-lista"
         },
         "mt": {
-          "title": "🇲🇹 36.1% reġistrati f'Malta! 📸",
-          "message": "F'Open Food Facts jonqos **39 prodott essenzjali** f'Malta. Ħu ritratt tagħhom waqt li tixtri!",
-          "button_label": "Ara d-39 prodott"
+          "title": "🇲🇹 Jonqos 39 prodott!",
+          "message": "Ħu ritratt ta' **39 prodott** waqt ix-xiri!",
+          "button_label": "Ara l-lista"
         },
         "en_MT": {
-          "title": "🇲🇹 36.1% complete in Malta! 📸",
-          "message": "Open Food Facts is missing **39 everyday products** in Malta. Snap them while shopping!",
-          "button_label": "See 39 foods"
+          "title": "🇲🇹 39 foods missing!",
+          "message": "Snap **39 foods** when you shop!",
+          "button_label": "See list"
         },
         "sr_ME": {
-          "title": "🇲🇪 Samo 17.6% u Crnoj Gori! 📸",
-          "message": "U Open Food Factsu nedostaje još **75 osnovnih proizvoda** u Crnoj Gori. Fotografišite ih u prodavnici!",
-          "button_label": "Pogledaj 75 namirnica"
+          "title": "🇲🇪 Fali 75 proizvoda!",
+          "message": "Fotografišite **75 artikala** u prodavnici!",
+          "button_label": "Vidi spisak"
         },
         "sr": {
-          "title": "🇲🇪 Samo 17.6% u Crnoj Gori! 📸",
-          "message": "U Open Food Factsu nedostaje još **75 osnovnih proizvoda** u Crnoj Gori. Fotografišite ih u prodavnici!",
-          "button_label": "Pogledaj 75 namirnica"
+          "title": "🇲🇪 Fali 75 proizvoda!",
+          "message": "Fotografišite **75 artikala** u prodavnici!",
+          "button_label": "Vidi spisak"
         },
         "en_ME": {
-          "title": "🇲🇪 Only 17.6% complete in Montenegro! 📸",
-          "message": "Open Food Facts is missing **75 everyday products** in Montenegro. Snap them while shopping!",
-          "button_label": "See 75 foods"
+          "title": "🇲🇪 75 foods missing!",
+          "message": "Snap **75 foods** when you shop!",
+          "button_label": "See list"
         },
         "nl_NL": {
-          "title": "🇳🇱 79.8% vastgelegd in Nederland! 📸",
-          "message": "We missen nog **26 basisproducten** in Nederland. Fotografeer ze tijdens je boodschappen!",
-          "button_label": "Bekijk 26 producten"
+          "title": "🇳🇱 26 producten gezocht!",
+          "message": "Fotografeer **26 producten** in de winkel!",
+          "button_label": "Bekijk lijst"
         },
         "en_NL": {
-          "title": "🇳🇱 79.8% complete in the Netherlands! 📸",
-          "message": "Open Food Facts is missing **26 everyday products** in the Netherlands. Snap them while shopping!",
-          "button_label": "See 26 foods"
+          "title": "🇳🇱 26 foods missing!",
+          "message": "Snap **26 foods** when you shop!",
+          "button_label": "See list"
         },
         "nb_NO": {
-          "title": "🇳🇴 70.7% registrert i Norge! 📸",
-          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
-          "button_label": "Se 27 produkter"
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer** i butikken!",
+          "button_label": "Se liste"
         },
         "nb": {
-          "title": "🇳🇴 70.7% registrert i Norge! 📸",
-          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
-          "button_label": "Se 27 produkter"
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer** i butikken!",
+          "button_label": "Se liste"
         },
         "no_NO": {
-          "title": "🇳🇴 70.7% registrert i Norge! 📸",
-          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
-          "button_label": "Se 27 produkter"
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer** i butikken!",
+          "button_label": "Se liste"
         },
         "no": {
-          "title": "🇳🇴 70.7% registrert i Norge! 📸",
-          "message": "Det mangler fortsatt **27 hverdagsvaror** i Norge. Ta bilde av dem når du handler!",
-          "button_label": "Se 27 produkter"
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer** i butikken!",
+          "button_label": "Se liste"
         },
         "en_NO": {
-          "title": "🇳🇴 70.7% complete in Norway! 📸",
-          "message": "Open Food Facts is missing **27 everyday products** in Norway. Snap them while shopping!",
-          "button_label": "See 27 foods"
+          "title": "🇳🇴 27 foods missing!",
+          "message": "Snap **27 foods** when you shop!",
+          "button_label": "See list"
         },
         "pl_PL": {
-          "title": "🇵🇱 63.4% zarejestrowane w Polsce! 📸",
-          "message": "W Open Food Facts brakuje jeszcze **30 produktów** w Polsce. Zrób im zdjęcia w sklepie!",
-          "button_label": "Zobacz 30 produktów"
+          "title": "🇵🇱 Brakuje 30 produktów!",
+          "message": "Sfotografuj **30 produktów** w sklepie!",
+          "button_label": "Zobacz listę"
         },
         "pl": {
-          "title": "🇵🇱 63.4% zarejestrowane w Polsce! 📸",
-          "message": "W Open Food Facts brakuje jeszcze **30 produktów** w Polsce. Zrób im zdjęcia w sklepie!",
-          "button_label": "Zobacz 30 produktów"
+          "title": "🇵🇱 Brakuje 30 produktów!",
+          "message": "Sfotografuj **30 produktów** w sklepie!",
+          "button_label": "Zobacz listę"
         },
         "en_PL": {
-          "title": "🇵🇱 63.4% complete in Poland! 📸",
-          "message": "Open Food Facts is missing **30 everyday products** in Poland. Snap them while shopping!",
-          "button_label": "See 30 foods"
+          "title": "🇵🇱 30 foods missing!",
+          "message": "Snap **30 foods** when you shop!",
+          "button_label": "See list"
         },
         "pt_PT": {
-          "title": "🇵🇹 63.9% registados em Portugal! 📸",
-          "message": "Faltam ainda **30 alimentos essenciais** em Portugal. Fotografe-os durante as compras!",
-          "button_label": "Ver 30 produtos"
+          "title": "🇵🇹 Faltam 30 produtos!",
+          "message": "Fotografe **30 produtos** nas compras!",
+          "button_label": "Ver lista"
         },
         "pt": {
-          "title": "🇵🇹 63.9% registados em Portugal! 📸",
-          "message": "Faltam ainda **30 alimentos essenciais** em Portugal. Fotografe-os durante as compras!",
-          "button_label": "Ver 30 produtos"
+          "title": "🇵🇹 Faltam 30 produtos!",
+          "message": "Fotografe **30 produtos** nas compras!",
+          "button_label": "Ver lista"
         },
         "en_PT": {
-          "title": "🇵🇹 63.9% complete in Portugal! 📸",
-          "message": "Open Food Facts is missing **30 everyday products** in Portugal. Snap them while shopping!",
-          "button_label": "See 30 foods"
+          "title": "🇵🇹 30 foods missing!",
+          "message": "Snap **30 foods** when you shop!",
+          "button_label": "See list"
         },
         "ro_RO": {
-          "title": "🇷🇴 62.5% înregistrate în România! 📸",
-          "message": "Lipsesc încă **27 produse de bază** în România. Fotografiază-le la cumpărături!",
-          "button_label": "Vezi cele 27 produse"
+          "title": "🇷🇴 Lipsesc 27 produse!",
+          "message": "Fotografiază **27 alimente** la magazin!",
+          "button_label": "Vezi lista"
         },
         "ro": {
-          "title": "🇷🇴 62.5% înregistrate în România! 📸",
-          "message": "Lipsesc încă **27 produse de bază** în România. Fotografiază-le la cumpărături!",
-          "button_label": "Vezi cele 27 produse"
+          "title": "🇷🇴 Lipsesc 27 produse!",
+          "message": "Fotografiază **27 alimente** la magazin!",
+          "button_label": "Vezi lista"
         },
         "en_RO": {
-          "title": "🇷🇴 62.5% complete in Romania! 📸",
-          "message": "Open Food Facts is missing **27 everyday products** in Romania. Snap them while shopping!",
-          "button_label": "See 27 foods"
+          "title": "🇷🇴 27 foods missing!",
+          "message": "Snap **27 foods** when you shop!",
+          "button_label": "See list"
         },
         "sr_RS": {
-          "title": "🇷🇸 54.3% zabeleženo u Srbiji! 📸",
-          "message": "U Open Food Factsu nedostaju još **32 namirnice** u Srbiji. Fotografišite ih u prodavnici!",
-          "button_label": "Pogledaj 32 namirnica"
+          "title": "🇷🇸 Fali 32 proizvoda!",
+          "message": "Fotografišite **32 artikala** u prodavnici!",
+          "button_label": "Vidi spisak"
         },
         "en_RS": {
-          "title": "🇷🇸 54.3% complete in Serbia! 📸",
-          "message": "Open Food Facts is missing **32 everyday products** in Serbia. Snap them while shopping!",
-          "button_label": "See 32 foods"
+          "title": "🇷🇸 32 foods missing!",
+          "message": "Snap **32 foods** when you shop!",
+          "button_label": "See list"
         },
         "sk_SK": {
-          "title": "🇸🇰 57.1% hotovo na Slovensku! 📸",
-          "message": "V Open Food Facts chýba ešte **30 základných potravín** na Slovensku. Odfoťte ich pri nákupe!",
-          "button_label": "Zobraziť 30 potravín"
+          "title": "🇸🇰 Chýba 30 potravín!",
+          "message": "Odfoťte **30 potravín** pri nákupe!",
+          "button_label": "Zobraziť"
         },
         "sk": {
-          "title": "🇸🇰 57.1% hotovo na Slovensku! 📸",
-          "message": "V Open Food Facts chýba ešte **30 základných potravín** na Slovensku. Odfoťte ich pri nákupe!",
-          "button_label": "Zobraziť 30 potravín"
+          "title": "🇸🇰 Chýba 30 potravín!",
+          "message": "Odfoťte **30 potravín** pri nákupe!",
+          "button_label": "Zobraziť"
         },
         "en_SK": {
-          "title": "🇸🇰 57.1% complete in Slovakia! 📸",
-          "message": "Open Food Facts is missing **30 everyday products** in Slovakia. Snap them while shopping!",
-          "button_label": "See 30 foods"
+          "title": "🇸🇰 30 foods missing!",
+          "message": "Snap **30 foods** when you shop!",
+          "button_label": "See list"
         },
         "sl_SI": {
-          "title": "🇸🇮 42.3% zabeleženih v Sloveniji! 📸",
-          "message": "V Open Food Facts manjka še **60 izdelkov** v Sloveniji. Fotografirajte jih v trgovini!",
-          "button_label": "Ogled 60 izdelkov"
+          "title": "🇸🇮 Manjka 60 živil!",
+          "message": "Fotografirajte **60 izdelkov** v trgovini!",
+          "button_label": "Ogled"
         },
         "sl_SV": {
-          "title": "🇸🇮 42.3% zabeleženih v Sloveniji! 📸",
-          "message": "V Open Food Facts manjka še **60 izdelkov** v Sloveniji. Fotografirajte jih v trgovini!",
-          "button_label": "Ogled 60 izdelkov"
+          "title": "🇸🇮 Manjka 60 živil!",
+          "message": "Fotografirajte **60 izdelkov** v trgovini!",
+          "button_label": "Ogled"
         },
         "sl": {
-          "title": "🇸🇮 42.3% zabeleženih v Sloveniji! 📸",
-          "message": "V Open Food Facts manjka še **60 izdelkov** v Sloveniji. Fotografirajte jih v trgovini!",
-          "button_label": "Ogled 60 izdelkov"
+          "title": "🇸🇮 Manjka 60 živil!",
+          "message": "Fotografirajte **60 izdelkov** v trgovini!",
+          "button_label": "Ogled"
         },
         "en_SI": {
-          "title": "🇸🇮 42.3% complete in Slovenia! 📸",
-          "message": "Open Food Facts is missing **60 everyday products** in Slovenia. Snap them while shopping!",
-          "button_label": "See 60 foods"
+          "title": "🇸🇮 60 foods missing!",
+          "message": "Snap **60 foods** when you shop!",
+          "button_label": "See list"
         },
         "en_SV": {
-          "title": "🇸🇮 42.3% complete in Slovenia! 📸",
-          "message": "Open Food Facts is missing **60 everyday products** in Slovenia. Snap them while shopping!",
-          "button_label": "See 60 foods"
+          "title": "🇸🇮 60 foods missing!",
+          "message": "Snap **60 foods** when you shop!",
+          "button_label": "See list"
         },
         "es_ES": {
-          "title": "🇪🇸 87.1% registrados en España! 📸",
-          "message": "Solo faltan **8 alimentos cotidianos** en España. ¡Fotografíalos para completar la lista!",
-          "button_label": "Ver los 8 productos"
+          "title": "🇪🇸 ¡Faltan 8 productos!",
+          "message": "¡Fotografía **8 alimentos** en el súper!",
+          "button_label": "Ver lista"
         },
         "ca_ES": {
-          "title": "🇪🇸 87.1% registrats a Espanya! 📸",
-          "message": "Només falten **8 aliments quotidians** a Espanya. Fotografia'ls per completar la llista!",
-          "button_label": "Veure els 8 productes"
+          "title": "🇪🇸 Falten 8 productes!",
+          "message": "Fotografia **8 aliments** al súper!",
+          "button_label": "Veure llista"
         },
         "ca": {
-          "title": "🇪🇸 87.1% registrats a Espanya! 📸",
-          "message": "Només falten **8 aliments quotidians** a Espanya. Fotografia'ls per completar la llista!",
-          "button_label": "Veure els 8 productes"
+          "title": "🇪🇸 Falten 8 productes!",
+          "message": "Fotografia **8 aliments** al súper!",
+          "button_label": "Veure llista"
         },
         "en_ES": {
-          "title": "🇪🇸 87.1% complete in Spain! 📸",
-          "message": "Only **8 staple products** missing in Spain. Snap them in store to complete the basket!",
-          "button_label": "See 8 foods"
+          "title": "🇪🇸 8 foods missing!",
+          "message": "Snap **8 foods** when you shop!",
+          "button_label": "See list"
         },
         "sv_SE": {
-          "title": "🇸🇪 78.4% registrerat i Sverige! 📸",
-          "message": "Det saknas fortfarande **27 vardagsvaror** i Sverige. Fota dem när du handlar!",
-          "button_label": "Se 27 produkter"
+          "title": "🇸🇪 27 varor saknas!",
+          "message": "Fota **27 varor** när du handlar!",
+          "button_label": "Se lista"
         },
         "en_SE": {
-          "title": "🇸🇪 78.4% complete in Sweden! 📸",
-          "message": "Open Food Facts is missing **27 everyday products** in Sweden. Snap them while shopping!",
-          "button_label": "See 27 foods"
+          "title": "🇸🇪 27 foods missing!",
+          "message": "Snap **27 foods** when you shop!",
+          "button_label": "See list"
         },
         "de_CH": {
-          "title": "🇨🇭 72.9% in der Schweiz erfasst! 📸",
-          "message": "In Open Food Facts fehlen noch **58 wichtige Produkte** in der Schweiz. Hilf mit beim Einkaufen!",
-          "button_label": "58 Produkte ansehen"
+          "title": "🇨🇭 58 Produkte fehlen!",
+          "message": "Fotografiere **58 Produkte** beim Einkaufen!",
+          "button_label": "Liste ansehen"
         },
         "fr_CH": {
-          "title": "🇨🇭 72.9% enregistrés en Suisse ! 📸",
-          "message": "Il manque encore **58 produits du quotidien** en Suisse. Photographiez-les lors de vos courses !",
-          "button_label": "Voir les 58 produits"
+          "title": "🇨🇭 58 produits manquants",
+          "message": "Photographiez **58 produits** en magasin !",
+          "button_label": "Voir la liste"
         },
         "it_CH": {
-          "title": "🇨🇭 72.9% registrati in Svizzera! 📸",
-          "message": "Mancano ancora **58 alimenti essenziali** in Svizzera. Fotografali mentre fai la spesa!",
-          "button_label": "Vedi 58 prodotti"
+          "title": "🇨🇭 Mancano 58 prodotti!",
+          "message": "Fotografa **58 alimenti** mentre fai la spesa!",
+          "button_label": "Vedi lista"
         },
         "en_CH": {
-          "title": "🇨🇭 72.9% complete in Switzerland! 📸",
-          "message": "Open Food Facts is missing **58 everyday products** in Switzerland. Snap them while shopping!",
-          "button_label": "See 58 foods"
+          "title": "🇨🇭 58 foods missing!",
+          "message": "Snap **58 foods** when you shop!",
+          "button_label": "See list"
         },
         "en_UK": {
-          "title": "🇬🇧 87.1% complete in the UK! 📸",
-          "message": "Open Food Facts is missing **19 everyday products** in the UK. Snap missing items when you shop!",
-          "button_label": "See 19 foods"
+          "title": "🇬🇧 19 foods missing!",
+          "message": "Snap **19 foods** when you shop!",
+          "button_label": "See list"
         },
         "en_GB": {
-          "title": "🇬🇧 87.1% complete in the UK! 📸",
-          "message": "Open Food Facts is missing **19 everyday products** in the UK. Snap missing items when you shop!",
-          "button_label": "See 19 foods"
+          "title": "🇬🇧 19 foods missing!",
+          "message": "Snap **19 foods** when you shop!",
+          "button_label": "See list"
         }
       },
       "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/"

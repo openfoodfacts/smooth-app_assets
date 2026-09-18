@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Update tagline JSON files (android, ios, web) with dynamic, motivating stats
-(coverage %, missing product count, localized country names) for all 32 countries.
+Update tagline JSON files (android, ios, web) with concise, punchy titles and text
+designed specifically for mobile card constraints (no text overflow or truncation).
 """
 
 import json
@@ -26,142 +26,141 @@ STYLE = {
     "content_background_color": "#FFFFFF"
 }
 
-# Country-specific template configurations
-# Maps country slug (lowercase) to localized translations
+# Ultra-concise country templates: (Title <= 22 chars, Message <= 50 chars, Button <= 13 chars)
 TEMPLATES = {
     "at": {
-        "de": ("🇦🇹 {pct}% in Österreich erfasst! 📸", "In Open Food Facts fehlen noch **{missing} wichtige Produkte** in Österreich. Fotografiere sie beim Einkaufen!", "{missing} Produkte ansehen"),
-        "en": ("🇦🇹 {pct}% complete in Austria! 📸", "Open Food Facts is missing **{missing} everyday products** in Austria. Snap them while shopping!", "See {missing} foods"),
+        "de": ("🇦🇹 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
+        "en": ("🇦🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "be": {
-        "fr": ("🇧🇪 {pct}% enregistrés en Belgique ! 📸", "Il manque encore **{missing} produits du quotidien** en Belgique. Photographiez-les en magasin !", "Voir les {missing} produits"),
-        "nl": ("🇧🇪 {pct}% vastgelegd in België! 📸", "We missen nog **{missing} alledaagse producten** in België. Fotografeer ze tijdens het winkelen!", "Bekijk {missing} producten"),
-        "de": ("🇧🇪 {pct}% in Belgien erfasst! 📸", "In Open Food Facts fehlen noch **{missing} Produkte** in Belgien. Fotografiere sie beim Einkaufen!", "{missing} Produkte ansehen"),
-        "en": ("🇧🇪 {pct}% complete in Belgium! 📸", "Open Food Facts is missing **{missing} everyday products** in Belgium. Snap them while shopping!", "See {missing} foods"),
+        "fr": ("🇧🇪 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
+        "nl": ("🇧🇪 {missing} producten gezocht!", "Fotografeer **{missing} producten** in de winkel!", "Bekijk lijst"),
+        "de": ("🇧🇪 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
+        "en": ("🇧🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "bg": {
-        "bg": ("🇧🇬 {pct}% събрани в България! 📸", "В Open Food Facts липсват само **{missing} продукта** в България. Снимайте ги в магазина!", "Вижте {missing}-те продукта"),
-        "en": ("🇧🇬 {pct}% complete in Bulgaria! 📸", "Only **{missing} products** missing in Bulgaria. Snap them in store to reach 100%!", "See {missing} foods"),
+        "bg": ("🇧🇬 {missing} липсващи продукта", "Снимайте **{missing} продукта** в магазина!", "Виж списъка"),
+        "en": ("🇧🇬 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "hr": {
-        "hr": ("🇭🇷 {pct}% zabilježeno u Hrvatskoj! 📸", "U Open Food Factsu nedostaju još **{missing} namirnice** u Hrvatskoj. Fotografirajte ih u trgovini!", "Pogledaj {missing} namirnica"),
-        "en": ("🇭🇷 {pct}% complete in Croatia! 📸", "Open Food Facts is missing **{missing} everyday products** in Croatia. Snap them while shopping!", "See {missing} foods"),
+        "hr": ("🇭🇷 Fali {missing} proizvoda!", "Fotografirajte **{missing} artikala** u trgovini!", "Vidi popis"),
+        "en": ("🇭🇷 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "cy": {
-        "el": ("🇨🇾 {pct}% καταγεγραμμένα στην Κύπρο! 📸", "Λείπουν ακόμα **{missing} βασικά προϊόντα** στην Κύπρο. Φωτογραφίστε τα στα ψώνια σας!", "Δείτε τα {missing} προϊόντα"),
-        "en": ("🇨🇾 {pct}% complete in Cyprus! 📸", "Open Food Facts is missing **{missing} everyday products** in Cyprus. Snap them while shopping!", "See {missing} foods"),
+        "el": ("🇨🇾 Λείπουν {missing} τρόφιμα!", "Φωτογραφίστε **{missing} προϊόντα** στα ψώνια!", "Δείτε λίστα"),
+        "en": ("🇨🇾 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "cs": {
-        "cs": ("🇨🇿 {pct}% hotovo v Česku! 📸", "V Open Food Facts chybí ještě **{missing} potravin** v ČR. Vyfoťte je při nákupu!", "Zobrazit {missing} potravin"),
-        "en": ("🇨🇿 {pct}% complete in Czechia! 📸", "Open Food Facts is missing **{missing} everyday products** in Czechia. Snap them while shopping!", "See {missing} foods"),
+        "cs": ("🇨🇿 Chybí {missing} potravin!", "Vyfoťte **{missing} potravin** při nákupu!", "Zobrazit"),
+        "en": ("🇨🇿 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "dk": {
-        "da": ("🇩🇰 {pct}% registreret i Danmark! 📸", "Vi mangler stadig **{missing} hverdagsprodukter** i Danmark. Tag billeder af dem, når du handler!", "Se {missing} produkter"),
-        "en": ("🇩🇰 {pct}% complete in Denmark! 📸", "Open Food Facts is missing **{missing} everyday products** in Denmark. Snap them while shopping!", "See {missing} foods"),
+        "da": ("🇩🇰 {missing} varer mangler!", "Tag foto af **{missing} varer** i butikken!", "Se liste"),
+        "en": ("🇩🇰 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "ee": {
-        "et": ("🇪🇪 {pct}% registreeritud Eestis! 📸", "Open Food Factsist on puudu veel **{missing} toodet** Eestis. Pildista neid poes!", "Vaata {missing} toodet"),
-        "en": ("🇪🇪 {pct}% complete in Estonia! 📸", "Open Food Facts is missing **{missing} everyday products** in Estonia. Snap them while shopping!", "See {missing} foods"),
+        "et": ("🇪🇪 {missing} toodet puudu!", "Pildista **{missing} toodet** poes käies!", "Vaata tooteid"),
+        "en": ("🇪🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "fi": {
-        "fi": ("🇫🇮 {pct}% katettu Suomessa! 📸", "Open Food Factsista puuttuu vielä **{missing} tuotetta** Suomessa. Ota niistä kuva kaupassa!", "Katso {missing} tuotetta"),
-        "sv": ("🇫🇮 {pct}% registrerat i Finland! 📸", "Det saknas fortfarande **{missing} vardagsvaror** i Finland. Fota dem när du handlar!", "Se {missing} produkter"),
-        "en": ("🇫🇮 {pct}% complete in Finland! 📸", "Open Food Facts is missing **{missing} everyday products** in Finland. Snap them while shopping!", "See {missing} foods"),
+        "fi": ("🇫🇮 {missing} tuotetta puuttuu!", "Kuvaa **{missing} tuotetta** kaupassa käydessä!", "Katso lista"),
+        "sv": ("🇫🇮 {missing} varor saknas!", "Fota **{missing} varor** när du handlar!", "Se lista"),
+        "en": ("🇫🇮 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "fr": {
-        "fr": ("🇫🇷 {pct}% enregistrés en France ! 📸", "Il manque seulement **{missing} produits essentiels** en France. Photographiez-les pour compléter la base !", "Voir les {missing} produits"),
-        "en": ("🇫🇷 {pct}% complete in France! 📸", "Only **{missing} staple products** missing in France. Snap them in store to complete the basket!", "See {missing} foods"),
+        "fr": ("🇫🇷 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
+        "en": ("🇫🇷 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "de": {
-        "de": ("🇩🇪 {pct}% in Deutschland erfasst! 📸", "In Open Food Facts fehlen noch **{missing} Grundnahrungsmittel** in Deutschland. Fotografiere sie beim Einkaufen!", "{missing} Produkte ansehen"),
-        "en": ("🇩🇪 {pct}% complete in Germany! 📸", "Open Food Facts is missing **{missing} everyday products** in Germany. Snap them while shopping!", "See {missing} foods"),
+        "de": ("🇩🇪 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
+        "en": ("🇩🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "el": {
-        "el": ("🇬🇷 {pct}% καταγεγραμμένα στην Ελλάδα! 📸", "Λείπουν ακόμα **{missing} βασικά προϊόντα** στην Ελλάδα. Φωτογραφίστε τα στα ψώνια σας!", "Δείτε τα {missing} προϊόντα"),
-        "en": ("🇬🇷 {pct}% complete in Greece! 📸", "Open Food Facts is missing **{missing} everyday products** in Greece. Snap them while shopping!", "See {missing} foods"),
+        "el": ("🇬🇷 Λείπουν {missing} τρόφιμα!", "Φωτογραφίστε **{missing} προϊόντα** στα ψώνια!", "Δείτε λίστα"),
+        "en": ("🇬🇷 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "hu": {
-        "hu": ("🇭🇺 {pct}% rögzítve Magyarországon! 📸", "Az Open Food Facts-ból még **{missing} termék** hiányzik Magyarországon. Fotózd le őket vásárláskor!", "{missing} termék megtekintése"),
-        "en": ("🇭🇺 {pct}% complete in Hungary! 📸", "Open Food Facts is missing **{missing} everyday products** in Hungary. Snap them while shopping!", "See {missing} foods"),
+        "hu": ("🇭🇺 {missing} termék hiányzik!", "Fotózz le **{missing} terméket** vásárláskor!", "Lista"),
+        "en": ("🇭🇺 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "ie": {
-        "en": ("🇮🇪 {pct}% complete in Ireland! 📸", "Open Food Facts is missing **{missing} everyday products** in Ireland. Snap them while shopping!", "See {missing} foods"),
+        "en": ("🇮🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "it": {
-        "it": ("🇮🇹 {pct}% registrati in Italia! 📸", "Mancano solo **{missing} alimenti essenziali** in Italia. Fotografali per completare il paniere!", "Vedi gli {missing} prodotti"),
-        "en": ("🇮🇹 {pct}% complete in Italy! 📸", "Only **{missing} staple products** missing in Italy. Snap them in store to complete the basket!", "See {missing} foods"),
+        "it": ("🇮🇹 Mancano {missing} prodotti!", "Fotografa **{missing} alimenti** mentre fai la spesa!", "Vedi lista"),
+        "en": ("🇮🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "lv": {
-        "lv": ("🇱🇻 {pct}% reģistrēti Latvijā! 📸", "Open Food Facts trūkst vēl **{missing} svarīgu produktu** Latvijā. Nofotografē tos veikalā!", "Skatīt {missing} produktus"),
-        "en": ("🇱🇻 {pct}% complete in Latvia! 📸", "Open Food Facts is missing **{missing} everyday products** in Latvia. Snap them while shopping!", "See {missing} foods"),
+        "lv": ("🇱🇻 Trūkst {missing} produktu!", "Nofotografē **{missing} preces** veikalā!", "Skatīt"),
+        "en": ("🇱🇻 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "lt": {
-        "lt": ("🇱🇹 {pct}% užregistruota Lietuvoje! 📸", "Open Food Facts trūksta dar **{missing} produktų** Lietuvoje. Nufotografuok juos parduotuvėje!", "Žiūrėti {missing} produktus"),
-        "en": ("🇱🇹 {pct}% complete in Lithuania! 📸", "Open Food Facts is missing **{missing} everyday products** in Lithuania. Snap them while shopping!", "See {missing} foods"),
+        "lt": ("🇱🇹 Trūksta {missing} prekių!", "Nufotografuok **{missing} prekes** parduotuvėje!", "Žiūrėti"),
+        "en": ("🇱🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "lu": {
-        "fr": ("🇱🇺 {pct}% enregistrés au Luxembourg ! 📸", "Il manque encore **{missing} produits du quotidien** au Luxembourg. Photographiez-les en magasin !", "Voir les {missing} produits"),
-        "de": ("🇱🇺 {pct}% in Luxemburg erfasst! 📸", "In Open Food Facts fehlen noch **{missing} Produkte** in Luxemburg. Fotografiere sie beim Einkaufen!", "{missing} Produkte ansehen"),
-        "en": ("🇱🇺 {pct}% complete in Luxembourg! 📸", "Open Food Facts is missing **{missing} everyday products** in Luxembourg. Snap them while shopping!", "See {missing} foods"),
+        "fr": ("🇱🇺 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
+        "de": ("🇱🇺 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
+        "en": ("🇱🇺 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "mt": {
-        "mt": ("🇲🇹 {pct}% reġistrati f'Malta! 📸", "F'Open Food Facts jonqos **{missing} prodott essenzjali** f'Malta. Ħu ritratt tagħhom waqt li tixtri!", "Ara d-{missing} prodott"),
-        "en": ("🇲🇹 {pct}% complete in Malta! 📸", "Open Food Facts is missing **{missing} everyday products** in Malta. Snap them while shopping!", "See {missing} foods"),
+        "mt": ("🇲🇹 Jonqos {missing} prodott!", "Ħu ritratt ta' **{missing} prodott** waqt ix-xiri!", "Ara l-lista"),
+        "en": ("🇲🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "me": {
-        "sr": ("🇲🇪 Samo {pct}% u Crnoj Gori! 📸", "U Open Food Factsu nedostaje još **{missing} osnovnih proizvoda** u Crnoj Gori. Fotografišite ih u prodavnici!", "Pogledaj {missing} namirnica"),
-        "en": ("🇲🇪 Only {pct}% complete in Montenegro! 📸", "Open Food Facts is missing **{missing} everyday products** in Montenegro. Snap them while shopping!", "See {missing} foods"),
+        "sr": ("🇲🇪 Fali {missing} proizvoda!", "Fotografišite **{missing} artikala** u prodavnici!", "Vidi spisak"),
+        "en": ("🇲🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "nl": {
-        "nl": ("🇳🇱 {pct}% vastgelegd in Nederland! 📸", "We missen nog **{missing} basisproducten** in Nederland. Fotografeer ze tijdens je boodschappen!", "Bekijk {missing} producten"),
-        "en": ("🇳🇱 {pct}% complete in the Netherlands! 📸", "Open Food Facts is missing **{missing} everyday products** in the Netherlands. Snap them while shopping!", "See {missing} foods"),
+        "nl": ("🇳🇱 {missing} producten gezocht!", "Fotografeer **{missing} producten** in de winkel!", "Bekijk lijst"),
+        "en": ("🇳🇱 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "no": {
-        "nb": ("🇳🇴 {pct}% registrert i Norge! 📸", "Det mangler fortsatt **{missing} hverdagsvaror** i Norge. Ta bilde av dem når du handler!", "Se {missing} produkter"),
-        "no": ("🇳🇴 {pct}% registrert i Norge! 📸", "Det mangler fortsatt **{missing} hverdagsvaror** i Norge. Ta bilde av dem når du handler!", "Se {missing} produkter"),
-        "en": ("🇳🇴 {pct}% complete in Norway! 📸", "Open Food Facts is missing **{missing} everyday products** in Norway. Snap them while shopping!", "See {missing} foods"),
+        "nb": ("🇳🇴 {missing} varer mangler!", "Ta bilde av **{missing} varer** i butikken!", "Se liste"),
+        "no": ("🇳🇴 {missing} varer mangler!", "Ta bilde av **{missing} varer** i butikken!", "Se liste"),
+        "en": ("🇳🇴 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "pl": {
-        "pl": ("🇵🇱 {pct}% zarejestrowane w Polsce! 📸", "W Open Food Facts brakuje jeszcze **{missing} produktów** w Polsce. Zrób im zdjęcia w sklepie!", "Zobacz {missing} produktów"),
-        "en": ("🇵🇱 {pct}% complete in Poland! 📸", "Open Food Facts is missing **{missing} everyday products** in Poland. Snap them while shopping!", "See {missing} foods"),
+        "pl": ("🇵🇱 Brakuje {missing} produktów!", "Sfotografuj **{missing} produktów** w sklepie!", "Zobacz listę"),
+        "en": ("🇵🇱 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "pt": {
-        "pt": ("🇵🇹 {pct}% registados em Portugal! 📸", "Faltam ainda **{missing} alimentos essenciais** em Portugal. Fotografe-os durante as compras!", "Ver {missing} produtos"),
-        "en": ("🇵🇹 {pct}% complete in Portugal! 📸", "Open Food Facts is missing **{missing} everyday products** in Portugal. Snap them while shopping!", "See {missing} foods"),
+        "pt": ("🇵🇹 Faltam {missing} produtos!", "Fotografe **{missing} produtos** nas compras!", "Ver lista"),
+        "en": ("🇵🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "ro": {
-        "ro": ("🇷🇴 {pct}% înregistrate în România! 📸", "Lipsesc încă **{missing} produse de bază** în România. Fotografiază-le la cumpărături!", "Vezi cele {missing} produse"),
-        "en": ("🇷🇴 {pct}% complete in Romania! 📸", "Open Food Facts is missing **{missing} everyday products** in Romania. Snap them while shopping!", "See {missing} foods"),
+        "ro": ("🇷🇴 Lipsesc {missing} produse!", "Fotografiază **{missing} alimente** la magazin!", "Vezi lista"),
+        "en": ("🇷🇴 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "rs": {
-        "sr": ("🇷🇸 {pct}% zabeleženo u Srbiji! 📸", "U Open Food Factsu nedostaju još **{missing} namirnice** u Srbiji. Fotografišite ih u prodavnici!", "Pogledaj {missing} namirnica"),
-        "en": ("🇷🇸 {pct}% complete in Serbia! 📸", "Open Food Facts is missing **{missing} everyday products** in Serbia. Snap them while shopping!", "See {missing} foods"),
+        "sr": ("🇷🇸 Fali {missing} proizvoda!", "Fotografišite **{missing} artikala** u prodavnici!", "Vidi spisak"),
+        "en": ("🇷🇸 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "sk": {
-        "sk": ("🇸🇰 {pct}% hotovo na Slovensku! 📸", "V Open Food Facts chýba ešte **{missing} základných potravín** na Slovensku. Odfoťte ich pri nákupe!", "Zobraziť {missing} potravín"),
-        "en": ("🇸🇰 {pct}% complete in Slovakia! 📸", "Open Food Facts is missing **{missing} everyday products** in Slovakia. Snap them while shopping!", "See {missing} foods"),
+        "sk": ("🇸🇰 Chýba {missing} potravín!", "Odfoťte **{missing} potravín** pri nákupe!", "Zobraziť"),
+        "en": ("🇸🇰 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "si": {
-        "sl": ("🇸🇮 {pct}% zabeleženih v Sloveniji! 📸", "V Open Food Facts manjka še **{missing} izdelkov** v Sloveniji. Fotografirajte jih v trgovini!", "Ogled {missing} izdelkov"),
-        "en": ("🇸🇮 {pct}% complete in Slovenia! 📸", "Open Food Facts is missing **{missing} everyday products** in Slovenia. Snap them while shopping!", "See {missing} foods"),
+        "sl": ("🇸🇮 Manjka {missing} živil!", "Fotografirajte **{missing} izdelkov** v trgovini!", "Ogled"),
+        "en": ("🇸🇮 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "es": {
-        "es": ("🇪🇸 {pct}% registrados en España! 📸", "Solo faltan **{missing} alimentos cotidianos** en España. ¡Fotografíalos para completar la lista!", "Ver los {missing} productos"),
-        "ca": ("🇪🇸 {pct}% registrats a Espanya! 📸", "Només falten **{missing} aliments quotidians** a Espanya. Fotografia'ls per completar la llista!", "Veure els {missing} productes"),
-        "en": ("🇪🇸 {pct}% complete in Spain! 📸", "Only **{missing} staple products** missing in Spain. Snap them in store to complete the basket!", "See {missing} foods"),
+        "es": ("🇪🇸 ¡Faltan {missing} productos!", "¡Fotografía **{missing} alimentos** en el súper!", "Ver lista"),
+        "ca": ("🇪🇸 Falten {missing} productes!", "Fotografia **{missing} aliments** al súper!", "Veure llista"),
+        "en": ("🇪🇸 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "se": {
-        "sv": ("🇸🇪 {pct}% registrerat i Sverige! 📸", "Det saknas fortfarande **{missing} vardagsvaror** i Sverige. Fota dem när du handlar!", "Se {missing} produkter"),
-        "en": ("🇸🇪 {pct}% complete in Sweden! 📸", "Open Food Facts is missing **{missing} everyday products** in Sweden. Snap them while shopping!", "See {missing} foods"),
+        "sv": ("🇸🇪 {missing} varor saknas!", "Fota **{missing} varor** när du handlar!", "Se lista"),
+        "en": ("🇸🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "ch": {
-        "de": ("🇨🇭 {pct}% in der Schweiz erfasst! 📸", "In Open Food Facts fehlen noch **{missing} wichtige Produkte** in der Schweiz. Hilf mit beim Einkaufen!", "{missing} Produkte ansehen"),
-        "fr": ("🇨🇭 {pct}% enregistrés en Suisse ! 📸", "Il manque encore **{missing} produits du quotidien** en Suisse. Photographiez-les lors de vos courses !", "Voir les {missing} produits"),
-        "it": ("🇨🇭 {pct}% registrati in Svizzera! 📸", "Mancano ancora **{missing} alimenti essenziali** in Svizzera. Fotografali mentre fai la spesa!", "Vedi {missing} prodotti"),
-        "en": ("🇨🇭 {pct}% complete in Switzerland! 📸", "Open Food Facts is missing **{missing} everyday products** in Switzerland. Snap them while shopping!", "See {missing} foods"),
+        "de": ("🇨🇭 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
+        "fr": ("🇨🇭 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
+        "it": ("🇨🇭 Mancano {missing} prodotti!", "Fotografa **{missing} alimenti** mentre fai la spesa!", "Vedi lista"),
+        "en": ("🇨🇭 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     },
     "uk": {
-        "en": ("🇬🇧 {pct}% complete in the UK! 📸", "Open Food Facts is missing **{missing} everyday products** in the UK. Snap missing items when you shop!", "See {missing} foods"),
+        "en": ("🇬🇧 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
     }
 }
 
@@ -213,62 +212,58 @@ def load_stats():
 
 
 def generate_translations(stats):
-    overall_pct = stats.get('overall_coverage_pct', 66.9) if stats else 66.9
     overall_missing = stats.get('total_missing', 1033) if stats else 1033
 
-    # Base generic translations
+    # Short default translations
     translations = {
         "default": {
-            "title": f"Missing products in your country! 📸",
-            "message": f"We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
-            "button_label": "See missing foods"
+            "title": "Missing foods!",
+            "message": "Snap **missing everyday foods** when you shop!",
+            "button_label": "See list"
         },
         "en": {
-            "title": f"Missing products in your country! 📸",
-            "message": f"We are missing **everyday foods** in Open Food Facts. Snap missing products to help everyone eat better!",
-            "button_label": "See missing foods"
+            "title": "Missing foods!",
+            "message": "Snap **missing everyday foods** when you shop!",
+            "button_label": "See list"
         },
         "de": {
-            "title": "Fehlende Produkte in deinem Land! 📸",
-            "message": "In Open Food Facts fehlen **wichtige Grundnahrungsmittel**. Fotografiere fehlende Produkte und hilf allen!",
-            "button_label": "Produkte ansehen"
+            "title": "Produkte gesucht!",
+            "message": "Fotografiere **fehlende Produkte** beim Einkaufen!",
+            "button_label": "Liste ansehen"
         },
         "fr": {
-            "title": "Produits manquants dans votre pays ! 📸",
-            "message": "Il manque des **produits du quotidien** dans Open Food Facts. Photographiez-les pour aider tout le monde !",
-            "button_label": "Voir les produits"
+            "title": "Produits recherchés",
+            "message": "Photographiez les **produits manquants** en magasin !",
+            "button_label": "Voir la liste"
         },
         "it": {
-            "title": "Prodotti mancanti nel tuo paese! 📸",
-            "message": "Mancano **alimenti essenziali** in Open Food Facts. Fotografa i prodotti mancanti per aiutare tutti a mangiare meglio!",
-            "button_label": "Vedi i prodotti"
+            "title": "Prodotti cercati!",
+            "message": "Fotografa **alimenti mancanti** quando fai la spesa!",
+            "button_label": "Vedi lista"
         },
         "es": {
-            "title": "¡Faltan productos en tu país! 📸",
-            "message": "Faltan **alimentos cotidianos** en Open Food Facts. ¡Fotografía los productos que faltan para ayudar a todos!",
-            "button_label": "Ver productos"
+            "title": "¡Faltan productos!",
+            "message": "¡Fotografía **alimentos cotidianos** en el súper!",
+            "button_label": "Ver lista"
         },
         "nl": {
-            "title": "Ontbrekende producten in jouw land! 📸",
-            "message": "We missen **alledaagse basisvoedingsmiddelen** in Open Food Facts. Fotografeer ontbrekende producten!",
-            "button_label": "Bekijk producten"
+            "title": "Producten gezocht!",
+            "message": "Fotografeer **ontbrekende producten** in de winkel!",
+            "button_label": "Bekijk lijst"
         }
     }
 
-    # Generate country-locale specific translations (e.g. de_AT, fr_BE, de_CH, etc.)
     countries = stats.get('countries', {}) if stats else {}
 
     for slug, lang_dict in TEMPLATES.items():
         c_stat = countries.get(slug, {})
-        pct = c_stat.get('coverage_pct', overall_pct)
         missing = c_stat.get('missing', overall_missing)
         
         for lang, (title_tpl, msg_tpl, btn_tpl) in lang_dict.items():
-            formatted_title = title_tpl.format(pct=pct, missing=missing)
-            formatted_msg = msg_tpl.format(pct=pct, missing=missing)
-            formatted_btn = btn_tpl.format(pct=pct, missing=missing)
+            formatted_title = title_tpl.format(missing=missing)
+            formatted_msg = msg_tpl.format(missing=missing)
+            formatted_btn = btn_tpl.format(missing=missing)
 
-            # Map to upper country code (e.g. de_AT, fr_CH, lv_LV)
             for s, feed_key, iso in COUNTRY_CODES_TO_TARGET:
                 if s == slug:
                     locale_key = f"{lang}_{iso}"
@@ -278,7 +273,6 @@ def generate_translations(stats):
                         "button_label": formatted_btn
                     }
             
-            # Also register language fallback if not already present
             if lang not in translations:
                 translations[lang] = {
                     "title": formatted_title,
@@ -321,7 +315,6 @@ def update_platform(platform, stats):
     if CAMPAIGN_ID not in existing_ids:
         default_feed['news'].insert(0, {"id": CAMPAIGN_ID})
 
-    # Add country-specific feeds
     for country_slug, feed_key, _ in COUNTRY_CODES_TO_TARGET:
         country_url = f"https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country={country_slug}"
         country_feed = [
@@ -340,7 +333,7 @@ def update_platform(platform, stats):
 
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-    print(f"Updated {file_path} with {len(translations)} localized tagline entries.")
+    print(f"Updated {file_path} with {len(translations)} concise localized tagline entries.")
 
 
 def main():
