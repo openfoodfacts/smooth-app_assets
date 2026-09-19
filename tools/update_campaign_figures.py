@@ -2,9 +2,10 @@
 """Publish the live donation campaign figures into the tagline JSON files.
 
 The Donorbox API needs a paid plan, but the campaign page renders the figures
-server side, so they can be read straight out of the HTML. This writes three
-optional fields onto the campaign's news item:
+server side, so they can be read straight out of the HTML. This writes four
+optional fields onto every donation news item a file carries:
 
+    "count": 768           gifts so far
     "currency": "EUR"      ISO code, derived from the symbol on the page
     "goal": 170000.0       campaign goal
     "raised": 44155.91     raised so far
@@ -31,6 +32,9 @@ import urllib.request
 
 CAMPAIGN_URL = 'https://donorbox.org/help-open-food-facts-stay-afloat'
 NEWS_ID = 'donation_campaign_2026'
+# The web feed also carries the site banner's own items; they take the same
+# figures and are not listed in the tagline feed, so only the banner reads them.
+NEWS_IDS = (NEWS_ID, 'donation_banner_2026', 'donation_quiet_2026')
 
 # Paths below are resolved against the repository, not the current directory,
 # so the script works the same from anywhere. An absolute path passes through.
@@ -101,6 +105,13 @@ def parse_amount(text):
         raise FigureError(f'could not read a number from {text!r}') from error
 
 
+def parse_count(text):
+    digits = re.sub(r'\D', '', text)
+    if not digits:
+        raise FigureError(f'no number in {text!r}')
+    return int(digits)
+
+
 def parse_currency(text):
     for symbol, code in CURRENCY_BY_SYMBOL.items():
         if symbol in text:
@@ -111,8 +122,9 @@ def parse_currency(text):
 def scrape_figures(html):
     """Pull raised, goal and currency out of the campaign page.
 
-    `total-raised` carries an id. The goal does not: it is the one bold
-    paragraph in the same block without an id, so it is matched structurally.
+    `total-raised` and `paid-count` carry ids. The goal does not: it is the
+    one bold paragraph in the same block without an id, so it is matched
+    structurally.
     """
     raised_match = re.search(
         r'id="total-raised"[^>]*>(?P<value>[^<]+)<', html
@@ -120,6 +132,10 @@ def scrape_figures(html):
     if raised_match is None:
         raise FigureError('no #total-raised on the page, the markup changed')
     raised_text = raised_match.group('value').strip()
+
+    count_match = re.search(r'id="paid-count"[^>]*>(?P<value>[^<]+)<', html)
+    if count_match is None:
+        raise FigureError('no #paid-count on the page, the markup changed')
 
     bold = re.findall(r'<p(?P<attrs>[^>]*class="bold"[^>]*)>(?P<value>[^<]+)<', html)
     goal_text = next(
@@ -135,6 +151,7 @@ def scrape_figures(html):
         raise FigureError('no goal figure on the page, the markup changed')
 
     return {
+        'count': parse_count(count_match.group('value')),
         'currency': parse_currency(raised_text),
         'goal': parse_amount(goal_text),
         'raised': parse_amount(raised_text),
@@ -161,17 +178,31 @@ def scrape_page_percent(html):
     return float(match.group('value'))
 
 
-def validate_figures(figures, previous_raised=None, page_percent=None):
+def validate_figures(figures, previous_raised=None, page_percent=None,
+                     previous_count=None):
     """Refuse anything that would make the meter lie.
 
     Every refusal leaves the published figures alone, so a run that is wrongly
     refused stays refused until someone corrects the JSON by hand. The bounds
     below are set wide enough that only a misparse should reach them.
     """
-    raised, goal = figures['raised'], figures['goal']
+    raised, goal, count = figures['raised'], figures['goal'], figures['count']
 
     if raised <= 0:
         raise FigureError(f'raised must be positive, got {raised}')
+    if count < 1:
+        raise FigureError(f'count must be at least 1, got {count}')
+    # No gift is smaller than one unit of currency, so more gifts than units
+    # raised means two numbers ran together in the count's text node.
+    if count > raised:
+        raise FigureError(
+            f'{count} gifts cannot have raised only {raised}, that is a bad parse'
+        )
+    if previous_count is not None and count < previous_count * (1 - MAX_PLAUSIBLE_DROP):
+        raise FigureError(
+            f'count dropped from {previous_count} to {count}, more than '
+            f'{MAX_PLAUSIBLE_DROP:.0%}, refusing to publish it'
+        )
     if goal <= 0:
         raise FigureError(f'goal must be positive, got {goal}')
     if raised > goal * 3:
@@ -225,22 +256,29 @@ def plan_update(path, figures):
     file that cannot be read leaves the others untouched rather than half of
     them updated.
 
+    A file that carries none of the donation items has nothing to update, so
+    it is skipped rather than refused: the campaign item is retired from all
+    three files at once, while the web feed's banner items outlive it.
+
     The files are not consistently key sorted as a whole, so the document is
-    dumped in its original order and only this one item is sorted, which keeps
-    the diff to the lines that actually changed.
+    dumped in its original order and only the updated items are sorted, which
+    keeps the diff to the lines that actually changed.
     """
     try:
         original = (REPO_ROOT / path).read_text(encoding='utf-8')
         document = json.loads(original)
-        item = document['news'][NEWS_ID]
-        item.update(figures)
-        document['news'][NEWS_ID] = {key: item[key] for key in sorted(item)}
+        news = document['news']
+        present = [news_id for news_id in NEWS_IDS if news_id in news.keys()]
+        if not present:
+            return None
+        for news_id in present:
+            item = news[news_id]
+            item.update(figures)
+            news[news_id] = {key: item[key] for key in sorted(item)}
         updated = json.dumps(document, indent=2, ensure_ascii=False) + '\n'
-    except (OSError, ValueError, TypeError, AttributeError) as error:
+    except (OSError, ValueError, TypeError, AttributeError, KeyError) as error:
         # Anything but a readable object of the shape we index into.
         raise FigureError(f'could not read {path}: {error}') from error
-    except KeyError as error:
-        raise FigureError(f'{path} has no news item {NEWS_ID!r}') from error
 
     return None if updated == original else updated
 
@@ -254,8 +292,8 @@ def plan_all(paths, figures):
     return {path: plan_update(path, figures) for path in paths}
 
 
-def previous_raised(paths=TAGLINE_FILES):
-    """Highest `raised` already published, across every file we are about to write.
+def previous_published(key, paths=TAGLINE_FILES):
+    """Highest `key` already published, across every item we are about to write.
 
     The highest, not the first: the files can drift apart after a hand edit, and
     the drop guard is only worth having if it compares against the largest
@@ -264,16 +302,20 @@ def previous_raised(paths=TAGLINE_FILES):
     published = []
     for path in paths:
         try:
-            document = json.loads((REPO_ROOT / path).read_text(encoding='utf-8'))
-            value = document['news'][NEWS_ID].get('raised')
+            news = json.loads((REPO_ROOT / path).read_text(encoding='utf-8'))['news']
         except (OSError, ValueError, TypeError, KeyError):
             continue
-        if isinstance(value, (int, float)):
-            published.append(value)
+        for news_id in NEWS_IDS:
+            try:
+                value = news[news_id].get(key)
+            except (AttributeError, KeyError, TypeError):
+                continue
+            if isinstance(value, (int, float)):
+                published.append(value)
 
     if not published:
         print(
-            'no previously published figure found, so the plausibility check '
+            f'no previously published {key} found, so the plausibility check '
             'against it is skipped for this run',
             file=sys.stderr,
         )
@@ -281,8 +323,12 @@ def previous_raised(paths=TAGLINE_FILES):
     return max(published)
 
 
+def previous_raised(paths=TAGLINE_FILES):
+    return previous_published('raised', paths)
+
+
 def campaign_is_published(paths=TAGLINE_FILES):
-    """True while at least one tagline file still carries the campaign item.
+    """True while at least one tagline file still carries a donation item.
 
     Once the campaign is over the item is removed from the feed and this run has
     nothing left to do, which is a clean exit rather than a failure: a scheduled
@@ -295,7 +341,9 @@ def campaign_is_published(paths=TAGLINE_FILES):
     for path in paths:
         try:
             document = json.loads((REPO_ROOT / path).read_text(encoding='utf-8'))
-            published = published or NEWS_ID in document['news']
+            published = published or any(
+                news_id in document['news'] for news_id in NEWS_IDS
+            )
         except (OSError, ValueError, TypeError, KeyError) as error:
             raise FigureError(f'could not read {path}: {error}') from error
     return published
@@ -335,14 +383,19 @@ def main():
 
     try:
         if not campaign_is_published():
-            print(f'no {NEWS_ID} item in the tagline files, nothing to update')
+            print('no donation item left in the tagline files, nothing to update')
             return 0
 
         html = fetch_page()
         figures = scrape_figures(html)
-        validate_figures(figures, previous_raised(), scrape_page_percent(html))
+        validate_figures(
+            figures,
+            previous_raised(),
+            scrape_page_percent(html),
+            previous_published('count'),
+        )
         print(
-            'read {raised:.2f} of {goal:.2f} {currency}'.format(**figures),
+            'read {raised:.2f} of {goal:.2f} {currency}, {count} gifts'.format(**figures),
             f'({figures["raised"] / figures["goal"]:.1%})',
         )
         changed = publish(figures, TAGLINE_FILES, arguments.dry_run)
