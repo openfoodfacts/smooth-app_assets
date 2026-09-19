@@ -514,7 +514,7 @@
       "start_date": "2026-11-01 00:00:00",
       "translations": {
         "default": {
-          "title": "This page is free because people like you paid for it.",
+          "title": "Join the people keeping Open Food Facts free.",
           "message": "Open Food Facts is a non-profit. No ads, no industry money, 4.6 million products kept open by volunteers. If you looked something up today, €3 a month keeps it free for a year."
         }
       },
@@ -529,7 +529,7 @@
       "start_date": "2026-02-01 00:00:00",
       "translations": {
         "default": {
-          "title": "Open Food Facts is free because people like you pay for it.",
+          "title": "Join the people keeping Open Food Facts free.",
           "message": "€3 a month keeps it that way."
         }
       },
