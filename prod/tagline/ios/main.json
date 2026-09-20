@@ -245,16 +245,13 @@
         "title_background": "#2D72D2",
         "title_text_color": "#FFFFFF",
         "title_indicator_color": "#FFB800",
-        "message_background": "#F0F4F8",
-        "message_text_color": "#1C2024",
         "button_background": "#347644",
-        "button_text_color": "#FFFFFF",
-        "content_background_color": "#FFFFFF"
+        "button_text_color": "#FFFFFF"
       },
       "translations": {
         "default": {
           "title": "Missing foods!",
-          "message": "Snap **missing foods** when you shop!",
+          "message": "Snap **missing foods**!",
           "button_label": "See list",
           "image": {
             "alt": "Photos for Impact",
@@ -264,7 +261,7 @@
         },
         "en": {
           "title": "Missing foods!",
-          "message": "Snap **missing foods** when you shop!",
+          "message": "Snap **missing foods**!",
           "button_label": "See list"
         },
         "de": {
@@ -292,494 +289,494 @@
           "message": "Fotografeer **ontbrekende producten**!",
           "button_label": "Bekijk lijst"
         },
+        "hr": {
+          "title": "Fali hrane!",
+          "message": "Slikajte **hranu**!",
+          "button_label": "Vidi popis"
+        },
         "de_AT": {
           "title": "🇦🇹 25 Produkte fehlen!",
-          "message": "Fotografiere **25 Produkte** beim Einkaufen!",
+          "message": "Fotografiere **25 Produkte**!",
           "button_label": "Liste ansehen"
         },
         "en_AT": {
           "title": "🇦🇹 25 foods missing!",
-          "message": "Snap **25 foods** when you shop!",
+          "message": "Snap **25 foods**!",
           "button_label": "See list"
         },
         "fr_BE": {
           "title": "🇧🇪 9 produits manquants",
-          "message": "Photographiez **9 produits** en magasin !",
+          "message": "Photographiez **9 produits** !",
           "button_label": "Voir la liste"
         },
         "nl_BE": {
           "title": "🇧🇪 9 producten gezocht!",
-          "message": "Fotografeer **9 producten** in de winkel!",
+          "message": "Fotografeer **9 producten**!",
           "button_label": "Bekijk lijst"
         },
         "de_BE": {
           "title": "🇧🇪 9 Produkte fehlen!",
-          "message": "Fotografiere **9 Produkte** beim Einkaufen!",
+          "message": "Fotografiere **9 Produkte**!",
           "button_label": "Liste ansehen"
         },
         "en_BE": {
           "title": "🇧🇪 9 foods missing!",
-          "message": "Snap **9 foods** when you shop!",
+          "message": "Snap **9 foods**!",
           "button_label": "See list"
         },
         "bg_BG": {
           "title": "🇧🇬 2 липсващи продукта",
-          "message": "Снимайте **2 продукта** в магазина!",
+          "message": "Снимайте **2 продукта**!",
           "button_label": "Виж списъка"
         },
         "bg": {
           "title": "🇧🇬 2 липсващи продукта",
-          "message": "Снимайте **2 продукта** в магазина!",
+          "message": "Снимайте **2 продукта**!",
           "button_label": "Виж списъка"
         },
         "en_BG": {
           "title": "🇧🇬 2 foods missing!",
-          "message": "Snap **2 foods** when you shop!",
+          "message": "Snap **2 foods**!",
           "button_label": "See list"
         },
         "hr_HR": {
-          "title": "🇭🇷 Fali 33 proizvoda!",
-          "message": "Fotografirajte **33 artikala** u trgovini!",
-          "button_label": "Vidi popis"
-        },
-        "hr": {
-          "title": "🇭🇷 Fali 33 proizvoda!",
-          "message": "Fotografirajte **33 artikala** u trgovini!",
+          "title": "🇭🇷 Fali hrane!",
+          "message": "Slikajte **hranu**!",
           "button_label": "Vidi popis"
         },
         "en_HR": {
-          "title": "🇭🇷 33 foods missing!",
-          "message": "Snap **33 foods** when you shop!",
+          "title": "🇭🇷 Missing foods!",
+          "message": "Snap **missing foods**!",
           "button_label": "See list"
         },
         "el_CY": {
           "title": "🇨🇾 Λείπουν 36 τρόφιμα!",
-          "message": "Φωτογραφίστε **36 προϊόντα** στα ψώνια!",
+          "message": "Φωτογραφίστε **36 τρόφιμα**!",
           "button_label": "Δείτε λίστα"
         },
         "el": {
           "title": "🇨🇾 Λείπουν 36 τρόφιμα!",
-          "message": "Φωτογραφίστε **36 προϊόντα** στα ψώνια!",
+          "message": "Φωτογραφίστε **36 τρόφιμα**!",
           "button_label": "Δείτε λίστα"
         },
         "en_CY": {
           "title": "🇨🇾 36 foods missing!",
-          "message": "Snap **36 foods** when you shop!",
+          "message": "Snap **36 foods**!",
           "button_label": "See list"
         },
         "cs_CZ": {
           "title": "🇨🇿 Chybí 17 potravin!",
-          "message": "Vyfoťte **17 potravin** při nákupu!",
+          "message": "Vyfoťte **17 potravin**!",
           "button_label": "Zobrazit"
         },
         "cs_CS": {
           "title": "🇨🇿 Chybí 17 potravin!",
-          "message": "Vyfoťte **17 potravin** při nákupu!",
+          "message": "Vyfoťte **17 potravin**!",
           "button_label": "Zobrazit"
         },
         "cs": {
           "title": "🇨🇿 Chybí 17 potravin!",
-          "message": "Vyfoťte **17 potravin** při nákupu!",
+          "message": "Vyfoťte **17 potravin**!",
           "button_label": "Zobrazit"
         },
         "en_CZ": {
           "title": "🇨🇿 17 foods missing!",
-          "message": "Snap **17 foods** when you shop!",
+          "message": "Snap **17 foods**!",
           "button_label": "See list"
         },
         "en_CS": {
           "title": "🇨🇿 17 foods missing!",
-          "message": "Snap **17 foods** when you shop!",
+          "message": "Snap **17 foods**!",
           "button_label": "See list"
         },
         "da_DK": {
           "title": "🇩🇰 46 varer mangler!",
-          "message": "Tag foto af **46 varer** i butikken!",
+          "message": "Tag foto af **46 varer**!",
           "button_label": "Se liste"
         },
         "da": {
           "title": "🇩🇰 46 varer mangler!",
-          "message": "Tag foto af **46 varer** i butikken!",
+          "message": "Tag foto af **46 varer**!",
           "button_label": "Se liste"
         },
         "en_DK": {
           "title": "🇩🇰 46 foods missing!",
-          "message": "Snap **46 foods** when you shop!",
+          "message": "Snap **46 foods**!",
           "button_label": "See list"
         },
         "et_EE": {
           "title": "🇪🇪 51 toodet puudu!",
-          "message": "Pildista **51 toodet** poes käies!",
+          "message": "Pildista **51 toodet**!",
           "button_label": "Vaata tooteid"
         },
         "et": {
           "title": "🇪🇪 51 toodet puudu!",
-          "message": "Pildista **51 toodet** poes käies!",
+          "message": "Pildista **51 toodet**!",
           "button_label": "Vaata tooteid"
         },
         "en_EE": {
           "title": "🇪🇪 51 foods missing!",
-          "message": "Snap **51 foods** when you shop!",
+          "message": "Snap **51 foods**!",
           "button_label": "See list"
         },
         "fi_FI": {
           "title": "🇫🇮 35 tuotetta puuttuu!",
-          "message": "Kuvaa **35 tuotetta** kaupassa käydessä!",
+          "message": "Kuvaa **35 tuotetta**!",
           "button_label": "Katso lista"
         },
         "fi": {
           "title": "🇫🇮 35 tuotetta puuttuu!",
-          "message": "Kuvaa **35 tuotetta** kaupassa käydessä!",
+          "message": "Kuvaa **35 tuotetta**!",
           "button_label": "Katso lista"
         },
         "sv_FI": {
           "title": "🇫🇮 35 varor saknas!",
-          "message": "Fota **35 varor** när du handlar!",
+          "message": "Fota **35 varor**!",
           "button_label": "Se lista"
         },
         "sv": {
           "title": "🇫🇮 35 varor saknas!",
-          "message": "Fota **35 varor** när du handlar!",
+          "message": "Fota **35 varor**!",
           "button_label": "Se lista"
         },
         "en_FI": {
           "title": "🇫🇮 35 foods missing!",
-          "message": "Snap **35 foods** when you shop!",
+          "message": "Snap **35 foods**!",
           "button_label": "See list"
         },
         "fr_FR": {
           "title": "🇫🇷 11 produits manquants",
-          "message": "Photographiez **11 produits** en magasin !",
+          "message": "Photographiez **11 produits** !",
           "button_label": "Voir la liste"
         },
         "en_FR": {
           "title": "🇫🇷 11 foods missing!",
-          "message": "Snap **11 foods** when you shop!",
+          "message": "Snap **11 foods**!",
           "button_label": "See list"
         },
         "de_DE": {
           "title": "🇩🇪 18 Produkte fehlen!",
-          "message": "Fotografiere **18 Produkte** beim Einkaufen!",
+          "message": "Fotografiere **18 Produkte**!",
           "button_label": "Liste ansehen"
         },
         "en_DE": {
           "title": "🇩🇪 18 foods missing!",
-          "message": "Snap **18 foods** when you shop!",
+          "message": "Snap **18 foods**!",
           "button_label": "See list"
         },
         "el_GR": {
           "title": "🇬🇷 Λείπουν 19 τρόφιμα!",
-          "message": "Φωτογραφίστε **19 προϊόντα** στα ψώνια!",
+          "message": "Φωτογραφίστε **19 τρόφιμα**!",
           "button_label": "Δείτε λίστα"
         },
         "el_EL": {
           "title": "🇬🇷 Λείπουν 19 τρόφιμα!",
-          "message": "Φωτογραφίστε **19 προϊόντα** στα ψώνια!",
+          "message": "Φωτογραφίστε **19 τρόφιμα**!",
           "button_label": "Δείτε λίστα"
         },
         "en_GR": {
           "title": "🇬🇷 19 foods missing!",
-          "message": "Snap **19 foods** when you shop!",
+          "message": "Snap **19 foods**!",
           "button_label": "See list"
         },
         "en_EL": {
           "title": "🇬🇷 19 foods missing!",
-          "message": "Snap **19 foods** when you shop!",
+          "message": "Snap **19 foods**!",
           "button_label": "See list"
         },
         "hu_HU": {
           "title": "🇭🇺 55 termék hiányzik!",
-          "message": "Fotózz le **55 terméket** vásárláskor!",
+          "message": "Fotózz le **55 terméket**!",
           "button_label": "Lista"
         },
         "hu": {
           "title": "🇭🇺 55 termék hiányzik!",
-          "message": "Fotózz le **55 terméket** vásárláskor!",
+          "message": "Fotózz le **55 terméket**!",
           "button_label": "Lista"
         },
         "en_HU": {
           "title": "🇭🇺 55 foods missing!",
-          "message": "Snap **55 foods** when you shop!",
+          "message": "Snap **55 foods**!",
           "button_label": "See list"
         },
         "en_IE": {
           "title": "🇮🇪 32 foods missing!",
-          "message": "Snap **32 foods** when you shop!",
+          "message": "Snap **32 foods**!",
           "button_label": "See list"
         },
         "it_IT": {
           "title": "🇮🇹 Mancano 8 prodotti!",
-          "message": "Fotografa **8 alimenti** mentre fai la spesa!",
+          "message": "Fotografa **8 alimenti**!",
           "button_label": "Vedi lista"
         },
         "en_IT": {
           "title": "🇮🇹 8 foods missing!",
-          "message": "Snap **8 foods** when you shop!",
+          "message": "Snap **8 foods**!",
           "button_label": "See list"
         },
         "lv_LV": {
           "title": "🇱🇻 Trūkst 57 produktu!",
-          "message": "Nofotografē **57 preces** veikalā!",
+          "message": "Nofotografē **57 preces**!",
           "button_label": "Skatīt"
         },
         "lv": {
           "title": "🇱🇻 Trūkst 57 produktu!",
-          "message": "Nofotografē **57 preces** veikalā!",
+          "message": "Nofotografē **57 preces**!",
           "button_label": "Skatīt"
         },
         "en_LV": {
           "title": "🇱🇻 57 foods missing!",
-          "message": "Snap **57 foods** when you shop!",
+          "message": "Snap **57 foods**!",
           "button_label": "See list"
         },
         "lt_LT": {
           "title": "🇱🇹 Trūksta 58 prekių!",
-          "message": "Nufotografuok **58 prekes** parduotuvėje!",
+          "message": "Nufotografuok **58 prekes**!",
           "button_label": "Žiūrėti"
         },
         "lt": {
           "title": "🇱🇹 Trūksta 58 prekių!",
-          "message": "Nufotografuok **58 prekes** parduotuvėje!",
+          "message": "Nufotografuok **58 prekes**!",
           "button_label": "Žiūrėti"
         },
         "en_LT": {
           "title": "🇱🇹 58 foods missing!",
-          "message": "Snap **58 foods** when you shop!",
+          "message": "Snap **58 foods**!",
           "button_label": "See list"
         },
         "fr_LU": {
           "title": "🇱🇺 33 produits manquants",
-          "message": "Photographiez **33 produits** en magasin !",
+          "message": "Photographiez **33 produits** !",
           "button_label": "Voir la liste"
         },
         "de_LU": {
           "title": "🇱🇺 33 Produkte fehlen!",
-          "message": "Fotografiere **33 Produkte** beim Einkaufen!",
+          "message": "Fotografiere **33 Produkte**!",
           "button_label": "Liste ansehen"
         },
         "en_LU": {
           "title": "🇱🇺 33 foods missing!",
-          "message": "Snap **33 foods** when you shop!",
+          "message": "Snap **33 foods**!",
           "button_label": "See list"
         },
         "mt_MT": {
           "title": "🇲🇹 Jonqos 39 prodott!",
-          "message": "Ħu ritratt ta' **39 prodott** waqt ix-xiri!",
+          "message": "Ħu ritratt ta' **39 prodott**!",
           "button_label": "Ara l-lista"
         },
         "mt": {
           "title": "🇲🇹 Jonqos 39 prodott!",
-          "message": "Ħu ritratt ta' **39 prodott** waqt ix-xiri!",
+          "message": "Ħu ritratt ta' **39 prodott**!",
           "button_label": "Ara l-lista"
         },
         "en_MT": {
           "title": "🇲🇹 39 foods missing!",
-          "message": "Snap **39 foods** when you shop!",
+          "message": "Snap **39 foods**!",
           "button_label": "See list"
         },
         "sr_ME": {
-          "title": "🇲🇪 Fali 75 proizvoda!",
-          "message": "Fotografišite **75 artikala** u prodavnici!",
+          "title": "🇲🇪 Fali hrane!",
+          "message": "Slikajte **hranu**!",
           "button_label": "Vidi spisak"
         },
         "sr": {
-          "title": "🇲🇪 Fali 75 proizvoda!",
-          "message": "Fotografišite **75 artikala** u prodavnici!",
+          "title": "🇲🇪 Fali hrane!",
+          "message": "Slikajte **hranu**!",
           "button_label": "Vidi spisak"
         },
         "en_ME": {
           "title": "🇲🇪 75 foods missing!",
-          "message": "Snap **75 foods** when you shop!",
+          "message": "Snap **75 foods**!",
           "button_label": "See list"
         },
         "nl_NL": {
           "title": "🇳🇱 26 producten gezocht!",
-          "message": "Fotografeer **26 producten** in de winkel!",
+          "message": "Fotografeer **26 producten**!",
           "button_label": "Bekijk lijst"
         },
         "en_NL": {
           "title": "🇳🇱 26 foods missing!",
-          "message": "Snap **26 foods** when you shop!",
+          "message": "Snap **26 foods**!",
           "button_label": "See list"
         },
         "nb_NO": {
           "title": "🇳🇴 27 varer mangler!",
-          "message": "Ta bilde av **27 varer** i butikken!",
+          "message": "Ta bilde av **27 varer**!",
           "button_label": "Se liste"
         },
         "nb": {
           "title": "🇳🇴 27 varer mangler!",
-          "message": "Ta bilde av **27 varer** i butikken!",
+          "message": "Ta bilde av **27 varer**!",
           "button_label": "Se liste"
         },
         "no_NO": {
           "title": "🇳🇴 27 varer mangler!",
-          "message": "Ta bilde av **27 varer** i butikken!",
+          "message": "Ta bilde av **27 varer**!",
           "button_label": "Se liste"
         },
         "no": {
           "title": "🇳🇴 27 varer mangler!",
-          "message": "Ta bilde av **27 varer** i butikken!",
+          "message": "Ta bilde av **27 varer**!",
           "button_label": "Se liste"
         },
         "en_NO": {
           "title": "🇳🇴 27 foods missing!",
-          "message": "Snap **27 foods** when you shop!",
+          "message": "Snap **27 foods**!",
           "button_label": "See list"
         },
         "pl_PL": {
           "title": "🇵🇱 Brakuje 30 produktów!",
-          "message": "Sfotografuj **30 produktów** w sklepie!",
+          "message": "Sfotografuj **30 produktów**!",
           "button_label": "Zobacz listę"
         },
         "pl": {
           "title": "🇵🇱 Brakuje 30 produktów!",
-          "message": "Sfotografuj **30 produktów** w sklepie!",
+          "message": "Sfotografuj **30 produktów**!",
           "button_label": "Zobacz listę"
         },
         "en_PL": {
           "title": "🇵🇱 30 foods missing!",
-          "message": "Snap **30 foods** when you shop!",
+          "message": "Snap **30 foods**!",
           "button_label": "See list"
         },
         "pt_PT": {
           "title": "🇵🇹 Faltam 30 produtos!",
-          "message": "Fotografe **30 produtos** nas compras!",
+          "message": "Fotografe **30 produtos**!",
           "button_label": "Ver lista"
         },
         "pt": {
           "title": "🇵🇹 Faltam 30 produtos!",
-          "message": "Fotografe **30 produtos** nas compras!",
+          "message": "Fotografe **30 produtos**!",
           "button_label": "Ver lista"
         },
         "en_PT": {
           "title": "🇵🇹 30 foods missing!",
-          "message": "Snap **30 foods** when you shop!",
+          "message": "Snap **30 foods**!",
           "button_label": "See list"
         },
         "ro_RO": {
           "title": "🇷🇴 Lipsesc 27 produse!",
-          "message": "Fotografiază **27 alimente** la magazin!",
+          "message": "Fotografiază **27 alimente**!",
           "button_label": "Vezi lista"
         },
         "ro": {
           "title": "🇷🇴 Lipsesc 27 produse!",
-          "message": "Fotografiază **27 alimente** la magazin!",
+          "message": "Fotografiază **27 alimente**!",
           "button_label": "Vezi lista"
         },
         "en_RO": {
           "title": "🇷🇴 27 foods missing!",
-          "message": "Snap **27 foods** when you shop!",
+          "message": "Snap **27 foods**!",
           "button_label": "See list"
         },
         "sr_RS": {
-          "title": "🇷🇸 Fali 32 proizvoda!",
-          "message": "Fotografišite **32 artikala** u prodavnici!",
+          "title": "🇷🇸 Fali hrane!",
+          "message": "Slikajte **hranu**!",
           "button_label": "Vidi spisak"
         },
         "en_RS": {
           "title": "🇷🇸 32 foods missing!",
-          "message": "Snap **32 foods** when you shop!",
+          "message": "Snap **32 foods**!",
           "button_label": "See list"
         },
         "sk_SK": {
           "title": "🇸🇰 Chýba 30 potravín!",
-          "message": "Odfoťte **30 potravín** pri nákupe!",
+          "message": "Odfoťte **30 potravín**!",
           "button_label": "Zobraziť"
         },
         "sk": {
           "title": "🇸🇰 Chýba 30 potravín!",
-          "message": "Odfoťte **30 potravín** pri nákupe!",
+          "message": "Odfoťte **30 potravín**!",
           "button_label": "Zobraziť"
         },
         "en_SK": {
           "title": "🇸🇰 30 foods missing!",
-          "message": "Snap **30 foods** when you shop!",
+          "message": "Snap **30 foods**!",
           "button_label": "See list"
         },
         "sl_SI": {
           "title": "🇸🇮 Manjka 60 živil!",
-          "message": "Fotografirajte **60 izdelkov** v trgovini!",
+          "message": "Slikajte **60 izdelkov**!",
           "button_label": "Ogled"
         },
         "sl_SV": {
           "title": "🇸🇮 Manjka 60 živil!",
-          "message": "Fotografirajte **60 izdelkov** v trgovini!",
+          "message": "Slikajte **60 izdelkov**!",
           "button_label": "Ogled"
         },
         "sl": {
           "title": "🇸🇮 Manjka 60 živil!",
-          "message": "Fotografirajte **60 izdelkov** v trgovini!",
+          "message": "Slikajte **60 izdelkov**!",
           "button_label": "Ogled"
         },
         "en_SI": {
           "title": "🇸🇮 60 foods missing!",
-          "message": "Snap **60 foods** when you shop!",
+          "message": "Snap **60 foods**!",
           "button_label": "See list"
         },
         "en_SV": {
           "title": "🇸🇮 60 foods missing!",
-          "message": "Snap **60 foods** when you shop!",
+          "message": "Snap **60 foods**!",
           "button_label": "See list"
         },
         "es_ES": {
           "title": "🇪🇸 ¡Faltan 8 productos!",
-          "message": "¡Fotografía **8 alimentos** en el súper!",
+          "message": "¡Fotografía **8 alimentos**!",
           "button_label": "Ver lista"
         },
         "ca_ES": {
           "title": "🇪🇸 Falten 8 productes!",
-          "message": "Fotografia **8 aliments** al súper!",
+          "message": "Fotografia **8 aliments**!",
           "button_label": "Veure llista"
         },
         "ca": {
           "title": "🇪🇸 Falten 8 productes!",
-          "message": "Fotografia **8 aliments** al súper!",
+          "message": "Fotografia **8 aliments**!",
           "button_label": "Veure llista"
         },
         "en_ES": {
           "title": "🇪🇸 8 foods missing!",
-          "message": "Snap **8 foods** when you shop!",
+          "message": "Snap **8 foods**!",
           "button_label": "See list"
         },
         "sv_SE": {
           "title": "🇸🇪 27 varor saknas!",
-          "message": "Fota **27 varor** när du handlar!",
+          "message": "Fota **27 varor**!",
           "button_label": "Se lista"
         },
         "en_SE": {
           "title": "🇸🇪 27 foods missing!",
-          "message": "Snap **27 foods** when you shop!",
+          "message": "Snap **27 foods**!",
           "button_label": "See list"
         },
         "de_CH": {
           "title": "🇨🇭 58 Produkte fehlen!",
-          "message": "Fotografiere **58 Produkte** beim Einkaufen!",
+          "message": "Fotografiere **58 Produkte**!",
           "button_label": "Liste ansehen"
         },
         "fr_CH": {
           "title": "🇨🇭 58 produits manquants",
-          "message": "Photographiez **58 produits** en magasin !",
+          "message": "Photographiez **58 produits** !",
           "button_label": "Voir la liste"
         },
         "it_CH": {
           "title": "🇨🇭 Mancano 58 prodotti!",
-          "message": "Fotografa **58 alimenti** mentre fai la spesa!",
+          "message": "Fotografa **58 alimenti**!",
           "button_label": "Vedi lista"
         },
         "en_CH": {
           "title": "🇨🇭 58 foods missing!",
-          "message": "Snap **58 foods** when you shop!",
+          "message": "Snap **58 foods**!",
           "button_label": "See list"
         },
         "en_UK": {
           "title": "🇬🇧 19 foods missing!",
-          "message": "Snap **19 foods** when you shop!",
+          "message": "Snap **19 foods**!",
           "button_label": "See list"
         },
         "en_GB": {
           "title": "🇬🇧 19 foods missing!",
-          "message": "Snap **19 foods** when you shop!",
+          "message": "Snap **19 foods**!",
           "button_label": "See list"
         }
       },

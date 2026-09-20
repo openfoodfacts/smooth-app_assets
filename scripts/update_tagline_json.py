@@ -19,148 +19,145 @@ STYLE = {
     "title_background": "#2D72D2",
     "title_text_color": "#FFFFFF",
     "title_indicator_color": "#FFB800",
-    "message_background": "#F0F4F8",
-    "message_text_color": "#1C2024",
     "button_background": "#347644",
-    "button_text_color": "#FFFFFF",
-    "content_background_color": "#FFFFFF"
+    "button_text_color": "#FFFFFF"
 }
 
 # Ultra-concise country templates: (Title <= 22 chars, Message <= 50 chars, Button <= 13 chars)
 TEMPLATES = {
     "at": {
-        "de": ("🇦🇹 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
-        "en": ("🇦🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "de": ("🇦🇹 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte**!", "Liste ansehen"),
+        "en": ("🇦🇹 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "be": {
-        "fr": ("🇧🇪 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
-        "nl": ("🇧🇪 {missing} producten gezocht!", "Fotografeer **{missing} producten** in de winkel!", "Bekijk lijst"),
-        "de": ("🇧🇪 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
-        "en": ("🇧🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "fr": ("🇧🇪 {missing} produits manquants", "Photographiez **{missing} produits** !", "Voir la liste"),
+        "nl": ("🇧🇪 {missing} producten gezocht!", "Fotografeer **{missing} producten**!", "Bekijk lijst"),
+        "de": ("🇧🇪 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte**!", "Liste ansehen"),
+        "en": ("🇧🇪 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "bg": {
-        "bg": ("🇧🇬 {missing} липсващи продукта", "Снимайте **{missing} продукта** в магазина!", "Виж списъка"),
-        "en": ("🇧🇬 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "bg": ("🇧🇬 {missing} липсващи продукта", "Снимайте **{missing} продукта**!", "Виж списъка"),
+        "en": ("🇧🇬 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "hr": {
-        "hr": ("🇭🇷 Fali {missing} proizvoda!", "Fotografirajte **{missing} artikala** u trgovini!", "Vidi popis"),
-        "en": ("🇭🇷 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "hr": ("🇭🇷 Fali hrane!", "Slikajte **hranu**!", "Vidi popis"),
+        "en": ("🇭🇷 Missing foods!", "Snap **missing foods**!", "See list"),
     },
     "cy": {
-        "el": ("🇨🇾 Λείπουν {missing} τρόφιμα!", "Φωτογραφίστε **{missing} προϊόντα** στα ψώνια!", "Δείτε λίστα"),
-        "en": ("🇨🇾 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "el": ("🇨🇾 Λείπουν {missing} τρόφιμα!", "Φωτογραφίστε **{missing} τρόφιμα**!", "Δείτε λίστα"),
+        "en": ("🇨🇾 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "cs": {
-        "cs": ("🇨🇿 Chybí {missing} potravin!", "Vyfoťte **{missing} potravin** při nákupu!", "Zobrazit"),
-        "en": ("🇨🇿 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "cs": ("🇨🇿 Chybí {missing} potravin!", "Vyfoťte **{missing} potravin**!", "Zobrazit"),
+        "en": ("🇨🇿 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "dk": {
-        "da": ("🇩🇰 {missing} varer mangler!", "Tag foto af **{missing} varer** i butikken!", "Se liste"),
-        "en": ("🇩🇰 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "da": ("🇩🇰 {missing} varer mangler!", "Tag foto af **{missing} varer**!", "Se liste"),
+        "en": ("🇩🇰 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "ee": {
-        "et": ("🇪🇪 {missing} toodet puudu!", "Pildista **{missing} toodet** poes käies!", "Vaata tooteid"),
-        "en": ("🇪🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "et": ("🇪🇪 {missing} toodet puudu!", "Pildista **{missing} toodet**!", "Vaata tooteid"),
+        "en": ("🇪🇪 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "fi": {
-        "fi": ("🇫🇮 {missing} tuotetta puuttuu!", "Kuvaa **{missing} tuotetta** kaupassa käydessä!", "Katso lista"),
-        "sv": ("🇫🇮 {missing} varor saknas!", "Fota **{missing} varor** när du handlar!", "Se lista"),
-        "en": ("🇫🇮 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "fi": ("🇫🇮 {missing} tuotetta puuttuu!", "Kuvaa **{missing} tuotetta**!", "Katso lista"),
+        "sv": ("🇫🇮 {missing} varor saknas!", "Fota **{missing} varor**!", "Se lista"),
+        "en": ("🇫🇮 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "fr": {
-        "fr": ("🇫🇷 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
-        "en": ("🇫🇷 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "fr": ("🇫🇷 {missing} produits manquants", "Photographiez **{missing} produits** !", "Voir la liste"),
+        "en": ("🇫🇷 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "de": {
-        "de": ("🇩🇪 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
-        "en": ("🇩🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "de": ("🇩🇪 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte**!", "Liste ansehen"),
+        "en": ("🇩🇪 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "el": {
-        "el": ("🇬🇷 Λείπουν {missing} τρόφιμα!", "Φωτογραφίστε **{missing} προϊόντα** στα ψώνια!", "Δείτε λίστα"),
-        "en": ("🇬🇷 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "el": ("🇬🇷 Λείπουν {missing} τρόφιμα!", "Φωτογραφίστε **{missing} τρόφιμα**!", "Δείτε λίστα"),
+        "en": ("🇬🇷 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "hu": {
-        "hu": ("🇭🇺 {missing} termék hiányzik!", "Fotózz le **{missing} terméket** vásárláskor!", "Lista"),
-        "en": ("🇭🇺 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "hu": ("🇭🇺 {missing} termék hiányzik!", "Fotózz le **{missing} terméket**!", "Lista"),
+        "en": ("🇭🇺 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "ie": {
-        "en": ("🇮🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "en": ("🇮🇪 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "it": {
-        "it": ("🇮🇹 Mancano {missing} prodotti!", "Fotografa **{missing} alimenti** mentre fai la spesa!", "Vedi lista"),
-        "en": ("🇮🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "it": ("🇮🇹 Mancano {missing} prodotti!", "Fotografa **{missing} alimenti**!", "Vedi lista"),
+        "en": ("🇮🇹 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "lv": {
-        "lv": ("🇱🇻 Trūkst {missing} produktu!", "Nofotografē **{missing} preces** veikalā!", "Skatīt"),
-        "en": ("🇱🇻 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "lv": ("🇱🇻 Trūkst {missing} produktu!", "Nofotografē **{missing} preces**!", "Skatīt"),
+        "en": ("🇱🇻 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "lt": {
-        "lt": ("🇱🇹 Trūksta {missing} prekių!", "Nufotografuok **{missing} prekes** parduotuvėje!", "Žiūrėti"),
-        "en": ("🇱🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "lt": ("🇱🇹 Trūksta {missing} prekių!", "Nufotografuok **{missing} prekes**!", "Žiūrėti"),
+        "en": ("🇱🇹 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "lu": {
-        "fr": ("🇱🇺 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
-        "de": ("🇱🇺 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
-        "en": ("🇱🇺 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "fr": ("🇱🇺 {missing} produits manquants", "Photographiez **{missing} produits** !", "Voir la liste"),
+        "de": ("🇱🇺 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte**!", "Liste ansehen"),
+        "en": ("🇱🇺 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "mt": {
-        "mt": ("🇲🇹 Jonqos {missing} prodott!", "Ħu ritratt ta' **{missing} prodott** waqt ix-xiri!", "Ara l-lista"),
-        "en": ("🇲🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "mt": ("🇲🇹 Jonqos {missing} prodott!", "Ħu ritratt ta' **{missing} prodott**!", "Ara l-lista"),
+        "en": ("🇲🇹 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "me": {
-        "sr": ("🇲🇪 Fali {missing} proizvoda!", "Fotografišite **{missing} artikala** u prodavnici!", "Vidi spisak"),
-        "en": ("🇲🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "sr": ("🇲🇪 Fali hrane!", "Slikajte **hranu**!", "Vidi spisak"),
+        "en": ("🇲🇪 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "nl": {
-        "nl": ("🇳🇱 {missing} producten gezocht!", "Fotografeer **{missing} producten** in de winkel!", "Bekijk lijst"),
-        "en": ("🇳🇱 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "nl": ("🇳🇱 {missing} producten gezocht!", "Fotografeer **{missing} producten**!", "Bekijk lijst"),
+        "en": ("🇳🇱 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "no": {
-        "nb": ("🇳🇴 {missing} varer mangler!", "Ta bilde av **{missing} varer** i butikken!", "Se liste"),
-        "no": ("🇳🇴 {missing} varer mangler!", "Ta bilde av **{missing} varer** i butikken!", "Se liste"),
-        "en": ("🇳🇴 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "nb": ("🇳🇴 {missing} varer mangler!", "Ta bilde av **{missing} varer**!", "Se liste"),
+        "no": ("🇳🇴 {missing} varer mangler!", "Ta bilde av **{missing} varer**!", "Se liste"),
+        "en": ("🇳🇴 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "pl": {
-        "pl": ("🇵🇱 Brakuje {missing} produktów!", "Sfotografuj **{missing} produktów** w sklepie!", "Zobacz listę"),
-        "en": ("🇵🇱 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "pl": ("🇵🇱 Brakuje {missing} produktów!", "Sfotografuj **{missing} produktów**!", "Zobacz listę"),
+        "en": ("🇵🇱 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "pt": {
-        "pt": ("🇵🇹 Faltam {missing} produtos!", "Fotografe **{missing} produtos** nas compras!", "Ver lista"),
-        "en": ("🇵🇹 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "pt": ("🇵🇹 Faltam {missing} produtos!", "Fotografe **{missing} produtos**!", "Ver lista"),
+        "en": ("🇵🇹 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "ro": {
-        "ro": ("🇷🇴 Lipsesc {missing} produse!", "Fotografiază **{missing} alimente** la magazin!", "Vezi lista"),
-        "en": ("🇷🇴 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "ro": ("🇷🇴 Lipsesc {missing} produse!", "Fotografiază **{missing} alimente**!", "Vezi lista"),
+        "en": ("🇷🇴 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "rs": {
-        "sr": ("🇷🇸 Fali {missing} proizvoda!", "Fotografišite **{missing} artikala** u prodavnici!", "Vidi spisak"),
-        "en": ("🇷🇸 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "sr": ("🇷🇸 Fali hrane!", "Slikajte **hranu**!", "Vidi spisak"),
+        "en": ("🇷🇸 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "sk": {
-        "sk": ("🇸🇰 Chýba {missing} potravín!", "Odfoťte **{missing} potravín** pri nákupe!", "Zobraziť"),
-        "en": ("🇸🇰 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "sk": ("🇸🇰 Chýba {missing} potravín!", "Odfoťte **{missing} potravín**!", "Zobraziť"),
+        "en": ("🇸🇰 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "si": {
-        "sl": ("🇸🇮 Manjka {missing} živil!", "Fotografirajte **{missing} izdelkov** v trgovini!", "Ogled"),
-        "en": ("🇸🇮 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "sl": ("🇸🇮 Manjka {missing} živil!", "Slikajte **{missing} izdelkov**!", "Ogled"),
+        "en": ("🇸🇮 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "es": {
-        "es": ("🇪🇸 ¡Faltan {missing} productos!", "¡Fotografía **{missing} alimentos** en el súper!", "Ver lista"),
-        "ca": ("🇪🇸 Falten {missing} productes!", "Fotografia **{missing} aliments** al súper!", "Veure llista"),
-        "en": ("🇪🇸 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "es": ("🇪🇸 ¡Faltan {missing} productos!", "¡Fotografía **{missing} alimentos**!", "Ver lista"),
+        "ca": ("🇪🇸 Falten {missing} productes!", "Fotografia **{missing} aliments**!", "Veure llista"),
+        "en": ("🇪🇸 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "se": {
-        "sv": ("🇸🇪 {missing} varor saknas!", "Fota **{missing} varor** när du handlar!", "Se lista"),
-        "en": ("🇸🇪 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "sv": ("🇸🇪 {missing} varor saknas!", "Fota **{missing} varor**!", "Se lista"),
+        "en": ("🇸🇪 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "ch": {
-        "de": ("🇨🇭 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte** beim Einkaufen!", "Liste ansehen"),
-        "fr": ("🇨🇭 {missing} produits manquants", "Photographiez **{missing} produits** en magasin !", "Voir la liste"),
-        "it": ("🇨🇭 Mancano {missing} prodotti!", "Fotografa **{missing} alimenti** mentre fai la spesa!", "Vedi lista"),
-        "en": ("🇨🇭 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "de": ("🇨🇭 {missing} Produkte fehlen!", "Fotografiere **{missing} Produkte**!", "Liste ansehen"),
+        "fr": ("🇨🇭 {missing} produits manquants", "Photographiez **{missing} produits** !", "Voir la liste"),
+        "it": ("🇨🇭 Mancano {missing} prodotti!", "Fotografa **{missing} alimenti**!", "Vedi lista"),
+        "en": ("🇨🇭 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     },
     "uk": {
-        "en": ("🇬🇧 {missing} foods missing!", "Snap **{missing} foods** when you shop!", "See list"),
+        "en": ("🇬🇧 {missing} foods missing!", "Snap **{missing} foods**!", "See list"),
     }
 }
 
@@ -218,12 +215,12 @@ def generate_translations(stats):
     translations = {
         "default": {
             "title": "Missing foods!",
-            "message": "Snap **missing foods** when you shop!",
+            "message": "Snap **missing foods**!",
             "button_label": "See list"
         },
         "en": {
             "title": "Missing foods!",
-            "message": "Snap **missing foods** when you shop!",
+            "message": "Snap **missing foods**!",
             "button_label": "See list"
         },
         "de": {
@@ -250,6 +247,11 @@ def generate_translations(stats):
             "title": "Producten gezocht!",
             "message": "Fotografeer **ontbrekende producten**!",
             "button_label": "Bekijk lijst"
+        },
+        "hr": {
+            "title": "Fali hrane!",
+            "message": "Slikajte **hranu**!",
+            "button_label": "Vidi popis"
         }
     }
 
