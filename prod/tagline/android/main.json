@@ -245,11 +245,8 @@
         "title_background": "#2D72D2",
         "title_text_color": "#FFFFFF",
         "title_indicator_color": "#FFB800",
-        "message_background": "#F0F4F8",
-        "message_text_color": "#1C2024",
         "button_background": "#347644",
-        "button_text_color": "#FFFFFF",
-        "content_background_color": "#FFFFFF"
+        "button_text_color": "#FFFFFF"
       },
       "translations": {
         "default": {
