@@ -241,13 +241,6 @@
       "end_date": "2026-12-31 23:59:59",
       "min_launches": 1,
       "start_date": "2026-09-18 00:00:00",
-      "style": {
-        "title_background": "#2D72D2",
-        "title_text_color": "#FFFFFF",
-        "title_indicator_color": "#FFB800",
-        "button_background": "#347644",
-        "button_text_color": "#FFFFFF"
-      },
       "translations": {
         "default": {
           "title": "Missing foods!",
