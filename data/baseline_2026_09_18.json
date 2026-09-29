@@ -1,0 +1,507 @@
+{
+  "campaign_id": "photos_for_impact_2026",
+  "baseline_date": "2026-09-18",
+  "last_updated": "2026-09-18 09:53:52",
+  "total_countries": 32,
+  "total_items": 3124,
+  "total_with_code": 2091,
+  "total_missing": 1033,
+  "overall_coverage_pct": 66.9,
+  "countries": {
+    "at": {
+      "name": "Austria",
+      "code": "at",
+      "flag": "🇦🇹",
+      "off_tag": "en:austria",
+      "languages": [
+        "de"
+      ],
+      "total": 111,
+      "with_code": 86,
+      "missing": 25,
+      "coverage_pct": 77.5,
+      "start_baseline_pct": 77.5,
+      "delta_pct": 0.0
+    },
+    "be": {
+      "name": "Belgium",
+      "code": "be",
+      "flag": "🇧🇪",
+      "off_tag": "en:belgium",
+      "languages": [
+        "fr",
+        "nl",
+        "de"
+      ],
+      "total": 95,
+      "with_code": 86,
+      "missing": 9,
+      "coverage_pct": 90.5,
+      "start_baseline_pct": 90.5,
+      "delta_pct": 0.0
+    },
+    "bg": {
+      "name": "Bulgaria",
+      "code": "bg",
+      "flag": "🇧🇬",
+      "off_tag": "en:bulgaria",
+      "languages": [
+        "bg"
+      ],
+      "total": 20,
+      "with_code": 18,
+      "missing": 2,
+      "coverage_pct": 90.0,
+      "start_baseline_pct": 90.0,
+      "delta_pct": 0.0
+    },
+    "hr": {
+      "name": "Croatia",
+      "code": "hr",
+      "flag": "🇭🇷",
+      "off_tag": "en:croatia",
+      "languages": [
+        "hr"
+      ],
+      "total": 87,
+      "with_code": 54,
+      "missing": 33,
+      "coverage_pct": 62.1,
+      "start_baseline_pct": 62.1,
+      "delta_pct": 0.0
+    },
+    "cy": {
+      "name": "Cyprus",
+      "code": "cy",
+      "flag": "🇨🇾",
+      "off_tag": "en:cyprus",
+      "languages": [
+        "el",
+        "tr"
+      ],
+      "total": 61,
+      "with_code": 25,
+      "missing": 36,
+      "coverage_pct": 41.0,
+      "start_baseline_pct": 41.0,
+      "delta_pct": 0.0
+    },
+    "cs": {
+      "name": "Czech Republic",
+      "code": "cs",
+      "flag": "🇨🇿",
+      "off_tag": "en:czech-republic",
+      "languages": [
+        "cs"
+      ],
+      "total": 69,
+      "with_code": 52,
+      "missing": 17,
+      "coverage_pct": 75.4,
+      "start_baseline_pct": 75.4,
+      "delta_pct": 0.0
+    },
+    "dk": {
+      "name": "Denmark",
+      "code": "dk",
+      "flag": "🇩🇰",
+      "off_tag": "en:denmark",
+      "languages": [
+        "da"
+      ],
+      "total": 139,
+      "with_code": 93,
+      "missing": 46,
+      "coverage_pct": 66.9,
+      "start_baseline_pct": 66.9,
+      "delta_pct": 0.0
+    },
+    "ee": {
+      "name": "Estonia",
+      "code": "ee",
+      "flag": "🇪🇪",
+      "off_tag": "en:estonia",
+      "languages": [
+        "et"
+      ],
+      "total": 83,
+      "with_code": 32,
+      "missing": 51,
+      "coverage_pct": 38.6,
+      "start_baseline_pct": 38.6,
+      "delta_pct": 0.0
+    },
+    "fi": {
+      "name": "Finland",
+      "code": "fi",
+      "flag": "🇫🇮",
+      "off_tag": "en:finland",
+      "languages": [
+        "fi",
+        "sv"
+      ],
+      "total": 115,
+      "with_code": 80,
+      "missing": 35,
+      "coverage_pct": 69.6,
+      "start_baseline_pct": 69.6,
+      "delta_pct": 0.0
+    },
+    "fr": {
+      "name": "France",
+      "code": "fr",
+      "flag": "🇫🇷",
+      "off_tag": "en:france",
+      "languages": [
+        "fr"
+      ],
+      "total": 148,
+      "with_code": 137,
+      "missing": 11,
+      "coverage_pct": 92.6,
+      "start_baseline_pct": 92.6,
+      "delta_pct": 0.0
+    },
+    "de": {
+      "name": "Germany",
+      "code": "de",
+      "flag": "🇩🇪",
+      "off_tag": "en:germany",
+      "languages": [
+        "de"
+      ],
+      "total": 103,
+      "with_code": 85,
+      "missing": 18,
+      "coverage_pct": 82.5,
+      "start_baseline_pct": 82.5,
+      "delta_pct": 0.0
+    },
+    "el": {
+      "name": "Greece",
+      "code": "el",
+      "flag": "🇬🇷",
+      "off_tag": "en:greece",
+      "languages": [
+        "el"
+      ],
+      "total": 50,
+      "with_code": 31,
+      "missing": 19,
+      "coverage_pct": 62.0,
+      "start_baseline_pct": 62.0,
+      "delta_pct": 0.0
+    },
+    "hu": {
+      "name": "Hungary",
+      "code": "hu",
+      "flag": "🇭🇺",
+      "off_tag": "en:hungary",
+      "languages": [
+        "hu"
+      ],
+      "total": 120,
+      "with_code": 65,
+      "missing": 55,
+      "coverage_pct": 54.2,
+      "start_baseline_pct": 54.2,
+      "delta_pct": 0.0
+    },
+    "ie": {
+      "name": "Ireland",
+      "code": "ie",
+      "flag": "🇮🇪",
+      "off_tag": "en:ireland",
+      "languages": [
+        "en",
+        "ga"
+      ],
+      "total": 130,
+      "with_code": 98,
+      "missing": 32,
+      "coverage_pct": 75.4,
+      "start_baseline_pct": 75.4,
+      "delta_pct": 0.0
+    },
+    "it": {
+      "name": "Italy",
+      "code": "it",
+      "flag": "🇮🇹",
+      "off_tag": "en:italy",
+      "languages": [
+        "it"
+      ],
+      "total": 75,
+      "with_code": 67,
+      "missing": 8,
+      "coverage_pct": 89.3,
+      "start_baseline_pct": 89.3,
+      "delta_pct": 0.0
+    },
+    "lv": {
+      "name": "Latvia",
+      "code": "lv",
+      "flag": "🇱🇻",
+      "off_tag": "en:latvia",
+      "languages": [
+        "lv"
+      ],
+      "total": 110,
+      "with_code": 53,
+      "missing": 57,
+      "coverage_pct": 48.2,
+      "start_baseline_pct": 48.2,
+      "delta_pct": 0.0
+    },
+    "lt": {
+      "name": "Lithuania",
+      "code": "lt",
+      "flag": "🇱🇹",
+      "off_tag": "en:lithuania",
+      "languages": [
+        "lt"
+      ],
+      "total": 101,
+      "with_code": 43,
+      "missing": 58,
+      "coverage_pct": 42.6,
+      "start_baseline_pct": 42.6,
+      "delta_pct": 0.0
+    },
+    "lu": {
+      "name": "Luxembourg",
+      "code": "lu",
+      "flag": "🇱🇺",
+      "off_tag": "en:luxembourg",
+      "languages": [
+        "fr",
+        "de",
+        "lb"
+      ],
+      "total": 105,
+      "with_code": 72,
+      "missing": 33,
+      "coverage_pct": 68.6,
+      "start_baseline_pct": 68.6,
+      "delta_pct": 0.0
+    },
+    "mt": {
+      "name": "Malta",
+      "code": "mt",
+      "flag": "🇲🇹",
+      "off_tag": "en:malta",
+      "languages": [
+        "mt",
+        "en"
+      ],
+      "total": 61,
+      "with_code": 22,
+      "missing": 39,
+      "coverage_pct": 36.1,
+      "start_baseline_pct": 36.1,
+      "delta_pct": 0.0
+    },
+    "me": {
+      "name": "Montenegro",
+      "code": "me",
+      "flag": "🇲🇪",
+      "off_tag": "en:montenegro",
+      "languages": [
+        "sr",
+        "hr"
+      ],
+      "total": 91,
+      "with_code": 16,
+      "missing": 75,
+      "coverage_pct": 17.6,
+      "start_baseline_pct": 17.6,
+      "delta_pct": 0.0
+    },
+    "nl": {
+      "name": "Netherlands",
+      "code": "nl",
+      "flag": "🇳🇱",
+      "off_tag": "en:netherlands",
+      "languages": [
+        "nl"
+      ],
+      "total": 129,
+      "with_code": 103,
+      "missing": 26,
+      "coverage_pct": 79.8,
+      "start_baseline_pct": 79.8,
+      "delta_pct": 0.0
+    },
+    "no": {
+      "name": "Norway",
+      "code": "no",
+      "flag": "🇳🇴",
+      "off_tag": "en:norway",
+      "languages": [
+        "nb",
+        "no"
+      ],
+      "total": 92,
+      "with_code": 65,
+      "missing": 27,
+      "coverage_pct": 70.7,
+      "start_baseline_pct": 70.7,
+      "delta_pct": 0.0
+    },
+    "pl": {
+      "name": "Poland",
+      "code": "pl",
+      "flag": "🇵🇱",
+      "off_tag": "en:poland",
+      "languages": [
+        "pl"
+      ],
+      "total": 82,
+      "with_code": 52,
+      "missing": 30,
+      "coverage_pct": 63.4,
+      "start_baseline_pct": 63.4,
+      "delta_pct": 0.0
+    },
+    "pt": {
+      "name": "Portugal",
+      "code": "pt",
+      "flag": "🇵🇹",
+      "off_tag": "en:portugal",
+      "languages": [
+        "pt"
+      ],
+      "total": 83,
+      "with_code": 53,
+      "missing": 30,
+      "coverage_pct": 63.9,
+      "start_baseline_pct": 63.9,
+      "delta_pct": 0.0
+    },
+    "ro": {
+      "name": "Romania",
+      "code": "ro",
+      "flag": "🇷🇴",
+      "off_tag": "en:romania",
+      "languages": [
+        "ro"
+      ],
+      "total": 72,
+      "with_code": 45,
+      "missing": 27,
+      "coverage_pct": 62.5,
+      "start_baseline_pct": 62.5,
+      "delta_pct": 0.0
+    },
+    "rs": {
+      "name": "Serbia",
+      "code": "rs",
+      "flag": "🇷🇸",
+      "off_tag": "en:serbia",
+      "languages": [
+        "sr"
+      ],
+      "total": 70,
+      "with_code": 38,
+      "missing": 32,
+      "coverage_pct": 54.3,
+      "start_baseline_pct": 54.3,
+      "delta_pct": 0.0
+    },
+    "sk": {
+      "name": "Slovakia",
+      "code": "sk",
+      "flag": "🇸🇰",
+      "off_tag": "en:slovakia",
+      "languages": [
+        "sk"
+      ],
+      "total": 70,
+      "with_code": 40,
+      "missing": 30,
+      "coverage_pct": 57.1,
+      "start_baseline_pct": 57.1,
+      "delta_pct": 0.0
+    },
+    "si": {
+      "name": "Slovenia",
+      "code": "si",
+      "flag": "🇸🇮",
+      "off_tag": "en:slovenia",
+      "languages": [
+        "sl"
+      ],
+      "total": 104,
+      "with_code": 44,
+      "missing": 60,
+      "coverage_pct": 42.3,
+      "start_baseline_pct": 42.3,
+      "delta_pct": 0.0
+    },
+    "es": {
+      "name": "Spain",
+      "code": "es",
+      "flag": "🇪🇸",
+      "off_tag": "en:spain",
+      "languages": [
+        "es",
+        "ca",
+        "gl",
+        "eu"
+      ],
+      "total": 62,
+      "with_code": 54,
+      "missing": 8,
+      "coverage_pct": 87.1,
+      "start_baseline_pct": 87.1,
+      "delta_pct": 0.0
+    },
+    "se": {
+      "name": "Sweden",
+      "code": "se",
+      "flag": "🇸🇪",
+      "off_tag": "en:sweden",
+      "languages": [
+        "sv"
+      ],
+      "total": 125,
+      "with_code": 98,
+      "missing": 27,
+      "coverage_pct": 78.4,
+      "start_baseline_pct": 78.4,
+      "delta_pct": 0.0
+    },
+    "ch": {
+      "name": "Switzerland",
+      "code": "ch",
+      "flag": "🇨🇭",
+      "off_tag": "en:switzerland",
+      "languages": [
+        "de",
+        "fr",
+        "it"
+      ],
+      "total": 214,
+      "with_code": 156,
+      "missing": 58,
+      "coverage_pct": 72.9,
+      "start_baseline_pct": 72.9,
+      "delta_pct": 0.0
+    },
+    "uk": {
+      "name": "United Kingdom",
+      "code": "uk",
+      "flag": "🇬🇧",
+      "off_tag": "en:united-kingdom",
+      "languages": [
+        "en"
+      ],
+      "total": 147,
+      "with_code": 128,
+      "missing": 19,
+      "coverage_pct": 87.1,
+      "start_baseline_pct": 87.1,
+      "delta_pct": 0.0
+    }
+  }
+}

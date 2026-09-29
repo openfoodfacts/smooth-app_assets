@@ -1,268 +1,5 @@
 {
   "news": {
-    "divinfood_survey_2026": {
-      "start_date": "2026-02-23 00:00:00",
-      "end_date": "2026-03-09 23:59:59",
-      "translations": {
-        "cs": {
-          "button_label": "Zúčastnit se průzkumu",
-          "message": "Pomoz nám podpořit **agrobiodiverzitu** v potravinách jako součást evropského projektu DIVINFOOD!",
-          "title": "🌿 Průzkum DIVINFOOD"
-        },
-        "da": {
-          "button_label": "Svar på undersøgelsen",
-          "message": "Hjælp os med at fremme **agrobiodiversitet** i fødevarer som en del af det europæiske DIVINFOOD-projekt!",
-          "title": "🌿 DIVINFOOD-undersøgelse"
-        },
-        "de": {
-          "button_label": "An Umfrage teilnehmen",
-          "message": "Hilf uns, **Agrobiodiversität** in Lebensmitteln im Rahmen des europäischen Projekts DIVINFOOD zu fördern!",
-          "title": "🌿 DIVINFOOD-Umfrage"
-        },
-        "default": {
-          "button_label": "Answer the survey",
-          "message": "Help us promote **agrobiodiversity** in food as part of the European DIVINFOOD project!",
-          "title": "🌿 DIVINFOOD survey"
-        },
-        "el": {
-          "button_label": "Απάντησε στη δημοσκόπηση",
-          "message": "Βοήθησέ μας να προωθήσουμε την **αγρο-βιοποικιλότητα** στα τρόφιμα στο πλαίσιο του ευρωπαϊκού έργου DIVINFOOD!",
-          "title": "🌿 Δημοσκόπηση DIVINFOOD"
-        },
-        "es": {
-          "button_label": "Responder a la encuesta",
-          "message": "¡Ayúdanos a promover la **agrobiodiversidad** en los alimentos como parte del proyecto europeo DIVINFOOD!",
-          "title": "🌿 Encuesta DIVINFOOD"
-        },
-        "fr": {
-          "button_label": "Répondre à l'enquête",
-          "message": "Aidez-nous à promouvoir l'**agrobiodiversité** dans les aliments dans le cadre du projet européen DIVINFOOD !",
-          "title": "🌿 Enquête DIVINFOOD"
-        },
-        "hu": {
-          "button_label": "Válaszoljon a felmérésre",
-          "message": "Segítsen nekünk előmozdítani az **agrobiodiverzitást** az élelmiszerekben az európai DIVINFOOD projekt részeként!",
-          "title": "🌿 DIVINFOOD felmérés"
-        },
-        "it": {
-          "button_label": "Rispondi al sondaggio",
-          "message": "Aiutaci a promuovere l'**agrobiodiversità** negli alimenti nell'ambito del progetto europeo DIVINFOOD!",
-          "title": "🌿 Sondaggio DIVINFOOD"
-        },
-        "pl": {
-          "button_label": "Weź udział w ankiecie",
-          "message": "Pomożesz nam promować **agrobioróżnorodność** w żywności w ramach europejskiego projektu DIVINFOOD!",
-          "title": "🌿 Ankieta DIVINFOOD"
-        },
-        "pt": {
-          "button_label": "Responder à pesquisa",
-          "message": "Ajude-nos a promover a **agrobiodiversidade** nos alimentos como parte do projeto europeu DIVINFOOD!",
-          "title": "🌿 Pesquisa DIVINFOOD"
-        },
-        "ro": {
-          "button_label": "Participă la sondaj",
-          "message": "Ajută-ne să promovăm **agrobiodiversitatea** în alimente în cadrul proiectului european DIVINFOOD!",
-          "title": "🌿 Sondaj DIVINFOOD"
-        },
-        "sv": {
-          "button_label": "Svara på undersökningen",
-          "message": "Hjälp oss att främja **agrobiodiversitet** i mat som en del av det europeiska DIVINFOOD-projektet!",
-          "title": "🌿 DIVINFOOD-undersökning"
-        }
-      },
-      "url": "https://ec.europa.eu/eusurvey/runner/Open-Food-Facts-2025-Biodiversity"
-    },
-    "openprices_challenge_01_06": {
-      "start_date": "2026-01-15 00:00:00",
-      "end_date": "2026-02-14 23:59:59",
-      "translations": {
-        "ar": {
-          "button_label": "اعرف المزيد",
-          "message": "الأسعار المفتوحة: انضم إلى تحدي مجتمعنا من خلال **جمع أسعار الأطعمة المجمدة ❄️**",
-          "title": "❄️ تحدي الطعام المجمد!"
-        },
-        "bg": {
-          "button_label": "Научете повече",
-          "message": "Open Prices: Присъединете се към нашето общностно предизвикателство, като **събирате цени на замразени храни ❄️**",
-          "title": "❄️ Предизвикателство за замразени храни!"
-        },
-        "bn": {
-          "button_label": "আরও জানুন",
-          "message": "Open Prices: **হিমায়িত খাবারের দাম সংগ্রহ করে ❄️** আমাদের কমিউনিটি চ্যালেঞ্জে যোগ দিন",
-          "title": "❄️ হিমায়িত খাবারের চ্যালেঞ্জ!"
-        },
-        "ca": {
-          "button_label": "Més informació",
-          "message": "Open Prices: Uneix-te al nostre repte comunitari **recollint preus d'aliments congelats ❄️**",
-          "title": "❄️ Repte d'aliments congelats!"
-        },
-        "cs": {
-          "button_label": "Zjistit více",
-          "message": "Open Prices: Připojte se k naší komunitní výzvě **sběrem cen mražených potravin ❄️**",
-          "title": "❄️ Výzva mražených potravin!"
-        },
-        "da": {
-          "button_label": "Lær mere",
-          "message": "Open Prices: Deltag i vores fællesskabsudfordring ved at **indsamle priser på frosne fødevarer ❄️**",
-          "title": "❄️ Frosne fødevarer-udfordring!"
-        },
-        "de": {
-          "button_label": "Mehr erfahren",
-          "message": "Open Prices: Nehmen Sie an unserer Community-Herausforderung teil, indem Sie **Preise für Tiefkühlkost sammeln ❄️**",
-          "title": "❄️ Tiefkühlkost-Herausforderung!"
-        },
-        "default": {
-          "button_label": "Learn more",
-          "image": {
-            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/refs/heads/main/prod/tagline/ios/assets/openprices_challenge/2026_january/frozen.svg",
-            "width": 0.2
-          },
-          "message": "Open Prices: Join our community challenge by **collecting prices of frozen food ❄️**",
-          "title": "❄️ Frozen food challenge!"
-        },
-        "el": {
-          "button_label": "Μάθετε περισσότερα",
-          "message": "Open Prices: Συμμετάσχετε στην πρόκληση της κοινότητάς μας **συλλέγοντας τιμές κατεψυγμένων τροφίμων ❄️**",
-          "title": "❄️ Πρόκληση κατεψυγμένων τροφίμων!"
-        },
-        "es": {
-          "button_label": "Más información",
-          "message": "Open Prices: Únete a nuestro desafío comunitario **recopilando precios de alimentos congelados ❄️**",
-          "title": "❄️ ¡Desafío de alimentos congelados!"
-        },
-        "fa": {
-          "button_label": "بیشتر بدانید",
-          "message": "Open Prices: با **جمع‌آوری قیمت‌های غذاهای منجمد ❄️** به چالش جامعه ما بپیوندید",
-          "title": "❄️ چالش غذای منجمد!"
-        },
-        "fi": {
-          "button_label": "Lue lisää",
-          "message": "Open Prices: Liity yhteisöhaasteeseen **keräämällä pakastettujen elintarvikkeiden hintoja ❄️**",
-          "title": "❄️ Pakastettujen elintarvikkeiden haaste!"
-        },
-        "fr": {
-          "button_label": "En savoir plus",
-          "message": "Open Prices : Rejoignez notre défi mensuel en **collectant les prix des produits surgelés ❄️**",
-          "title": "❄️ Défi Produits surgelés !"
-        },
-        "he": {
-          "button_label": "למד עוד",
-          "message": "Open Prices: הצטרף לאתגר הקהילה שלנו על ידי **איסוף מחירים של מזון קפוא ❄️**",
-          "title": "❄️ אתגר מזון קפוא!"
-        },
-        "hi": {
-          "button_label": "और जानें",
-          "message": "Open Prices: **जमे हुए भोजन की कीमतें एकत्र करके ❄️** हमारी समुदाय चुनौती में शामिल हों",
-          "title": "❄️ जमे हुए भोजन की चुनौती!"
-        },
-        "hu": {
-          "button_label": "Tudj meg többet",
-          "message": "Open Prices: Csatlakozzon közösségi kihívásunkhoz **fagyasztott élelmiszerek árainak gyűjtésével ❄️**",
-          "title": "❄️ Fagyasztott élelmiszer kihívás!"
-        },
-        "id": {
-          "button_label": "Pelajari lebih lanjut",
-          "message": "Open Prices: Bergabunglah dengan tantangan komunitas kami dengan **mengumpulkan harga makanan beku ❄️**",
-          "title": "❄️ Tantangan makanan beku!"
-        },
-        "it": {
-          "button_label": "Scopri di più",
-          "message": "Open Prices: Unisciti alla nostra sfida della comunità **raccogliendo i prezzi dei cibi surgelati ❄️**",
-          "title": "❄️ Sfida dei cibi surgelati!"
-        },
-        "ja": {
-          "button_label": "詳しく見る",
-          "message": "Open Prices: **冷凍食品の価格を収集して ❄️** コミュニティチャレンジに参加しましょう",
-          "title": "❄️ 冷凍食品チャレンジ！"
-        },
-        "ko": {
-          "button_label": "자세히 알아보기",
-          "message": "Open Prices: **냉동 식품 가격을 수집하여 ❄️** 커뮤니티 챌린지에 참여하세요",
-          "title": "❄️ 냉동 식품 챌린지!"
-        },
-        "lt": {
-          "button_label": "Sužinoti daugiau",
-          "message": "Open Prices: Prisijunkite prie mūsų bendruomenės iššūkio **rinkdami šaldytų produktų kainas ❄️**",
-          "title": "❄️ Šaldytų produktų iššūkis!"
-        },
-        "ms": {
-          "button_label": "Ketahui lebih lanjut",
-          "message": "Open Prices: Sertai cabaran komuniti kami dengan **mengumpul harga makanan beku ❄️**",
-          "title": "❄️ Cabaran makanan beku!"
-        },
-        "nb": {
-          "button_label": "Lær mer",
-          "message": "Open Prices: Bli med på vår fellesskapsutfordring ved å **samle priser på frossenvarer ❄️**",
-          "title": "❄️ Frossenvarer-utfordring!"
-        },
-        "nl": {
-          "button_label": "Meer informatie",
-          "message": "Open Prices: Doe mee aan onze community-uitdaging door **prijzen van diepvriesproducten te verzamelen ❄️**",
-          "title": "❄️ Diepvriesproducten-uitdaging!"
-        },
-        "pl": {
-          "button_label": "Dowiedz się więcej",
-          "message": "Open Prices: Dołącz do naszego wyzwania społeczności, **zbierając ceny mrożonek ❄️**",
-          "title": "❄️ Wyzwanie mrożonek!"
-        },
-        "pt": {
-          "button_label": "Saiba mais",
-          "message": "Open Prices: Participe do nosso desafio da comunidade **coletando preços de alimentos congelados ❄️**",
-          "title": "❄️ Desafio de alimentos congelados!"
-        },
-        "ro": {
-          "button_label": "Află mai multe",
-          "message": "Open Prices: Alătură-te provocării comunității noastre **colectând prețuri pentru alimente congelate ❄️**",
-          "title": "❄️ Provocarea alimentelor congelate!"
-        },
-        "ru": {
-          "button_label": "Узнать больше",
-          "message": "Open Prices: Присоединяйтесь к нашему общественному челленджу, **собирая цены на замороженные продукты ❄️**",
-          "title": "❄️ Челлендж замороженных продуктов!"
-        },
-        "sk": {
-          "button_label": "Zistiť viac",
-          "message": "Open Prices: Pripojte sa k našej komunitnej výzve **zbieraním cien mrazených potravín ❄️**",
-          "title": "❄️ Výzva mrazených potravín!"
-        },
-        "sl": {
-          "button_label": "Izvedite več",
-          "message": "Open Prices: Pridružite se našemu izziva skupnosti z **zbiranjem cen zamrznjene hrane ❄️**",
-          "title": "❄️ Izziv zamrznjene hrane!"
-        },
-        "sv": {
-          "button_label": "Lär dig mer",
-          "message": "Open Prices: Gå med i vår community-utmaning genom att **samla priser på fryst mat ❄️**",
-          "title": "❄️ Fryst mat-utmaning!"
-        },
-        "th": {
-          "button_label": "เรียนรู้เพิ่มเติม",
-          "message": "Open Prices: เข้าร่วมความท้าทายของชุมชนของเราโดย **การรวบรวมราคาอาหารแช่แข็ง ❄️**",
-          "title": "❄️ ความท้าทายอาหารแช่แข็ง!"
-        },
-        "tr": {
-          "button_label": "Daha fazla bilgi",
-          "message": "Open Prices: **Dondurulmuş gıda fiyatlarını toplayarak ❄️** topluluk meydan okumamuza katılın",
-          "title": "❄️ Dondurulmuş gıda meydan okuması!"
-        },
-        "uk": {
-          "button_label": "Дізнатися більше",
-          "message": "Open Prices: Приєднуйтесь до нашого челенджу спільноти, **збираючи ціни на заморожені продукти ❄️**",
-          "title": "❄️ Челендж заморожених продуктів!"
-        },
-        "vi": {
-          "button_label": "Tìm hiểu thêm",
-          "message": "Open Prices: Tham gia thử thách cộng đồng của chúng tôi bằng cách **thu thập giá thực phẩm đông lạnh ❄️**",
-          "title": "❄️ Thử thách thực phẩm đông lạnh!"
-        },
-        "zh": {
-          "button_label": "了解更多",
-          "message": "Open Prices: 通过**收集冷冻食品价格 ❄️** 加入我们的社区挑战",
-          "title": "❄️ 冷冻食品挑战！"
-        }
-      },
-      "url": "https://prices.openfoodfacts.org/challenge"
-    },
     "donation_campaign_2026": {
       "currency": "EUR",
       "end_date": "2027-01-31 23:59:59",
@@ -500,27 +237,551 @@
       },
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
     },
-    "nutriscore_petition_2025": {
-      "end_date": "2026-06-30 23:59:59",
-      "start_date": "2025-11-21 00:00:00",
+    "photos_for_impact_2026": {
+      "end_date": "2026-12-31 23:59:59",
+      "min_launches": 1,
+      "start_date": "2026-09-18 00:00:00",
       "translations": {
         "default": {
-          "button_label": "Signer la pétition",
+          "title": "Missing foods!",
+          "message": "Snap **missing foods**!",
+          "button_label": "See list",
           "image": {
-            "alt": "Le logo du Nutri-Score",
-            "url": "https://static.openfoodfacts.org/images/attributes/dist/nutriscore-a-new-fr.svg",
+            "alt": "Photos for Impact",
+            "url": "https://raw.githubusercontent.com/openfoodfacts/smooth-app_assets/main/prod/tagline/ios/assets/photos_for_impact/photos_for_impact.svg",
             "width": 0.2
-          },
-          "message": "Signez la pétition officielle pour **rendre obligatoire le Nutri-Score** en France",
-          "title": "Agissez pour le Nutri-Score !"
+          }
+        },
+        "en": {
+          "title": "Missing foods!",
+          "message": "Snap **missing foods**!",
+          "button_label": "See list"
+        },
+        "de": {
+          "title": "Produkte gesucht!",
+          "message": "Fotografiere **fehlende Produkte**!",
+          "button_label": "Liste ansehen"
+        },
+        "fr": {
+          "title": "Produits recherchés",
+          "message": "Photographiez les **produits manquants** !",
+          "button_label": "Voir la liste"
+        },
+        "it": {
+          "title": "Prodotti cercati!",
+          "message": "Fotografa gli **alimenti mancanti**!",
+          "button_label": "Vedi lista"
+        },
+        "es": {
+          "title": "¡Faltan productos!",
+          "message": "¡Fotografía **alimentos que faltan**!",
+          "button_label": "Ver lista"
+        },
+        "nl": {
+          "title": "Producten gezocht!",
+          "message": "Fotografeer **ontbrekende producten**!",
+          "button_label": "Bekijk lijst"
+        },
+        "hr": {
+          "title": "Fali hrane!",
+          "message": "Slikajte **hranu**!",
+          "button_label": "Vidi popis"
+        },
+        "de_AT": {
+          "title": "🇦🇹 25 Produkte fehlen!",
+          "message": "Fotografiere **25 Produkte**!",
+          "button_label": "Liste ansehen"
+        },
+        "en_AT": {
+          "title": "🇦🇹 25 foods missing!",
+          "message": "Snap **25 foods**!",
+          "button_label": "See list"
+        },
+        "fr_BE": {
+          "title": "🇧🇪 9 produits manquants",
+          "message": "Photographiez **9 produits** !",
+          "button_label": "Voir la liste"
+        },
+        "nl_BE": {
+          "title": "🇧🇪 9 producten gezocht!",
+          "message": "Fotografeer **9 producten**!",
+          "button_label": "Bekijk lijst"
+        },
+        "de_BE": {
+          "title": "🇧🇪 9 Produkte fehlen!",
+          "message": "Fotografiere **9 Produkte**!",
+          "button_label": "Liste ansehen"
+        },
+        "en_BE": {
+          "title": "🇧🇪 9 foods missing!",
+          "message": "Snap **9 foods**!",
+          "button_label": "See list"
+        },
+        "bg_BG": {
+          "title": "🇧🇬 2 липсващи продукта",
+          "message": "Снимайте **2 продукта**!",
+          "button_label": "Виж списъка"
+        },
+        "bg": {
+          "title": "🇧🇬 2 липсващи продукта",
+          "message": "Снимайте **2 продукта**!",
+          "button_label": "Виж списъка"
+        },
+        "en_BG": {
+          "title": "🇧🇬 2 foods missing!",
+          "message": "Snap **2 foods**!",
+          "button_label": "See list"
+        },
+        "hr_HR": {
+          "title": "🇭🇷 Fali hrane!",
+          "message": "Slikajte **hranu**!",
+          "button_label": "Vidi popis"
+        },
+        "en_HR": {
+          "title": "🇭🇷 Missing foods!",
+          "message": "Snap **missing foods**!",
+          "button_label": "See list"
+        },
+        "el_CY": {
+          "title": "🇨🇾 Λείπουν 36 τρόφιμα!",
+          "message": "Φωτογραφίστε **36 τρόφιμα**!",
+          "button_label": "Δείτε λίστα"
+        },
+        "el": {
+          "title": "🇨🇾 Λείπουν 36 τρόφιμα!",
+          "message": "Φωτογραφίστε **36 τρόφιμα**!",
+          "button_label": "Δείτε λίστα"
+        },
+        "en_CY": {
+          "title": "🇨🇾 36 foods missing!",
+          "message": "Snap **36 foods**!",
+          "button_label": "See list"
+        },
+        "cs_CZ": {
+          "title": "🇨🇿 Chybí 17 potravin!",
+          "message": "Vyfoťte **17 potravin**!",
+          "button_label": "Zobrazit"
+        },
+        "cs_CS": {
+          "title": "🇨🇿 Chybí 17 potravin!",
+          "message": "Vyfoťte **17 potravin**!",
+          "button_label": "Zobrazit"
+        },
+        "cs": {
+          "title": "🇨🇿 Chybí 17 potravin!",
+          "message": "Vyfoťte **17 potravin**!",
+          "button_label": "Zobrazit"
+        },
+        "en_CZ": {
+          "title": "🇨🇿 17 foods missing!",
+          "message": "Snap **17 foods**!",
+          "button_label": "See list"
+        },
+        "en_CS": {
+          "title": "🇨🇿 17 foods missing!",
+          "message": "Snap **17 foods**!",
+          "button_label": "See list"
+        },
+        "da_DK": {
+          "title": "🇩🇰 46 varer mangler!",
+          "message": "Tag foto af **46 varer**!",
+          "button_label": "Se liste"
+        },
+        "da": {
+          "title": "🇩🇰 46 varer mangler!",
+          "message": "Tag foto af **46 varer**!",
+          "button_label": "Se liste"
+        },
+        "en_DK": {
+          "title": "🇩🇰 46 foods missing!",
+          "message": "Snap **46 foods**!",
+          "button_label": "See list"
+        },
+        "et_EE": {
+          "title": "🇪🇪 51 toodet puudu!",
+          "message": "Pildista **51 toodet**!",
+          "button_label": "Vaata tooteid"
+        },
+        "et": {
+          "title": "🇪🇪 51 toodet puudu!",
+          "message": "Pildista **51 toodet**!",
+          "button_label": "Vaata tooteid"
+        },
+        "en_EE": {
+          "title": "🇪🇪 51 foods missing!",
+          "message": "Snap **51 foods**!",
+          "button_label": "See list"
+        },
+        "fi_FI": {
+          "title": "🇫🇮 35 tuotetta puuttuu!",
+          "message": "Kuvaa **35 tuotetta**!",
+          "button_label": "Katso lista"
+        },
+        "fi": {
+          "title": "🇫🇮 35 tuotetta puuttuu!",
+          "message": "Kuvaa **35 tuotetta**!",
+          "button_label": "Katso lista"
+        },
+        "sv_FI": {
+          "title": "🇫🇮 35 varor saknas!",
+          "message": "Fota **35 varor**!",
+          "button_label": "Se lista"
+        },
+        "sv": {
+          "title": "🇫🇮 35 varor saknas!",
+          "message": "Fota **35 varor**!",
+          "button_label": "Se lista"
+        },
+        "en_FI": {
+          "title": "🇫🇮 35 foods missing!",
+          "message": "Snap **35 foods**!",
+          "button_label": "See list"
+        },
+        "fr_FR": {
+          "title": "🇫🇷 11 produits manquants",
+          "message": "Photographiez **11 produits** !",
+          "button_label": "Voir la liste"
+        },
+        "en_FR": {
+          "title": "🇫🇷 11 foods missing!",
+          "message": "Snap **11 foods**!",
+          "button_label": "See list"
+        },
+        "de_DE": {
+          "title": "🇩🇪 18 Produkte fehlen!",
+          "message": "Fotografiere **18 Produkte**!",
+          "button_label": "Liste ansehen"
+        },
+        "en_DE": {
+          "title": "🇩🇪 18 foods missing!",
+          "message": "Snap **18 foods**!",
+          "button_label": "See list"
+        },
+        "el_GR": {
+          "title": "🇬🇷 Λείπουν 19 τρόφιμα!",
+          "message": "Φωτογραφίστε **19 τρόφιμα**!",
+          "button_label": "Δείτε λίστα"
+        },
+        "el_EL": {
+          "title": "🇬🇷 Λείπουν 19 τρόφιμα!",
+          "message": "Φωτογραφίστε **19 τρόφιμα**!",
+          "button_label": "Δείτε λίστα"
+        },
+        "en_GR": {
+          "title": "🇬🇷 19 foods missing!",
+          "message": "Snap **19 foods**!",
+          "button_label": "See list"
+        },
+        "en_EL": {
+          "title": "🇬🇷 19 foods missing!",
+          "message": "Snap **19 foods**!",
+          "button_label": "See list"
+        },
+        "hu_HU": {
+          "title": "🇭🇺 55 termék hiányzik!",
+          "message": "Fotózz le **55 terméket**!",
+          "button_label": "Lista"
+        },
+        "hu": {
+          "title": "🇭🇺 55 termék hiányzik!",
+          "message": "Fotózz le **55 terméket**!",
+          "button_label": "Lista"
+        },
+        "en_HU": {
+          "title": "🇭🇺 55 foods missing!",
+          "message": "Snap **55 foods**!",
+          "button_label": "See list"
+        },
+        "en_IE": {
+          "title": "🇮🇪 32 foods missing!",
+          "message": "Snap **32 foods**!",
+          "button_label": "See list"
+        },
+        "it_IT": {
+          "title": "🇮🇹 Mancano 8 prodotti!",
+          "message": "Fotografa **8 alimenti**!",
+          "button_label": "Vedi lista"
+        },
+        "en_IT": {
+          "title": "🇮🇹 8 foods missing!",
+          "message": "Snap **8 foods**!",
+          "button_label": "See list"
+        },
+        "lv_LV": {
+          "title": "🇱🇻 Trūkst 57 produktu!",
+          "message": "Nofotografē **57 preces**!",
+          "button_label": "Skatīt"
+        },
+        "lv": {
+          "title": "🇱🇻 Trūkst 57 produktu!",
+          "message": "Nofotografē **57 preces**!",
+          "button_label": "Skatīt"
+        },
+        "en_LV": {
+          "title": "🇱🇻 57 foods missing!",
+          "message": "Snap **57 foods**!",
+          "button_label": "See list"
+        },
+        "lt_LT": {
+          "title": "🇱🇹 Trūksta 58 prekių!",
+          "message": "Nufotografuok **58 prekes**!",
+          "button_label": "Žiūrėti"
+        },
+        "lt": {
+          "title": "🇱🇹 Trūksta 58 prekių!",
+          "message": "Nufotografuok **58 prekes**!",
+          "button_label": "Žiūrėti"
+        },
+        "en_LT": {
+          "title": "🇱🇹 58 foods missing!",
+          "message": "Snap **58 foods**!",
+          "button_label": "See list"
+        },
+        "fr_LU": {
+          "title": "🇱🇺 33 produits manquants",
+          "message": "Photographiez **33 produits** !",
+          "button_label": "Voir la liste"
+        },
+        "de_LU": {
+          "title": "🇱🇺 33 Produkte fehlen!",
+          "message": "Fotografiere **33 Produkte**!",
+          "button_label": "Liste ansehen"
+        },
+        "en_LU": {
+          "title": "🇱🇺 33 foods missing!",
+          "message": "Snap **33 foods**!",
+          "button_label": "See list"
+        },
+        "mt_MT": {
+          "title": "🇲🇹 Jonqos 39 prodott!",
+          "message": "Ħu ritratt ta' **39 prodott**!",
+          "button_label": "Ara l-lista"
+        },
+        "mt": {
+          "title": "🇲🇹 Jonqos 39 prodott!",
+          "message": "Ħu ritratt ta' **39 prodott**!",
+          "button_label": "Ara l-lista"
+        },
+        "en_MT": {
+          "title": "🇲🇹 39 foods missing!",
+          "message": "Snap **39 foods**!",
+          "button_label": "See list"
+        },
+        "sr_ME": {
+          "title": "🇲🇪 Fali hrane!",
+          "message": "Slikajte **hranu**!",
+          "button_label": "Vidi spisak"
+        },
+        "sr": {
+          "title": "🇲🇪 Fali hrane!",
+          "message": "Slikajte **hranu**!",
+          "button_label": "Vidi spisak"
+        },
+        "en_ME": {
+          "title": "🇲🇪 75 foods missing!",
+          "message": "Snap **75 foods**!",
+          "button_label": "See list"
+        },
+        "nl_NL": {
+          "title": "🇳🇱 26 producten gezocht!",
+          "message": "Fotografeer **26 producten**!",
+          "button_label": "Bekijk lijst"
+        },
+        "en_NL": {
+          "title": "🇳🇱 26 foods missing!",
+          "message": "Snap **26 foods**!",
+          "button_label": "See list"
+        },
+        "nb_NO": {
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer**!",
+          "button_label": "Se liste"
+        },
+        "nb": {
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer**!",
+          "button_label": "Se liste"
+        },
+        "no_NO": {
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer**!",
+          "button_label": "Se liste"
+        },
+        "no": {
+          "title": "🇳🇴 27 varer mangler!",
+          "message": "Ta bilde av **27 varer**!",
+          "button_label": "Se liste"
+        },
+        "en_NO": {
+          "title": "🇳🇴 27 foods missing!",
+          "message": "Snap **27 foods**!",
+          "button_label": "See list"
+        },
+        "pl_PL": {
+          "title": "🇵🇱 Brakuje 30 produktów!",
+          "message": "Sfotografuj **30 produktów**!",
+          "button_label": "Zobacz listę"
+        },
+        "pl": {
+          "title": "🇵🇱 Brakuje 30 produktów!",
+          "message": "Sfotografuj **30 produktów**!",
+          "button_label": "Zobacz listę"
+        },
+        "en_PL": {
+          "title": "🇵🇱 30 foods missing!",
+          "message": "Snap **30 foods**!",
+          "button_label": "See list"
+        },
+        "pt_PT": {
+          "title": "🇵🇹 Faltam 30 produtos!",
+          "message": "Fotografe **30 produtos**!",
+          "button_label": "Ver lista"
+        },
+        "pt": {
+          "title": "🇵🇹 Faltam 30 produtos!",
+          "message": "Fotografe **30 produtos**!",
+          "button_label": "Ver lista"
+        },
+        "en_PT": {
+          "title": "🇵🇹 30 foods missing!",
+          "message": "Snap **30 foods**!",
+          "button_label": "See list"
+        },
+        "ro_RO": {
+          "title": "🇷🇴 Lipsesc 27 produse!",
+          "message": "Fotografiază **27 alimente**!",
+          "button_label": "Vezi lista"
+        },
+        "ro": {
+          "title": "🇷🇴 Lipsesc 27 produse!",
+          "message": "Fotografiază **27 alimente**!",
+          "button_label": "Vezi lista"
+        },
+        "en_RO": {
+          "title": "🇷🇴 27 foods missing!",
+          "message": "Snap **27 foods**!",
+          "button_label": "See list"
+        },
+        "sr_RS": {
+          "title": "🇷🇸 Fali hrane!",
+          "message": "Slikajte **hranu**!",
+          "button_label": "Vidi spisak"
+        },
+        "en_RS": {
+          "title": "🇷🇸 32 foods missing!",
+          "message": "Snap **32 foods**!",
+          "button_label": "See list"
+        },
+        "sk_SK": {
+          "title": "🇸🇰 Chýba 30 potravín!",
+          "message": "Odfoťte **30 potravín**!",
+          "button_label": "Zobraziť"
+        },
+        "sk": {
+          "title": "🇸🇰 Chýba 30 potravín!",
+          "message": "Odfoťte **30 potravín**!",
+          "button_label": "Zobraziť"
+        },
+        "en_SK": {
+          "title": "🇸🇰 30 foods missing!",
+          "message": "Snap **30 foods**!",
+          "button_label": "See list"
+        },
+        "sl_SI": {
+          "title": "🇸🇮 Manjka 60 živil!",
+          "message": "Slikajte **60 izdelkov**!",
+          "button_label": "Ogled"
+        },
+        "sl_SV": {
+          "title": "🇸🇮 Manjka 60 živil!",
+          "message": "Slikajte **60 izdelkov**!",
+          "button_label": "Ogled"
+        },
+        "sl": {
+          "title": "🇸🇮 Manjka 60 živil!",
+          "message": "Slikajte **60 izdelkov**!",
+          "button_label": "Ogled"
+        },
+        "en_SI": {
+          "title": "🇸🇮 60 foods missing!",
+          "message": "Snap **60 foods**!",
+          "button_label": "See list"
+        },
+        "en_SV": {
+          "title": "🇸🇮 60 foods missing!",
+          "message": "Snap **60 foods**!",
+          "button_label": "See list"
+        },
+        "es_ES": {
+          "title": "🇪🇸 ¡Faltan 8 productos!",
+          "message": "¡Fotografía **8 alimentos**!",
+          "button_label": "Ver lista"
+        },
+        "ca_ES": {
+          "title": "🇪🇸 Falten 8 productes!",
+          "message": "Fotografia **8 aliments**!",
+          "button_label": "Veure llista"
+        },
+        "ca": {
+          "title": "🇪🇸 Falten 8 productes!",
+          "message": "Fotografia **8 aliments**!",
+          "button_label": "Veure llista"
+        },
+        "en_ES": {
+          "title": "🇪🇸 8 foods missing!",
+          "message": "Snap **8 foods**!",
+          "button_label": "See list"
+        },
+        "sv_SE": {
+          "title": "🇸🇪 27 varor saknas!",
+          "message": "Fota **27 varor**!",
+          "button_label": "Se lista"
+        },
+        "en_SE": {
+          "title": "🇸🇪 27 foods missing!",
+          "message": "Snap **27 foods**!",
+          "button_label": "See list"
+        },
+        "de_CH": {
+          "title": "🇨🇭 58 Produkte fehlen!",
+          "message": "Fotografiere **58 Produkte**!",
+          "button_label": "Liste ansehen"
+        },
+        "fr_CH": {
+          "title": "🇨🇭 58 produits manquants",
+          "message": "Photographiez **58 produits** !",
+          "button_label": "Voir la liste"
+        },
+        "it_CH": {
+          "title": "🇨🇭 Mancano 58 prodotti!",
+          "message": "Fotografa **58 alimenti**!",
+          "button_label": "Vedi lista"
+        },
+        "en_CH": {
+          "title": "🇨🇭 58 foods missing!",
+          "message": "Snap **58 foods**!",
+          "button_label": "See list"
+        },
+        "en_UK": {
+          "title": "🇬🇧 19 foods missing!",
+          "message": "Snap **19 foods**!",
+          "button_label": "See list"
+        },
+        "en_GB": {
+          "title": "🇬🇧 19 foods missing!",
+          "message": "Snap **19 foods**!",
+          "button_label": "See list"
         }
       },
-      "url": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
+      "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/"
     }
   },
   "tagline_feed": {
     "default": {
       "news": [
+        {
+          "id": "photos_for_impact_2026"
+        },
         {
           "id": "donation_campaign_2026"
         }
@@ -528,6 +789,474 @@
     },
     "fr_FR": {
       "news": [
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_AT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=at"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_BE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=be"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_BG": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=bg"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_HR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=hr"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CY": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cy"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CZ": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cs"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CS": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=cs"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_DK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=dk"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_EE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ee"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_FI": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fi"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_FR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fr"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_DE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=de"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_GR": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=el"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_EL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=el"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_HU": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=hu"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_IE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ie"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_IT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=it"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_LV": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lv"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_LT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lt"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_LU": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=lu"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_MT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=mt"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_ME": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=me"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_NL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=nl"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_NO": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=no"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_PL": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=pl"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_PT": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=pt"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_RO": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ro"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_RS": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=rs"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=sk"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SI": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=si"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SV": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=si"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_ES": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=es"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_SE": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=se"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CH": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ch"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_UK": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=uk"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_GB": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=uk"
+          }
+        },
         {
           "id": "donation_campaign_2026"
         }
