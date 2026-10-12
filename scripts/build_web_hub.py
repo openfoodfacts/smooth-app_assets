@@ -6,7 +6,6 @@ Generate the standalone mobile-first campaign hub HTML for Photos for Impact.
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DEST_FILE = os.path.join(BASE_DIR, 'release-website', 'photos-for-impact', 'index.html')
 
 HTML_CONTENT = """<!DOCTYPE html>
 <html lang="en">
@@ -17,6 +16,24 @@ HTML_CONTENT = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['disableCookies']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://analytics.openfoodfacts.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '19']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="https://analytics.openfoodfacts.org/matomo.php?idsite=19&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
     <style>
         :root {
             --primary: #347644;
@@ -624,6 +641,11 @@ HTML_CONTENT = """<!DOCTYPE html>
                 const url = new URL(window.location);
                 url.searchParams.set('country', currentCountry);
                 window.history.replaceState({}, '', url);
+                if (window._paq) {
+                    _paq.push(['setCustomUrl', window.location.href]);
+                    _paq.push(['setDocumentTitle', 'Photos for Impact - ' + (countries[currentCountry] ? countries[currentCountry].name : currentCountry.toUpperCase())]);
+                    _paq.push(['trackPageView']);
+                }
                 render();
             });
 
@@ -754,11 +776,17 @@ HTML_CONTENT = """<!DOCTYPE html>
 </html>
 """
 
+DEST_FILES = [
+    os.path.join(BASE_DIR, 'photos-for-impact', 'index.html'),
+    os.path.join(BASE_DIR, 'release-website', 'photos-for-impact', 'index.html'),
+]
+
 def main():
-    os.makedirs(os.path.dirname(DEST_FILE), exist_ok=True)
-    with open(DEST_FILE, 'w', encoding='utf-8') as f:
-        f.write(HTML_CONTENT)
-    print(f"Generated {DEST_FILE} successfully!")
+    for dest_file in DEST_FILES:
+        os.makedirs(os.path.dirname(dest_file), exist_ok=True)
+        with open(dest_file, 'w', encoding='utf-8') as f:
+            f.write(HTML_CONTENT)
+        print(f"Generated {dest_file} successfully!")
 
 if __name__ == '__main__':
     main()
