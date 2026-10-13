@@ -174,12 +174,14 @@ def main():
         json.dump(country_data, f, indent=2, ensure_ascii=False)
     print(f"Saved country datasets to {COUNTRIES_DATA_FILE}")
 
-    os.makedirs(os.path.join(BASE_DIR, 'release-website', 'photos-for-impact'), exist_ok=True)
-    js_dest = os.path.join(BASE_DIR, 'release-website', 'photos-for-impact', 'data.js')
-    with open(js_dest, 'w', encoding='utf-8') as f:
-        f.write("window.CAMPAIGN_STATS = " + json.dumps(stats, indent=2, ensure_ascii=False) + ";\n")
-        f.write("window.COUNTRIES_DATA = " + json.dumps(country_data, indent=2, ensure_ascii=False) + ";\n")
-    print(f"Exported data.js to {js_dest}")
+    for rel_path in ['photos-for-impact', os.path.join('release-website', 'photos-for-impact')]:
+        target_dir = os.path.join(BASE_DIR, rel_path)
+        os.makedirs(target_dir, exist_ok=True)
+        js_dest = os.path.join(target_dir, 'data.js')
+        with open(js_dest, 'w', encoding='utf-8') as f:
+            f.write("window.CAMPAIGN_STATS = " + json.dumps(stats, indent=2, ensure_ascii=False) + ";\n")
+            f.write("window.COUNTRIES_DATA = " + json.dumps(country_data, indent=2, ensure_ascii=False) + ";\n")
+        print(f"Exported data.js to {js_dest}")
 
 
 if __name__ == '__main__':
