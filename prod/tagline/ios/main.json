@@ -1,12 +1,12 @@
 {
   "news": {
     "donation_campaign_2026": {
-      "count": 1038,
+      "count": 1052,
       "currency": "EUR",
       "end_date": "2027-01-31 23:59:59",
       "goal": 170000.0,
       "min_launches": 5,
-      "raised": 50428.13,
+      "raised": 50613.42,
       "start_date": "2025-10-25 00:00:00",
       "translations": {
         "ar": {
