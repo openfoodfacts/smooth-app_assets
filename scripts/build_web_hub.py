@@ -1,15 +1,1210 @@
 #!/usr/bin/env python3
 """
 Generate the standalone mobile-first "Scan Champion" scanning list HTML.
-Refactored to provide a simple, high-density Google Keep-style checklist
-for scanning and photographing popular products in store or in pantry.
+Features:
+- Browser country auto-detection with forced country modal fallback
+- LocalStorage persistence for country, language, and checked categories
+- URL override support for ?country=xx and ?lang=xx
+- Comprehensive translations for all official languages of the 32 countries
+- Call to add/select the category during product addition in step 3
+- Column-safe text wrapping for long category names
+- Footer with Fondation de France & FOODTURE sponsor logos and Citizen Science links
 """
 
 import os
+import json
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-HTML_CONTENT = """<!DOCTYPE html>
+# Translation dictionary covering all 32 official languages
+TRANSLATIONS = {
+    "en": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Instructions",
+        "guide_hide": "Hide tips",
+        "guide_show": "Show tips",
+        "guide_headline": "Scan and photograph popular products sold in your country",
+        "step_store_title": "In Store or In Pantry",
+        "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.",
+        "step_photos_title": "Add 3 Clean Photos",
+        "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.",
+        "step_category_title": "Add Category in App",
+        "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!",
+        "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!",
+        "tab_missing": "High Priority (Missing)",
+        "tab_all": "All Categories",
+        "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...",
+        "reset_btn": "Reset",
+        "reset_confirm": "Reset all checked categories for {country}?",
+        "progress_summary": "{checked} of {total} scanned ({pct}%)",
+        "completed_label": "Completed ({count})",
+        "empty_search_title": "No categories found",
+        "empty_search_desc": "No categories in this list match \"{query}\".",
+        "empty_missing_done_title": "All high-priority categories covered!",
+        "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.",
+        "empty_all_done_title": "Scan Champion! All {count} items checked!",
+        "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.",
+        "modal_title": "Select your country",
+        "modal_subtitle": "Choose your country to see the categories needed for your local food basket:",
+        "modal_search_placeholder": "Search country...",
+        "modal_confirm": "Select",
+        "footer_supported": "Project supported by:",
+        "footer_citizen": "Discover our citizen science research:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Ticks saved locally on your device"
+    },
+    "fr": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Instructions Scan Champion",
+        "guide_hide": "Masquer astuces",
+        "guide_show": "Afficher astuces",
+        "guide_headline": "Scannez et photographiez les produits populaires vendus dans votre pays",
+        "step_store_title": "En magasin ou dans vos placards",
+        "step_store_desc": "Scannez les produits avec l'application Open Food Facts grâce à cette liste.",
+        "step_photos_title": "Ajoutez 3 photos nettes",
+        "step_photos_desc": "Face avant du produit, liste des ingrédients et tableau nutritionnel.",
+        "step_category_title": "Ajoutez la catégorie",
+        "step_category_desc": "Lors de l'ajout ou de l'édition du produit, pensez bien à renseigner sa catégorie dans l'application !",
+        "tip_text": "Astuce : Si le nom d'une catégorie vous paraît étrange, prenez le produit le plus proche dans le rayon !",
+        "tab_missing": "Priorité haute (manquants)",
+        "tab_all": "Toutes les catégories",
+        "search_placeholder": "Filtrer les catégories (ex : bière, pain, fromage)...",
+        "reset_btn": "Réinitialiser",
+        "reset_confirm": "Réinitialiser toutes les catégories cochées pour {country} ?",
+        "progress_summary": "{checked} sur {total} scannés ({pct}%)",
+        "completed_label": "Complétés ({count})",
+        "empty_search_title": "Aucune catégorie trouvée",
+        "empty_search_desc": "Aucune catégorie ne correspond à « {query} ».",
+        "empty_missing_done_title": "Toutes les catégories prioritaires sont couvertes !",
+        "empty_missing_done_desc": "Basculez sur « Toutes les catégories » pour découvrir d'autres produits à photographier.",
+        "empty_all_done_title": "Scan Champion ! Les {count} catégories sont cochées !",
+        "empty_all_done_desc": "Bravo ! Vous avez scanné toutes les catégories. Touchez un élément complété pour le décocher ou réinitialisez.",
+        "modal_title": "Choisissez votre pays",
+        "modal_subtitle": "Sélectionnez votre pays pour afficher les catégories prioritaires :",
+        "modal_search_placeholder": "Rechercher un pays...",
+        "modal_confirm": "Choisir",
+        "footer_supported": "Projet soutenu par :",
+        "footer_citizen": "Découvrez nos recherches en science citoyenne :",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Coches enregistrées localement sur votre appareil"
+    },
+    "de": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Anleitung",
+        "guide_hide": "Tipps ausblenden",
+        "guide_show": "Tipps anzeigen",
+        "guide_headline": "Scanne und fotografiere beliebte Produkte deines Landes",
+        "step_store_title": "Im Geschäft oder in der Vorratskammer",
+        "step_store_desc": "Scanne Produkte mit der Open Food Facts App anhand dieser Scan-Liste.",
+        "step_photos_title": "3 klare Fotos aufnehmen",
+        "step_photos_desc": "Produktvorderseite, Zutatenliste und Nährwerttabelle.",
+        "step_category_title": "Kategorie in der App angeben",
+        "step_category_desc": "Beim Hinzufügen oder Bearbeiten bitte unbedingt die passende Kategorie in der App auswählen!",
+        "tip_text": "Tipp: Klingt eine Kategorie ungewöhnlich, wähle einfach das ähnlichste Produkt im Regal!",
+        "tab_missing": "Hohe Priorität (Fehlend)",
+        "tab_all": "Alle Kategorien",
+        "search_placeholder": "Kategorien filtern (z.B. Bier, Brot, Käse)...",
+        "reset_btn": "Zurücksetzen",
+        "reset_confirm": "Alle abgehakten Kategorien für {country} zurücksetzen?",
+        "progress_summary": "{checked} von {total} gescannt ({pct}%)",
+        "completed_label": "Erledigt ({count})",
+        "empty_search_title": "Keine Kategorien gefunden",
+        "empty_search_desc": "Keine Kategorien entsprechen „{query}“.",
+        "empty_missing_done_title": "Alle vorrangigen Kategorien erfasst!",
+        "empty_missing_done_desc": "Wechsle zu „Alle Kategorien“, um weitere Produkte zu entdecken.",
+        "empty_all_done_title": "Scan Champion! Alle {count} Kategorien abgehakt!",
+        "empty_all_done_desc": "Klasse! Du hast alle Kategorien gescannt. Klicke auf ein Element, um es wieder zu aktivieren.",
+        "modal_title": "Wähle dein Land",
+        "modal_subtitle": "Wähle dein Land, um die benötigten Lebensmittelkategorien anzuzeigen:",
+        "modal_search_placeholder": "Land suchen...",
+        "modal_confirm": "Auswählen",
+        "footer_supported": "Projekt unterstützt von:",
+        "footer_citizen": "Entdecke unsere Citizen-Science-Forschung:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Häkchen lokal auf deinem Gerät gespeichert"
+    },
+    "es": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Instrucciones de Scan Champion",
+        "guide_hide": "Ocultar consejos",
+        "guide_show": "Mostrar consejos",
+        "guide_headline": "Escanea y fotografía productos populares vendidos en tu país",
+        "step_store_title": "En tienda o en tu despensa",
+        "step_store_desc": "Escanea productos con la app Open Food Facts usando esta lista.",
+        "step_photos_title": "Añade 3 fotos nítidas",
+        "step_photos_desc": "Frontal del producto, lista de ingredientes y tabla nutricional.",
+        "step_category_title": "Añade la categoría en la app",
+        "step_category_desc": "¡Al añadir o editar el producto, asegúrate de seleccionar su categoría en la app!",
+        "tip_text": "Consejo: Si una categoría te suena extraña, ¡elige la más parecida del pasillo!",
+        "tab_missing": "Prioridad alta (Faltan)",
+        "tab_all": "Todas las categorías",
+        "search_placeholder": "Filtrar categorías (ej. cerveza, pan, queso)...",
+        "reset_btn": "Restablecer",
+        "reset_confirm": "¿Restablecer todas las categorías marcadas para {country}?",
+        "progress_summary": "{checked} de {total} escaneados ({pct}%)",
+        "completed_label": "Completados ({count})",
+        "empty_search_title": "No se encontraron categorías",
+        "empty_search_desc": "Ninguna categoría coincide con «{query}».",
+        "empty_missing_done_title": "¡Todas las categorías prioritarias completadas!",
+        "empty_missing_done_desc": "Cambia a «Todas las categorías» para descubrir más productos.",
+        "empty_all_done_title": "¡Scan Champion! ¡Las {count} categorías marcadas!",
+        "empty_all_done_desc": "¡Excelente trabajo! Has escaneado todas las categorías.",
+        "modal_title": "Selecciona tu país",
+        "modal_subtitle": "Elige tu país para ver las categorías necesarias de tu cesta básica:",
+        "modal_search_placeholder": "Buscar país...",
+        "modal_confirm": "Seleccionar",
+        "footer_supported": "Proyecto apoyado por:",
+        "footer_citizen": "Descubre nuestra investigación en ciencia ciudadana:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Marcas guardadas localmente en tu dispositivo"
+    },
+    "it": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Istruzioni Scan Champion",
+        "guide_hide": "Nascondi suggerimenti",
+        "guide_show": "Mostra suggerimenti",
+        "guide_headline": "Scansiona e fotografa i prodotti popolari venduti nel tuo paese",
+        "step_store_title": "Nel negozio o nella dispensa",
+        "step_store_desc": "Scansiona i prodotti con l'app Open Food Facts usando questa lista.",
+        "step_photos_title": "Aggiungi 3 foto nitide",
+        "step_photos_desc": "Fronte della confezione, elenco ingredienti e tabella nutrizionale.",
+        "step_category_title": "Aggiungi la categoria nell'app",
+        "step_category_desc": "Quando aggiungi o modifichi un prodotto, assicurati di selezionare la sua categoria nell'app!",
+        "tip_text": "Consiglio: se il nome di una categoria sembra insolito, prendi il prodotto più simile sullo scaffale!",
+        "tab_missing": "Alta priorità (Mancanti)",
+        "tab_all": "Tutte le categorie",
+        "search_placeholder": "Filtra categorie (es. birra, pane, formaggio)...",
+        "reset_btn": "Reimposta",
+        "reset_confirm": "Reimpostare tutte le categorie selezionate per {country}?",
+        "progress_summary": "{checked} su {total} scansionati ({pct}%)",
+        "completed_label": "Completati ({count})",
+        "empty_search_title": "Nessuna categoria trovata",
+        "empty_search_desc": "Nessuna categoria corrisponde a \"{query}\".",
+        "empty_missing_done_title": "Tutte le categorie prioritarie sono coperte!",
+        "empty_missing_done_desc": "Passa a \"Tutte le categorie\" per scoprire altri prodotti da fotografare.",
+        "empty_all_done_title": "Scan Champion! Tutti i {count} elementi spuntati!",
+        "empty_all_done_desc": "Ottimo lavoro! Hai scansionato tutte le categorie.",
+        "modal_title": "Seleziona il tuo paese",
+        "modal_subtitle": "Scegli il tuo paese per visualizzare le categorie necessarie:",
+        "modal_search_placeholder": "Cerca paese...",
+        "modal_confirm": "Seleziona",
+        "footer_supported": "Progetto sostenuto da:",
+        "footer_citizen": "Scopri la nostra ricerca in scienza partecipativa:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Spunte salvate localmente sul tuo dispositivo"
+    },
+    "nl": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Instructies",
+        "guide_hide": "Tips verbergen",
+        "guide_show": "Tips tonen",
+        "guide_headline": "Scan en fotografeer populaire producten uit jouw land",
+        "step_store_title": "In de winkel of voorraadkast",
+        "step_store_desc": "Scan producten met de Open Food Facts-app via deze scanlijst.",
+        "step_photos_title": "Voeg 3 duidelijke foto's toe",
+        "step_photos_desc": "Voorkant verpakking, ingrediëntenlijst en voedingstabel.",
+        "step_category_title": "Voeg categorie toe in de app",
+        "step_category_desc": "Vergeet bij het toevoegen van een product niet om de categorie in de app te selecteren!",
+        "tip_text": "Tip: Klinkt een categorie vreemd? Kies het meest gelijkende product in het schap!",
+        "tab_missing": "Hoge prioriteit (ontbrekend)",
+        "tab_all": "Alle categorieën",
+        "search_placeholder": "Filter categorieën (bijv. bier, brood, kaas)...",
+        "reset_btn": "Resetten",
+        "reset_confirm": "Alle aangevinkte categorieën voor {country} resetten?",
+        "progress_summary": "{checked} van {total} gescand ({pct}%)",
+        "completed_label": "Voltooid ({count})",
+        "empty_search_title": "Geen categorieën gevonden",
+        "empty_search_desc": "Geen categorieën komen overeen met \"{query}\".",
+        "empty_missing_done_title": "Alle prioritaire categorieën voltooid!",
+        "empty_missing_done_desc": "Schakel over naar \"Alle categorieën\" voor meer producten.",
+        "empty_all_done_title": "Scan Champion! Alle {count} categorieën afgevinkt!",
+        "empty_all_done_desc": "Geweldig werk! Je hebt alle categorieën gescand.",
+        "modal_title": "Selecteer je land",
+        "modal_subtitle": "Kies je land om de benodigde categorieën te bekijken:",
+        "modal_search_placeholder": "Zoek land...",
+        "modal_confirm": "Kiezen",
+        "footer_supported": "Project ondersteund door:",
+        "footer_citizen": "Ontdek ons burgerwetenschappelijk onderzoek:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Vinkjes lokaal opgeslagen op je apparaat"
+    },
+    "pl": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Instrukcje Scan Champion",
+        "guide_hide": "Ukryj wskazówki",
+        "guide_show": "Pokaż wskazówki",
+        "guide_headline": "Skanuj i fotografuj popularne produkty w swoim kraju",
+        "step_store_title": "W sklepie lub w spiżarni",
+        "step_store_desc": "Skanuj produkty za pomocą aplikacji Open Food Facts według listy.",
+        "step_photos_title": "Dodaj 3 wyraźne zdjęcia",
+        "step_photos_desc": "Przód opakowania, lista składników oraz tabela wartości odżywczych.",
+        "step_category_title": "Dodaj kategorię w aplikacji",
+        "step_category_desc": "Podczas dodawania produktu pamiętaj, aby wybrać odpowiednią kategorię w aplikacji!",
+        "tip_text": "Wskazówka: Jeśli nazwa kategorii brzmi nietypowo, wybierz najbardziej zbliżony produkt na półce!",
+        "tab_missing": "Wysoki priorytet (brakujące)",
+        "tab_all": "Wszystkie kategorie",
+        "search_placeholder": "Filtruj kategorie (np. piwo, chleb, ser)...",
+        "reset_btn": "Zresetuj",
+        "reset_confirm": "Zresetować zaznaczone kategorie dla {country}?",
+        "progress_summary": "{checked} z {total} zeskanowanych ({pct}%)",
+        "completed_label": "Ukończone ({count})",
+        "empty_search_title": "Nie znaleziono kategorii",
+        "empty_search_desc": "Żadna kategoria nie pasuje do „{query}”.",
+        "empty_missing_done_title": "Wszystkie kategorie priorytetowe uzupełnione!",
+        "empty_missing_done_desc": "Przejdź do „Wszystkie kategorie”, aby odkryć więcej produktów.",
+        "empty_all_done_title": "Scan Champion! Wszystkie {count} pozycji zaznaczone!",
+        "empty_all_done_desc": "Wspaniała robota! Zeskanowano wszystkie kategorie z listy.",
+        "modal_title": "Wybierz swój kraj",
+        "modal_subtitle": "Wybierz kraj, aby zobaczyć kategorie potrzebne w lokalnym koszyku:",
+        "modal_search_placeholder": "Szukaj kraju...",
+        "modal_confirm": "Wybierz",
+        "footer_supported": "Projekt wspierany przez:",
+        "footer_citizen": "Poznaj nasze badania z zakresu nauki obywatelskiej:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Zaznaczenia zapisane lokalnie w urządzeniu"
+    },
+    "pt": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Instruções do Scan Champion",
+        "guide_hide": "Ocultar dicas",
+        "guide_show": "Mostrar dicas",
+        "guide_headline": "Digitalize e fotografe produtos populares vendidos no seu país",
+        "step_store_title": "Na loja ou na despensa",
+        "step_store_desc": "Digitalize produtos com a aplicação Open Food Facts usando esta lista.",
+        "step_photos_title": "Adicione 3 fotos nítidas",
+        "step_photos_desc": "Frente da embalagem, lista de ingredientes e tabela nutricional.",
+        "step_category_title": "Adicione a categoria na app",
+        "step_category_desc": "Ao adicionar ou editar o produto, não se esqueça de selecionar a respetiva categoria na app!",
+        "tip_text": "Dica: Se o nome de uma categoria parecer estranho, escolha o produto mais próximo na prateleira!",
+        "tab_missing": "Alta Prioridade (Em falta)",
+        "tab_all": "Todas as categorias",
+        "search_placeholder": "Filtrar categorias (ex.: cerveja, pão, queijo)...",
+        "reset_btn": "Repor",
+        "reset_confirm": "Repor todas as categorias selecionadas para {country}?",
+        "progress_summary": "{checked} de {total} digitalizados ({pct}%)",
+        "completed_label": "Concluídos ({count})",
+        "empty_search_title": "Nenhuma categoria encontrada",
+        "empty_search_desc": "Nenhuma categoria corresponde a «{query}».",
+        "empty_missing_done_title": "Todas as categorias prioritárias completas!",
+        "empty_missing_done_desc": "Mude para «Todas as categorias» para encontrar mais produtos.",
+        "empty_all_done_title": "Scan Champion! Todos os {count} itens assinalados!",
+        "empty_all_done_desc": "Excelente trabalho! Digitalizou todas as categorias.",
+        "modal_title": "Selecione o seu país",
+        "modal_subtitle": "Escolha o seu país para ver as categorias necessárias para o cabaz alimentar local:",
+        "modal_search_placeholder": "Pesquisar país...",
+        "modal_confirm": "Selecionar",
+        "footer_supported": "Projeto apoiado por:",
+        "footer_citizen": "Descubra a nossa investigação de ciência cidadã:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Itens assinalados guardados localmente no seu dispositivo"
+    },
+    "ro": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Instrucțiuni Scan Champion",
+        "guide_hide": "Ascunde sfaturi",
+        "guide_show": "Afișează sfaturi",
+        "guide_headline": "Scanați și fotografiați produse populare vândute în țara dvs.",
+        "step_store_title": "În magazin sau în cămară",
+        "step_store_desc": "Scanați produse cu aplicația Open Food Facts folosind această listă.",
+        "step_photos_title": "Adăugați 3 fotografii clare",
+        "step_photos_desc": "Partea frontală, lista de ingrediente și tabelul nutrițional.",
+        "step_category_title": "Selectați categoria în aplicație",
+        "step_category_desc": "Când adăugați sau editați produsul, asigurați-vă că îi alegeți categoria în aplicație!",
+        "tip_text": "Sfat: Dacă o categorie sună ciudat, alegeți cel mai apropiat produs din raion!",
+        "tab_missing": "Prioritate mare (Lipsă)",
+        "tab_all": "Toate categoriile",
+        "search_placeholder": "Filtrează categoriile (ex: bere, pâine, brânză)...",
+        "reset_btn": "Resetează",
+        "reset_confirm": "Resetați toate categoriile bifate pentru {country}?",
+        "progress_summary": "{checked} din {total} scanate ({pct}%)",
+        "completed_label": "Finalizate ({count})",
+        "empty_search_title": "Nicio categorie găsită",
+        "empty_search_desc": "Nicio categorie nu corespunde căutării „{query}”.",
+        "empty_missing_done_title": "Toate categoriile prioritare sunt acoperite!",
+        "empty_missing_done_desc": "Comutați pe „Toate categoriile” pentru mai multe produse.",
+        "empty_all_done_title": "Scan Champion! Toate cele {count} categorii bifate!",
+        "empty_all_done_desc": "Felicitări! Ați scanat toate categoriile din listă.",
+        "modal_title": "Selectați țara",
+        "modal_subtitle": "Alegeți țara pentru a vedea categoriile necesare coșului alimentar:",
+        "modal_search_placeholder": "Căutare țară...",
+        "modal_confirm": "Selectează",
+        "footer_supported": "Proiect susținut de:",
+        "footer_citizen": "Descoperiți cercetarea noastră în știință cetățenească:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Bife salvate local pe dispozitivul dvs."
+    },
+    "cs": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Návod pro Scan Champion",
+        "guide_hide": "Skrýt tipy",
+        "guide_show": "Zobrazit tipy",
+        "guide_headline": "Skenujte a foťte oblíbené potraviny prodávané ve vaší zemi",
+        "step_store_title": "V obchodě i doma ve spíži",
+        "step_store_desc": "Skenujte produkty v aplikaci Open Food Facts podle tohoto seznamu.",
+        "step_photos_title": "Přidejte 3 ostré fotky",
+        "step_photos_desc": "Přední stranu obalu, složení a nutriční tabulku.",
+        "step_category_title": "Zvolte kategorii v aplikaci",
+        "step_category_desc": "Při přidávání nebo úpravě produktu nezapomeňte v aplikaci zvolit správnou kategorii!",
+        "tip_text": "Tip: Zní-li kategorie neobvykle, sáhněte po nejbližším podobném produktu v regálu!",
+        "tab_missing": "Vysoká priorita (chybějící)",
+        "tab_all": "Všechny kategorie",
+        "search_placeholder": "Hledat kategorie (např. pivo, chléb, sýr)...",
+        "reset_btn": "Obnovit",
+        "reset_confirm": "Obnovit všechny odškrtnuté kategorie pro {country}?",
+        "progress_summary": "{checked} z {total} naskenováno ({pct}%)",
+        "completed_label": "Hotovo ({count})",
+        "empty_search_title": "Žádné kategorie nenalezeny",
+        "empty_search_desc": "Dotazu „{query}“ neodpovídá žádná kategorie.",
+        "empty_missing_done_title": "Všechny prioritní kategorie jsou splněny!",
+        "empty_missing_done_desc": "Přepněte na „Všechny kategorie“ a objevte další produkty.",
+        "empty_all_done_title": "Scan Champion! Všech {count} položek odškrtnuto!",
+        "empty_all_done_desc": "Skvělá práce! Naskenovali jste všechny kategorie.",
+        "modal_title": "Vyberte svou zemi",
+        "modal_subtitle": "Zvolte zemi pro zobrazení kategorií spotřebního koše:",
+        "modal_search_placeholder": "Hledat zemi...",
+        "modal_confirm": "Vybrat",
+        "footer_supported": "Projekt podpořen:",
+        "footer_citizen": "Objevte náš výzkum v oblasti občanské vědy:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Stav odškrtnutí uložen lokálně ve vašem zařízení"
+    },
+    "sk": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Pokyny pre Scan Champion",
+        "guide_hide": "Skryť tipy",
+        "guide_show": "Zobraziť tipy",
+        "guide_headline": "Skenujte a fotografujte obľúbené produkty vo vašej krajine",
+        "step_store_title": "V obchode alebo v špajzi",
+        "step_store_desc": "Skenujte produkty cez aplikáciu Open Food Facts podľa tohto zoznamu.",
+        "step_photos_title": "Pridajte 3 jasné fotky",
+        "step_photos_desc": "Prednú stranu obalu, zoznam zložiek a tabuľku výživových údajov.",
+        "step_category_title": "Zvoľte kategóriu v aplikácii",
+        "step_category_desc": "Pri pridávaní alebo úprave produktu nezabudnite vybrať jeho kategóriu v aplikácii!",
+        "tip_text": "Tip: Ak znie kategória nezvyčajne, vyberte najbližší príbuzný produkt v regáli!",
+        "tab_missing": "Vysoká priorita (chýbajúce)",
+        "tab_all": "Všetky kategórie",
+        "search_placeholder": "Filtrovať kategórie (napr. pivo, chlieb, syr)...",
+        "reset_btn": "Obnoviť",
+        "reset_confirm": "Obnoviť všetky zaškrtnuté kategórie pre {country}?",
+        "progress_summary": "{checked} z {total} naskenovaných ({pct}%)",
+        "completed_label": "Dokončené ({count})",
+        "empty_search_title": "Nenašli sa žiadne kategórie",
+        "empty_search_desc": "Žiadne kategórie nezodpovedajú výrazu „{query}“.",
+        "empty_missing_done_title": "Všetky prioritné kategórie sú pokryté!",
+        "empty_missing_done_desc": "Prepnite na „Všetky kategórie“ a objavte ďalšie produkty.",
+        "empty_all_done_title": "Scan Champion! Všetkých {count} položiek zaškrtnutých!",
+        "empty_all_done_desc": "Skvelá práca! Naskenovali ste všetky kategórie.",
+        "modal_title": "Vyberte svoju krajinu",
+        "modal_subtitle": "Vyberte krajinu pre zobrazenie potrebných kategórií:",
+        "modal_search_placeholder": "Hľadať krajinu...",
+        "modal_confirm": "Vybrať",
+        "footer_supported": "Projekt podporili:",
+        "footer_citizen": "Objavte náš výskum v občianskej vede:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Zaškrtnutia sú uložené lokálne vo vašom zariadení"
+    },
+    "hu": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Útmutató",
+        "guide_hide": "Tippek elrejtése",
+        "guide_show": "Tippek megjelenítése",
+        "guide_headline": "Szkennelj és fotózz népszerű termékeket az országodban",
+        "step_store_title": "A boltban vagy a kamrában",
+        "step_store_desc": "Szkenneld a termékeket az Open Food Facts appal a lista alapján.",
+        "step_photos_title": "Készíts 3 tiszta fotót",
+        "step_photos_desc": "Termék előlapja, összetevők listája és tápértéktáblázat.",
+        "step_category_title": "Add meg a kategóriát az appban",
+        "step_category_desc": "A termék hozzáadásakor vagy szerkesztésekor feltétlenül válaszd ki a kategóriáját az appban!",
+        "tip_text": "Tipp: Ha egy kategória furcsán hangzik, válaszd a polcon található legközelebbi terméket!",
+        "tab_missing": "Kiemelt prioritás (Hiányzó)",
+        "tab_all": "Minden kategória",
+        "search_placeholder": "Kategóriák szűrése (pl. sör, kenyér, sajt)...",
+        "reset_btn": "Visszaállítás",
+        "reset_confirm": "Visszaállítod a bejelölt kategóriákat ehhez az országhoz: {country}?",
+        "progress_summary": "{checked} / {total} beszkennelve ({pct}%)",
+        "completed_label": "Kész ({count})",
+        "empty_search_title": "Nincs találat",
+        "empty_search_desc": "Nincs olyan kategória, amely megfelel a következőnek: „{query}”.",
+        "empty_missing_done_title": "Minden kiemelt kategória teljesítve!",
+        "empty_missing_done_desc": "Válts a „Minden kategória” nézetre további termékekért.",
+        "empty_all_done_title": "Scan Champion! Mind a(z) {count} tétel bejelölve!",
+        "empty_all_done_desc": "Nagyszerű munka! Az összes kategóriát beszkennelted.",
+        "modal_title": "Válaszd ki az országodat",
+        "modal_subtitle": "Válaszd ki az országodat a reprezentatív élelmiszerkosár megjelenítéséhez:",
+        "modal_search_placeholder": "Ország keresése...",
+        "modal_confirm": "Kiválasztás",
+        "footer_supported": "A projekt támogatói:",
+        "footer_citizen": "Ismerd meg közösségi tudományos kutatásainkat:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "A pipák helyben, az eszközödön tárolódnak"
+    },
+    "el": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Οδηγίες Scan Champion",
+        "guide_hide": "Απόκρυψη συμβουλών",
+        "guide_show": "Εμφάνιση συμβουλών",
+        "guide_headline": "Σαρώστε και φωτογραφίστε δημοφιλή προϊόντα της χώρας σας",
+        "step_store_title": "Στο κατάστημα ή στο ντουλάπι",
+        "step_store_desc": "Σαρώστε προϊόντα με την εφαρμογή Open Food Facts βάσει της λίστας.",
+        "step_photos_title": "Προσθέστε 3 καθαρές φωτογραφίες",
+        "step_photos_desc": "Μπροστινή όψη, λίστα συστατικών και διατροφικός πίνακας.",
+        "step_category_title": "Προσθήκη κατηγορίας στην εφαρμογή",
+        "step_category_desc": "Κατά την προσθήκη ή επεξεργασία του προϊόντος, επιλέξτε την κατηγορία του στην εφαρμογή!",
+        "tip_text": "Συμβουλή: Αν μια κατηγορία ακούγεται περίεργη, επιλέξτε το πιο κοντινό προϊόν στο ράφι!",
+        "tab_missing": "Υψηλή προτεραιότητα (Λείπουν)",
+        "tab_all": "Όλες οι κατηγορίες",
+        "search_placeholder": "Αναζήτηση κατηγοριών (π.χ. μπύρα, ψωμί, τυρί)...",
+        "reset_btn": "Επαναφορά",
+        "reset_confirm": "Επαναφορά όλων των επιλεγμένων κατηγοριών για {country};",
+        "progress_summary": "{checked} από {total} σαρωμένα ({pct}%)",
+        "completed_label": "Ολοκληρωμένα ({count})",
+        "empty_search_title": "Δεν βρέθηκαν κατηγορίες",
+        "empty_search_desc": "Καμία κατηγορία δεν ταιριάζει με \"{query}\".",
+        "empty_missing_done_title": "Όλες οι κατηγορίες υψηλής προτεραιότητας καλύφθηκαν!",
+        "empty_missing_done_desc": "Μεταβείτε στις «Όλες οι κατηγορίες» για περισσότερα προϊόντα.",
+        "empty_all_done_title": "Scan Champion! Και τα {count} στοιχεία ολοκληρώθηκαν!",
+        "empty_all_done_desc": "Εξαιρετική δουλειά! Σαρώσατε όλες τις κατηγορίες της λίστας.",
+        "modal_title": "Επιλέξτε τη χώρα σας",
+        "modal_subtitle": "Επιλέξτε τη χώρα σας για να δείτε τις απαραίτητες κατηγορίες τροφίμων:",
+        "modal_search_placeholder": "Αναζήτηση χώρας...",
+        "modal_confirm": "Επιλογή",
+        "footer_supported": "Το έργο υποστηρίζεται από:",
+        "footer_citizen": "Ανακαλύψτε την επιστήμη των πολιτών:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Οι επιλογές αποθηκεύονται τοπικά στη συσκευή σας"
+    },
+    "bg": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Инструкции за Scan Champion",
+        "guide_hide": "Скриване на съвети",
+        "guide_show": "Показване на съвети",
+        "guide_headline": "Сканирайте и снимайте популярни продукти във вашата страна",
+        "step_store_title": "В магазина или в килера",
+        "step_store_desc": "Сканирайте продукти с приложението Open Food Facts по този списък.",
+        "step_photos_title": "Добавете 3 ясни снимки",
+        "step_photos_desc": "Предна страна на опаковката, съставки и хранителни стойности.",
+        "step_category_title": "Добавете категория в приложението",
+        "step_category_desc": "При добавяне или редактиране на продукт, задължително изберете неговата категория в приложението!",
+        "tip_text": "Съвет: Ако категория звучи необичайно, изберете най-близкия продукт на рафта!",
+        "tab_missing": "Висок приоритет (Липсващи)",
+        "tab_all": "Всички категории",
+        "search_placeholder": "Филтриране на категории (напр. бира, хляб, сирене)...",
+        "reset_btn": "Нулиране",
+        "reset_confirm": "Нулиране на всички отметнати категории за {country}?",
+        "progress_summary": "{checked} от {total} сканирани ({pct}%)",
+        "completed_label": "Завършени ({count})",
+        "empty_search_title": "Няма намерени категории",
+        "empty_search_desc": "Няма категории, отговарящи на „{query}“.",
+        "empty_missing_done_title": "Всички приоритетни категории са попълнени!",
+        "empty_missing_done_desc": "Преминете към „Всички категории“ за още продукти.",
+        "empty_all_done_title": "Scan Champion! Всички {count} категории са отметнати!",
+        "empty_all_done_desc": "Чудесна работа! Сканирахте всички категории.",
+        "modal_title": "Изберете вашата страна",
+        "modal_subtitle": "Изберете страна, за да видите категориите от потребителската кошница:",
+        "modal_search_placeholder": "Търсене на страна...",
+        "modal_confirm": "Избор",
+        "footer_supported": "Проектът е подкрепен от:",
+        "footer_citizen": "Научете повече за гражданската наука:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Отметките се запазват локално на вашето устройство"
+    },
+    "hr": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Upute za Scan Champion",
+        "guide_hide": "Sakrij savjete",
+        "guide_show": "Prikaži savjete",
+        "guide_headline": "Skenirajte i fotografirajte popularne proizvode u svojoj zemlji",
+        "step_store_title": "U trgovini ili u smočnici",
+        "step_store_desc": "Skenirajte proizvode aplikacijom Open Food Facts prema ovom popisu.",
+        "step_photos_title": "Dodajte 3 jasne fotografije",
+        "step_photos_desc": "Prednju stranu pakiranja, popis sastojaka i prehrambenu tablicu.",
+        "step_category_title": "Dodajte kategoriju u aplikaciji",
+        "step_category_desc": "Prilikom dodavanja ili uređivanja proizvoda, obavezno odaberite njegovu kategoriju u aplikaciji!",
+        "tip_text": "Savjet: Ako naziv kategorije zvuči neobično, odaberite najsličniji proizvod na polici!",
+        "tab_missing": "Visoki prioritet (Nedostaje)",
+        "tab_all": "Sve kategorije",
+        "search_placeholder": "Filtriraj kategorije (npr. pivo, kruh, sir)...",
+        "reset_btn": "Poništi",
+        "reset_confirm": "Poništiti sve označene kategorije za {country}?",
+        "progress_summary": "{checked} od {total} skenirano ({pct}%)",
+        "completed_label": "Dovršeno ({count})",
+        "empty_search_title": "Kategorije nisu pronađene",
+        "empty_search_desc": "Niti jedna kategorija ne odgovara upitu „{query}”.",
+        "empty_missing_done_title": "Sve prioritetne kategorije su popunjene!",
+        "empty_missing_done_desc": "Prijeđite na „Sve kategorije” za otkrivanje više proizvoda.",
+        "empty_all_done_title": "Scan Champion! Svih {count} stavki je označeno!",
+        "empty_all_done_desc": "Sjajan posao! Skenirali ste sve kategorije s popisa.",
+        "modal_title": "Odaberite svoju zemlju",
+        "modal_subtitle": "Odaberite zemlju za prikaz potrebnih kategorija hrane:",
+        "modal_search_placeholder": "Pretraži zemlju...",
+        "modal_confirm": "Odaberi",
+        "footer_supported": "Projekt podržavaju:",
+        "footer_citizen": "Upoznajte naše građansko znanstveno istraživanje:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Kvačice su spremljene lokalno na vašem uređaju"
+    },
+    "sr": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Uputstva za Scan Champion",
+        "guide_hide": "Sakrij savete",
+        "guide_show": "Prikaži savete",
+        "guide_headline": "Skenirajte i fotografišite popularne proizvode u svojoj zemlji",
+        "step_store_title": "U prodavnici ili u špajzu",
+        "step_store_desc": "Skenirajte proizvode aplikacijom Open Food Facts koristeći ovaj spisak.",
+        "step_photos_title": "Dodajte 3 jasne fotografije",
+        "step_photos_desc": "Prednju stranu pakovanja, spisak sastojaka i nutritivnu tablicu.",
+        "step_category_title": "Dodajte kategoriju u aplikaciji",
+        "step_category_desc": "Prilikom dodavanja ili izmene proizvoda, obavezno izaberite odgovarajuću kategoriju u aplikaciji!",
+        "tip_text": "Savet: Ako naziv kategorije zvuči neobično, izaberite najsličniji proizvod na polici!",
+        "tab_missing": "Visoki prioritet (Nedostaje)",
+        "tab_all": "Sve kategorije",
+        "search_placeholder": "Filtriraj kategorije (npr. pivo, hleb, sir)...",
+        "reset_btn": "Resetuj",
+        "reset_confirm": "Resetovati sve označene kategorije za {country}?",
+        "progress_summary": "{checked} od {total} skenirano ({pct}%)",
+        "completed_label": "Završeno ({count})",
+        "empty_search_title": "Nema pronađenih kategorija",
+        "empty_search_desc": "Nijedna kategorija ne odgovara unosu „{query}“.",
+        "empty_missing_done_title": "Sve prioritetne kategorije su popunjene!",
+        "empty_missing_done_desc": "Pređite na „Sve kategorije“ za više proizvoda.",
+        "empty_all_done_title": "Scan Champion! Svih {count} stavki je označeno!",
+        "empty_all_done_desc": "Odličan posao! Skenirali ste sve kategorije sa spiska.",
+        "modal_title": "Izaberite svoju zemlju",
+        "modal_subtitle": "Izaberite zemlju da vidite kategorije potrebne za potrošačku korpu:",
+        "modal_search_placeholder": "Pretraži zemlju...",
+        "modal_confirm": "Izaberi",
+        "footer_supported": "Projekat podržan od strane:",
+        "footer_citizen": "Otkrijte naša istraživanja u građanskoj nauci:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Kvačice su sačuvane lokalno na vašem uređaju"
+    },
+    "sl": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Navodila za Scan Champion",
+        "guide_hide": "Skrij nasvete",
+        "guide_show": "Prikaži nasvete",
+        "guide_headline": "Skenirajte in fotografirajte priljubljene izdelke v svoji državi",
+        "step_store_title": "V trgovini ali v shrambi",
+        "step_store_desc": "Skenirajte izdelke z aplikacijo Open Food Facts po tem seznamu.",
+        "step_photos_title": "Dodajte 3 jasne fotografije",
+        "step_photos_desc": "Sprednjo stran embalaže, seznam sestavin in tabelo hranilnih vrednosti.",
+        "step_category_title": "Dodajte kategorijo v aplikaciji",
+        "step_category_desc": "Pri dodajanju ali urejanju izdelka obvezno izberite ustrezno kategorijo v aplikaciji!",
+        "tip_text": "Nasvet: Če zveni kategorija nenavadno, izberite najbolj podoben izdelek na polici!",
+        "tab_missing": "Visoka prioriteta (Manjkajoče)",
+        "tab_all": "Vse kategorije",
+        "search_placeholder": "Filtriraj kategorije (npr. pivo, kruh, sir)...",
+        "reset_btn": "Ponastavi",
+        "reset_confirm": "Ponastavim vse označene kategorije za {country}?",
+        "progress_summary": "{checked} od {total} skeniranih ({pct}%)",
+        "completed_label": "Dokončano ({count})",
+        "empty_search_title": "Kategorij ni bilo mogoče najti",
+        "empty_search_desc": "Nobena kategorija ne ustreza poizvedbi »{query}«.",
+        "empty_missing_done_title": "Vse prednostne kategorije so pokrite!",
+        "empty_missing_done_desc": "Preklopite na »Vse kategorije« za več izdelkov.",
+        "empty_all_done_title": "Scan Champion! Vseh {count} elementov označenih!",
+        "empty_all_done_desc": "Odlično delo! Skenirali ste vse kategorije.",
+        "modal_title": "Izberite svojo državo",
+        "modal_subtitle": "Izberite državo za prikaz potrebnih kategorij živil:",
+        "modal_search_placeholder": "Išči državo...",
+        "modal_confirm": "Izberi",
+        "footer_supported": "Projekt podpirata:",
+        "footer_citizen": "Odkrijte naše raziskave v ljubiteljski znanosti:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Kljukice so shranjene lokalno v vaši napravi"
+    },
+    "da": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Instruktioner",
+        "guide_hide": "Skjul tips",
+        "guide_show": "Vis tips",
+        "guide_headline": "Scan og fotografer populære fødevarer i dit land",
+        "step_store_title": "I butikken eller spisekammeret",
+        "step_store_desc": "Scan produkter med Open Food Facts-appen ud fra denne liste.",
+        "step_photos_title": "Tilføj 3 skarpe fotos",
+        "step_photos_desc": "Forside af emballagen, ingrediensliste og næringsdeklaration.",
+        "step_category_title": "Vælg kategori i appen",
+        "step_category_desc": "Husk at vælge den rigtige kategori i appen, når du tilføjer eller redigerer et produkt!",
+        "tip_text": "Tip: Lyder en kategori mærkelig, så vælg det mest lignende produkt på hylden!",
+        "tab_missing": "Høj prioritet (Mangler)",
+        "tab_all": "Alle kategorier",
+        "search_placeholder": "Filtrer kategorier (f.eks. øl, brød, ost)...",
+        "reset_btn": "Nulstil",
+        "reset_confirm": "Nulstil alle afkrydsede kategorier for {country}?",
+        "progress_summary": "{checked} af {total} scannet ({pct}%)",
+        "completed_label": "Fuldført ({count})",
+        "empty_search_title": "Ingen kategorier fundet",
+        "empty_search_desc": "Ingen kategorier matcher \"{query}\".",
+        "empty_missing_done_title": "Alle prioriterede kategorier er dækket!",
+        "empty_missing_done_desc": "Skift til \"Alle kategorier\" for at finde flere produkter.",
+        "empty_all_done_title": "Scan Champion! Alle {count} kategorier er afkrydset!",
+        "empty_all_done_desc": "Fantastisk indsats! Du har scannet alle kategorier på listen.",
+        "modal_title": "Vælg dit land",
+        "modal_subtitle": "Vælg dit land for at se de nødvendige fødevarekategorier:",
+        "modal_search_placeholder": "Søg efter land...",
+        "modal_confirm": "Vælg",
+        "footer_supported": "Projekt støttet af:",
+        "footer_citizen": "Opdag vores borgervidenskabelige forskning:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Markeringer gemmes lokalt på din enhed"
+    },
+    "sv": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Instruktioner",
+        "guide_hide": "Dölj tips",
+        "guide_show": "Visa tips",
+        "guide_headline": "Skanna och fotografera populära matvaror i ditt land",
+        "step_store_title": "I butiken eller skafferiet",
+        "step_store_desc": "Skanna produkter med Open Food Facts-appen utifrån denna lista.",
+        "step_photos_title": "Lägg till 3 tydliga foton",
+        "step_photos_desc": "Förpackningens framsida, ingredienslista och näringstabell.",
+        "step_category_title": "Välj kategori i appen",
+        "step_category_desc": "När du lägger till eller redigerar en produkt, se till att välja dess kategori i appen!",
+        "tip_text": "Tips: Om en kategori låter ovanlig, välj den mest snarlika produkten i hyllan!",
+        "tab_missing": "Hög prioritet (Saknas)",
+        "tab_all": "Alla kategorier",
+        "search_placeholder": "Filtrera kategorier (t.ex. öl, bröd, ost)...",
+        "reset_btn": "Återställ",
+        "reset_confirm": "Återställ alla ikryssade kategorier för {country}?",
+        "progress_summary": "{checked} av {total} skannade ({pct}%)",
+        "completed_label": "Klara ({count})",
+        "empty_search_title": "Inga kategorier hittades",
+        "empty_search_desc": "Inga kategorier matchar \"{query}\".",
+        "empty_missing_done_title": "Alla högprioriterade kategorier är klara!",
+        "empty_missing_done_desc": "Växla till \"Alla kategorier\" för att upptäcka fler produkter.",
+        "empty_all_done_title": "Scan Champion! Alla {count} kategorier ikryssade!",
+        "empty_all_done_desc": "Strålande jobbat! Du har skannat alla kategorier på listan.",
+        "modal_title": "Välj ditt land",
+        "modal_subtitle": "Välj ditt land för att visa nödvändiga varukategorier:",
+        "modal_search_placeholder": "Sök land...",
+        "modal_confirm": "Välj",
+        "footer_supported": "Projektet stöds av:",
+        "footer_citizen": "Upptäck vår medborgarforskning:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Markeringar sparas lokalt på din enhet"
+    },
+    "fi": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Ohjeet",
+        "guide_hide": "Piilota vinkit",
+        "guide_show": "Näytä vinkit",
+        "guide_headline": "Skannaa ja valokuvaa maasi suosittuja elintarvikkeita",
+        "step_store_title": "Kaupassa tai ruokakomerossa",
+        "step_store_desc": "Skannaa tuotteita Open Food Facts -sovelluksella tämän listan avulla.",
+        "step_photos_title": "Lisää 3 selkeää kuvaa",
+        "step_photos_desc": "Pakkauksen etupuoli, ainesosaluettelo ja ravintoarvotaulukko.",
+        "step_category_title": "Valitse kategoria sovelluksessa",
+        "step_category_desc": "Kun lisäät tai muokkaat tuotetta, muista valita sen kategoria sovelluksessa!",
+        "tip_text": "Vinkki: Jos kategorian nimi kuulostaa oudolta, valitse hyllystä lähin vastaava tuote!",
+        "tab_missing": "Korkea prioriteetti (Puuttuvat)",
+        "tab_all": "Kaikki kategoriat",
+        "search_placeholder": "Suodata kategorioita (esim. olut, leipä, juusto)...",
+        "reset_btn": "Nollaa",
+        "reset_confirm": "Nollataanko kaikki merkityt kategoriat maalle {country}?",
+        "progress_summary": "{checked} / {total} skannattu ({pct}%)",
+        "completed_label": "Valmiit ({count})",
+        "empty_search_title": "Kategorioita ei löytynyt",
+        "empty_search_desc": "Yksikään kategoria ei vastaa hakua ”{query}”.",
+        "empty_missing_done_title": "Kaikki tärkeimmät kategoriat on katettu!",
+        "empty_missing_done_desc": "Vaihda näkymään ”Kaikki kategoriat” löytääksesi lisää tuotteita.",
+        "empty_all_done_title": "Scan Champion! Kaikki {count} kategoriaa merkitty!",
+        "empty_all_done_desc": "Hienoa työtä! Olet skannannut kaikki listan kategoriat.",
+        "modal_title": "Valitse maasi",
+        "modal_subtitle": "Valitse maasi nähdäksesi tarvittavat elintarvikekategoriat:",
+        "modal_search_placeholder": "Etsi maata...",
+        "modal_confirm": "Valitse",
+        "footer_supported": "Hanketta tukevat:",
+        "footer_citizen": "Tutustu kansalaistieteelliseen tutkimukseemme:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Valinnat tallennetaan paikallisesti laitteellesi"
+    },
+    "no": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Instruksjoner",
+        "guide_hide": "Skjul tips",
+        "guide_show": "Vis tips",
+        "guide_headline": "Skann og fotografer populære matvarer i ditt land",
+        "step_store_title": "I butikken eller spiskammerset",
+        "step_store_desc": "Skann produkter med Open Food Facts-appen ved hjelp av denne listen.",
+        "step_photos_title": "Legg til 3 tydelige bilder",
+        "step_photos_desc": "Forsiden av emballasjen, ingrediensliste og næringstabell.",
+        "step_category_title": "Velg kategori i appen",
+        "step_category_desc": "Når du legger til eller redigerer et produkt, husk å velge riktig kategori i appen!",
+        "tip_text": "Tips: Hvis en kategori høres uvant ut, velg det mest lignende produktet i hyllen!",
+        "tab_missing": "Høy prioritet (Mangler)",
+        "tab_all": "Alle kategorier",
+        "search_placeholder": "Filtrer kategorier (f.eks. øl, brød, ost)...",
+        "reset_btn": "Tilbakestill",
+        "reset_confirm": "Tilbakestille alle avkryssede kategorier for {country}?",
+        "progress_summary": "{checked} av {total} skannet ({pct}%)",
+        "completed_label": "Fullført ({count})",
+        "empty_search_title": "Ingen kategorier funnet",
+        "empty_search_desc": "Ingen kategorier matcher «{query}».",
+        "empty_missing_done_title": "Alle prioriterte kategorier er fullført!",
+        "empty_missing_done_desc": "Bytt til «Alle kategorier» for å finne flere produkter.",
+        "empty_all_done_title": "Scan Champion! Alle {count} kategorier er avkrysset!",
+        "empty_all_done_desc": "Kjempebra jobbet! Du har skannet alle kategorier på listen.",
+        "modal_title": "Velg landet ditt",
+        "modal_subtitle": "Velg land for å se de nødvendige matvarekategoriene:",
+        "modal_search_placeholder": "Søk etter land...",
+        "modal_confirm": "Velg",
+        "footer_supported": "Prosjektet støttes av:",
+        "footer_citizen": "Oppdag vår folkeforskning:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Avkrysninger lagres lokalt på enheten din"
+    },
+    "et": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Juhised",
+        "guide_hide": "Peida vihjed",
+        "guide_show": "Näita vihjeid",
+        "guide_headline": "Skannige ja pildistage oma riigis müüdavaid toiduaineid",
+        "step_store_title": "Poes või sahvris",
+        "step_store_desc": "Skannige tooteid Open Food Facts rakendusega selle nimekirja järgi.",
+        "step_photos_title": "Lisage 3 selget fotot",
+        "step_photos_desc": "Pakendi esikülg, koostisosade loetelu ja toitumisalane teave.",
+        "step_category_title": "Valige äpis kategooria",
+        "step_category_desc": "Toote lisamisel või muutmisel valige kindlasti rakenduses selle kategooria!",
+        "tip_text": "Vihje: Kui kategooria kõlab ebatavaliselt, valige riiulilt lähim sarnane toode!",
+        "tab_missing": "Kõrge prioriteet (Puuduvad)",
+        "tab_all": "Kõik kategooriad",
+        "search_placeholder": "Filtreeri kategooriaid (nt õlu, leib, juust)...",
+        "reset_btn": "Lähtesta",
+        "reset_confirm": "Kas lähtestada kõik märgitud kategooriad riigile {country}?",
+        "progress_summary": "{checked} / {total} skannitud ({pct}%)",
+        "completed_label": "Tehtud ({count})",
+        "empty_search_title": "Kategooriaid ei leitud",
+        "empty_search_desc": "Ükski kategooria ei vasta otsingule „{query}“.",
+        "empty_missing_done_title": "Kõik esmatähtsad kategooriad on kaetud!",
+        "empty_missing_done_desc": "Rohkemate toodete avastamiseks lülituge valikule „Kõik kategooriad“.",
+        "empty_all_done_title": "Scan Champion! Kõik {count} kategooriat märgitud!",
+        "empty_all_done_desc": "Suurepärane töö! Olete skanninud kõik nimekirjas olevad kategooriad.",
+        "modal_title": "Valige oma riik",
+        "modal_subtitle": "Valige riik esinduslike toidukategooriate kuvamiseks:",
+        "modal_search_placeholder": "Otsi riiki...",
+        "modal_confirm": "Vali",
+        "footer_supported": "Projekti toetavad:",
+        "footer_citizen": "Tutvuge meie harrastusteaduse uurimistööga:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Märked salvestatakse lokaalselt teie seadmesse"
+    },
+    "lv": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Norādījumi",
+        "guide_hide": "Paslēpt padomus",
+        "guide_show": "Rādīt padomus",
+        "guide_headline": "Skenējiet un fotografējiet populārus produktus savā valstī",
+        "step_store_title": "Veikalā vai pieliekamajā",
+        "step_store_desc": "Skenējiet produktus ar Open Food Facts lietotni saskaņā ar šo sarakstu.",
+        "step_photos_title": "Pievienojiet 3 skaidrus fotoattēlus",
+        "step_photos_desc": "Iepakojuma priekšpuse, sastāvdaļu saraksts un uzturvērtības tabula.",
+        "step_category_title": "Izvēlieties kategoriju lietotnē",
+        "step_category_desc": "Pievienojot vai rediģējot produktu, noteikti atlasiet tā kategoriju lietotnē!",
+        "tip_text": "Padoms: Ja kategorijas nosaukums šķiet nepierasts, izvēlieties tuvāko līdzīgo produktu plauktā!",
+        "tab_missing": "Augsta prioritāte (Trūkstošie)",
+        "tab_all": "Visas kategorijas",
+        "search_placeholder": "Filtrēt kategorijas (piem., alus, maize, siers)...",
+        "reset_btn": "Atiestatīt",
+        "reset_confirm": "Atiestatīt visas atzīmētās kategorijas valstij {country}?",
+        "progress_summary": "{checked} no {total} skenēti ({pct}%)",
+        "completed_label": "Pabeigti ({count})",
+        "empty_search_title": "Nav atrastu kategoriju",
+        "empty_search_desc": "Neviena kategorija neatbilst vaicājumam \"{query}\".",
+        "empty_missing_done_title": "Visas prioritārās kategorijas ir aizpildītas!",
+        "empty_missing_done_desc": "Pārslēdzieties uz \"Visas kategorijas\", lai atrastu vairāk produktu.",
+        "empty_all_done_title": "Scan Champion! Visi {count} vienumi ir atzīmēti!",
+        "empty_all_done_desc": "Lielisks darbs! Esat noskenējis visas kategorijas.",
+        "modal_title": "Izvēlieties savu valsti",
+        "modal_subtitle": "Izvēlieties valsti, lai redzētu nepieciešamās produktu kategorijas:",
+        "modal_search_placeholder": "Meklēt valsti...",
+        "modal_confirm": "Izvēlēties",
+        "footer_supported": "Projektu atbalsta:",
+        "footer_citizen": "Uzziniet par mūsu sabiedriskās zinātnes pētījumiem:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Atzīmes tiek saglabātas lokāli jūsu ierīcē"
+    },
+    "lt": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Instrukcijos",
+        "guide_hide": "Slėpti patarimus",
+        "guide_show": "Rodyti patarimus",
+        "guide_headline": "Skenuokite ir fotografuokite populiarius savo šalies produktus",
+        "step_store_title": "Parduotuvėje ar sandėliuke",
+        "step_store_desc": "Skenuokite produktus su Open Food Facts programėle pagal šį sąrašą.",
+        "step_photos_title": "Pridėkite 3 aiškias nuotraukas",
+        "step_photos_desc": "Pakuotės priekinė pusė, ingredientų sąrašas ir maistingumo lentelė.",
+        "step_category_title": "Pasirinkite kategoriją programėlėje",
+        "step_category_desc": "Pridėdami ar redaguodami produktą, būtinai pasirinkite jo kategoriją programėlėje!",
+        "tip_text": "Patarimas: Jei kategorijos pavadinimas skamba neįprastai, rinkitės artimiausią lentynos produktą!",
+        "tab_missing": "Didelis prioritetas (Trūkstami)",
+        "tab_all": "Visos kategorijos",
+        "search_placeholder": "Filtruoti kategorijas (pvz., alus, duona, sūris)...",
+        "reset_btn": "Atstatyti",
+        "reset_confirm": "Atstatyti visas pažymėtas kategorijas šaliai {country}?",
+        "progress_summary": "{checked} iš {total} nuskenuota ({pct}%)",
+        "completed_label": "Atlikta ({count})",
+        "empty_search_title": "Kategorijų nerasta",
+        "empty_search_desc": "Nėra kategorijų, atitinkančių užklausą „{query}“.",
+        "empty_missing_done_title": "Visos prioritetinės kategorijos užpildytos!",
+        "empty_missing_done_desc": "Pereikite į „Visos kategorijos“, kad atrastumėte daugiau produktų.",
+        "empty_all_done_title": "Scan Champion! Visi {count} elementai pažymėti!",
+        "empty_all_done_desc": "Puikus darbas! Nuskenavote visas kategorijas.",
+        "modal_title": "Pasirinkite savo šalį",
+        "modal_subtitle": "Pasirinkite šalį, kad pamatytumėte reikalingas maisto kategorijas:",
+        "modal_search_placeholder": "Ieškoti šalies...",
+        "modal_confirm": "Pasirinkti",
+        "footer_supported": "Projektą remia:",
+        "footer_citizen": "Atraskite mūsų piliečių mokslo tyrimus:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Žymos išsaugomos lokaliai jūsų įrenginyje"
+    },
+    "ga": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Treoracha Scan Champion",
+        "guide_hide": "Folaigh leideanna",
+        "guide_show": "Taispeáin leideanna",
+        "guide_headline": "Scan agus tóg grianghraif de tháirgí coitianta i do thír",
+        "step_store_title": "Sa Siopa nó sa Phantry",
+        "step_store_desc": "Scan táirgí leis an aip Open Food Facts ag baint úsáide as an liosta seo.",
+        "step_photos_title": "Cuir 3 Ghrianghraf Ghlan Leis",
+        "step_photos_desc": "Aghaidh an phacáiste, liosta na gcomhábhar agus tábla cothaithe.",
+        "step_category_title": "Roghnaigh Catagóir san Aip",
+        "step_category_desc": "Nuair a bhíonn táirge á chur leis nó á chur in eagar, roghnaigh a chatagóir san aip!",
+        "tip_text": "Leid: Má fhuaimeann catagóir aisteach, roghnaigh an táirge is gaire di sa phasáiste!",
+        "tab_missing": "Ard-Tosaíocht (Ar Iarraidh)",
+        "tab_all": "Gach Catagóir",
+        "search_placeholder": "Scag catagóirí (m.sh. beoir, arán, cáis)...",
+        "reset_btn": "Athshocraigh",
+        "reset_confirm": "Athshocraigh gach catagóir mharcáilte do {country}?",
+        "progress_summary": "{checked} as {total} scanta ({pct}%)",
+        "completed_label": "Críochnaithe ({count})",
+        "empty_search_title": "Níor aimsíodh aon chatagóir",
+        "empty_search_desc": "Ní mheaitseálann aon chatagóir le \"{query}\".",
+        "empty_missing_done_title": "Gach catagóir ard-tosaíochta clúdaithe!",
+        "empty_missing_done_desc": "Téigh go dtí \"Gach Catagóir\" chun tuilleadh táirgí a aimsiú.",
+        "empty_all_done_title": "Scan Champion! Gach ceann de {count} marcáilte!",
+        "empty_all_done_desc": "Iontach ar fad! Scannáil tú gach catagóir ar an liosta.",
+        "modal_title": "Roghnaigh do thír",
+        "modal_subtitle": "Roghnaigh do thír chun na catagóirí riachtanacha a fheiceáil:",
+        "modal_search_placeholder": "Cuardaigh tír...",
+        "modal_confirm": "Roghnaigh",
+        "footer_supported": "Tionscadal le tacaíocht ó:",
+        "footer_citizen": "Faigh amach faoinár dtaighde eolaíochta saoránach:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Ticeanna sábháilte go háitiúil ar do ghléas"
+    },
+    "mt": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Istruzzjonijiet ta' Scan Champion",
+        "guide_hide": "Aħbi suġġerimenti",
+        "guide_show": "Uri suġġerimenti",
+        "guide_headline": "Skennja u ħu ritratti ta' prodotti popolari f'pajjiżek",
+        "step_store_title": "Fil-Ħanut jew fid-Dar",
+        "step_store_desc": "Skennja prodotti bl-app Open Food Facts permezz ta' din il-lista.",
+        "step_photos_title": "Żid 3 Ritratti Ċari",
+        "step_photos_desc": "Il-faċċata tal-pakkett, il-lista tal-ingredjenti u t-tabella tan-nutrizzjoni.",
+        "step_category_title": "Żid il-Kategorija fl-App",
+        "step_category_desc": "Meta żżid jew timmodifika prodott, kun żgur li tagħżel il-kategorija tiegħu fl-app!",
+        "tip_text": "Tip: Jekk kategorija tidher stramba, agħżel l-aktar prodott simili fuq l-ixkaffa!",
+        "tab_missing": "Prijorità Għolja (Nieqsa)",
+        "tab_all": "Il-Kategoriji Kollha",
+        "search_placeholder": "Iffiltra kategoriji (eż. birra, ħobż, ġobon)...",
+        "reset_btn": "Irrisettja",
+        "reset_confirm": "Irrisettja l-kategoriji kollha mmarkati għal {country}?",
+        "progress_summary": "{checked} minn {total} skennjati ({pct}%)",
+        "completed_label": "Lest ({count})",
+        "empty_search_title": "Ebda kategorija misjuba",
+        "empty_search_desc": "Ebda kategorija ma taqbel ma' \"{query}\".",
+        "empty_missing_done_title": "Il-kategoriji kollha ta' prijorità għolja huma koperti!",
+        "empty_missing_done_desc": "Aqleb għal \"Il-Kategoriji Kollha\" biex tiskopri aktar prodotti.",
+        "empty_all_done_title": "Scan Champion! L-oġġetti kollha ({count}) immarkati!",
+        "empty_all_done_desc": "Xogħol mill-aqwa! Skennjajt il-kategoriji kollha fuq il-lista.",
+        "modal_title": "Agħżel pajjiżek",
+        "modal_subtitle": "Agħżel pajjiżek biex tara l-kategoriji meħtieġa għall-basket lokali:",
+        "modal_search_placeholder": "Fittex pajjiż...",
+        "modal_confirm": "Agħżel",
+        "footer_supported": "Proġett appoġġjat minn:",
+        "footer_citizen": "Skopri r-riċerka tagħna fix-xjenza ċittadina:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "L-immarkar jiġi ffrankat lokalment fuq it-tagħmir tiegħek"
+    },
+    "lb": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Uweisungen",
+        "guide_hide": "Tipps verstoppen",
+        "guide_show": "Tipps weisen",
+        "guide_headline": "Scann a fotografeier beléifte Produkter aus dengem Land",
+        "step_store_title": "Am Buttek oder am Späicher",
+        "step_store_desc": "Scann Produkter mat der Open Food Facts App no dëser Lëscht.",
+        "step_photos_title": "3 kloer Fotoen derbäisetzen",
+        "step_photos_desc": "Viischt Säit, Zutatelëscht an Nährwäerter.",
+        "step_category_title": "Kategorie an der App wielen",
+        "step_category_desc": "Wann s du e Produkt derbäisetz, wiel onbedéngt seng Kategorie an der App!",
+        "tip_text": "Tipp: Kléngt eng Kategorie komesch, huel einfach dat noost Produkt am Rayon!",
+        "tab_missing": "Héich Prioritéit (Feelen)",
+        "tab_all": "All Kategorien",
+        "search_placeholder": "Kategorië filteren (z.B. Béier, Brout, Kéis)...",
+        "reset_btn": "Zerécksetzen",
+        "reset_confirm": "All ugekräizte Kategorië fir {country} zerécksetzen?",
+        "progress_summary": "{checked} vun {total} gescannt ({pct}%)",
+        "completed_label": "Fäerdeg ({count})",
+        "empty_search_title": "Keng Kategorië fonnt",
+        "empty_search_desc": "Keng Kategorie passt op \"{query}\".",
+        "empty_missing_done_title": "All prioritär Kategorië sinn ofgedeckt!",
+        "empty_missing_done_desc": "Wiessel op \"All Kategorien\" fir méi Produkter z'entdecken.",
+        "empty_all_done_title": "Scan Champion! All {count} Elementer ugekräizt!",
+        "empty_all_done_desc": "Super Aarbecht! Du hues all Kategorië gescannt.",
+        "modal_title": "Wiel däi Land",
+        "modal_subtitle": "Wiel däi Land fir déi néideg Liewensmëttelkategorien ze gesinn:",
+        "modal_search_placeholder": "Land sichen...",
+        "modal_confirm": "Auswielen",
+        "footer_supported": "Projet ënnerstëtzt vu(n):",
+        "footer_citizen": "Entdeck eis Biergerwëssenschaftsfuerschung:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Häkchen ginn lokal op dengem Apparat gespäichert"
+    },
+    "ca": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Instruccions de Scan Champion",
+        "guide_hide": "Amagar consells",
+        "guide_show": "Mostrar consells",
+        "guide_headline": "Escaneja i fotografia productes populars venuts al teu país",
+        "step_store_title": "A la botiga o al rebost",
+        "step_store_desc": "Escaneja productes amb l'app Open Food Facts seguint aquesta llista.",
+        "step_photos_title": "Afegeix 3 fotos nítides",
+        "step_photos_desc": "Frontal del producte, llista d'ingredients i taula nutricional.",
+        "step_category_title": "Afegeix la categoria a l'app",
+        "step_category_desc": "En afegir o editar el producte, assegura't de seleccionar la seva categoria a l'app!",
+        "tip_text": "Consell: Si una categoria sona estranya, tria el producte més semblant del passadís!",
+        "tab_missing": "Prioritat alta (Mancants)",
+        "tab_all": "Totes les categories",
+        "search_placeholder": "Filtrar categories (ex. cervesa, pa, formatge)...",
+        "reset_btn": "Restablir",
+        "reset_confirm": "Vols restablir totes les categories marcades per a {country}?",
+        "progress_summary": "{checked} de {total} escanejats ({pct}%)",
+        "completed_label": "Completats ({count})",
+        "empty_search_title": "No s'han trobat categories",
+        "empty_search_desc": "Cap categoria coincideix amb «{query}».",
+        "empty_missing_done_title": "Totes les categories prioritàries completades!",
+        "empty_missing_done_desc": "Canvia a «Totes les categories» per descobrir més productes.",
+        "empty_all_done_title": "Scan Champion! Tots els {count} elements marcats!",
+        "empty_all_done_desc": "Molt bona feina! Has escanejat totes les categories de la llista.",
+        "modal_title": "Selecciona el teu país",
+        "modal_subtitle": "Tria el teu país per veure les categories del cistell d'aliments:",
+        "modal_search_placeholder": "Cercar país...",
+        "modal_confirm": "Seleccionar",
+        "footer_supported": "Projecte amb el suport de:",
+        "footer_citizen": "Descobreix la nostra recerca en ciència ciutadana:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Marcatges desats localment al teu dispositiu"
+    },
+    "eu": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Argibideak",
+        "guide_hide": "Aholkuak ezkutatu",
+        "guide_show": "Aholkuak erakutsi",
+        "guide_headline": "Eskaneatu eta atera argazkiak zure herrialdeko produktu ezagunei",
+        "step_store_title": "Dendan edo despentsan",
+        "step_store_desc": "Eskaneatu produktuak Open Food Facts aplikazioarekin zerrenda hau erabiliz.",
+        "step_photos_title": "Gehitu 3 argazki garbi",
+        "step_photos_desc": "Ontziaren aurrealdea, osagaien zerrenda eta nutrizio-taula.",
+        "step_category_title": "Aukeratu kategoria aplikazioan",
+        "step_category_desc": "Produktua gehitzean edo editatzean, ziurtatu bere kategoria hautatzen duzula aplikazioan!",
+        "tip_text": "Aholkua: Kategoriaren izena arraroa iruditzen bazaizu, aukeratu apaleko produkturik antzekoena!",
+        "tab_missing": "Lehentasun handia (Falta direnak)",
+        "tab_all": "Kategoria guztiak",
+        "search_placeholder": "Iragazi kategoriak (adib. garagardoa, ogia, gazta)...",
+        "reset_btn": "Berrezarri",
+        "reset_confirm": "{country} herrialderako hautatutako kategoria guztiak berrezarri?",
+        "progress_summary": "{checked} / {total} eskaneatuta ({pct}%)",
+        "completed_label": "Eginda ({count})",
+        "empty_search_title": "Ez da kategoriarik aurkitu",
+        "empty_search_desc": "Ez dago «{query}» bilaketarekin bat datorren kategoriarik.",
+        "empty_missing_done_title": "Lehentasunezko kategoria guztiak osatuta!",
+        "empty_missing_done_desc": "Aldatu «Kategoria guztiak» atalera produktu gehiago aurkitzeko.",
+        "empty_all_done_title": "Scan Champion! {count} elementu guztiak markatuta!",
+        "empty_all_done_desc": "Lan bikaina! Zerrendako kategoria guztiak eskaneatu dituzu.",
+        "modal_title": "Hautatu zure herrialdea",
+        "modal_subtitle": "Aukeratu herrialdea beharrezko elikagai-kategoriak ikusteko:",
+        "modal_search_placeholder": "Herrialdea bilatu...",
+        "modal_confirm": "Hautatu",
+        "footer_supported": "Proiektuaren laguntzaileak:",
+        "footer_citizen": "Ezagutu gure hiritar zientziako ikerketa:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Markak lokalean gordetzen dira zure gailuan"
+    },
+    "gl": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Instrucións de Scan Champion",
+        "guide_hide": "Ocultar consellos",
+        "guide_show": "Mostrar consellos",
+        "guide_headline": "Escanea e fotografa produtos populares vendidos no teu país",
+        "step_store_title": "Na tenda ou na despensa",
+        "step_store_desc": "Escanea produtos coa aplicación Open Food Facts usando esta lista.",
+        "step_photos_title": "Engade 3 fotos nítidas",
+        "step_photos_desc": "Frontal do produto, lista de ingredientes e táboa nutricional.",
+        "step_category_title": "Engade a categoría na app",
+        "step_category_desc": "Ao engadir ou editar o produto, asegúrate de seleccionar a súa categoría na app!",
+        "tip_text": "Consello: Se unha categoría soa estraña, escolle o produto máis parecido do corredor!",
+        "tab_missing": "Prioridade alta (Faltan)",
+        "tab_all": "Todas as categorías",
+        "search_placeholder": "Filtrar categorías (ex. cervexa, pan, queixo)...",
+        "reset_btn": "Restablecer",
+        "reset_confirm": "Queres restablecer todas as categorías marcadas para {country}?",
+        "progress_summary": "{checked} de {total} escaneados ({pct}%)",
+        "completed_label": "Completados ({count})",
+        "empty_search_title": "Non se atoparon categorías",
+        "empty_search_desc": "Ningunha categoría coincide con «{query}».",
+        "empty_missing_done_title": "Todas as categorías prioritarias cubertas!",
+        "empty_missing_done_desc": "Pasa a «Todas as categorías» para descubrir máis produtos.",
+        "empty_all_done_title": "Scan Champion! Marcados os {count} elementos!",
+        "empty_all_done_desc": "Excelente traballo! Escaneaches todas as categorías.",
+        "modal_title": "Selecciona o teu país",
+        "modal_subtitle": "Escolle o teu país para ver as categorías necesarias da cesta alimentaria:",
+        "modal_search_placeholder": "Buscar país...",
+        "modal_confirm": "Seleccionar",
+        "footer_supported": "Proxecto apoiado por:",
+        "footer_citizen": "Descobre a nosa investigación en ciencia cidadá:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "Marcas gardadas localmente no teu dispositivo"
+    },
+    "tr": {
+        "app_title": "Scan Champion",
+        "app_badge": "Open Food Facts",
+        "guide_title": "Scan Champion Talimatları",
+        "guide_hide": "İpuçlarını gizle",
+        "guide_show": "İpuçlarını göster",
+        "guide_headline": "Ülkenizde satılan popüler ürünleri tarayın ve fotoğraflayın",
+        "step_store_title": "Mağazada veya Kilerde",
+        "step_store_desc": "Bu listeyi kullanarak Open Food Facts uygulamasıyla ürünleri tarayın.",
+        "step_photos_title": "3 Net Fotoğraf Ekleyin",
+        "step_photos_desc": "Ambalaj ön yüzü, içindekiler listesi ve besin değerleri tablosu.",
+        "step_category_title": "Uygulamada Kategori Seçin",
+        "step_category_desc": "Ürünü eklerken veya düzenlerken uygulamasından kategorisini seçmeyi unutmayın!",
+        "tip_text": "İpucu: Bir kategori adı garip geliyorsa, raftaki en yakın benzer ürünü seçin!",
+        "tab_missing": "Yüksek Öncelik (Eksik)",
+        "tab_all": "Tüm Kategoriler",
+        "search_placeholder": "Kategorileri filtrele (örn. bira, ekmek, peynir)...",
+        "reset_btn": "Sıfırla",
+        "reset_confirm": "{country} için işaretlenen tüm kategoriler sıfırlansın mı?",
+        "progress_summary": "{checked} / {total} tarandı (%{pct})",
+        "completed_label": "Tamamlananlar ({count})",
+        "empty_search_title": "Kategori bulunamadı",
+        "empty_search_desc": "\"{query}\" ile eşleşen kategori yok.",
+        "empty_missing_done_title": "Tüm öncelikli kategoriler tamamlandı!",
+        "empty_missing_done_desc": "Daha fazla ürün keşfetmek için \"Tüm Kategoriler\"e geçin.",
+        "empty_all_done_title": "Scan Champion! Tüm {count} kategori işaretlendi!",
+        "empty_all_done_desc": "Harika iş! Listedeki tüm kategorileri taradınız.",
+        "modal_title": "Ülkenizi seçin",
+        "modal_subtitle": "Gerekli gıda sepeti kategorilerini görmek için ülkenizi seçin:",
+        "modal_search_placeholder": "Ülke ara...",
+        "modal_confirm": "Seç",
+        "footer_supported": "Destekleyen kurumlar:",
+        "footer_citizen": "Yurttaş bilimi araştırmalarımızı keşfedin:",
+        "footer_citizen_link_en": "Citizen Science (EN)",
+        "footer_citizen_link_fr": "Science Citoyenne (FR)",
+        "footer_storage": "İşaretler cihazınızda yerel olarak kaydedilir"
+    }
+}
+# Alias nb to no
+TRANSLATIONS["nb"] = TRANSLATIONS["no"]
+
+LANGUAGE_NAMES = {
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "es": "Español",
+    "it": "Italiano",
+    "nl": "Nederlands",
+    "pl": "Polski",
+    "pt": "Português",
+    "ro": "Română",
+    "cs": "Čeština",
+    "sk": "Slovenčina",
+    "hu": "Magyar",
+    "el": "Ελληνικά",
+    "bg": "Български",
+    "hr": "Hrvatski",
+    "sr": "Srpski",
+    "sl": "Slovenščina",
+    "da": "Dansk",
+    "sv": "Svenska",
+    "fi": "Suomi",
+    "no": "Norsk",
+    "nb": "Norsk (bokmål)",
+    "et": "Eesti",
+    "lv": "Latviešu",
+    "lt": "Lietuvių",
+    "ga": "Gaeilge",
+    "mt": "Malti",
+    "lb": "Lëtzebuergesch",
+    "ca": "Català",
+    "eu": "Euskara",
+    "gl": "Galego",
+    "tr": "Türkçe"
+}
+
+HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,6 +1251,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             --radius-sm: 6px;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
             --item-height: 40px;
         }
 
@@ -92,7 +1288,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
+            gap: 8px;
         }
 
         .brand-area {
@@ -133,42 +1329,52 @@ HTML_CONTENT = """<!DOCTYPE html>
             color: var(--primary);
         }
 
-        .country-select-wrapper {
-            position: relative;
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
             flex-shrink: 0;
         }
 
-        select.country-select {
+        .select-wrapper {
+            position: relative;
+        }
+
+        select.header-select {
             appearance: none;
             -webkit-appearance: none;
             background: #ffffff;
             border: 1.5px solid var(--border);
-            padding: 6px 28px 6px 10px;
+            padding: 6px 24px 6px 8px;
             border-radius: 20px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-main);
             cursor: pointer;
             box-shadow: var(--shadow-sm);
-            max-width: 170px;
+            max-width: 155px;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        select.country-select:focus {
+        select.header-select:focus {
             outline: none;
             border-color: var(--primary);
         }
 
-        .country-select-wrapper::after {
+        .select-wrapper::after {
             content: '▾';
-            font-size: 11px;
+            font-size: 10px;
             position: absolute;
-            right: 10px;
+            right: 8px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
             pointer-events: none;
+        }
+
+        select.lang-select {
+            max-width: 110px;
         }
 
         main {
@@ -284,7 +1490,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         /* Sticky Control Bar */
         .controls-sticky {
             position: sticky;
-            top: 53px;
+            top: 51px;
             background: var(--bg);
             padding: 6px 0 8px 0;
             z-index: 90;
@@ -308,7 +1514,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             border: none;
             background: transparent;
             border-radius: var(--radius-sm);
-            font-size: 12.5px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-muted);
             cursor: pointer;
@@ -459,7 +1665,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         .checklist-container {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 4px;
+            gap: 5px;
         }
 
         @media (min-width: 620px) {
@@ -469,16 +1675,18 @@ HTML_CONTENT = """<!DOCTYPE html>
             }
         }
 
-        /* Checklist Item Row */
+        /* Checklist Item Row with Safe Column Text-Wrapping */
         .check-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
             background: #ffffff;
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
             padding: 8px 12px;
             min-height: var(--item-height);
+            min-width: 0; /* CRITICAL: prevents blowout in CSS Grid columns */
+            width: 100%;
             cursor: pointer;
             user-select: none;
             transition: background 0.12s ease, border-color 0.12s ease;
@@ -504,6 +1712,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            margin-top: 1px; /* aligns nicely with the first line of text */
             transition: all 0.15s ease;
             background: #ffffff;
         }
@@ -526,23 +1735,24 @@ HTML_CONTENT = """<!DOCTYPE html>
             display: block;
         }
 
-        /* Item Text */
+        /* Item Text Label Wrapper */
         .check-label-wrap {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             flex: 1;
-            min-width: 0;
-            gap: 6px;
+            min-width: 0; /* Ensures proper wrapping within flex child */
+            gap: 8px;
         }
 
         .check-label {
             font-size: 13px;
             font-weight: 500;
             color: var(--text-main);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal; /* Safe wrapping for long names */
+            word-break: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.35;
         }
 
         .check-item.done .check-label {
@@ -551,12 +1761,12 @@ HTML_CONTENT = """<!DOCTYPE html>
         }
 
         .item-priority-dot {
-            width: 6px;
-            height: 6px;
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
             background: #f97316;
             flex-shrink: 0;
-            title: "Missing staple";
+            margin-top: 5px;
         }
 
         /* Completed Accordion Divider (Keep Style) */
@@ -625,19 +1835,219 @@ HTML_CONTENT = """<!DOCTYPE html>
             font-size: 12px;
         }
 
-        /* Discrete Footer */
-        footer {
-            margin-top: 30px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-muted);
+        /* Country Selection Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
         }
 
-        footer a {
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 480px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transform: translateY(10px);
+            transition: transform 0.2s ease;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 16px 20px 12px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .modal-subtitle {
+            font-size: 13px;
             color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .modal-search-box {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .modal-search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            background: #ffffff;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            padding: 10px 14px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 8px;
+        }
+
+        .country-grid-btn {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .country-grid-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .country-grid-btn.selected {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .country-grid-flag {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* Footer with Sponsors and Citizen Science */
+        footer.app-footer {
+            margin-top: 35px;
+            padding: 20px 14px 10px 14px;
+            border-top: 1px solid var(--border);
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .footer-sponsors {
+            margin-bottom: 16px;
+        }
+
+        .footer-sponsor-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logos a {
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-logos a:hover {
+            opacity: 0.85;
+        }
+
+        .sponsor-logo {
+            max-height: 42px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .sponsor-logo-foodture {
+            max-height: 38px;
+        }
+
+        .footer-citizen {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border);
+            font-size: 12.5px;
+            color: var(--text-main);
+        }
+
+        .footer-citizen-label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .footer-citizen-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .citizen-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .citizen-link:hover {
             text-decoration: underline;
+            color: var(--primary-dark);
+        }
+
+        .citizen-sep {
+            color: var(--border-hover);
+        }
+
+        .footer-bottom-note {
+            margin-top: 16px;
+            font-size: 11px;
+            color: var(--text-muted);
         }
     </style>
 </head>
@@ -649,12 +2059,19 @@ HTML_CONTENT = """<!DOCTYPE html>
             <div class="brand-area">
                 <span class="brand-emoji">🤳🍫</span>
                 <div class="brand-text">
-                    <span class="brand-title">Scan Champion</span>
-                    <span class="brand-badge">Open Food Facts</span>
+                    <span class="brand-title" id="headerBrandTitle">Scan Champion</span>
+                    <span class="brand-badge" id="headerBrandBadge">Open Food Facts</span>
                 </div>
             </div>
-            <div class="country-select-wrapper">
-                <select id="countrySelect" class="country-select" aria-label="Select country"></select>
+            <div class="header-actions">
+                <!-- Country Selector -->
+                <div class="select-wrapper">
+                    <select id="countrySelect" class="header-select country-select" aria-label="Select country"></select>
+                </div>
+                <!-- Language Selector -->
+                <div class="select-wrapper">
+                    <select id="langSelect" class="header-select lang-select" aria-label="Select language"></select>
+                </div>
             </div>
         </div>
     </header>
@@ -664,38 +2081,38 @@ HTML_CONTENT = """<!DOCTYPE html>
         <section class="guide-card" id="guideCard">
             <div class="guide-header" id="guideToggle">
                 <div class="guide-header-title">
-                    <span>🛒 Scan Champion Instructions</span>
+                    <span id="guideTitleText">🛒 Scan Champion Instructions</span>
                 </div>
                 <button class="guide-toggle-btn" id="guideToggleBtn">Hide tips</button>
             </div>
             <div class="guide-body" id="guideBody">
-                <div class="guide-headline">Scan and photograph popular products sold in your country</div>
+                <div class="guide-headline" id="guideHeadline">Scan and photograph popular products sold in your country</div>
                 <div class="guide-steps">
                     <div class="guide-step">
                         <span class="guide-step-icon">🏪</span>
                         <div class="guide-step-text">
-                            <strong>In Store or In Pantry</strong>
-                            Scan products with the Open Food Facts app using this Scan List.
+                            <strong id="stepStoreTitle">In Store or In Pantry</strong>
+                            <span id="stepStoreDesc">Scan products with the Open Food Facts app using this Scan List.</span>
                         </div>
                     </div>
                     <div class="guide-step">
                         <span class="guide-step-icon">📸</span>
                         <div class="guide-step-text">
-                            <strong>Add 3 Clean Photos</strong>
-                            Product front packaging, ingredient lists, and nutrition facts.
+                            <strong id="stepPhotosTitle">Add 3 Clean Photos</strong>
+                            <span id="stepPhotosDesc">Product front packaging, ingredient lists, and nutrition facts.</span>
                         </div>
                     </div>
                     <div class="guide-step">
-                        <span class="guide-step-icon">🌟</span>
+                        <span class="guide-step-icon">🏷️</span>
                         <div class="guide-step-text">
-                            <strong>Popular Products</strong>
-                            Categories we absolutely need for your country basket.
+                            <strong id="stepCategoryTitle">Add Category in App</strong>
+                            <span id="stepCategoryDesc">When adding or editing a product, be sure to select or enter its category in the app!</span>
                         </div>
                     </div>
                 </div>
                 <div class="guide-tip-banner">
                     <span>💡</span>
-                    <span><strong>Pro-tip:</strong> If a category sounds strange, just go to the closest category in the aisle!</span>
+                    <span id="guideTipText"><strong>Pro-tip:</strong> If a category sounds strange, just go to the closest category in the aisle!</span>
                 </div>
             </div>
         </section>
@@ -705,11 +2122,11 @@ HTML_CONTENT = """<!DOCTYPE html>
             <!-- 2 Tabs: High Priority (Missing) & All Categories -->
             <div class="tab-bar">
                 <button class="tab-btn active" data-tab="missing" id="tabMissing">
-                    <span>🔥 High Priority (Missing)</span>
+                    <span id="tabMissingLabel">🔥 High Priority (Missing)</span>
                     <span class="badge-pill" id="badgeMissing">0</span>
                 </button>
                 <button class="tab-btn" data-tab="all" id="tabAll">
-                    <span>📋 All Categories</span>
+                    <span id="tabAllLabel">📋 All Categories</span>
                     <span class="badge-pill" id="badgeAll">0</span>
                 </button>
             </div>
@@ -723,7 +2140,7 @@ HTML_CONTENT = """<!DOCTYPE html>
                 </div>
                 <button class="btn-reset" id="btnReset" title="Clear all ticks for this country">
                     <span>↺</span>
-                    <span>Reset</span>
+                    <span id="btnResetLabel">Reset</span>
                 </button>
             </div>
 
@@ -736,7 +2153,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             </div>
         </div>
 
-        <!-- Active Unchecked Items (High Density Checklist) -->
+        <!-- Active Unchecked Items (High Density Checklist with column-safe text wrapping) -->
         <div class="checklist-container" id="activeChecklist">
             <!-- Items rendered via JS -->
         </div>
@@ -755,20 +2172,79 @@ HTML_CONTENT = """<!DOCTYPE html>
         <!-- Empty State Container -->
         <div id="emptyState" style="display: none;"></div>
 
-        <!-- Minimal Discrete Footer -->
-        <footer>
-            Open Food Facts · Scan Champion Scanning List · Ticks saved locally on your device
+        <!-- Footer with Sponsors and Citizen Science -->
+        <footer class="app-footer">
+            <div class="footer-sponsors">
+                <div class="footer-sponsor-label" id="footerSupportedLabel">Project supported by:</div>
+                <div class="footer-logos">
+                    <a href="https://www.fondationdefrance.org" target="_blank" rel="noopener" title="Fondation de France">
+                        <img src="https://thumb.wikimedia.org/wikipedia/fr/thumb/d/d2/Fondation_de_France.svg/langfr-330px-Fondation_de_France.svg.png" alt="Fondation de France" class="sponsor-logo" />
+                    </a>
+                    <a href="https://foodture-project.eu" target="_blank" rel="noopener" title="FOODTURE Project">
+                        <img src="https://foodture-project.eu/wp-content/uploads/2025/05/FOODTURE-LOGO_Color-scaled.png" alt="FOODTURE Project" class="sponsor-logo sponsor-logo-foodture" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-citizen">
+                <span class="footer-citizen-label" id="footerCitizenLabel">Discover our citizen science research:</span>
+                <div class="footer-citizen-links">
+                    <a href="https://world.openfoodfacts.net/citizen-science" target="_blank" rel="noopener" class="citizen-link">
+                        <span>🔬</span>
+                        <span id="linkCitizenEn">Citizen Science (EN)</span>
+                    </a>
+                    <span class="citizen-sep">·</span>
+                    <a href="https://fr.openfoodfacts.net/science-citoyenne" target="_blank" rel="noopener" class="citizen-link">
+                        <span>🔬</span>
+                        <span id="linkCitizenFr">Science Citoyenne (FR)</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-note">
+                <span>Open Food Facts · Scan Champion · <span id="footerStorageLabel">Ticks saved locally on your device</span></span>
+            </div>
         </footer>
     </main>
 
-    <!-- Load Data Feeds -->
+    <!-- Country Selection Modal (Forces country selection if not detected/chosen) -->
+    <div class="modal-overlay" id="countryModal" role="dialog" aria-modal="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Select your country</h2>
+                <p class="modal-subtitle" id="modalSubtitle">Choose your country to see the categories needed for your local food basket:</p>
+            </div>
+            <div class="modal-search-box">
+                <input type="search" id="modalCountrySearch" placeholder="Search country..." autocomplete="off" />
+            </div>
+            <div class="modal-body" id="modalCountryGrid">
+                <!-- Countries rendered via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Data Feeds -->
     <script src="data.js"></script>
     <script>
-        // State management
-        let currentCountry = 'at';
+        // Injected Translations & Language Names
+        const TRANSLATIONS = __TRANSLATIONS_JSON__;
+        const LANGUAGE_NAMES = __LANG_NAMES_JSON__;
+
+        // State
+        let currentCountry = null;
+        let currentLang = 'en';
         let currentTab = 'missing'; // 'missing' or 'all'
         let currentSearch = '';
         let completedCollapsed = false;
+
+        function t(key, vars = {}) {
+            const langDict = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+            let text = langDict[key] || (TRANSLATIONS['en'] ? TRANSLATIONS['en'][key] : '') || key;
+            for (const [k, v] of Object.entries(vars)) {
+                text = text.replace(new RegExp(`\\\\{${k}\\\\}`, 'g'), v);
+            }
+            return text;
+        }
 
         function getStorageKey(country) {
             return 'scan_champion_done_' + country;
@@ -798,6 +2274,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         }
 
         function toggleItem(tag) {
+            if (!currentCountry) return;
             const checkedSet = getCheckedTags(currentCountry);
             if (checkedSet.has(tag)) {
                 checkedSet.delete(tag);
@@ -812,12 +2289,226 @@ HTML_CONTENT = """<!DOCTYPE html>
         }
 
         function resetCurrentCountry() {
+            if (!currentCountry) return;
             const countryMeta = (window.CAMPAIGN_STATS && window.CAMPAIGN_STATS.countries) ? window.CAMPAIGN_STATS.countries[currentCountry] : null;
             const countryName = countryMeta ? countryMeta.name : currentCountry.toUpperCase();
-            if (confirm(`Reset all checked categories for ${countryName}?`)) {
+            if (confirm(t('reset_confirm', { country: countryName }))) {
                 localStorage.removeItem(getStorageKey(currentCountry));
                 render();
             }
+        }
+
+        // Browser Country Detection Heuristic
+        function detectBrowserCountry(countries) {
+            const langList = navigator.languages || [navigator.language || ''];
+            // 1. Language region subtag (e.g. de-AT -> at, fr-FR -> fr)
+            for (const l of langList) {
+                if (!l) continue;
+                const parts = l.split('-');
+                if (parts.length > 1) {
+                    let region = parts[1].toLowerCase();
+                    if (region === 'gb') region = 'uk';
+                    if (countries[region]) {
+                        return region;
+                    }
+                }
+            }
+
+            // 2. Timezone mapping heuristic
+            try {
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+                const tzMap = {
+                    'Europe/Vienna': 'at',
+                    'Europe/Brussels': 'be',
+                    'Europe/Sofia': 'bg',
+                    'Europe/Zagreb': 'hr',
+                    'Asia/Nicosia': 'cy',
+                    'Europe/Nicosia': 'cy',
+                    'Europe/Prague': 'cs',
+                    'Europe/Copenhagen': 'dk',
+                    'Europe/Tallinn': 'ee',
+                    'Europe/Helsinki': 'fi',
+                    'Europe/Paris': 'fr',
+                    'Europe/Berlin': 'de',
+                    'Europe/Busingen': 'de',
+                    'Europe/Athens': 'el',
+                    'Europe/Budapest': 'hu',
+                    'Europe/Dublin': 'ie',
+                    'Europe/Rome': 'it',
+                    'Europe/Riga': 'lv',
+                    'Europe/Vilnius': 'lt',
+                    'Europe/Luxembourg': 'lu',
+                    'Europe/Malta': 'mt',
+                    'Europe/Podgorica': 'me',
+                    'Europe/Amsterdam': 'nl',
+                    'Europe/Oslo': 'no',
+                    'Europe/Warsaw': 'pl',
+                    'Europe/Lisbon': 'pt',
+                    'Atlantic/Madeira': 'pt',
+                    'Atlantic/Azores': 'pt',
+                    'Europe/Bucharest': 'ro',
+                    'Europe/Belgrade': 'rs',
+                    'Europe/Bratislava': 'sk',
+                    'Europe/Ljubljana': 'si',
+                    'Europe/Madrid': 'es',
+                    'Atlantic/Canary': 'es',
+                    'Africa/Ceuta': 'es',
+                    'Europe/Stockholm': 'se',
+                    'Europe/Zurich': 'ch',
+                    'Europe/London': 'uk'
+                };
+                if (tzMap[tz] && countries[tzMap[tz]]) {
+                    return tzMap[tz];
+                }
+            } catch (e) {}
+
+            // 3. Primary language matching unique countries
+            for (const l of langList) {
+                const primary = (l.split('-')[0] || '').toLowerCase();
+                const langToCountry = {
+                    'pl': 'pl', 'el': 'el', 'hu': 'hu', 'cs': 'cs', 'sk': 'sk',
+                    'ro': 'ro', 'bg': 'bg', 'da': 'dk', 'fi': 'fi', 'et': 'ee',
+                    'lv': 'lv', 'lt': 'lt', 'hr': 'hr', 'sl': 'sl', 'pt': 'pt',
+                    'sv': 'se', 'nl': 'nl'
+                };
+                if (langToCountry[primary] && countries[langToCountry[primary]]) {
+                    return langToCountry[primary];
+                }
+            }
+
+            return null;
+        }
+
+        // Country Modal Controller
+        function openCountryModal() {
+            const modal = document.getElementById('countryModal');
+            modal.classList.add('active');
+            renderModalCountryGrid();
+            document.getElementById('modalCountrySearch').focus();
+        }
+
+        function closeCountryModal() {
+            const modal = document.getElementById('countryModal');
+            modal.classList.remove('active');
+        }
+
+        function renderModalCountryGrid() {
+            const grid = document.getElementById('modalCountryGrid');
+            const searchVal = (document.getElementById('modalCountrySearch').value || '').toLowerCase().trim();
+            grid.innerHTML = '';
+
+            const countries = window.CAMPAIGN_STATS ? window.CAMPAIGN_STATS.countries : {};
+            const sortedCodes = Object.keys(countries).sort((a, b) => countries[a].name.localeCompare(countries[b].name));
+
+            sortedCodes.forEach(code => {
+                const c = countries[code];
+                if (searchVal && !c.name.toLowerCase().includes(searchVal) && !code.includes(searchVal)) {
+                    return;
+                }
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'country-grid-btn' + (currentCountry === code ? ' selected' : '');
+                btn.innerHTML = `<span class="country-grid-flag">${c.flag}</span><span>${c.name}</span>`;
+                btn.addEventListener('click', () => {
+                    selectCountry(code);
+                    closeCountryModal();
+                });
+                grid.appendChild(btn);
+            });
+        }
+
+        function selectCountry(code) {
+            currentCountry = code;
+            try {
+                localStorage.setItem('scan_champion_country', code);
+            } catch (e) {}
+
+            // Update URL param
+            const url = new URL(window.location);
+            url.searchParams.set('country', code);
+            window.history.replaceState({}, '', url);
+
+            // Update Country Select Dropdown
+            const select = document.getElementById('countrySelect');
+            if (select) select.value = code;
+
+            // If user hasn't explicitly set language, default to country primary official language
+            const storedLang = localStorage.getItem('scan_champion_lang');
+            const urlLang = getParam('lang');
+            if (!urlLang && !storedLang) {
+                const cMeta = window.CAMPAIGN_STATS.countries[code];
+                if (cMeta && cMeta.languages && cMeta.languages[0]) {
+                    selectLanguage(cMeta.languages[0], false);
+                }
+            }
+
+            if (window._paq) {
+                const countries = window.CAMPAIGN_STATS.countries;
+                _paq.push(['setCustomUrl', window.location.href]);
+                _paq.push(['setDocumentTitle', 'Scan Champion - ' + (countries[code] ? countries[code].name : code.toUpperCase())]);
+                _paq.push(['trackPageView']);
+            }
+
+            render();
+        }
+
+        function selectLanguage(langCode, updateStorage = true) {
+            if (!TRANSLATIONS[langCode]) {
+                langCode = 'en';
+            }
+            currentLang = langCode;
+
+            if (updateStorage) {
+                try {
+                    localStorage.setItem('scan_champion_lang', langCode);
+                } catch (e) {}
+            }
+
+            // Update URL param
+            const url = new URL(window.location);
+            url.searchParams.set('lang', langCode);
+            window.history.replaceState({}, '', url);
+
+            const langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = langCode;
+
+            applyTranslations();
+            render();
+        }
+
+        function applyTranslations() {
+            // Apply all translated strings to DOM
+            document.title = `${t('app_title')} 🤳🍫 — Open Food Facts`;
+            document.getElementById('headerBrandTitle').textContent = t('app_title');
+            document.getElementById('headerBrandBadge').textContent = t('app_badge');
+            document.getElementById('guideTitleText').textContent = t('guide_title');
+
+            const isCollapsed = document.getElementById('guideBody').classList.contains('collapsed');
+            document.getElementById('guideToggleBtn').textContent = isCollapsed ? t('guide_show') : t('guide_hide');
+
+            document.getElementById('guideHeadline').textContent = t('guide_headline');
+            document.getElementById('stepStoreTitle').textContent = t('step_store_title');
+            document.getElementById('stepStoreDesc').textContent = t('step_store_desc');
+            document.getElementById('stepPhotosTitle').textContent = t('step_photos_title');
+            document.getElementById('stepPhotosDesc').textContent = t('step_photos_desc');
+            document.getElementById('stepCategoryTitle').textContent = t('step_category_title');
+            document.getElementById('stepCategoryDesc').textContent = t('step_category_desc');
+            document.getElementById('guideTipText').innerHTML = `<strong>${t('tip_text').split(':')[0]}:</strong> ${t('tip_text').split(':').slice(1).join(':') || t('tip_text')}`;
+
+            document.getElementById('tabMissingLabel').textContent = t('tab_missing');
+            document.getElementById('tabAllLabel').textContent = t('tab_all');
+            document.getElementById('searchInput').placeholder = t('search_placeholder');
+            document.getElementById('btnResetLabel').textContent = t('reset_btn');
+
+            document.getElementById('footerSupportedLabel').textContent = t('footer_supported');
+            document.getElementById('footerCitizenLabel').textContent = t('footer_citizen');
+            document.getElementById('linkCitizenEn').textContent = t('footer_citizen_link_en');
+            document.getElementById('linkCitizenFr').textContent = t('footer_citizen_link_fr');
+            document.getElementById('footerStorageLabel').textContent = t('footer_storage');
+
+            document.getElementById('modalTitle').textContent = t('modal_title');
+            document.getElementById('modalSubtitle').textContent = t('modal_subtitle');
+            document.getElementById('modalCountrySearch').placeholder = t('modal_search_placeholder');
         }
 
         function init() {
@@ -827,45 +2518,83 @@ HTML_CONTENT = """<!DOCTYPE html>
             }
 
             const countries = window.CAMPAIGN_STATS.countries;
-            const select = document.getElementById('countrySelect');
-            select.innerHTML = '';
 
-            const paramC = getParam('country');
-            const userLocale = (navigator.language || '').toLowerCase().split('-')[1];
-
-            // Populate country select with flags and names
+            // 1. Populate Country Selector
+            const countrySelect = document.getElementById('countrySelect');
+            countrySelect.innerHTML = '';
             const sortedCodes = Object.keys(countries).sort((a, b) => countries[a].name.localeCompare(countries[b].name));
             sortedCodes.forEach(code => {
                 const c = countries[code];
                 const opt = document.createElement('option');
                 opt.value = code;
                 opt.textContent = `${c.flag} ${c.name}`;
-                select.appendChild(opt);
+                countrySelect.appendChild(opt);
             });
 
-            // Set initial country
-            if (paramC && countries[paramC.toLowerCase()]) {
-                currentCountry = paramC.toLowerCase();
-            } else if (userLocale && countries[userLocale]) {
-                currentCountry = userLocale;
+            // 2. Populate Language Selector
+            const langSelect = document.getElementById('langSelect');
+            langSelect.innerHTML = '';
+            const sortedLangs = Object.keys(TRANSLATIONS).sort((a, b) => (LANGUAGE_NAMES[a] || a).localeCompare(LANGUAGE_NAMES[b] || b));
+            sortedLangs.forEach(lang => {
+                const opt = document.createElement('option');
+                opt.value = lang;
+                opt.textContent = LANGUAGE_NAMES[lang] || lang.toUpperCase();
+                langSelect.appendChild(opt);
+            });
+
+            // 3. Resolve Language
+            const urlLang = getParam('lang');
+            const storedLang = localStorage.getItem('scan_champion_lang');
+            const browserLang = (navigator.language || '').split('-')[0].toLowerCase();
+
+            if (urlLang && TRANSLATIONS[urlLang]) {
+                currentLang = urlLang;
+            } else if (storedLang && TRANSLATIONS[storedLang]) {
+                currentLang = storedLang;
+            } else if (TRANSLATIONS[browserLang]) {
+                currentLang = browserLang;
             } else {
-                currentCountry = 'at';
+                currentLang = 'en';
             }
-            select.value = currentCountry;
+            langSelect.value = currentLang;
 
-            // Country selection change
-            select.addEventListener('change', (e) => {
-                currentCountry = e.target.value;
-                const url = new URL(window.location);
-                url.searchParams.set('country', currentCountry);
-                window.history.replaceState({}, '', url);
+            // 4. Resolve Country: URL -> localStorage -> Browser Detection -> Modal Fallback
+            const urlCountry = getParam('country');
+            const storedCountry = localStorage.getItem('scan_champion_country');
 
-                if (window._paq) {
-                    _paq.push(['setCustomUrl', window.location.href]);
-                    _paq.push(['setDocumentTitle', 'Scan Champion - ' + (countries[currentCountry] ? countries[currentCountry].name : currentCountry.toUpperCase())]);
-                    _paq.push(['trackPageView']);
+            if (urlCountry && countries[urlCountry.toLowerCase()]) {
+                currentCountry = urlCountry.toLowerCase();
+            } else if (storedCountry && countries[storedCountry.toLowerCase()]) {
+                currentCountry = storedCountry.toLowerCase();
+            } else {
+                const detected = detectBrowserCountry(countries);
+                if (detected) {
+                    currentCountry = detected;
                 }
-                render();
+            }
+
+            if (currentCountry) {
+                countrySelect.value = currentCountry;
+                try {
+                    localStorage.setItem('scan_champion_country', currentCountry);
+                } catch (e) {}
+            } else {
+                // Force country modal
+                openCountryModal();
+            }
+
+            // Event Listeners
+            countrySelect.addEventListener('change', (e) => {
+                selectCountry(e.target.value);
+            });
+
+            langSelect.addEventListener('change', (e) => {
+                selectLanguage(e.target.value, true);
+            });
+
+            // Modal Country Search Listener
+            document.getElementById('modalCountrySearch').addEventListener('input', () => {
+                renderModalCountryGrid();
             });
 
             // Tab Buttons (2 tabs: missing, all)
@@ -908,7 +2637,6 @@ HTML_CONTENT = """<!DOCTYPE html>
             });
 
             // Guide collapse toggle
-            const guideCard = document.getElementById('guideCard');
             const guideBody = document.getElementById('guideBody');
             const guideToggle = document.getElementById('guideToggle');
             const guideToggleBtn = document.getElementById('guideToggleBtn');
@@ -916,16 +2644,21 @@ HTML_CONTENT = """<!DOCTYPE html>
             const isGuideCollapsed = localStorage.getItem('scan_champion_guide_collapsed') === 'true';
             if (isGuideCollapsed) {
                 guideBody.classList.add('collapsed');
-                guideToggleBtn.textContent = 'Show tips';
             }
 
             guideToggle.addEventListener('click', () => {
                 const collapsed = guideBody.classList.toggle('collapsed');
-                guideToggleBtn.textContent = collapsed ? 'Show tips' : 'Hide tips';
-                localStorage.setItem('scan_champion_guide_collapsed', collapsed ? 'true' : 'false');
+                guideToggleBtn.textContent = collapsed ? t('guide_show') : t('guide_hide');
+                try {
+                    localStorage.setItem('scan_champion_guide_collapsed', collapsed ? 'true' : 'false');
+                } catch (e) {}
             });
 
-            render();
+            applyTranslations();
+            renderModalCountryGrid();
+            if (currentCountry) {
+                render();
+            }
         }
 
         function createItemNode(item, isChecked, isMissing) {
@@ -953,6 +2686,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         }
 
         function render() {
+            if (!currentCountry) return;
             const countryFull = window.COUNTRIES_DATA[currentCountry];
             if (!countryFull) return;
 
@@ -979,7 +2713,11 @@ HTML_CONTENT = """<!DOCTYPE html>
             // Update Progress Bar
             const pct = currentTotalCount > 0 ? Math.round((currentCheckedCount / currentTotalCount) * 100) : 0;
             document.getElementById('progressBarFill').style.width = `${pct}%`;
-            document.getElementById('progressSummary').textContent = `${currentCheckedCount} of ${currentTotalCount} scanned (${pct}%)`;
+            document.getElementById('progressSummary').textContent = t('progress_summary', {
+                checked: currentCheckedCount,
+                total: currentTotalCount,
+                pct: pct
+            });
 
             // Filter items by search query
             let filtered = sourcePool;
@@ -1017,7 +2755,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
             if (completedItems.length > 0) {
                 completedSection.style.display = 'block';
-                completedHeaderLabel.textContent = `✓ Completed (${completedItems.length} item${completedItems.length > 1 ? 's' : ''})`;
+                completedHeaderLabel.textContent = `✓ ${t('completed_label', { count: completedItems.length })}`;
                 completedListEl.innerHTML = '';
                 completedItems.forEach(item => {
                     completedListEl.appendChild(createItemNode(item, true, !item.has_code));
@@ -1034,16 +2772,16 @@ HTML_CONTENT = """<!DOCTYPE html>
                     emptyStateEl.innerHTML = `
                         <div class="empty-state">
                             <div class="empty-state-icon">🔍</div>
-                            <div class="empty-state-title">No categories found</div>
-                            <div class="empty-state-desc">No categories in this list match "<strong>${currentSearch}</strong>".</div>
+                            <div class="empty-state-title">${t('empty_search_title')}</div>
+                            <div class="empty-state-desc">${t('empty_search_desc', { query: currentSearch })}</div>
                         </div>
                     `;
                 } else if (currentTab === 'missing' && totalMissing === 0) {
                     emptyStateEl.innerHTML = `
                         <div class="empty-state">
                             <div class="empty-state-icon">🎉</div>
-                            <div class="empty-state-title">All high-priority categories covered!</div>
-                            <div class="empty-state-desc">Switch to "All Categories" to discover more products to photograph.</div>
+                            <div class="empty-state-title">${t('empty_missing_done_title')}</div>
+                            <div class="empty-state-desc">${t('empty_missing_done_desc')}</div>
                         </div>
                     `;
                 }
@@ -1052,8 +2790,8 @@ HTML_CONTENT = """<!DOCTYPE html>
                 emptyStateEl.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon">🏆</div>
-                        <div class="empty-state-title">Scan Champion! All ${completedItems.length} items checked!</div>
-                        <div class="empty-state-desc">Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.</div>
+                        <div class="empty-state-title">${t('empty_all_done_title', { count: completedItems.length })}</div>
+                        <div class="empty-state-desc">${t('empty_all_done_desc')}</div>
                     </div>
                 `;
             } else {
@@ -1067,16 +2805,27 @@ HTML_CONTENT = """<!DOCTYPE html>
 </html>
 """
 
+def generate_html():
+    content = HTML_TEMPLATE.replace(
+        '__TRANSLATIONS_JSON__',
+        json.dumps(TRANSLATIONS, ensure_ascii=False)
+    ).replace(
+        '__LANG_NAMES_JSON__',
+        json.dumps(LANGUAGE_NAMES, ensure_ascii=False)
+    )
+    return content
+
 DEST_FILES = [
     os.path.join(BASE_DIR, 'photos-for-impact', 'index.html'),
     os.path.join(BASE_DIR, 'release-website', 'photos-for-impact', 'index.html'),
 ]
 
 def main():
+    content = generate_html()
     for dest_file in DEST_FILES:
         os.makedirs(os.path.dirname(dest_file), exist_ok=True)
         with open(dest_file, 'w', encoding='utf-8') as f:
-            f.write(HTML_CONTENT.strip() + '\n')
+            f.write(content.strip() + '\n')
         print(f"Generated {dest_file} successfully!")
 
 if __name__ == '__main__':
