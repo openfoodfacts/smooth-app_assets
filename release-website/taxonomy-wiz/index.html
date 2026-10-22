@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Taxonomy Wiz 🧑💻 — Open Food Facts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      _paq.push(['setDoNotTrack', true]);
+      _paq.push(['disableCookies']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://analytics.openfoodfacts.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '19']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="https://analytics.openfoodfacts.org/matomo.php?idsite=19&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <style>
+        :root {
+            --primary: #1b7340;
+            --primary-dark: #12522c;
+            --primary-light: #e8f5e9;
+            --accent-blue: #2563eb;
+            --accent-blue-light: #eff6ff;
+            --accent-gold: #f59e0b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --radius-lg: 14px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1);
+            --item-height: 42px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.45;
+            padding-bottom: 70px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Sticky Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            min-width: 0;
+        }
+
+        .brand-emoji {
+            font-size: 24px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .brand-title {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+
+        .brand-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-blue);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .switch-game-link {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            background: var(--primary-light);
+            padding: 6px 10px;
+            border-radius: 20px;
+            display: none;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .switch-game-link:hover {
+            background: #dcfce7;
+        }
+
+        @media (min-width: 680px) {
+            .switch-game-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+            }
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        select.header-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            padding: 6px 24px 6px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            max-width: 155px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        select.header-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .select-wrapper::after {
+            content: '▾';
+            font-size: 10px;
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        select.lang-select {
+            max-width: 110px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 12px 16px;
+        }
+
+        /* Technical Warning Card */
+        .warning-card {
+            background: #eff6ff;
+            border: 1.5px solid #bfdbfe;
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .warning-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: #1e3a8a;
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .warning-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .warning-text strong {
+            display: block;
+            margin-bottom: 2px;
+            color: #1e40af;
+        }
+
+        .warning-buttons {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-tool {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.15s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-slack {
+            background: #4a154b;
+            color: #ffffff;
+        }
+
+        .btn-slack:hover {
+            background: #611f69;
+        }
+
+        .btn-editor {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        .btn-editor:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-github {
+            background: #1e293b;
+            color: #ffffff;
+        }
+
+        .btn-github:hover {
+            background: #0f172a;
+        }
+
+        /* Mission / Guide Card */
+        .guide-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .guide-header {
+            padding: 10px 16px;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .guide-header-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .guide-toggle-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .guide-body {
+            padding: 12px 16px;
+            font-size: 13px;
+        }
+
+        .guide-body.collapsed {
+            display: none;
+        }
+
+        .guide-headline {
+            font-weight: 700;
+            font-size: 13.5px;
+            margin-bottom: 10px;
+            color: #1e3a8a;
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .guide-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+        }
+
+        .guide-step-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .guide-step-text {
+            font-size: 12.5px;
+            line-height: 1.35;
+        }
+
+        .guide-step-text strong {
+            display: block;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .guide-tip-banner {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: var(--radius-sm);
+            padding: 7px 12px;
+            font-size: 12px;
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Sticky Control Bar */
+        .controls-sticky {
+            position: sticky;
+            top: 53px;
+            background: var(--bg);
+            padding: 6px 0 8px 0;
+            z-index: 90;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            margin-bottom: 10px;
+        }
+
+        /* 2 Tabs: All Categories (default active) & High Priority */
+        .tab-bar {
+            display: flex;
+            background: #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 3px;
+            gap: 3px;
+            margin-bottom: 8px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 8px 6px;
+            border: none;
+            background: transparent;
+            border-radius: var(--radius-sm);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            background: #ffffff;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+            font-weight: 700;
+        }
+
+        .tab-btn .badge-pill {
+            background: #e2e8f0;
+            color: var(--text-main);
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .tab-btn.active .badge-pill {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Search + Toolbar */
+        .toolbar-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .search-box-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+        .search-box-wrapper input {
+            width: 100%;
+            padding: 8px 30px 8px 30px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 13px;
+            background: #ffffff;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-box-wrapper input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #e2e8f0;
+            border: none;
+            color: var(--text-muted);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-clear-btn.visible {
+            display: flex;
+        }
+
+        .btn-reset {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-reset:hover {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #fca5a5;
+        }
+
+        /* Mini Progress Bar */
+        .progress-strip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 11.5px;
+            color: var(--text-muted);
+            padding: 0 4px;
+        }
+
+        .progress-bar-track {
+            flex: 1;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--accent-blue);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Google Keep Style Checklist with Direct Category Links */
+        .checklist-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+        }
+
+        @media (min-width: 680px) {
+            .checklist-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 9px 12px;
+            min-height: var(--item-height);
+            min-width: 0;
+            width: 100%;
+            transition: background 0.12s ease, border-color 0.12s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        .check-item:hover {
+            border-color: var(--border-hover);
+            background: #fdfdfd;
+        }
+
+        /* Checkbox Box (clickable to tick review status) */
+        .check-box {
+            width: 19px;
+            height: 19px;
+            border: 1.8px solid #94a3b8;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+            transition: all 0.15s ease;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .check-item.done .check-box {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .check-box svg {
+            display: none;
+            width: 12px;
+            height: 12px;
+            stroke: #ffffff;
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        .check-item.done .check-box svg {
+            display: block;
+        }
+
+        /* Item Text Label Wrapper with Link to Category */
+        .check-label-wrap {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex: 1;
+            min-width: 0;
+            gap: 8px;
+        }
+
+        .check-label-link {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            white-space: normal;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.35;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .check-label-link:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        .check-item.done .check-label-link {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        .ext-icon {
+            font-size: 11px;
+            color: var(--text-muted);
+            opacity: 0.7;
+            text-decoration: none !important;
+        }
+
+        .check-label-link:hover .ext-icon {
+            color: var(--accent-blue);
+            opacity: 1;
+        }
+
+        .item-priority-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #f97316;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        /* Completed Accordion Divider (Keep Style) */
+        .completed-section {
+            margin-top: 14px;
+            border-top: 1px solid var(--border);
+            padding-top: 10px;
+        }
+
+        .completed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            user-select: none;
+            background: #f1f5f9;
+            margin-bottom: 6px;
+        }
+
+        .completed-header:hover {
+            background: #e2e8f0;
+        }
+
+        .completed-header .chevron {
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .completed-header.collapsed .chevron {
+            transform: rotate(-90deg);
+        }
+
+        .completed-items-list.collapsed {
+            display: none;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 30px 16px;
+            color: var(--text-muted);
+            background: #ffffff;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-md);
+            margin-top: 10px;
+        }
+
+        .empty-state-icon {
+            font-size: 32px;
+            margin-bottom: 6px;
+        }
+
+        .empty-state-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .empty-state-desc {
+            font-size: 12px;
+        }
+
+        /* Country Selection Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 480px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transform: translateY(10px);
+            transition: transform 0.2s ease;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 16px 20px 12px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .modal-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .modal-search-box {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .modal-search-box input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            background: #ffffff;
+        }
+
+        .modal-body {
+            overflow-y: auto;
+            padding: 10px 14px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 8px;
+        }
+
+        .country-grid-btn {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .country-grid-btn:hover {
+            border-color: var(--accent-blue);
+            background: var(--accent-blue-light);
+        }
+
+        .country-grid-btn.selected {
+            border-color: var(--accent-blue);
+            background: var(--accent-blue-light);
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .country-grid-flag {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* Footer with Sponsors and Citizen Science */
+        footer.app-footer {
+            margin-top: 35px;
+            padding: 20px 14px 10px 14px;
+            border-top: 1px solid var(--border);
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .footer-sponsors {
+            margin-bottom: 16px;
+        }
+
+        .footer-sponsor-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .footer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logos a {
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-logos a:hover {
+            opacity: 0.85;
+        }
+
+        .sponsor-logo {
+            max-height: 42px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .sponsor-logo-foodture {
+            max-height: 38px;
+        }
+
+        .footer-citizen {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border);
+            font-size: 12.5px;
+            color: var(--text-main);
+        }
+
+        .footer-citizen-label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .footer-citizen-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .citizen-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .citizen-link:hover {
+            text-decoration: underline;
+        }
+
+        .citizen-sep {
+            color: var(--border-hover);
+        }
+
+        .footer-bottom-note {
+            margin-top: 16px;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky App Header -->
+    <header>
+        <div class="header-container">
+            <div class="brand-area">
+                <span class="brand-emoji">🧑💻</span>
+                <div class="brand-text">
+                    <span class="brand-title" id="headerBrandTitle">Taxonomy Wiz</span>
+                    <span class="brand-badge" id="headerBrandBadge">Open Food Facts</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../photos-for-impact/" id="switchGameLink" class="switch-game-link">
+                    <span>🤳 In store? Scan Champion</span>
+                </a>
+                <!-- Country Selector -->
+                <div class="select-wrapper">
+                    <select id="countrySelect" class="header-select country-select" aria-label="Select country"></select>
+                </div>
+                <!-- Language Selector -->
+                <div class="select-wrapper">
+                    <select id="langSelect" class="header-select lang-select" aria-label="Select language"></select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Warning / Tools Bar for Taxonomy Wiz -->
+        <section class="warning-card">
+            <div class="warning-left">
+                <span class="warning-icon">⚠️</span>
+                <div class="warning-text">
+                    <strong id="wizWarningTitle">A bit more technical:</strong>
+                    <span id="wizWarningDesc">Need guidance or want to collaborate? Join us in #foodture and #ingredients on Slack!</span>
+                </div>
+            </div>
+            <div class="warning-buttons">
+                <a href="https://slack.openfoodfacts.org" target="_blank" rel="noopener" class="btn-tool btn-slack">
+                    <span>💬</span>
+                    <span id="btnSlackLabel">Join Slack</span>
+                </a>
+                <a href="https://taxonomy.openfoodfacts.org" target="_blank" rel="noopener" class="btn-tool btn-editor">
+                    <span>📝</span>
+                    <span id="btnEditorLabel">Taxonomy Editor</span>
+                </a>
+                <a href="https://github.com/openfoodfacts/openfoodfacts-server/tree/main/taxonomies" target="_blank" rel="noopener" class="btn-tool btn-github">
+                    <span>🐙</span>
+                    <span id="btnGithubLabel">GitHub Taxonomies</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Instructions / Scanning Guide -->
+        <section class="guide-card" id="guideCard">
+            <div class="guide-header" id="guideToggle">
+                <div class="guide-header-title">
+                    <span id="guideTitleText">📖 Taxonomy Wiz Instructions</span>
+                </div>
+                <button class="guide-toggle-btn" id="guideToggleBtn">Hide tips</button>
+            </div>
+            <div class="guide-body" id="guideBody">
+                <div class="guide-headline" id="guideHeadline">Help improve the support of your language for ingredients analysis</div>
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <span class="guide-step-icon">💻</span>
+                        <div class="guide-step-text">
+                            <strong id="step1Title">At Home with Computer</strong>
+                            <span id="step1Desc">Work comfortably from your desktop to inspect ingredient taxonomies and categories.</span>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🗂️</span>
+                        <div class="guide-step-text">
+                            <strong id="step2Title">Add or Review Translations</strong>
+                            <span id="step2Desc">Review ingredient and category translations in your language for accuracy.</span>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🛠️</span>
+                        <div class="guide-step-text">
+                            <strong id="step3Title">Taxonomy Editor & GitHub</strong>
+                            <span id="step3Desc">Use the web Taxonomy Editor or GitHub repository to propose and refine translations.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-tip-banner">
+                    <span>💡</span>
+                    <span id="guideTipText"><strong>Pro-tip:</strong> Click any category to open its Open Food Facts category page and inspect ingredients!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky Controls Bar: 2 Tabs (All Categories default active), Search, and Progress -->
+        <div class="controls-sticky">
+            <!-- 2 Tabs: All Categories (default active) & High Priority -->
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab="all" id="tabAll">
+                    <span id="tabAllLabel">📋 All Categories</span>
+                    <span class="badge-pill" id="badgeAll">0</span>
+                </button>
+                <button class="tab-btn" data-tab="missing" id="tabMissing">
+                    <span id="tabMissingLabel">🔥 High Priority</span>
+                    <span class="badge-pill" id="badgeMissing">0</span>
+                </button>
+            </div>
+
+            <!-- Search + Reset Bar -->
+            <div class="toolbar-row">
+                <div class="search-box-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="searchInput" placeholder="Filter categories (e.g. liqueur, bread, cheese)..." autocomplete="off" />
+                    <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">✕</button>
+                </div>
+                <button class="btn-reset" id="btnReset" title="Clear all reviews for this country">
+                    <span>↺</span>
+                    <span id="btnResetLabel">Reset</span>
+                </button>
+            </div>
+
+            <!-- Mini Progress Indicator -->
+            <div class="progress-strip">
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text" id="progressSummary">0 / 0 reviewed</span>
+            </div>
+        </div>
+
+        <!-- Active Unreviewed Items (High Density Checklist with links to Open Food Facts categories) -->
+        <div class="checklist-container" id="activeChecklist">
+            <!-- Items rendered via JS -->
+        </div>
+
+        <!-- Reviewed Items Section (Google Keep Style) -->
+        <section class="completed-section" id="completedSection" style="display: none;">
+            <div class="completed-header" id="completedHeader">
+                <span id="completedHeaderLabel">✓ Reviewed (0 items)</span>
+                <span class="chevron">▾</span>
+            </div>
+            <div class="checklist-container completed-items-list" id="completedChecklist">
+                <!-- Reviewed items rendered via JS -->
+            </div>
+        </section>
+
+        <!-- Empty State Container -->
+        <div id="emptyState" style="display: none;"></div>
+
+        <!-- Footer with Sponsors and Citizen Science -->
+        <footer class="app-footer">
+            <div class="footer-sponsors">
+                <div class="footer-sponsor-label" id="footerSupportedLabel">Project supported by:</div>
+                <div class="footer-logos">
+                    <a href="https://www.fondationdefrance.org" target="_blank" rel="noopener" title="Fondation de France">
+                        <img src="https://thumb.wikimedia.org/wikipedia/fr/thumb/d/d2/Fondation_de_France.svg/langfr-330px-Fondation_de_France.svg.png" alt="Fondation de France" class="sponsor-logo" />
+                    </a>
+                    <a href="https://foodture-project.eu" target="_blank" rel="noopener" title="FOODTURE Project">
+                        <img src="https://foodture-project.eu/wp-content/uploads/2025/05/FOODTURE-LOGO_Color-scaled.png" alt="FOODTURE Project" class="sponsor-logo sponsor-logo-foodture" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-citizen">
+                <span class="footer-citizen-label" id="footerCitizenLabel">Discover our citizen science research:</span>
+                <div class="footer-citizen-links">
+                    <a href="https://world.openfoodfacts.net/citizen-science" target="_blank" rel="noopener" class="citizen-link">
+                        <span>🔬</span>
+                        <span id="linkCitizenEn">Citizen Science (EN)</span>
+                    </a>
+                    <span class="citizen-sep">·</span>
+                    <a href="https://fr.openfoodfacts.net/science-citoyenne" target="_blank" rel="noopener" class="citizen-link">
+                        <span>🔬</span>
+                        <span id="linkCitizenFr">Science Citoyenne (FR)</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-note">
+                <span>Open Food Facts · Taxonomy Wiz · <span id="footerStorageLabel">Reviewed items saved locally on your device</span></span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Country Selection Modal -->
+    <div class="modal-overlay" id="countryModal" role="dialog" aria-modal="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Select your country</h2>
+                <p class="modal-subtitle" id="modalSubtitle">Choose your country to see the categories needed for your local food basket:</p>
+            </div>
+            <div class="modal-search-box">
+                <input type="search" id="modalCountrySearch" placeholder="Search country..." autocomplete="off" />
+            </div>
+            <div class="modal-body" id="modalCountryGrid">
+                <!-- Countries rendered via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Data Feeds -->
+    <script src="data.js"></script>
+    <script>
+        const TRANSLATIONS = {"en": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "fr": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Instructions Scan Champion", "guide_hide": "Masquer astuces", "guide_show": "Afficher astuces", "guide_headline": "Scannez et photographiez les produits populaires vendus dans votre pays", "step_store_title": "En magasin ou dans vos placards", "step_store_desc": "Scannez les produits avec l'application Open Food Facts grâce à cette liste.", "step_photos_title": "Ajoutez 3 photos nettes", "step_photos_desc": "Face avant du produit, liste des ingrédients et tableau nutritionnel.", "step_category_title": "Ajoutez la catégorie", "step_category_desc": "Lors de l'ajout ou de l'édition du produit, pensez bien à renseigner sa catégorie dans l'application !", "tip_text": "Astuce : Si le nom d'une catégorie vous paraît étrange, prenez le produit le plus proche dans le rayon !", "tab_missing": "Priorité haute (manquants)", "tab_all": "Toutes les catégories", "search_placeholder": "Filtrer les catégories (ex : bière, pain, fromage)...", "reset_btn": "Réinitialiser", "reset_confirm": "Réinitialiser toutes les catégories cochées pour {country} ?", "progress_summary": "{checked} sur {total} scannés ({pct}%)", "completed_label": "Complétés ({count})", "empty_search_title": "Aucune catégorie trouvée", "empty_search_desc": "Aucune catégorie ne correspond à « {query} ».", "empty_missing_done_title": "Toutes les catégories prioritaires sont couvertes !", "empty_missing_done_desc": "Basculez sur « Toutes les catégories » pour découvrir d'autres produits à photographier.", "empty_all_done_title": "Scan Champion ! Les {count} catégories sont cochées !", "empty_all_done_desc": "Bravo ! Vous avez scanné toutes les catégories. Touchez un élément complété pour le décocher ou réinitialisez.", "modal_title": "Choisissez votre pays", "modal_subtitle": "Sélectionnez votre pays pour afficher les catégories prioritaires :", "modal_search_placeholder": "Rechercher un pays...", "modal_confirm": "Choisir", "footer_supported": "Projet soutenu par :", "footer_citizen": "Découvrez nos recherches en science citoyenne :", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Coches enregistrées localement sur votre appareil", "switch_to_wiz": "🧑💻 Sur ordinateur ? Découvrez Taxonomy Wiz", "switch_to_scan": "🤳 En magasin ? Découvrez Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Instructions Taxonomy Wiz", "wiz_guide_headline": "Aidez à améliorer le support de votre langue pour l'analyse des ingrédients", "wiz_step1_title": "À la maison sur ordinateur", "wiz_step1_desc": "Travaillez confortablement depuis votre ordinateur pour inspecter les taxonomies et catégories.", "wiz_step2_title": "Ajoutez ou révisez les traductions", "wiz_step2_desc": "Vérifiez les traductions des catégories et ingrédients dans votre langue.", "wiz_step3_title": "Éditeur de taxonomie & GitHub", "wiz_step3_desc": "Utilisez l'éditeur web de taxonomie ou GitHub pour proposer et corriger des traductions.", "wiz_warning_title": "Un peu plus technique :", "wiz_warning_desc": "Besoin d'aide ou envie d'échanger ? Rejoignez-nous sur Slack dans #foodture et #ingredients !", "wiz_slack_btn": "Rejoindre Slack", "wiz_editor_btn": "Éditeur de taxonomie", "wiz_github_btn": "Taxonomies sur GitHub", "wiz_tip_text": "Astuce : Cliquez sur une catégorie pour ouvrir sa page sur Open Food Facts et inspecter ses ingrédients !", "wiz_tab_all": "Toutes les catégories", "wiz_tab_priority": "Haute priorité", "wiz_progress_summary": "{checked} sur {total} révisés ({pct}%)", "wiz_completed_label": "Révisés ({count})", "wiz_empty_priority_title": "Aucun élément hautement prioritaire pour l'instant", "wiz_empty_priority_desc": "Basculez sur « Toutes les catégories » pour explorer et réviser les traductions.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion ! Les {count} catégories ont été révisées !", "wiz_empty_all_done_desc": "Incroyable contribution ! Vous avez passé en revue toutes les catégories.", "wiz_open_category": "Ouvrir la catégorie sur Open Food Facts"}, "de": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Anleitung", "guide_hide": "Tipps ausblenden", "guide_show": "Tipps anzeigen", "guide_headline": "Scanne und fotografiere beliebte Produkte deines Landes", "step_store_title": "Im Geschäft oder in der Vorratskammer", "step_store_desc": "Scanne Produkte mit der Open Food Facts App anhand dieser Scan-Liste.", "step_photos_title": "3 klare Fotos aufnehmen", "step_photos_desc": "Produktvorderseite, Zutatenliste und Nährwerttabelle.", "step_category_title": "Kategorie in der App angeben", "step_category_desc": "Beim Hinzufügen oder Bearbeiten bitte unbedingt die passende Kategorie in der App auswählen!", "tip_text": "Tipp: Klingt eine Kategorie ungewöhnlich, wähle einfach das ähnlichste Produkt im Regal!", "tab_missing": "Hohe Priorität (Fehlend)", "tab_all": "Alle Kategorien", "search_placeholder": "Kategorien filtern (z.B. Bier, Brot, Käse)...", "reset_btn": "Zurücksetzen", "reset_confirm": "Alle abgehakten Kategorien für {country} zurücksetzen?", "progress_summary": "{checked} von {total} gescannt ({pct}%)", "completed_label": "Erledigt ({count})", "empty_search_title": "Keine Kategorien gefunden", "empty_search_desc": "Keine Kategorien entsprechen „{query}“.", "empty_missing_done_title": "Alle vorrangigen Kategorien erfasst!", "empty_missing_done_desc": "Wechsle zu „Alle Kategorien“, um weitere Produkte zu entdecken.", "empty_all_done_title": "Scan Champion! Alle {count} Kategorien abgehakt!", "empty_all_done_desc": "Klasse! Du hast alle Kategorien gescannt.", "modal_title": "Wähle dein Land", "modal_subtitle": "Wähle dein Land, um die benötigten Lebensmittelkategorien anzuzeigen:", "modal_search_placeholder": "Land suchen...", "modal_confirm": "Auswählen", "footer_supported": "Projekt unterstützt von:", "footer_citizen": "Entdecke unsere Citizen-Science-Forschung:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Häkchen lokal auf deinem Gerät gespeichert", "switch_to_wiz": "🧑💻 Am Computer? Probiere Taxonomy Wiz", "switch_to_scan": "🤳 Im Supermarkt? Probiere Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Anleitung", "wiz_guide_headline": "Hilf mit, deine Sprache bei der Zutatenanalyse zu verbessern", "wiz_step1_title": "Zuhause am Computer", "wiz_step1_desc": "Arbeite bequem am Desktop, um Taxonomien und Kategorien zu prüfen.", "wiz_step2_title": "Übersetzungen prüfen & ergänzen", "wiz_step2_desc": "Prüfe Übersetzungen für Zutaten und Kategorien in deiner Sprache.", "wiz_step3_title": "Taxonomie-Editor & GitHub", "wiz_step3_desc": "Nutze den Web-Taxonomie-Editor oder GitHub, um Begriffe zu pflegen.", "wiz_warning_title": "Etwas technischer:", "wiz_warning_desc": "Brauchst du Unterstützung? Triff uns auf Slack in #foodture und #ingredients!", "wiz_slack_btn": "Slack beitreten", "wiz_editor_btn": "Taxonomie-Editor", "wiz_github_btn": "GitHub Taxonomien", "wiz_tip_text": "Tipp: Klicke auf eine Kategorie, um ihre Open Food Facts Seite zu öffnen und Zutaten zu prüfen!", "wiz_tab_all": "Alle Kategorien", "wiz_tab_priority": "Hohe Priorität", "wiz_progress_summary": "{checked} von {total} geprüft ({pct}%)", "wiz_completed_label": "Geprüft ({count})", "wiz_empty_priority_title": "Derzeit keine hochprioritären Einträge", "wiz_empty_priority_desc": "Wechsle zu „Alle Kategorien“, um Einträge zu prüfen.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! Alle {count} Kategorien geprüft!", "wiz_empty_all_done_desc": "Tolle Leistung! Du hast alle Kategorien durchgesehen.", "wiz_open_category": "Kategorie auf Open Food Facts öffnen"}, "es": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Instrucciones de Scan Champion", "guide_hide": "Ocultar consejos", "guide_show": "Mostrar consejos", "guide_headline": "Escanea y fotografía productos populares vendidos en tu país", "step_store_title": "En tienda o en tu despensa", "step_store_desc": "Escanea productos con la app Open Food Facts usando esta lista.", "step_photos_title": "Añade 3 fotos nítidas", "step_photos_desc": "Frontal del producto, lista de ingredientes y tabla nutricional.", "step_category_title": "Añade la categoría en la app", "step_category_desc": "¡Al añadir o editar el producto, asegúrate de seleccionar su categoría en la app!", "tip_text": "Consejo: Si una categoría te suena extraña, ¡elige la más parecida del pasillo!", "tab_missing": "Prioridad alta (Faltan)", "tab_all": "Todas las categorías", "search_placeholder": "Filtrar categorías (ej. cerveza, pan, queso)...", "reset_btn": "Restablecer", "reset_confirm": "¿Restablecer todas las categorías marcadas para {country}?", "progress_summary": "{checked} de {total} escaneados ({pct}%)", "completed_label": "Completados ({count})", "empty_search_title": "No se encontraron categorías", "empty_search_desc": "Ninguna categoría coincide con «{query}».", "empty_missing_done_title": "¡Todas las categorías prioritarias completadas!", "empty_missing_done_desc": "Cambia a «Todas las categorías» para descubrir más productos.", "empty_all_done_title": "¡Scan Champion! ¡Las {count} categorías marcadas!", "empty_all_done_desc": "¡Excelente trabajo! Has escaneado todas las categorías.", "modal_title": "Selecciona tu país", "modal_subtitle": "Elige tu país para ver las categorías necesarias de tu cesta básica:", "modal_search_placeholder": "Buscar país...", "modal_confirm": "Seleccionar", "footer_supported": "Proyecto apoyado por:", "footer_citizen": "Descubre nuestra investigación en ciencia ciudadana:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Marcas guardadas localmente en tu dispositivo", "switch_to_wiz": "🧑💻 ¿En ordenador? Prueba Taxonomy Wiz", "switch_to_scan": "🤳 ¿En el súper? Prueba Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Instrucciones de Taxonomy Wiz", "wiz_guide_headline": "Ayuda a mejorar el soporte de tu idioma para el análisis de ingredientes", "wiz_step1_title": "En casa con ordenador", "wiz_step1_desc": "Trabaja cómodamente desde tu ordenador para revisar taxonomías de categorías e ingredientes.", "wiz_step2_title": "Añadir o revisar traducciones", "wiz_step2_desc": "Revisa las traducciones de ingredientes y categorías en tu idioma.", "wiz_step3_title": "Editor de taxonomías y GitHub", "wiz_step3_desc": "Usa el editor web de taxonomías o GitHub para proponer y corregir términos.", "wiz_warning_title": "Un poco más técnico:", "wiz_warning_desc": "¿Necesitas ayuda o quieres coordinarte? ¡Únete en #foodture e #ingredients en Slack!", "wiz_slack_btn": "Unirse a Slack", "wiz_editor_btn": "Editor de taxonomías", "wiz_github_btn": "Taxonomías en GitHub", "wiz_tip_text": "Consejo: ¡Haz clic en cualquier categoría para abrir su página en Open Food Facts e inspeccionar ingredientes!", "wiz_tab_all": "Todas las categorías", "wiz_tab_priority": "Prioridad alta", "wiz_progress_summary": "{checked} de {total} revisados ({pct}%)", "wiz_completed_label": "Revisados ({count})", "wiz_empty_priority_title": "No hay elementos de alta prioridad en este momento", "wiz_empty_priority_desc": "Cambia a «Todas las categorías» para explorar y revisar términos.", "wiz_empty_all_done_title": "¡Taxonomy Wiz Champion! ¡Las {count} categorías revisadas!", "wiz_empty_all_done_desc": "¡Increíble aportación! Has revisado todas las categorías.", "wiz_open_category": "Abrir categoría en Open Food Facts"}, "it": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "nl": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "pl": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "pt": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "ro": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "cs": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "sk": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "hu": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "el": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "bg": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "hr": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "sr": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "sl": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "da": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "sv": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "fi": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "no": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "nb": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "et": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "lv": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "lt": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "ga": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "mt": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "lb": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "ca": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "eu": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "gl": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}, "tr": {"app_title": "Scan Champion", "app_badge": "Open Food Facts", "guide_title": "Scan Champion Instructions", "guide_hide": "Hide tips", "guide_show": "Show tips", "guide_headline": "Scan and photograph popular products sold in your country", "step_store_title": "In Store or In Pantry", "step_store_desc": "Scan products with the Open Food Facts app using this Scan List.", "step_photos_title": "Add 3 Clean Photos", "step_photos_desc": "Product front packaging, ingredient lists, and nutrition facts.", "step_category_title": "Add Category in App", "step_category_desc": "When adding or editing a product, be sure to select or enter its category in the app!", "tip_text": "Pro-tip: If a category sounds strange, just go to the closest category in the aisle!", "tab_missing": "High Priority (Missing)", "tab_all": "All Categories", "search_placeholder": "Filter categories (e.g. beer, bread, cheese)...", "reset_btn": "Reset", "reset_confirm": "Reset all checked categories for {country}?", "progress_summary": "{checked} of {total} scanned ({pct}%)", "completed_label": "Completed ({count})", "empty_search_title": "No categories found", "empty_search_desc": "No categories match \"{query}\".", "empty_missing_done_title": "All high-priority categories covered!", "empty_missing_done_desc": "Switch to \"All Categories\" to discover more products to photograph.", "empty_all_done_title": "Scan Champion! All {count} items checked!", "empty_all_done_desc": "Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.", "modal_title": "Select your country", "modal_subtitle": "Choose your country to see the categories needed for your local food basket:", "modal_search_placeholder": "Search country...", "modal_confirm": "Select", "footer_supported": "Project supported by:", "footer_citizen": "Discover our citizen science research:", "footer_citizen_link_en": "Citizen Science (EN)", "footer_citizen_link_fr": "Science Citoyenne (FR)", "footer_storage": "Ticks saved locally on your device", "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz", "switch_to_scan": "🤳 In store? Try Scan Champion", "wiz_title": "Taxonomy Wiz", "wiz_badge": "Open Food Facts", "wiz_guide_title": "Taxonomy Wiz Instructions", "wiz_guide_headline": "Help improve the support of your language for ingredients analysis", "wiz_step1_title": "At Home with Computer", "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.", "wiz_step2_title": "Add or Review Translations", "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.", "wiz_step3_title": "Taxonomy Editor & GitHub", "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.", "wiz_warning_title": "A bit more technical:", "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!", "wiz_slack_btn": "Join Slack", "wiz_editor_btn": "Taxonomy Editor", "wiz_github_btn": "GitHub Taxonomies", "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!", "wiz_tab_all": "All Categories", "wiz_tab_priority": "High Priority", "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)", "wiz_completed_label": "Reviewed ({count})", "wiz_empty_priority_title": "No high priority items right now", "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.", "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!", "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.", "wiz_open_category": "Open category in Open Food Facts"}};
+        const LANGUAGE_NAMES = {"en": "English", "fr": "Français", "de": "Deutsch", "es": "Español", "it": "Italiano", "nl": "Nederlands", "pl": "Polski", "pt": "Português", "ro": "Română", "cs": "Čeština", "sk": "Slovenčina", "hu": "Magyar", "el": "Ελληνικά", "bg": "Български", "hr": "Hrvatski", "sr": "Srpski", "sl": "Slovenščina", "da": "Dansk", "sv": "Svenska", "fi": "Suomi", "no": "Norsk", "nb": "Norsk (bokmål)", "et": "Eesti", "lv": "Latviešu", "lt": "Lietuvių", "ga": "Gaeilge", "mt": "Malti", "lb": "Lëtzebuergesch", "ca": "Català", "eu": "Euskara", "gl": "Galego", "tr": "Türkçe"};
+
+        // State
+        let currentCountry = null;
+        let currentLang = 'en';
+        let currentTab = 'all'; // Default active tab is 'all' for Taxonomy Wiz!
+        let currentSearch = '';
+        let completedCollapsed = false;
+
+        function t(key, vars = {}) {
+            const langDict = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+            let text = langDict[key] || (TRANSLATIONS['en'] ? TRANSLATIONS['en'][key] : '') || key;
+            for (const [k, v] of Object.entries(vars)) {
+                text = text.replace(new RegExp(`\\{${k}\\}`, 'g'), v);
+            }
+            return text;
+        }
+
+        function getStorageKey(country) {
+            return 'taxonomy_wiz_done_' + country;
+        }
+
+        function getCheckedTags(country) {
+            try {
+                const stored = localStorage.getItem(getStorageKey(country));
+                return stored ? new Set(JSON.parse(stored)) : new Set();
+            } catch (e) {
+                return new Set();
+            }
+        }
+
+        function saveCheckedTags(country, tagSet) {
+            try {
+                localStorage.setItem(getStorageKey(country), JSON.stringify(Array.from(tagSet)));
+            } catch (e) {}
+        }
+
+        function getParam(param) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        function toggleItem(tag) {
+            if (!currentCountry) return;
+            const checkedSet = getCheckedTags(currentCountry);
+            if (checkedSet.has(tag)) {
+                checkedSet.delete(tag);
+            } else {
+                checkedSet.add(tag);
+                if (navigator.vibrate) {
+                    try { navigator.vibrate(12); } catch (e) {}
+                }
+            }
+            saveCheckedTags(currentCountry, checkedSet);
+            render();
+        }
+
+        function resetCurrentCountry() {
+            if (!currentCountry) return;
+            const countryMeta = (window.CAMPAIGN_STATS && window.CAMPAIGN_STATS.countries) ? window.CAMPAIGN_STATS.countries[currentCountry] : null;
+            const countryName = countryMeta ? countryMeta.name : currentCountry.toUpperCase();
+            if (confirm(t('reset_confirm', { country: countryName }))) {
+                localStorage.removeItem(getStorageKey(currentCountry));
+                render();
+            }
+        }
+
+        function detectBrowserCountry(countries) {
+            const langList = navigator.languages || [navigator.language || ''];
+            for (const l of langList) {
+                if (!l) continue;
+                const parts = l.split('-');
+                if (parts.length > 1) {
+                    let region = parts[1].toLowerCase();
+                    if (region === 'gb') region = 'uk';
+                    if (countries[region]) {
+                        return region;
+                    }
+                }
+            }
+            try {
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+                const tzMap = {
+                    'Europe/Vienna': 'at', 'Europe/Brussels': 'be', 'Europe/Sofia': 'bg',
+                    'Europe/Zagreb': 'hr', 'Asia/Nicosia': 'cy', 'Europe/Nicosia': 'cy',
+                    'Europe/Prague': 'cs', 'Europe/Copenhagen': 'dk', 'Europe/Tallinn': 'ee',
+                    'Europe/Helsinki': 'fi', 'Europe/Paris': 'fr', 'Europe/Berlin': 'de',
+                    'Europe/Busingen': 'de', 'Europe/Athens': 'el', 'Europe/Budapest': 'hu',
+                    'Europe/Dublin': 'ie', 'Europe/Rome': 'it', 'Europe/Riga': 'lv',
+                    'Europe/Vilnius': 'lt', 'Europe/Luxembourg': 'lu', 'Europe/Malta': 'mt',
+                    'Europe/Podgorica': 'me', 'Europe/Amsterdam': 'nl', 'Europe/Oslo': 'no',
+                    'Europe/Warsaw': 'pl', 'Europe/Lisbon': 'pt', 'Atlantic/Madeira': 'pt',
+                    'Atlantic/Azores': 'pt', 'Europe/Bucharest': 'ro', 'Europe/Belgrade': 'rs',
+                    'Europe/Bratislava': 'sk', 'Europe/Ljubljana': 'si', 'Europe/Madrid': 'es',
+                    'Atlantic/Canary': 'es', 'Africa/Ceuta': 'es', 'Europe/Stockholm': 'se',
+                    'Europe/Zurich': 'ch', 'Europe/London': 'uk'
+                };
+                if (tzMap[tz] && countries[tzMap[tz]]) {
+                    return tzMap[tz];
+                }
+            } catch (e) {}
+
+            for (const l of langList) {
+                const primary = (l.split('-')[0] || '').toLowerCase();
+                const langToCountry = {
+                    'pl': 'pl', 'el': 'el', 'hu': 'hu', 'cs': 'cs', 'sk': 'sk',
+                    'ro': 'ro', 'bg': 'bg', 'da': 'dk', 'fi': 'fi', 'et': 'ee',
+                    'lv': 'lv', 'lt': 'lt', 'hr': 'hr', 'sl': 'sl', 'pt': 'pt',
+                    'sv': 'se', 'nl': 'nl'
+                };
+                if (langToCountry[primary] && countries[langToCountry[primary]]) {
+                    return langToCountry[primary];
+                }
+            }
+            return null;
+        }
+
+        function openCountryModal() {
+            const modal = document.getElementById('countryModal');
+            modal.classList.add('active');
+            renderModalCountryGrid();
+            document.getElementById('modalCountrySearch').focus();
+        }
+
+        function closeCountryModal() {
+            const modal = document.getElementById('countryModal');
+            modal.classList.remove('active');
+        }
+
+        function renderModalCountryGrid() {
+            const grid = document.getElementById('modalCountryGrid');
+            const searchVal = (document.getElementById('modalCountrySearch').value || '').toLowerCase().trim();
+            grid.innerHTML = '';
+
+            const countries = window.CAMPAIGN_STATS ? window.CAMPAIGN_STATS.countries : {};
+            const sortedCodes = Object.keys(countries).sort((a, b) => countries[a].name.localeCompare(countries[b].name));
+
+            sortedCodes.forEach(code => {
+                const c = countries[code];
+                if (searchVal && !c.name.toLowerCase().includes(searchVal) && !code.includes(searchVal)) {
+                    return;
+                }
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'country-grid-btn' + (currentCountry === code ? ' selected' : '');
+                btn.innerHTML = `<span class="country-grid-flag">${c.flag}</span><span>${c.name}</span>`;
+                btn.addEventListener('click', () => {
+                    selectCountry(code);
+                    closeCountryModal();
+                });
+                grid.appendChild(btn);
+            });
+        }
+
+        function selectCountry(code) {
+            currentCountry = code;
+            try {
+                localStorage.setItem('scan_champion_country', code);
+            } catch (e) {}
+
+            const url = new URL(window.location);
+            url.searchParams.set('country', code);
+            window.history.replaceState({}, '', url);
+
+            const select = document.getElementById('countrySelect');
+            if (select) select.value = code;
+
+            const storedLang = localStorage.getItem('scan_champion_lang');
+            const urlLang = getParam('lang');
+            if (!urlLang && !storedLang) {
+                const cMeta = window.CAMPAIGN_STATS.countries[code];
+                if (cMeta && cMeta.languages && cMeta.languages[0]) {
+                    selectLanguage(cMeta.languages[0], false);
+                }
+            }
+
+            // Sync switch link with current country
+            updateSwitchLink();
+
+            if (window._paq) {
+                const countries = window.CAMPAIGN_STATS.countries;
+                _paq.push(['setCustomUrl', window.location.href]);
+                _paq.push(['setDocumentTitle', 'Taxonomy Wiz - ' + (countries[code] ? countries[code].name : code.toUpperCase())]);
+                _paq.push(['trackPageView']);
+            }
+
+            render();
+        }
+
+        function selectLanguage(langCode, updateStorage = true) {
+            if (!TRANSLATIONS[langCode]) {
+                langCode = 'en';
+            }
+            currentLang = langCode;
+
+            if (updateStorage) {
+                try {
+                    localStorage.setItem('scan_champion_lang', langCode);
+                } catch (e) {}
+            }
+
+            const url = new URL(window.location);
+            url.searchParams.set('lang', langCode);
+            window.history.replaceState({}, '', url);
+
+            const langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = langCode;
+
+            updateSwitchLink();
+            applyTranslations();
+            render();
+        }
+
+        function updateSwitchLink() {
+            const link = document.getElementById('switchGameLink');
+            if (link) {
+                link.href = `../photos-for-impact/?country=${encodeURIComponent(currentCountry || 'at')}&lang=${encodeURIComponent(currentLang || 'en')}`;
+            }
+        }
+
+        function getCategoryUrl(categoryName) {
+            const langDomain = (currentLang === 'en') ? 'world' : currentLang;
+            return `https://${langDomain}.openfoodfacts.org/facets/categories/${encodeURIComponent(categoryName)}`;
+        }
+
+        function applyTranslations() {
+            document.title = `${t('wiz_title')} 🧑💻 — Open Food Facts`;
+            document.getElementById('headerBrandTitle').textContent = t('wiz_title');
+            document.getElementById('headerBrandBadge').textContent = t('wiz_badge');
+            document.getElementById('guideTitleText').textContent = t('wiz_guide_title');
+
+            const isCollapsed = document.getElementById('guideBody').classList.contains('collapsed');
+            document.getElementById('guideToggleBtn').textContent = isCollapsed ? t('guide_show') : t('guide_hide');
+
+            document.getElementById('wizWarningTitle').textContent = t('wiz_warning_title');
+            document.getElementById('wizWarningDesc').textContent = t('wiz_warning_desc');
+            document.getElementById('btnSlackLabel').textContent = t('wiz_slack_btn');
+            document.getElementById('btnEditorLabel').textContent = t('wiz_editor_btn');
+            document.getElementById('btnGithubLabel').textContent = t('wiz_github_btn');
+
+            document.getElementById('guideHeadline').textContent = t('wiz_guide_headline');
+            document.getElementById('step1Title').textContent = t('wiz_step1_title');
+            document.getElementById('step1Desc').textContent = t('wiz_step1_desc');
+            document.getElementById('step2Title').textContent = t('wiz_step2_title');
+            document.getElementById('step2Desc').textContent = t('wiz_step2_desc');
+            document.getElementById('step3Title').textContent = t('wiz_step3_title');
+            document.getElementById('step3Desc').textContent = t('wiz_step3_desc');
+            document.getElementById('guideTipText').innerHTML = `<strong>${t('wiz_tip_text').split(':')[0]}:</strong> ${t('wiz_tip_text').split(':').slice(1).join(':') || t('wiz_tip_text')}`;
+
+            document.getElementById('tabAllLabel').textContent = t('wiz_tab_all');
+            document.getElementById('tabMissingLabel').textContent = t('wiz_tab_priority');
+            document.getElementById('searchInput').placeholder = t('search_placeholder');
+            document.getElementById('btnResetLabel').textContent = t('reset_btn');
+
+            document.getElementById('footerSupportedLabel').textContent = t('footer_supported');
+            document.getElementById('footerCitizenLabel').textContent = t('footer_citizen');
+            document.getElementById('linkCitizenEn').textContent = t('footer_citizen_link_en');
+            document.getElementById('linkCitizenFr').textContent = t('footer_citizen_link_fr');
+            document.getElementById('footerStorageLabel').textContent = t('footer_storage');
+
+            document.getElementById('modalTitle').textContent = t('modal_title');
+            document.getElementById('modalSubtitle').textContent = t('modal_subtitle');
+            document.getElementById('modalCountrySearch').placeholder = t('modal_search_placeholder');
+
+            const switchLink = document.getElementById('switchGameLink');
+            if (switchLink) {
+                switchLink.textContent = t('switch_to_scan');
+            }
+        }
+
+        function init() {
+            if (!window.CAMPAIGN_STATS || !window.COUNTRIES_DATA) {
+                console.error('Campaign data not loaded');
+                return;
+            }
+
+            const countries = window.CAMPAIGN_STATS.countries;
+
+            const countrySelect = document.getElementById('countrySelect');
+            countrySelect.innerHTML = '';
+            const sortedCodes = Object.keys(countries).sort((a, b) => countries[a].name.localeCompare(countries[b].name));
+            sortedCodes.forEach(code => {
+                const c = countries[code];
+                const opt = document.createElement('option');
+                opt.value = code;
+                opt.textContent = `${c.flag} ${c.name}`;
+                countrySelect.appendChild(opt);
+            });
+
+            const langSelect = document.getElementById('langSelect');
+            langSelect.innerHTML = '';
+            const sortedLangs = Object.keys(TRANSLATIONS).sort((a, b) => (LANGUAGE_NAMES[a] || a).localeCompare(LANGUAGE_NAMES[b] || b));
+            sortedLangs.forEach(lang => {
+                const opt = document.createElement('option');
+                opt.value = lang;
+                opt.textContent = LANGUAGE_NAMES[lang] || lang.toUpperCase();
+                langSelect.appendChild(opt);
+            });
+
+            const urlLang = getParam('lang');
+            const storedLang = localStorage.getItem('scan_champion_lang');
+            const browserLang = (navigator.language || '').split('-')[0].toLowerCase();
+
+            if (urlLang && TRANSLATIONS[urlLang]) {
+                currentLang = urlLang;
+            } else if (storedLang && TRANSLATIONS[storedLang]) {
+                currentLang = storedLang;
+            } else if (TRANSLATIONS[browserLang]) {
+                currentLang = browserLang;
+            } else {
+                currentLang = 'en';
+            }
+            langSelect.value = currentLang;
+
+            const urlCountry = getParam('country');
+            const storedCountry = localStorage.getItem('scan_champion_country');
+
+            if (urlCountry && countries[urlCountry.toLowerCase()]) {
+                currentCountry = urlCountry.toLowerCase();
+            } else if (storedCountry && countries[storedCountry.toLowerCase()]) {
+                currentCountry = storedCountry.toLowerCase();
+            } else {
+                const detected = detectBrowserCountry(countries);
+                if (detected) {
+                    currentCountry = detected;
+                }
+            }
+
+            if (currentCountry) {
+                countrySelect.value = currentCountry;
+                try {
+                    localStorage.setItem('scan_champion_country', currentCountry);
+                } catch (e) {}
+            } else {
+                openCountryModal();
+            }
+
+            countrySelect.addEventListener('change', (e) => {
+                selectCountry(e.target.value);
+            });
+
+            langSelect.addEventListener('change', (e) => {
+                selectLanguage(e.target.value, true);
+            });
+
+            document.getElementById('modalCountrySearch').addEventListener('input', () => {
+                renderModalCountryGrid();
+            });
+
+            // Tab Buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentTab = btn.getAttribute('data-tab');
+                    render();
+                });
+            });
+
+            const searchInput = document.getElementById('searchInput');
+            const clearBtn = document.getElementById('searchClearBtn');
+
+            searchInput.addEventListener('input', (e) => {
+                currentSearch = e.target.value.toLowerCase().trim();
+                clearBtn.classList.toggle('visible', !!currentSearch);
+                render();
+            });
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                currentSearch = '';
+                clearBtn.classList.remove('visible');
+                render();
+                searchInput.focus();
+            });
+
+            document.getElementById('btnReset').addEventListener('click', resetCurrentCountry);
+
+            const completedHeader = document.getElementById('completedHeader');
+            completedHeader.addEventListener('click', () => {
+                completedCollapsed = !completedCollapsed;
+                completedHeader.classList.toggle('collapsed', completedCollapsed);
+                document.getElementById('completedChecklist').classList.toggle('collapsed', completedCollapsed);
+            });
+
+            const guideBody = document.getElementById('guideBody');
+            const guideToggle = document.getElementById('guideToggle');
+            const guideToggleBtn = document.getElementById('guideToggleBtn');
+
+            const isGuideCollapsed = localStorage.getItem('taxonomy_wiz_guide_collapsed') === 'true';
+            if (isGuideCollapsed) {
+                guideBody.classList.add('collapsed');
+            }
+
+            guideToggle.addEventListener('click', () => {
+                const collapsed = guideBody.classList.toggle('collapsed');
+                guideToggleBtn.textContent = collapsed ? t('guide_show') : t('guide_hide');
+                try {
+                    localStorage.setItem('taxonomy_wiz_guide_collapsed', collapsed ? 'true' : 'false');
+                } catch (e) {}
+            });
+
+            updateSwitchLink();
+            applyTranslations();
+            renderModalCountryGrid();
+            if (currentCountry) {
+                render();
+            }
+        }
+
+        function createItemNode(item, isChecked, isMissing) {
+            const div = document.createElement('div');
+            div.className = 'check-item' + (isChecked ? ' done' : '');
+            div.setAttribute('data-tag', item.category_tag);
+
+            const catUrl = getCategoryUrl(item.category_name);
+
+            div.innerHTML = `
+                <div class="check-box" aria-label="Mark as reviewed">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div class="check-label-wrap">
+                    <a href="${catUrl}" target="_blank" rel="noopener" class="check-label-link" title="${t('wiz_open_category')}">
+                        <span>${item.category_name}</span>
+                        <span class="ext-icon" aria-hidden="true">↗</span>
+                    </a>
+                    ${(currentTab === 'all' && isMissing) ? '<span class="item-priority-dot" title="High Priority"></span>' : ''}
+                </div>
+            `;
+
+            // Clicking the checkbox toggles reviewed state
+            div.querySelector('.check-box').addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleItem(item.category_tag);
+            });
+
+            return div;
+        }
+
+        function render() {
+            if (!currentCountry) return;
+            const countryFull = window.COUNTRIES_DATA[currentCountry];
+            if (!countryFull) return;
+
+            const allCategories = countryFull.categories;
+            const checkedSet = getCheckedTags(currentCountry);
+
+            const missingCategories = allCategories.filter(c => !c.has_code);
+            const totalMissing = missingCategories.length;
+            const checkedMissing = missingCategories.filter(c => checkedSet.has(c.category_tag)).length;
+
+            const totalAll = allCategories.length;
+            const checkedAll = allCategories.filter(c => checkedSet.has(c.category_tag)).length;
+
+            document.getElementById('badgeMissing').textContent = `${checkedMissing}/${totalMissing}`;
+            document.getElementById('badgeAll').textContent = `${checkedAll}/${totalAll}`;
+
+            // Tab filtering: 'all' is default
+            const sourcePool = (currentTab === 'missing') ? missingCategories : allCategories;
+            const currentCheckedCount = (currentTab === 'missing') ? checkedMissing : checkedAll;
+            const currentTotalCount = sourcePool.length;
+
+            const pct = currentTotalCount > 0 ? Math.round((currentCheckedCount / currentTotalCount) * 100) : 0;
+            document.getElementById('progressBarFill').style.width = `${pct}%`;
+            document.getElementById('progressSummary').textContent = t('wiz_progress_summary', {
+                checked: currentCheckedCount,
+                total: currentTotalCount,
+                pct: pct
+            });
+
+            let filtered = sourcePool;
+            if (currentSearch) {
+                filtered = sourcePool.filter(c => 
+                    c.category_name.toLowerCase().includes(currentSearch) ||
+                    c.category_tag.toLowerCase().includes(currentSearch)
+                );
+            }
+
+            const activeItems = [];
+            const completedItems = [];
+
+            filtered.forEach(item => {
+                const isChecked = checkedSet.has(item.category_tag);
+                if (isChecked) {
+                    completedItems.push(item);
+                } else {
+                    activeItems.push(item);
+                }
+            });
+
+            const activeListEl = document.getElementById('activeChecklist');
+            activeListEl.innerHTML = '';
+            activeItems.forEach(item => {
+                activeListEl.appendChild(createItemNode(item, false, !item.has_code));
+            });
+
+            const completedSection = document.getElementById('completedSection');
+            const completedListEl = document.getElementById('completedChecklist');
+            const completedHeaderLabel = document.getElementById('completedHeaderLabel');
+
+            if (completedItems.length > 0) {
+                completedSection.style.display = 'block';
+                completedHeaderLabel.textContent = `✓ ${t('wiz_completed_label', { count: completedItems.length })}`;
+                completedListEl.innerHTML = '';
+                completedItems.forEach(item => {
+                    completedListEl.appendChild(createItemNode(item, true, !item.has_code));
+                });
+            } else {
+                completedSection.style.display = 'none';
+            }
+
+            const emptyStateEl = document.getElementById('emptyState');
+            if (filtered.length === 0) {
+                emptyStateEl.style.display = 'block';
+                if (currentSearch) {
+                    emptyStateEl.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🔍</div>
+                            <div class="empty-state-title">${t('empty_search_title')}</div>
+                            <div class="empty-state-desc">${t('empty_search_desc', { query: currentSearch })}</div>
+                        </div>
+                    `;
+                } else if (currentTab === 'missing' && totalMissing === 0) {
+                    emptyStateEl.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🎉</div>
+                            <div class="empty-state-title">${t('wiz_empty_priority_title')}</div>
+                            <div class="empty-state-desc">${t('wiz_empty_priority_desc')}</div>
+                        </div>
+                    `;
+                }
+            } else if (activeItems.length === 0 && completedItems.length > 0 && !currentSearch) {
+                emptyStateEl.style.display = 'block';
+                emptyStateEl.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🏆</div>
+                        <div class="empty-state-title">${t('wiz_empty_all_done_title', { count: completedItems.length })}</div>
+                        <div class="empty-state-desc">${t('wiz_empty_all_done_desc')}</div>
+                    </div>
+                `;
+            } else {
+                emptyStateEl.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
