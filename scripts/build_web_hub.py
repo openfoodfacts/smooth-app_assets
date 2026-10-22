@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate the standalone mobile-first campaign hub HTML for Photos for Impact.
+Generate the standalone mobile-first "Scan Champion" scanning list HTML.
+Refactored to provide a simple, high-density Google Keep-style checklist
+for scanning and photographing popular products in store or in pantry.
 """
 
 import os
@@ -12,7 +14,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Photos for Impact — Open Food Facts</title>
+    <title>Scan Champion 🤳🍫 — Scanning List | Open Food Facts</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,21 +38,25 @@ HTML_CONTENT = """<!DOCTYPE html>
     <!-- End Matomo Code -->
     <style>
         :root {
-            --primary: #347644;
-            --primary-dark: #22562E;
-            --primary-light: #EBF3E8;
-            --accent: #2D72D2;
-            --accent-orange: #E87A00;
-            --bg: #F8F9FA;
-            --card-bg: #FFFFFF;
-            --text-main: #1C2024;
-            --text-muted: #60646C;
-            --border: #E6E8EB;
-            --radius-lg: 16px;
-            --radius-md: 12px;
-            --radius-sm: 8px;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+            --primary: #1b7340;
+            --primary-dark: #12522c;
+            --primary-light: #e8f5e9;
+            --primary-border: #a5d6a7;
+            --accent-gold: #f59e0b;
+            --accent-blue: #2563eb;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --radius-lg: 14px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+            --item-height: 40px;
         }
 
         * {
@@ -61,16 +67,17 @@ HTML_CONTENT = """<!DOCTYPE html>
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
-            line-height: 1.5;
-            padding-bottom: 60px;
+            line-height: 1.45;
+            padding-bottom: 70px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Top Header */
+        /* Top Sticky Header */
         header {
-            background: #FFFFFF;
+            background: #ffffff;
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
@@ -79,57 +86,85 @@ HTML_CONTENT = """<!DOCTYPE html>
         }
 
         .header-container {
-            max-width: 680px;
+            max-width: 820px;
             margin: 0 auto;
-            padding: 12px 16px;
+            padding: 10px 14px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 10px;
         }
 
-        .logo-area {
+        .brand-area {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 700;
-            font-size: 16px;
+            min-width: 0;
         }
 
-        .logo-badge {
-            background: var(--primary);
-            color: #FFFFFF;
-            padding: 4px 8px;
-            border-radius: var(--radius-sm);
-            font-size: 11px;
+        .brand-emoji {
+            font-size: 22px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .brand-title {
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .brand-badge {
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            color: var(--primary);
         }
 
         .country-select-wrapper {
             position: relative;
+            flex-shrink: 0;
         }
 
         select.country-select {
             appearance: none;
-            background: #FFFFFF;
-            border: 1px solid var(--border);
-            padding: 8px 32px 8px 12px;
+            -webkit-appearance: none;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            padding: 6px 28px 6px 10px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--text-main);
             cursor: pointer;
             box-shadow: var(--shadow-sm);
+            max-width: 170px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        select.country-select:focus {
+            outline: none;
+            border-color: var(--primary);
         }
 
         .country-select-wrapper::after {
-            content: '▼';
-            font-size: 10px;
+            content: '▾';
+            font-size: 11px;
             position: absolute;
-            right: 12px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
@@ -137,376 +172,487 @@ HTML_CONTENT = """<!DOCTYPE html>
         }
 
         main {
-            max-width: 680px;
+            max-width: 820px;
             margin: 0 auto;
-            padding: 16px;
+            padding: 10px 12px;
         }
 
-        /* Hero Card */
-        .hero-card {
-            background: linear-gradient(135deg, #2D72D2 0%, #174EA6 100%);
-            color: #FFFFFF;
-            border-radius: var(--radius-lg);
-            padding: 24px 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 24px rgba(45, 114, 210, 0.25);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-card::after {
-            content: '📸';
-            font-size: 120px;
-            position: absolute;
-            right: -15px;
-            bottom: -25px;
-            opacity: 0.15;
-            pointer-events: none;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .hero-title {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .hero-subtitle {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 20px;
-            max-width: 520px;
-        }
-
-        /* Progress Bar in Hero */
-        .progress-box {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-md);
-            padding: 16px;
-        }
-
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-
-        .progress-pct {
-            font-size: 28px;
-            font-weight: 800;
-        }
-
-        .progress-label {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        .progress-bar-bg {
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 10px;
-            height: 12px;
-            overflow: hidden;
-            margin-bottom: 12px;
-        }
-
-        .progress-bar-fill {
-            background: #FFB800;
-            height: 100%;
-            border-radius: 10px;
-            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .progress-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            text-align: center;
-        }
-
-        .stat-item {
-            background: rgba(0, 0, 0, 0.15);
-            padding: 8px;
-            border-radius: var(--radius-sm);
-        }
-
-        .stat-num {
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .stat-desc {
-            font-size: 11px;
-            opacity: 0.85;
-        }
-
-        /* Quick Action Guide */
+        /* Mission / Guide Card */
         .guide-card {
-            background: var(--card-bg);
+            background: #ffffff;
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.2s ease;
         }
 
-        .guide-title {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 12px;
+        .guide-header {
+            padding: 10px 14px;
+            background: linear-gradient(135deg, #1b7340 0%, #155724 100%);
+            color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
         }
 
-        .steps-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .step-row {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .step-bubble {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--primary-light);
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .step-text {
+        .guide-header-title {
             font-size: 13px;
-            color: var(--text-muted);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .step-text strong {
+        .guide-toggle-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .guide-body {
+            padding: 12px 14px;
+            font-size: 13px;
             color: var(--text-main);
         }
 
-        /* Filter Tabs */
+        .guide-body.collapsed {
+            display: none;
+        }
+
+        .guide-headline {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .guide-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .guide-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 8px 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .guide-step-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .guide-step-text {
+            font-size: 12px;
+            line-height: 1.35;
+        }
+
+        .guide-step-text strong {
+            display: block;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .guide-tip-banner {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-radius: var(--radius-sm);
+            padding: 6px 10px;
+            font-size: 12px;
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Sticky Control Bar */
+        .controls-sticky {
+            position: sticky;
+            top: 53px;
+            background: var(--bg);
+            padding: 6px 0 8px 0;
+            z-index: 90;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            margin-bottom: 8px;
+        }
+
+        /* 2 Tabs */
         .tab-bar {
             display: flex;
-            background: #EAECEF;
+            background: #e2e8f0;
             border-radius: var(--radius-md);
-            padding: 4px;
-            margin-bottom: 16px;
-            gap: 4px;
+            padding: 3px;
+            gap: 3px;
+            margin-bottom: 8px;
         }
 
         .tab-btn {
             flex: 1;
-            padding: 10px 8px;
+            padding: 8px 6px;
             border: none;
             background: transparent;
             border-radius: var(--radius-sm);
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 600;
             color: var(--text-muted);
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s ease;
             text-align: center;
-        }
-
-        .tab-btn.active {
-            background: #FFFFFF;
-            color: var(--text-main);
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* Search input */
-        .search-box {
-            position: relative;
-            margin-bottom: 16px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 16px 12px 38px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 14px;
-            background: #FFFFFF;
-            color: var(--text-main);
-        }
-
-        .search-box::before {
-            content: '🔍';
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        /* Category Item Cards */
-        .items-list {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .item-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 14px 16px;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            transition: transform 0.15s;
-        }
-
-        .item-card:active {
-            transform: scale(0.99);
-        }
-
-        .item-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .item-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .item-tag {
-            font-size: 11px;
-            color: var(--text-muted);
-            font-family: monospace;
-        }
-
-        .badge-status {
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 700;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             white-space: nowrap;
         }
 
-        .badge-missing {
-            background: #FFF3E0;
-            color: #D9530F;
-            border: 1px solid #FFE0B2;
+        .tab-btn.active {
+            background: #ffffff;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+            font-weight: 700;
         }
 
-        .badge-covered {
-            background: #E8F5E9;
-            color: #2E7D32;
-            border: 1px solid #C8E6C9;
+        .tab-btn .badge-pill {
+            background: #e2e8f0;
+            color: var(--text-main);
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
         }
 
-        .item-actions {
+        .tab-btn.active .badge-pill {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        /* Search + Toolbar */
+        .toolbar-row {
             display: flex;
-            gap: 8px;
-            margin-top: 4px;
-            flex-wrap: wrap;
-        }
-
-        .btn-action {
-            display: inline-flex;
-            align-items: center;
             gap: 6px;
-            padding: 8px 12px;
-            border-radius: var(--radius-sm);
+            align-items: center;
+        }
+
+        .search-box-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+        .search-box-wrapper input {
+            width: 100%;
+            padding: 8px 30px 8px 30px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 13px;
+            background: #ffffff;
+            color: var(--text-main);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-box-wrapper input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 12px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #e2e8f0;
+            border: none;
+            color: var(--text-muted);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-clear-btn.visible {
+            display: flex;
+        }
+
+        .btn-reset {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 7px 10px;
+            border-radius: 20px;
+            font-size: 11.5px;
             font-weight: 600;
-            text-decoration: none;
-            transition: background 0.15s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
         }
 
-        .btn-primary {
+        .btn-reset:hover {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #fca5a5;
+        }
+
+        /* Mini Progress Bar */
+        .progress-strip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 11.5px;
+            color: var(--text-muted);
+            padding: 0 4px;
+        }
+
+        .progress-bar-track {
+            flex: 1;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
             background: var(--primary);
-            color: #FFFFFF;
+            border-radius: 10px;
+            transition: width 0.3s ease;
         }
 
-        .btn-primary:hover {
-            background: var(--primary-dark);
+        .progress-text {
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        .btn-secondary {
-            background: #F0F4F8;
-            color: var(--accent);
-            border: 1px solid #D9E2EC;
+        /* Google Keep Style Checklist */
+        .checklist-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4px;
         }
 
-        .btn-secondary:hover {
-            background: #E2E8F0;
+        @media (min-width: 620px) {
+            .checklist-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
         }
 
-        /* Footer community banner */
-        .footer-banner {
-            margin-top: 30px;
-            padding: 20px;
-            background: #FFFFFF;
-            border: 1px dashed var(--border);
-            border-radius: var(--radius-lg);
-            text-align: center;
+        /* Checklist Item Row */
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            min-height: var(--item-height);
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.12s ease, border-color 0.12s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
         }
 
-        .footer-banner h3 {
-            font-size: 16px;
+        .check-item:hover {
+            border-color: var(--border-hover);
+            background: #fdfdfd;
+        }
+
+        .check-item:active {
+            transform: scale(0.995);
+        }
+
+        /* Checkbox Box */
+        .check-box {
+            width: 18px;
+            height: 18px;
+            border: 1.8px solid #94a3b8;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.15s ease;
+            background: #ffffff;
+        }
+
+        .check-item.done .check-box {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .check-box svg {
+            display: none;
+            width: 12px;
+            height: 12px;
+            stroke: #ffffff;
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        .check-item.done .check-box svg {
+            display: block;
+        }
+
+        /* Item Text */
+        .check-label-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            min-width: 0;
+            gap: 6px;
+        }
+
+        .check-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .check-item.done .check-label {
+            text-decoration: line-through;
+            color: var(--text-light);
+        }
+
+        .item-priority-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #f97316;
+            flex-shrink: 0;
+            title: "Missing staple";
+        }
+
+        /* Completed Accordion Divider (Keep Style) */
+        .completed-section {
+            margin-top: 14px;
+            border-top: 1px solid var(--border);
+            padding-top: 10px;
+        }
+
+        .completed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            user-select: none;
+            background: #f1f5f9;
             margin-bottom: 6px;
         }
 
-        .footer-banner p {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 14px;
+        .completed-header:hover {
+            background: #e2e8f0;
         }
 
-        .btn-sheet {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #0F9D58;
-            color: #FFFFFF;
-            padding: 10px 18px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            box-shadow: 0 4px 10px rgba(15, 157, 88, 0.25);
+        .completed-header .chevron {
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .completed-header.collapsed .chevron {
+            transform: rotate(-90deg);
+        }
+
+        .completed-items-list.collapsed {
+            display: none;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 30px 16px;
+            color: var(--text-muted);
+            background: #ffffff;
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-md);
+            margin-top: 10px;
+        }
+
+        .empty-state-icon {
+            font-size: 32px;
+            margin-bottom: 6px;
+        }
+
+        .empty-state-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .empty-state-desc {
+            font-size: 12px;
+        }
+
+        /* Discrete Footer */
+        footer {
+            margin-top: 30px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
+    <!-- Sticky App Header -->
     <header>
         <div class="header-container">
-            <a href="#" class="logo-area">
-                <span>🥗 Open Food Facts</span>
-                <span class="logo-badge">Campaign</span>
-            </a>
+            <div class="brand-area">
+                <span class="brand-emoji">🤳🍫</span>
+                <div class="brand-text">
+                    <span class="brand-title">Scan Champion</span>
+                    <span class="brand-badge">Open Food Facts</span>
+                </div>
+            </div>
             <div class="country-select-wrapper">
                 <select id="countrySelect" class="country-select" aria-label="Select country"></select>
             </div>
@@ -514,98 +660,169 @@ HTML_CONTENT = """<!DOCTYPE html>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-card">
-            <div class="hero-tag" id="heroTag">Photos for Impact</div>
-            <h1 class="hero-title" id="heroTitle">Loading campaign...</h1>
-            <p class="hero-subtitle" id="heroSubtitle">Photograph missing everyday foods in your country to complete our representative food basket.</p>
-
-            <div class="progress-box">
-                <div class="progress-header">
-                    <div class="progress-pct" id="progressPct">0%</div>
-                    <div class="progress-label" id="progressCount">0 / 0 covered</div>
+        <!-- Instructions / Scanning Guide (Collapsible for active shoppers) -->
+        <section class="guide-card" id="guideCard">
+            <div class="guide-header" id="guideToggle">
+                <div class="guide-header-title">
+                    <span>🛒 Scan Champion Instructions</span>
                 </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
+                <button class="guide-toggle-btn" id="guideToggleBtn">Hide tips</button>
+            </div>
+            <div class="guide-body" id="guideBody">
+                <div class="guide-headline">Scan and photograph popular products sold in your country</div>
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🏪</span>
+                        <div class="guide-step-text">
+                            <strong>In Store or In Pantry</strong>
+                            Scan products with the Open Food Facts app using this Scan List.
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">📸</span>
+                        <div class="guide-step-text">
+                            <strong>Add 3 Clean Photos</strong>
+                            Product front packaging, ingredient lists, and nutrition facts.
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">🌟</span>
+                        <div class="guide-step-text">
+                            <strong>Popular Products</strong>
+                            Categories we absolutely need for your country basket.
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-num" id="statMissing">0</div>
-                        <div class="stat-desc">Missing Photos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-num" id="statCovered">0</div>
-                        <div class="stat-desc">In Database</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-num" id="statBaseline">0%</div>
-                        <div class="stat-desc">Launch Baseline</div>
-                    </div>
+                <div class="guide-tip-banner">
+                    <span>💡</span>
+                    <span><strong>Pro-tip:</strong> If a category sounds strange, just go to the closest category in the aisle!</span>
                 </div>
             </div>
         </section>
 
-        <!-- Action Guide -->
-        <section class="guide-card">
-            <h2 class="guide-title">⚡ How to contribute during your grocery run</h2>
-            <div class="steps-container">
-                <div class="step-row">
-                    <div class="step-bubble">1</div>
-                    <div class="step-text"><strong>Pick a missing category</strong> from the list below before shopping.</div>
-                </div>
-                <div class="step-row">
-                    <div class="step-bubble">2</div>
-                    <div class="step-text"><strong>Scan the barcode</strong> using the Open Food Facts app when in the store.</div>
-                </div>
-                <div class="step-row">
-                    <div class="step-bubble">3</div>
-                    <div class="step-text"><strong>Snap 3 photos:</strong> Front packaging, ingredients list, and nutrition table.</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Category Browser -->
-        <section>
+        <!-- Sticky Controls Bar: 2 Tabs, Search, and Progress -->
+        <div class="controls-sticky">
+            <!-- 2 Tabs: High Priority (Missing) & All Categories -->
             <div class="tab-bar">
-                <button class="tab-btn active" data-filter="missing" id="tabMissing">📸 Missing Items (<span id="countTabMissing">0</span>)</button>
-                <button class="tab-btn" data-filter="covered" id="tabCovered">✅ In Database (<span id="countTabCovered">0</span>)</button>
-                <button class="tab-btn" data-filter="all" id="tabAll">All Categories (<span id="countTabAll">0</span>)</button>
+                <button class="tab-btn active" data-tab="missing" id="tabMissing">
+                    <span>🔥 High Priority (Missing)</span>
+                    <span class="badge-pill" id="badgeMissing">0</span>
+                </button>
+                <button class="tab-btn" data-tab="all" id="tabAll">
+                    <span>📋 All Categories</span>
+                    <span class="badge-pill" id="badgeAll">0</span>
+                </button>
             </div>
 
-            <div class="search-box">
-                <input type="search" id="searchInput" placeholder="Search categories (e.g. beer, bread, cheese)..." />
+            <!-- Search + Reset Bar -->
+            <div class="toolbar-row">
+                <div class="search-box-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="search" id="searchInput" placeholder="Filter categories (e.g. beer, bread, cheese)..." autocomplete="off" />
+                    <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">✕</button>
+                </div>
+                <button class="btn-reset" id="btnReset" title="Clear all ticks for this country">
+                    <span>↺</span>
+                    <span>Reset</span>
+                </button>
             </div>
 
-            <div class="items-list" id="itemsList">
-                <p style="text-align:center; padding: 20px; color: var(--text-muted);">Loading categories...</p>
+            <!-- Mini Progress Indicator -->
+            <div class="progress-strip">
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-text" id="progressSummary">0 / 0 scanned</span>
+            </div>
+        </div>
+
+        <!-- Active Unchecked Items (High Density Checklist) -->
+        <div class="checklist-container" id="activeChecklist">
+            <!-- Items rendered via JS -->
+        </div>
+
+        <!-- Completed Items Section (Google Keep Style) -->
+        <section class="completed-section" id="completedSection" style="display: none;">
+            <div class="completed-header" id="completedHeader">
+                <span id="completedHeaderLabel">✓ Completed (0 items)</span>
+                <span class="chevron">▾</span>
+            </div>
+            <div class="checklist-container completed-items-list" id="completedChecklist">
+                <!-- Completed items rendered via JS -->
             </div>
         </section>
 
-        <!-- Community Spreadsheet Link -->
-        <section class="footer-banner">
-            <h3>Prefer editing on desktop?</h3>
-            <p>You can also collaborate directly in our public community Google Spreadsheet with one tab per country.</p>
-            <a href="https://docs.google.com/spreadsheets/d/1LiO3IFgGZ2ftYpXLrFh8LpgBaTKBKeggz3jLwv8dxB8/edit#gid=0" target="_blank" class="btn-sheet">
-                <span>📊 Open Public Google Spreadsheet</span>
-            </a>
-        </section>
+        <!-- Empty State Container -->
+        <div id="emptyState" style="display: none;"></div>
+
+        <!-- Minimal Discrete Footer -->
+        <footer>
+            Open Food Facts · Scan Champion Scanning List · Ticks saved locally on your device
+        </footer>
     </main>
 
-    <!-- Load live stats feed -->
+    <!-- Load Data Feeds -->
     <script src="data.js"></script>
     <script>
+        // State management
         let currentCountry = 'at';
-        let currentFilter = 'missing';
+        let currentTab = 'missing'; // 'missing' or 'all'
         let currentSearch = '';
+        let completedCollapsed = false;
+
+        function getStorageKey(country) {
+            return 'scan_champion_done_' + country;
+        }
+
+        function getCheckedTags(country) {
+            try {
+                const stored = localStorage.getItem(getStorageKey(country));
+                return stored ? new Set(JSON.parse(stored)) : new Set();
+            } catch (e) {
+                console.error('Error reading localStorage', e);
+                return new Set();
+            }
+        }
+
+        function saveCheckedTags(country, tagSet) {
+            try {
+                localStorage.setItem(getStorageKey(country), JSON.stringify(Array.from(tagSet)));
+            } catch (e) {
+                console.error('Error writing localStorage', e);
+            }
+        }
 
         function getParam(param) {
             const params = new URLSearchParams(window.location.search);
             return params.get(param);
         }
 
+        function toggleItem(tag) {
+            const checkedSet = getCheckedTags(currentCountry);
+            if (checkedSet.has(tag)) {
+                checkedSet.delete(tag);
+            } else {
+                checkedSet.add(tag);
+                if (navigator.vibrate) {
+                    try { navigator.vibrate(12); } catch (e) {}
+                }
+            }
+            saveCheckedTags(currentCountry, checkedSet);
+            render();
+        }
+
+        function resetCurrentCountry() {
+            const countryMeta = (window.CAMPAIGN_STATS && window.CAMPAIGN_STATS.countries) ? window.CAMPAIGN_STATS.countries[currentCountry] : null;
+            const countryName = countryMeta ? countryMeta.name : currentCountry.toUpperCase();
+            if (confirm(`Reset all checked categories for ${countryName}?`)) {
+                localStorage.removeItem(getStorageKey(currentCountry));
+                render();
+            }
+        }
+
         function init() {
             if (!window.CAMPAIGN_STATS || !window.COUNTRIES_DATA) {
-                console.error('Data not loaded');
+                console.error('Campaign data not loaded');
                 return;
             }
 
@@ -616,7 +833,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             const paramC = getParam('country');
             const userLocale = (navigator.language || '').toLowerCase().split('-')[1];
 
-            // Populate country select
+            // Populate country select with flags and names
             const sortedCodes = Object.keys(countries).sort((a, b) => countries[a].name.localeCompare(countries[b].name));
             sortedCodes.forEach(code => {
                 const c = countries[code];
@@ -626,148 +843,222 @@ HTML_CONTENT = """<!DOCTYPE html>
                 select.appendChild(opt);
             });
 
-            // Auto-select country from query param or fallback
+            // Set initial country
             if (paramC && countries[paramC.toLowerCase()]) {
                 currentCountry = paramC.toLowerCase();
             } else if (userLocale && countries[userLocale]) {
                 currentCountry = userLocale;
             } else {
-                currentCountry = 'at'; // Default
+                currentCountry = 'at';
             }
-
             select.value = currentCountry;
+
+            // Country selection change
             select.addEventListener('change', (e) => {
                 currentCountry = e.target.value;
                 const url = new URL(window.location);
                 url.searchParams.set('country', currentCountry);
                 window.history.replaceState({}, '', url);
+
                 if (window._paq) {
                     _paq.push(['setCustomUrl', window.location.href]);
-                    _paq.push(['setDocumentTitle', 'Photos for Impact - ' + (countries[currentCountry] ? countries[currentCountry].name : currentCountry.toUpperCase())]);
+                    _paq.push(['setDocumentTitle', 'Scan Champion - ' + (countries[currentCountry] ? countries[currentCountry].name : currentCountry.toUpperCase())]);
                     _paq.push(['trackPageView']);
                 }
                 render();
             });
 
-            // Tab listeners
+            // Tab Buttons (2 tabs: missing, all)
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
+                btn.addEventListener('click', () => {
                     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    currentFilter = btn.getAttribute('data-filter');
-                    renderList();
+                    currentTab = btn.getAttribute('data-tab');
+                    render();
                 });
             });
 
-            // Search listener
-            document.getElementById('searchInput').addEventListener('input', (e) => {
+            // Search input
+            const searchInput = document.getElementById('searchInput');
+            const clearBtn = document.getElementById('searchClearBtn');
+
+            searchInput.addEventListener('input', (e) => {
                 currentSearch = e.target.value.toLowerCase().trim();
-                renderList();
+                clearBtn.classList.toggle('visible', !!currentSearch);
+                render();
+            });
+
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                currentSearch = '';
+                clearBtn.classList.remove('visible');
+                render();
+                searchInput.focus();
+            });
+
+            // Reset button
+            document.getElementById('btnReset').addEventListener('click', resetCurrentCountry);
+
+            // Completed header toggle (Google Keep style)
+            const completedHeader = document.getElementById('completedHeader');
+            completedHeader.addEventListener('click', () => {
+                completedCollapsed = !completedCollapsed;
+                completedHeader.classList.toggle('collapsed', completedCollapsed);
+                document.getElementById('completedChecklist').classList.toggle('collapsed', completedCollapsed);
+            });
+
+            // Guide collapse toggle
+            const guideCard = document.getElementById('guideCard');
+            const guideBody = document.getElementById('guideBody');
+            const guideToggle = document.getElementById('guideToggle');
+            const guideToggleBtn = document.getElementById('guideToggleBtn');
+
+            const isGuideCollapsed = localStorage.getItem('scan_champion_guide_collapsed') === 'true';
+            if (isGuideCollapsed) {
+                guideBody.classList.add('collapsed');
+                guideToggleBtn.textContent = 'Show tips';
+            }
+
+            guideToggle.addEventListener('click', () => {
+                const collapsed = guideBody.classList.toggle('collapsed');
+                guideToggleBtn.textContent = collapsed ? 'Show tips' : 'Hide tips';
+                localStorage.setItem('scan_champion_guide_collapsed', collapsed ? 'true' : 'false');
             });
 
             render();
         }
 
-        function render() {
-            const countryMeta = window.CAMPAIGN_STATS.countries[currentCountry];
-            const countryFull = window.COUNTRIES_DATA[currentCountry];
+        function createItemNode(item, isChecked, isMissing) {
+            const div = document.createElement('div');
+            div.className = 'check-item' + (isChecked ? ' done' : '');
+            div.setAttribute('data-tag', item.category_tag);
 
-            if (!countryMeta || !countryFull) return;
+            div.innerHTML = `
+                <div class="check-box" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div class="check-label-wrap">
+                    <span class="check-label">${item.category_name}</span>
+                    ${(currentTab === 'all' && isMissing) ? '<span class="item-priority-dot" title="High Priority Missing"></span>' : ''}
+                </div>
+            `;
 
-            document.getElementById('heroTag').textContent = `${countryMeta.flag} ${countryMeta.name} · Priority Quest`;
-            document.getElementById('heroTitle').textContent = `Help complete ${countryMeta.name}'s food database!`;
-            document.getElementById('heroSubtitle').textContent = `We have recorded ${countryMeta.coverage_pct}% of representative staples. Photograph the remaining ${countryMeta.missing} missing foods!`;
+            div.addEventListener('click', () => {
+                toggleItem(item.category_tag);
+            });
 
-            document.getElementById('progressPct').textContent = `${countryMeta.coverage_pct}%`;
-            document.getElementById('progressCount').textContent = `${countryMeta.with_code} / ${countryMeta.total} covered`;
-            document.getElementById('progressBar').style.width = `${countryMeta.coverage_pct}%`;
-
-            document.getElementById('statMissing').textContent = countryMeta.missing;
-            document.getElementById('statCovered').textContent = countryMeta.with_code;
-            document.getElementById('statBaseline').textContent = `${countryMeta.start_baseline_pct}%`;
-
-            const missingCount = countryFull.categories.filter(c => !c.has_code).length;
-            const coveredCount = countryFull.categories.filter(c => c.has_code).length;
-            document.getElementById('countTabMissing').textContent = missingCount;
-            document.getElementById('countTabCovered').textContent = coveredCount;
-            document.getElementById('countTabAll').textContent = countryFull.categories.length;
-
-            renderList();
+            return div;
         }
 
-        function renderList() {
+        function render() {
             const countryFull = window.COUNTRIES_DATA[currentCountry];
             if (!countryFull) return;
 
-            const container = document.getElementById('itemsList');
-            let items = countryFull.categories;
+            const allCategories = countryFull.categories;
+            const checkedSet = getCheckedTags(currentCountry);
 
-            // Apply filter
-            if (currentFilter === 'missing') {
-                items = items.filter(c => !c.has_code);
-            } else if (currentFilter === 'covered') {
-                items = items.filter(c => c.has_code);
-            }
+            // Compute counts for the 2 tabs
+            const missingCategories = allCategories.filter(c => !c.has_code);
+            const totalMissing = missingCategories.length;
+            const checkedMissing = missingCategories.filter(c => checkedSet.has(c.category_tag)).length;
 
-            // Apply search
+            const totalAll = allCategories.length;
+            const checkedAll = allCategories.filter(c => checkedSet.has(c.category_tag)).length;
+
+            // Update tab badges
+            document.getElementById('badgeMissing').textContent = `${checkedMissing}/${totalMissing}`;
+            document.getElementById('badgeAll').textContent = `${checkedAll}/${totalAll}`;
+
+            // Determine active pool based on current tab
+            const sourcePool = (currentTab === 'missing') ? missingCategories : allCategories;
+            const currentCheckedCount = (currentTab === 'missing') ? checkedMissing : checkedAll;
+            const currentTotalCount = sourcePool.length;
+
+            // Update Progress Bar
+            const pct = currentTotalCount > 0 ? Math.round((currentCheckedCount / currentTotalCount) * 100) : 0;
+            document.getElementById('progressBarFill').style.width = `${pct}%`;
+            document.getElementById('progressSummary').textContent = `${currentCheckedCount} of ${currentTotalCount} scanned (${pct}%)`;
+
+            // Filter items by search query
+            let filtered = sourcePool;
             if (currentSearch) {
-                items = items.filter(c => 
+                filtered = sourcePool.filter(c => 
                     c.category_name.toLowerCase().includes(currentSearch) ||
-                    c.category_tag.toLowerCase().includes(currentSearch) ||
-                    (c.code && c.code.includes(currentSearch))
+                    c.category_tag.toLowerCase().includes(currentSearch)
                 );
             }
 
-            if (items.length === 0) {
-                container.innerHTML = `<div style="text-align: center; padding: 40px 10px; color: var(--text-muted);">
-                    <div style="font-size: 40px; margin-bottom: 8px;">🎉</div>
-                    <p style="font-weight: 600;">No products found matching your search.</p>
-                </div>`;
-                return;
+            // Split into Unchecked and Completed (Google Keep style)
+            const activeItems = [];
+            const completedItems = [];
+
+            filtered.forEach(item => {
+                const isChecked = checkedSet.has(item.category_tag);
+                if (isChecked) {
+                    completedItems.push(item);
+                } else {
+                    activeItems.push(item);
+                }
+            });
+
+            // Render Active Items
+            const activeListEl = document.getElementById('activeChecklist');
+            activeListEl.innerHTML = '';
+            activeItems.forEach(item => {
+                activeListEl.appendChild(createItemNode(item, false, !item.has_code));
+            });
+
+            // Render Completed Items
+            const completedSection = document.getElementById('completedSection');
+            const completedListEl = document.getElementById('completedChecklist');
+            const completedHeaderLabel = document.getElementById('completedHeaderLabel');
+
+            if (completedItems.length > 0) {
+                completedSection.style.display = 'block';
+                completedHeaderLabel.textContent = `✓ Completed (${completedItems.length} item${completedItems.length > 1 ? 's' : ''})`;
+                completedListEl.innerHTML = '';
+                completedItems.forEach(item => {
+                    completedListEl.appendChild(createItemNode(item, true, !item.has_code));
+                });
+            } else {
+                completedSection.style.display = 'none';
             }
 
-            container.innerHTML = items.map(item => {
-                const isMissing = !item.has_code;
-                const statusBadge = isMissing 
-                    ? `<span class="badge-status badge-missing">📸 Needs Barcode & Photo</span>`
-                    : `<span class="badge-status badge-covered">✅ In OFF (${item.code})</span>`;
-
-                let actionButtons = '';
-                if (!isMissing) {
-                    actionButtons = `
-                        <a href="https://world.openfoodfacts.org/product/${item.code}" target="_blank" class="btn-action btn-primary">
-                            <span>🔍 View in OFF App</span>
-                        </a>
-                        <a href="${item.hunger_games_url}" target="_blank" class="btn-action btn-secondary">
-                            <span>🎮 Categorize</span>
-                        </a>
+            // Empty state check
+            const emptyStateEl = document.getElementById('emptyState');
+            if (filtered.length === 0) {
+                emptyStateEl.style.display = 'block';
+                if (currentSearch) {
+                    emptyStateEl.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🔍</div>
+                            <div class="empty-state-title">No categories found</div>
+                            <div class="empty-state-desc">No categories in this list match "<strong>${currentSearch}</strong>".</div>
+                        </div>
                     `;
-                } else {
-                    actionButtons = `
-                        <a href="${item.hunger_games_url}" target="_blank" class="btn-action btn-secondary">
-                            <span>🎯 Hunger Games Quest</span>
-                        </a>
-                        <span style="font-size: 11px; color: var(--text-muted); align-self: center;">
-                            👉 In store: Scan with Open Food Facts app!
-                        </span>
+                } else if (currentTab === 'missing' && totalMissing === 0) {
+                    emptyStateEl.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🎉</div>
+                            <div class="empty-state-title">All high-priority categories covered!</div>
+                            <div class="empty-state-desc">Switch to "All Categories" to discover more products to photograph.</div>
+                        </div>
                     `;
                 }
-
-                return `
-                    <div class="item-card">
-                        <div class="item-top">
-                            <div>
-                                <div class="item-title">${item.category_name}</div>
-                                <div class="item-tag">${item.category_tag}</div>
-                            </div>
-                            ${statusBadge}
-                        </div>
-                        <div class="item-actions">
-                            ${actionButtons}
-                        </div>
+            } else if (activeItems.length === 0 && completedItems.length > 0 && !currentSearch) {
+                emptyStateEl.style.display = 'block';
+                emptyStateEl.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🏆</div>
+                        <div class="empty-state-title">Scan Champion! All ${completedItems.length} items checked!</div>
+                        <div class="empty-state-desc">Great job! You scanned all categories in this list. Tap completed items to uncheck or hit Reset to scan again.</div>
                     </div>
                 `;
-            }).join('');
+            } else {
+                emptyStateEl.style.display = 'none';
+            }
         }
 
         window.addEventListener('DOMContentLoaded', init);
@@ -785,7 +1076,7 @@ def main():
     for dest_file in DEST_FILES:
         os.makedirs(os.path.dirname(dest_file), exist_ok=True)
         with open(dest_file, 'w', encoding='utf-8') as f:
-            f.write(HTML_CONTENT)
+            f.write(HTML_CONTENT.strip() + '\n')
         print(f"Generated {dest_file} successfully!")
 
 if __name__ == '__main__':

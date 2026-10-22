@@ -8,9 +8,12 @@ This guide explains the architecture, operational workflow, and maintenance of t
 
 In countries with small communities (~20 Daily Active Users), conversion requires frictionless user journeys:
 1. **In-App Tagline**: Users see a localized, motivating banner highlighting missing representative foods in their country.
-2. **Mobile Campaign Hub (`release-website/photos-for-impact/`)**:
+2. **Mobile Campaign Hub / Scan Champion List (`photos-for-impact/`, `release-website/photos-for-impact/`)**:
    - Tapping the banner opens their country view directly (`?country=at`, `?country=lv`, etc.).
-   - Shows real-time coverage percentage, shopping lists of missing products, and 1-tap links to photograph or verify products in Open Food Facts and Hunger Games.
+   - Presents a high-density, Google Keep-style "Scanning list" optimized for in-store and pantry scanning with the Open Food Facts app.
+   - 2 tabs: High Priority (missing) and All Categories.
+   - Checkboxes with local storage persistence to remember scanned items without requiring login or constant scrolling.
+   - Clean, distraction-free interface (no external links in default experience) with actionable advice: add 3 photos (front, ingredients, nutrition) and pick the closest category if a name sounds strange.
 3. **Structured Google Spreadsheet**:
    - 1 Leaderboard Overview tab with live formula tracking.
    - 32 Country-specific tabs with category tags, clean names, status dropdowns, and deep links.
