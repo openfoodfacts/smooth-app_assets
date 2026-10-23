@@ -1,12 +1,12 @@
 window.CAMPAIGN_STATS = {
   "campaign_id": "photos_for_impact_2026",
   "baseline_date": "2026-09-18",
-  "last_updated": "2026-09-18 09:59:38",
-  "total_countries": 32,
-  "total_items": 3124,
+  "last_updated": "2026-10-23 10:31:58",
+  "total_countries": 33,
+  "total_items": 3272,
   "total_with_code": 2091,
-  "total_missing": 1033,
-  "overall_coverage_pct": 66.9,
+  "total_missing": 1181,
+  "overall_coverage_pct": 63.9,
   "countries": {
     "at": {
       "name": "Austria",
@@ -53,6 +53,22 @@ window.CAMPAIGN_STATS = {
       "missing": 2,
       "coverage_pct": 90.0,
       "start_baseline_pct": 90.0,
+      "delta_pct": 0.0
+    },
+    "ca": {
+      "name": "Canada",
+      "code": "ca",
+      "flag": "🇨🇦",
+      "off_tag": "en:canada",
+      "languages": [
+        "en",
+        "fr"
+      ],
+      "total": 148,
+      "with_code": 0,
+      "missing": 148,
+      "coverage_pct": 0.0,
+      "start_baseline_pct": 0.0,
       "delta_pct": 0.0
     },
     "hr": {
@@ -2821,6 +2837,1506 @@ window.COUNTRIES_DATA = {
         "status": "In database",
         "off_url": "https://world.openfoodfacts.org/product/5449000000286",
         "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:colas&type=category&country=en:bulgaria&sorted=true",
+        "needed_recipe": "Yes"
+      }
+    ]
+  },
+  "ca": {
+    "metadata": {
+      "name": "Canada",
+      "code": "ca",
+      "flag": "🇨🇦",
+      "off_tag": "en:canada",
+      "languages": [
+        "en",
+        "fr"
+      ],
+      "total": 148,
+      "with_code": 0,
+      "missing": 148,
+      "coverage_pct": 0.0,
+      "start_baseline_pct": 0.0,
+      "delta_pct": 0.0
+    },
+    "categories": [
+      {
+        "category_tag": "en:beers",
+        "category_name": "Beers",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:beers&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:beers-with-fruits",
+        "category_name": "Beers with fruits",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:beers-with-fruits&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:liqueurs",
+        "category_name": "Liqueurs",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:liqueurs&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:fortified-wines",
+        "category_name": "Fortified wines",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:fortified-wines&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:madeira-wine",
+        "category_name": "Madeira wine",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:madeira-wine&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:white-ports",
+        "category_name": "White ports",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:white-ports&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:red-ports",
+        "category_name": "Red ports",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:red-ports&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:commandaria",
+        "category_name": "Commandaria",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:commandaria&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:commandaria",
+        "category_name": "Commandaria",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:commandaria&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "hr:vino-marsala",
+        "category_name": "Hr:vino marsala",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=hr:vino-marsala&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:sherry",
+        "category_name": "Sherry",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:sherry&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:soy-based-drinks",
+        "category_name": "Soy based drinks",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:soy-based-drinks&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:frying-oil",
+        "category_name": "Frying oil",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:frying-oil&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:butters",
+        "category_name": "Butters",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:butters&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:margarines",
+        "category_name": "Margarines",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:margarines&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:margarines-high-in-omega-3",
+        "category_name": "Margarines high in omega 3",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:margarines-high-in-omega-3&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:margarines",
+        "category_name": "Margarines",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:margarines&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:80-unsalted-vegetable-fat",
+        "category_name": "80 unsalted vegetable fat",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:80-unsalted-vegetable-fat&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:80-salted-vegetable-fat",
+        "category_name": "80 salted vegetable fat",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:80-salted-vegetable-fat&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:fermented-teas",
+        "category_name": "Fermented teas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:fermented-teas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:fruit-teas",
+        "category_name": "Fruit teas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:fruit-teas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:herbal-teas",
+        "category_name": "Herbal teas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:herbal-teas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:herbal-teas",
+        "category_name": "Herbal teas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:herbal-teas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:teas",
+        "category_name": "Teas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:teas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:cocoa-powder-for-beverages-with-sugar",
+        "category_name": "Cocoa powder for beverages with sugar",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:cocoa-powder-for-beverages-with-sugar&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:frozen-deep-fried-french-fries",
+        "category_name": "Frozen deep fried french fries",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:frozen-deep-fried-french-fries&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:prepared-lasagne",
+        "category_name": "Prepared lasagne",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:prepared-lasagne&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:meals-with-meat",
+        "category_name": "Meals with meat",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:meals-with-meat&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:stews",
+        "category_name": "Stews",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:stews&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:sauteed-potatoes",
+        "category_name": "Sauteed potatoes",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:sauteed-potatoes&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:pizzas-pies-and-quiches",
+        "category_name": "Pizzas pies and quiches",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:pizzas-pies-and-quiches&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:quiches",
+        "category_name": "Quiches",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:quiches&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wraps",
+        "category_name": "Wraps",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wraps&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:vegetables-based-foods",
+        "category_name": "Vegetables based foods",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:vegetables-based-foods&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:reheatable-mixed-vegetables-soup",
+        "category_name": "Reheatable mixed vegetables soup",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:reheatable-mixed-vegetables-soup&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-tunas",
+        "category_name": "Canned tunas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-tunas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:raisins",
+        "category_name": "Raisins",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:raisins&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:apple-compotes",
+        "category_name": "Apple compotes",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:apple-compotes&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:plum-jams",
+        "category_name": "Plum jams",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:plum-jams&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:mirabelle-plum-jams",
+        "category_name": "Mirabelle plum jams",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:mirabelle-plum-jams&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:strawberry-jams",
+        "category_name": "Strawberry jams",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:strawberry-jams&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:stuffed-olives",
+        "category_name": "Stuffed olives",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:stuffed-olives&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:lemon-juice",
+        "category_name": "Lemon juice",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:lemon-juice&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:multifruit-juices",
+        "category_name": "Multifruit juices",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:multifruit-juices&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:orange-juices",
+        "category_name": "Orange juices",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:orange-juices&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:breads",
+        "category_name": "Breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:breads",
+        "category_name": "Breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:Pains multicéréales",
+        "category_name": "Pains multicéréales",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:Pains multicéréales&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:rusks",
+        "category_name": "Rusks",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:rusks&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wholemeal-rolls-for-hamburger",
+        "category_name": "Wholemeal rolls for hamburger",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wholemeal-rolls-for-hamburger&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:hamburger-buns",
+        "category_name": "Hamburger buns",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:hamburger-buns&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:frozen-pre-baked-hamburger-buns",
+        "category_name": "Frozen pre baked hamburger buns",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:frozen-pre-baked-hamburger-buns&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:whole-wheat-english-muffins",
+        "category_name": "Whole wheat english muffins",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:whole-wheat-english-muffins&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wholemeal-rolls-for-hamburger",
+        "category_name": "Wholemeal rolls for hamburger",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wholemeal-rolls-for-hamburger&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:breads",
+        "category_name": "Breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wholemeal-breads",
+        "category_name": "Wholemeal breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wholemeal-breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wholemeal-sliced-breads",
+        "category_name": "Wholemeal sliced breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wholemeal-sliced-breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wheat-wholemeal-swedish-toast",
+        "category_name": "Wheat wholemeal swedish toast",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wheat-wholemeal-swedish-toast&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wholemeal-hot-dog-buns",
+        "category_name": "Wholemeal hot dog buns",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wholemeal-hot-dog-buns&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:breads",
+        "category_name": "Breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wholemeal-breads",
+        "category_name": "Wholemeal breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wholemeal-breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:wheat-breads",
+        "category_name": "Wheat breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:wheat-breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:breads",
+        "category_name": "Breads",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:breads&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:filled-biscuits",
+        "category_name": "Filled biscuits",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:filled-biscuits&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:brioches",
+        "category_name": "Brioches",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:brioches&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:clafoutis",
+        "category_name": "Clafoutis",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:clafoutis&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:fruit-cakes",
+        "category_name": "Fruit cakes",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:fruit-cakes&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:apple-cakes",
+        "category_name": "Apple cakes",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:apple-cakes&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:soft-cake-filled-with-fruits",
+        "category_name": "Soft cake filled with fruits",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:soft-cake-filled-with-fruits&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:cakes",
+        "category_name": "Cakes",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:cakes&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:croissants",
+        "category_name": "Croissants",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:croissants&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:fruit-tarts",
+        "category_name": "Fruit tarts",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:fruit-tarts&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:pancakes",
+        "category_name": "Pancakes",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:pancakes&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:chocolate-croissant",
+        "category_name": "Chocolate croissant",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:chocolate-croissant&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:durum-wheat-pasta",
+        "category_name": "Durum wheat pasta",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:durum-wheat-pasta&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:shortcrust-pastry",
+        "category_name": "Shortcrust pastry",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:shortcrust-pastry&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-common-beans",
+        "category_name": "Canned common beans",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-common-beans&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:peanuts",
+        "category_name": "Peanuts",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:peanuts&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:peppers",
+        "category_name": "Peppers",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:peppers&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:herbs",
+        "category_name": "Herbs",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:herbs&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:herbs-and-spices",
+        "category_name": "Herbs and spices",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:herbs-and-spices&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:dried-provence-herbs",
+        "category_name": "Dried provence herbs",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:dried-provence-herbs&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:herbes-de-provence",
+        "category_name": "Herbes de provence",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:herbes-de-provence&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:mixed-herbs",
+        "category_name": "Mixed herbs",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:mixed-herbs&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:Thym de Provence",
+        "category_name": "Thym de provence",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:Thym de Provence&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:spices",
+        "category_name": "Spices",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:spices&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:white-hams",
+        "category_name": "White hams",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:white-hams&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:hams",
+        "category_name": "Hams",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:hams&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:chipolatas",
+        "category_name": "Chipolatas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:chipolatas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:Merguez",
+        "category_name": "Merguez",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:Merguez&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:salami",
+        "category_name": "Salami",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:salami&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "es:rulo-de-cabra",
+        "category_name": "Es:rulo de cabra",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=es:rulo-de-cabra&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:camemberts",
+        "category_name": "Camemberts",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:camemberts&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:comte",
+        "category_name": "Comte",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:comte&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:emmentaler",
+        "category_name": "Emmentaler",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:emmentaler&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:swiss-gruyeres",
+        "category_name": "Swiss gruyeres",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:swiss-gruyeres&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:parmigiano-reggiano",
+        "category_name": "Parmigiano reggiano",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:parmigiano-reggiano&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:mozzarella",
+        "category_name": "Mozzarella",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:mozzarella&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:processed-cheese-around-20-fat-in-wedges",
+        "category_name": "Processed cheese around 20 fat in wedges",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:processed-cheese-around-20-fat-in-wedges&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:quarks",
+        "category_name": "Quarks",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:quarks&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:custards-and-pastry-creams",
+        "category_name": "Custards and pastry creams",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:custards-and-pastry-creams&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:ice-creams",
+        "category_name": "Ice creams",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:ice-creams&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:cremes-fraiches",
+        "category_name": "Cremes fraiches",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:cremes-fraiches&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:flavoured-yogurts",
+        "category_name": "Flavoured yogurts",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:flavoured-yogurts&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:plain-cow-milk-yogurts",
+        "category_name": "Plain cow milk yogurts",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:plain-cow-milk-yogurts&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Maybe"
+      },
+      {
+        "category_tag": "en:baker-s-yeast",
+        "category_name": "Baker s yeast",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:baker-s-yeast&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:baker-s-yeast-compressed",
+        "category_name": "Baker s yeast compressed",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:baker-s-yeast-compressed&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:yeast",
+        "category_name": "Yeast",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:yeast&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:soy-based-drinks",
+        "category_name": "Soy based drinks",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:soy-based-drinks&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:soy-milk-yogurts",
+        "category_name": "Soy milk yogurts",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:soy-milk-yogurts&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:bechamel-sauces",
+        "category_name": "Bechamel sauces",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:bechamel-sauces&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:mayonnaises",
+        "category_name": "Mayonnaises",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:mayonnaises&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:mustards",
+        "category_name": "Mustards",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:mustards&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:salad-dressings",
+        "category_name": "Salad dressings",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:salad-dressings&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:ketchup",
+        "category_name": "Ketchup",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:ketchup&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces",
+        "category_name": "Tomato sauces",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:vinegars",
+        "category_name": "Vinegars",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:vinegars&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:poultry-broth",
+        "category_name": "Poultry broth",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:poultry-broth&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:curry-powders",
+        "category_name": "Curry powders",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:curry-powders&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:peppers",
+        "category_name": "Peppers",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:peppers&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:pink-peppers",
+        "category_name": "Pink peppers",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:pink-peppers&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:dark-chocolates",
+        "category_name": "Dark chocolates",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:dark-chocolates&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:chewing-gum",
+        "category_name": "Chewing gum",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:chewing-gum&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:milk-chocolates",
+        "category_name": "Milk chocolates",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:milk-chocolates&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-carrots",
+        "category_name": "Canned carrots",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-carrots&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-belgian-endives",
+        "category_name": "Canned belgian endives",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-belgian-endives&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:endives",
+        "category_name": "Endives",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:endives&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-palm-hearts",
+        "category_name": "Canned palm hearts",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-palm-hearts&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-with-mushrooms",
+        "category_name": "Tomato sauces with mushrooms",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-with-mushrooms&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-tomato-purees",
+        "category_name": "Canned tomato purees",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-tomato-purees&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-with-cheese",
+        "category_name": "Tomato sauces with cheese",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-with-cheese&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-with-ricotta",
+        "category_name": "Tomato sauces with ricotta",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-with-ricotta&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:fried-tomato-sauces",
+        "category_name": "Fried tomato sauces",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:fried-tomato-sauces&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-with-olives",
+        "category_name": "Tomato sauces with olives",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-with-olives&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-with-parmesan-cheese",
+        "category_name": "Tomato sauces with parmesan cheese",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-with-parmesan-cheese&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-with-basil",
+        "category_name": "Tomato sauces with basil",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-with-basil&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-for-pizzas",
+        "category_name": "Tomato sauces for pizzas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-for-pizzas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces-with-vegetables",
+        "category_name": "Tomato sauces with vegetables",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces-with-vegetables&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:pimented-tomato-sauces",
+        "category_name": "Pimented tomato sauces",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:pimented-tomato-sauces&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:tomato-sauces",
+        "category_name": "Tomato sauces",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:tomato-sauces&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-tomatoes",
+        "category_name": "Canned tomatoes",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-tomatoes&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:canned-sweet-corn",
+        "category_name": "Canned sweet corn",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:canned-sweet-corn&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:flavored-waters",
+        "category_name": "Flavored waters",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:flavored-waters&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:colas",
+        "category_name": "Colas",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:colas&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:beverages-with-orange",
+        "category_name": "Beverages with orange",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:beverages-with-orange&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:still-soft-drink-with-tea-extract",
+        "category_name": "Still soft drink with tea extract",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:still-soft-drink-with-tea-extract&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:carbonated-soft-drinks-without-fruit-juice",
+        "category_name": "Carbonated soft drinks without fruit juice",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:carbonated-soft-drinks-without-fruit-juice&type=category&country=en:canada&sorted=true",
+        "needed_recipe": "Yes"
+      },
+      {
+        "category_tag": "en:still-fruit-soft-drink-with-sugar-and-with-less-than-10-of-fruit-juice",
+        "category_name": "Still fruit soft drink with sugar and with less than 10 of fruit juice",
+        "code": "",
+        "has_code": false,
+        "status": "Needs photo / barcode",
+        "off_url": "",
+        "hunger_games_url": "https://hunger.openfoodfacts.org/questions?value_tag=en:still-fruit-soft-drink-with-sugar-and-with-less-than-10-of-fruit-juice&type=category&country=en:canada&sorted=true",
         "needed_recipe": "Yes"
       }
     ]

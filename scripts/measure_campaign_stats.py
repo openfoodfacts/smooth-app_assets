@@ -24,6 +24,7 @@ COUNTRY_METADATA = {
     'Austria': {'code': 'at', 'flag': '🇦🇹', 'off_tag': 'en:austria', 'languages': ['de']},
     'Belgium': {'code': 'be', 'flag': '🇧🇪', 'off_tag': 'en:belgium', 'languages': ['fr', 'nl', 'de']},
     'Bulgaria': {'code': 'bg', 'flag': '🇧🇬', 'off_tag': 'en:bulgaria', 'languages': ['bg']},
+    'Canada': {'code': 'ca', 'flag': '🇨🇦', 'off_tag': 'en:canada', 'languages': ['en', 'fr']},
     'Croatia': {'code': 'hr', 'flag': '🇭🇷', 'off_tag': 'en:croatia', 'languages': ['hr']},
     'Cyprus': {'code': 'cy', 'flag': '🇨🇾', 'off_tag': 'en:cyprus', 'languages': ['el', 'tr']},
     'Czech Republic': {'code': 'cs', 'flag': '🇨🇿', 'off_tag': 'en:czech-republic', 'languages': ['cs']},

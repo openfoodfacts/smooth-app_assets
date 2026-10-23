@@ -1605,7 +1605,10 @@ def build_data_detective_html():
                     'Atlantic/Azores': 'pt', 'Europe/Bucharest': 'ro', 'Europe/Belgrade': 'rs',
                     'Europe/Bratislava': 'sk', 'Europe/Ljubljana': 'si', 'Europe/Madrid': 'es',
                     'Atlantic/Canary': 'es', 'Africa/Ceuta': 'es', 'Europe/Stockholm': 'se',
-                    'Europe/Zurich': 'ch', 'Europe/London': 'uk'
+                    'Europe/Zurich': 'ch', 'Europe/London': 'uk',
+                    'America/Toronto': 'ca', 'America/Montreal': 'ca', 'America/Vancouver': 'ca',
+                    'America/Edmonton': 'ca', 'America/Calgary': 'ca', 'America/Winnipeg': 'ca',
+                    'America/Halifax': 'ca', 'America/St_Johns': 'ca', 'America/Regina': 'ca'
                 };
                 if (tzMap[tz] && countries[tzMap[tz]]) {
                     return tzMap[tz];
