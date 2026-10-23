@@ -1,12 +1,12 @@
 {
   "campaign_id": "photos_for_impact_2026",
   "baseline_date": "2026-09-18",
-  "last_updated": "2026-10-18 00:19:18",
-  "total_countries": 32,
-  "total_items": 3124,
+  "last_updated": "2026-10-23 10:31:58",
+  "total_countries": 33,
+  "total_items": 3272,
   "total_with_code": 2091,
-  "total_missing": 1033,
-  "overall_coverage_pct": 66.9,
+  "total_missing": 1181,
+  "overall_coverage_pct": 63.9,
   "countries": {
     "at": {
       "name": "Austria",
@@ -53,6 +53,22 @@
       "missing": 2,
       "coverage_pct": 90.0,
       "start_baseline_pct": 90.0,
+      "delta_pct": 0.0
+    },
+    "ca": {
+      "name": "Canada",
+      "code": "ca",
+      "flag": "🇨🇦",
+      "off_tag": "en:canada",
+      "languages": [
+        "en",
+        "fr"
+      ],
+      "total": 148,
+      "with_code": 0,
+      "missing": 148,
+      "coverage_pct": 0.0,
+      "start_baseline_pct": 0.0,
       "delta_pct": 0.0
     },
     "hr": {

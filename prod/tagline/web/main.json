@@ -802,6 +802,16 @@
           "title": "🇬🇧 19 foods missing!",
           "message": "Snap **19 foods**!",
           "button_label": "See list"
+        },
+        "en_CA": {
+          "title": "🇨🇦 148 foods missing!",
+          "message": "Snap **148 foods**!",
+          "button_label": "See list"
+        },
+        "fr_CA": {
+          "title": "🇨🇦 148 produits manquants",
+          "message": "Photographiez **148 produits** !",
+          "button_label": "Voir la liste"
         }
       },
       "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/"
@@ -1286,6 +1296,19 @@
           "id": "photos_for_impact_2026",
           "override": {
             "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=uk"
+          }
+        },
+        {
+          "id": "donation_campaign_2026"
+        }
+      ]
+    },
+    "_CA": {
+      "news": [
+        {
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=ca"
           }
         },
         {

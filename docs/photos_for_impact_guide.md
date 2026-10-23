@@ -57,7 +57,7 @@ The campaign is configured across all three platforms:
 - Web: `prod/tagline/web/main.json`
 
 ### Country-Level Targeting
-`tagline_feed` defines feeds for `_AT`, `_BE`, `_BG`, `_HR`, `_CY`, `_CZ`, `_DK`, `_EE`, `_FI`, `_FR`, `_DE`, `_GR`, `_HU`, `_IE`, `_IT`, `_LV`, `_LT`, `_LU`, `_MT`, `_ME`, `_NL`, `_NO`, `_PL`, `_PT`, `_RO`, `_RS`, `_SK`, `_SI`, `_ES`, `_SE`, `_CH`, `_UK`.
+`tagline_feed` defines feeds for `_AT`, `_BE`, `_BG`, `_CA`, `_HR`, `_CY`, `_CZ`, `_DK`, `_EE`, `_FI`, `_FR`, `_DE`, `_GR`, `_HU`, `_IE`, `_IT`, `_LV`, `_LT`, `_LU`, `_MT`, `_ME`, `_NL`, `_NO`, `_PL`, `_PT`, `_RO`, `_RS`, `_SK`, `_SI`, `_ES`, `_SE`, `_CH`, `_UK`.
 
 Each country feed overrides the URL to deep-link to the user's country in the Campaign Hub:
 ```json
