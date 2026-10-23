@@ -174,7 +174,14 @@ def main():
         json.dump(country_data, f, indent=2, ensure_ascii=False)
     print(f"Saved country datasets to {COUNTRIES_DATA_FILE}")
 
-    for rel_path in ['photos-for-impact', os.path.join('release-website', 'photos-for-impact')]:
+    for rel_path in [
+        'photos-for-impact',
+        os.path.join('release-website', 'photos-for-impact'),
+        'data-detective',
+        os.path.join('release-website', 'data-detective'),
+        'taxonomy-wiz',
+        os.path.join('release-website', 'taxonomy-wiz')
+    ]:
         target_dir = os.path.join(BASE_DIR, rel_path)
         os.makedirs(target_dir, exist_ok=True)
         js_dest = os.path.join(target_dir, 'data.js')

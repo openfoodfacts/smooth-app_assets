@@ -14,10 +14,18 @@ In countries with small communities (~20 Daily Active Users), conversion require
    - 2 tabs: High Priority (missing) and All Categories.
    - Checkboxes with local storage persistence to remember scanned items without requiring login or constant scrolling.
    - Clean, distraction-free interface (no external links in default experience) with actionable advice: add 3 photos (front, ingredients, nutrition) and pick the closest category if a name sounds strange.
-3. **Structured Google Spreadsheet**:
+3. **Desktop Campaign Hub / Data Detective (`data-detective/`, `release-website/data-detective/`)**:
+   - Dedicated desktop-friendly companion game: **Data Detective** 🕵️‍♂️💻 ("Complete product data: photos, ingredients, nutrition, and packaging").
+   - Same category list and country datasets with 2 tabs: "All Categories" (default active) and "High Priority".
+   - 4 core completion tasks: (1) Select & crop ingredient/nutrition photos, (2) Run OCR on ingredients and verify text, (3) Enter nutrition facts table, (4) Enter packaging materials, shapes, and recycling instructions.
+   - Clicking any category row links directly to Open Food Facts facet category pages (e.g. `https://fr.openfoodfacts.org/facets/categories/Liqueurs`).
+   - Checkbox tracking with `localStorage` persistence (`data_detective_done_<country>`).
+   - Community guidance with links to the Open Food Facts Slack (`#ingredients`, `#packaging`, `#foodture`) and editing tutorials.
+   - Legacy redirect from `taxonomy-wiz/` preserves existing bookmarks and links.
+4. **Structured Google Spreadsheet**:
    - 1 Leaderboard Overview tab with live formula tracking.
    - 32 Country-specific tabs with category tags, clean names, status dropdowns, and deep links.
-4. **Automated Measurement Pipeline**:
+5. **Automated Measurement Pipeline**:
    - Baseline recorded at launch (`2026-09-18`).
    - Scheduled GitHub Action workflow (`.github/workflows/update-campaign-stats.yml`) keeping stats updated.
 
