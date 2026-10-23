@@ -1255,6 +1255,7 @@
                 _paq.push(['trackPageView']);
             }
 
+            updateSwitchLink();
             render();
         }
 
@@ -1278,8 +1279,29 @@
             const langSelect = document.getElementById('langSelect');
             if (langSelect) langSelect.value = langCode;
 
+            updateSwitchLink();
             applyTranslations();
             render();
+        }
+
+        function updateSwitchLink() {
+            const link = document.getElementById('switchGameLink');
+            if (link) {
+                link.href = `../data-detective/?country=${encodeURIComponent(currentCountry || 'at')}&lang=${encodeURIComponent(currentLang || 'en')}`;
+            }
+        }
+
+        function getCategoryName(item, lang = currentLang) {
+            if (!item) return '';
+            const tag = item.category_tag;
+            const catTranslations = window.CATEGORY_TRANSLATIONS ? window.CATEGORY_TRANSLATIONS[tag] : null;
+            if (catTranslations) {
+                if (catTranslations[lang]) return catTranslations[lang];
+                if (lang === 'no' && catTranslations['nb']) return catTranslations['nb'];
+                if (lang === 'nb' && catTranslations['no']) return catTranslations['no'];
+                if (catTranslations['en']) return catTranslations['en'];
+            }
+            return item.category_name || (tag ? tag.replace(/^[a-z]{2}:/, '').replace(/-/g, ' ') : '');
         }
 
         function applyTranslations() {
@@ -1460,6 +1482,7 @@
                 } catch (e) {}
             });
 
+            updateSwitchLink();
             applyTranslations();
             renderModalCountryGrid();
             if (currentCountry) {
@@ -1472,6 +1495,8 @@
             div.className = 'check-item' + (isChecked ? ' done' : '');
             div.setAttribute('data-tag', item.category_tag);
 
+            const displayName = getCategoryName(item);
+
             div.innerHTML = `
                 <div class="check-box" aria-hidden="true">
                     <svg viewBox="0 0 24 24">
@@ -1479,7 +1504,7 @@
                     </svg>
                 </div>
                 <div class="check-label-wrap">
-                    <span class="check-label">${item.category_name}</span>
+                    <span class="check-label">${displayName}</span>
                     ${(currentTab === 'all' && isMissing) ? '<span class="item-priority-dot" title="High Priority Missing"></span>' : ''}
                 </div>
             `;
@@ -1528,10 +1553,14 @@
             // Filter items by search query
             let filtered = sourcePool;
             if (currentSearch) {
-                filtered = sourcePool.filter(c => 
-                    c.category_name.toLowerCase().includes(currentSearch) ||
-                    c.category_tag.toLowerCase().includes(currentSearch)
-                );
+                filtered = sourcePool.filter(c => {
+                    const localized = getCategoryName(c).toLowerCase();
+                    const base = (c.category_name || '').toLowerCase();
+                    const tag = (c.category_tag || '').toLowerCase();
+                    return localized.includes(currentSearch) ||
+                           base.includes(currentSearch) ||
+                           tag.includes(currentSearch);
+                });
             }
 
             // Split into Unchecked and Completed (Google Keep style)

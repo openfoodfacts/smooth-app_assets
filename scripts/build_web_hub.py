@@ -1732,6 +1732,19 @@ def build_data_detective_html():
             }
         }
 
+        function getCategoryName(item, lang = currentLang) {
+            if (!item) return '';
+            const tag = item.category_tag;
+            const catTranslations = window.CATEGORY_TRANSLATIONS ? window.CATEGORY_TRANSLATIONS[tag] : null;
+            if (catTranslations) {
+                if (catTranslations[lang]) return catTranslations[lang];
+                if (lang === 'no' && catTranslations['nb']) return catTranslations['nb'];
+                if (lang === 'nb' && catTranslations['no']) return catTranslations['no'];
+                if (catTranslations['en']) return catTranslations['en'];
+            }
+            return item.category_name || (tag ? tag.replace(/^[a-z]{2}:/, '').replace(/-/g, ' ') : '');
+        }
+
         function getCategoryUrl(categoryName) {
             const langDomain = (currentLang === 'en') ? 'world' : currentLang;
             return `https://${langDomain}.openfoodfacts.org/facets/categories/${encodeURIComponent(categoryName)}`;
@@ -1928,7 +1941,8 @@ def build_data_detective_html():
             div.className = 'check-item' + (isChecked ? ' done' : '');
             div.setAttribute('data-tag', item.category_tag);
 
-            const catUrl = getCategoryUrl(item.category_name);
+            const displayName = getCategoryName(item);
+            const catUrl = getCategoryUrl(displayName);
 
             div.innerHTML = `
                 <div class="check-box" aria-label="Mark category as completed">
@@ -1938,7 +1952,7 @@ def build_data_detective_html():
                 </div>
                 <div class="check-label-wrap">
                     <a href="${catUrl}" target="_blank" rel="noopener" class="check-label-link" title="${t('detective_open_category')}">
-                        <span>${item.category_name}</span>
+                        <span>${displayName}</span>
                         <span class="ext-icon" aria-hidden="true">↗</span>
                     </a>
                     ${(currentTab === 'all' && isMissing) ? '<span class="item-priority-dot" title="High Priority"></span>' : ''}
@@ -1985,10 +1999,14 @@ def build_data_detective_html():
 
             let filtered = sourcePool;
             if (currentSearch) {
-                filtered = sourcePool.filter(c => 
-                    c.category_name.toLowerCase().includes(currentSearch) ||
-                    c.category_tag.toLowerCase().includes(currentSearch)
-                );
+                filtered = sourcePool.filter(c => {
+                    const localized = getCategoryName(c).toLowerCase();
+                    const base = (c.category_name || '').toLowerCase();
+                    const tag = (c.category_tag || '').toLowerCase();
+                    return localized.includes(currentSearch) ||
+                           base.includes(currentSearch) ||
+                           tag.includes(currentSearch);
+                });
             }
 
             const activeItems = [];

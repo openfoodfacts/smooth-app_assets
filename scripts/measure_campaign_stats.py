@@ -8,6 +8,7 @@ Measures start-of-campaign baseline, current coverage %, and missing products.
 import csv
 import json
 import os
+import re
 import sys
 from datetime import datetime
 from collections import defaultdict
@@ -19,6 +20,8 @@ DATA_DIR = os.path.join(BASE_DIR, 'data')
 BASELINE_FILE = os.path.join(DATA_DIR, 'baseline_2026_09_18.json')
 STATS_FILE = os.path.join(DATA_DIR, 'campaign_stats.json')
 COUNTRIES_DATA_FILE = os.path.join(DATA_DIR, 'countries_data.json')
+TAXO_FILE = os.path.join(DATA_DIR, 'categories.json')
+CATEGORY_TRANSLATIONS_FILE = os.path.join(DATA_DIR, 'category_translations.json')
 
 COUNTRY_METADATA = {
     'Austria': {'code': 'at', 'flag': '🇦🇹', 'off_tag': 'en:austria', 'languages': ['de']},
@@ -66,9 +69,57 @@ def load_source_csv():
 
 
 def clean_category_name(cat_tag):
-    if cat_tag.startswith('en:'):
-        cat_tag = cat_tag[3:]
-    return cat_tag.replace('-', ' ').capitalize()
+    cat_tag = re.sub(r'^[a-z]{2}:', '', cat_tag)
+    return cat_tag.replace('-', ' ').strip().capitalize()
+
+
+def capitalize_first(s):
+    if not s:
+        return ''
+    return s[0].upper() + s[1:]
+
+
+def extract_category_translations(unique_tags, taxo_path):
+    if not os.path.exists(taxo_path):
+        print(f"Warning: Taxonomy file not found at {taxo_path}")
+        return {}
+
+    with open(taxo_path, 'r', encoding='utf-8') as f:
+        taxo = json.load(f)
+
+    alias_map = {
+        'en:fruits-based-foods': 'en:fruit-based-foods',
+        'en:chewing-gum': 'en:chewing-gums',
+        'en:chorizo': 'en:chorizos',
+        'en:semi-cured-cheese': 'en:semi-cured-cheeses',
+        'en:Bratwurst': 'en:Bratwursts',
+        'en:Calzone': 'en:Calzones',
+    }
+
+    cat_trans = {}
+    for tag in unique_tags:
+        target_tag = alias_map.get(tag, tag)
+        entry = taxo.get(target_tag) or taxo.get(target_tag.lower())
+        if not entry:
+            candidates = [target_tag + 's', target_tag[:-1] if target_tag.endswith('s') else '']
+            for c in candidates:
+                if c and (c in taxo or c.lower() in taxo):
+                    entry = taxo.get(c) or taxo.get(c.lower())
+                    break
+
+        if entry and 'name' in entry:
+            names = {}
+            for k, v in entry['name'].items():
+                if isinstance(v, str) and v.strip():
+                    names[k] = capitalize_first(v.strip())
+            if 'no' in names and 'nb' not in names:
+                names['nb'] = names['no']
+            if 'nb' in names and 'no' not in names:
+                names['no'] = names['nb']
+            if names:
+                cat_trans[tag] = names
+
+    return cat_trans
 
 
 def build_country_datasets(rows):
@@ -175,6 +226,14 @@ def main():
         json.dump(country_data, f, indent=2, ensure_ascii=False)
     print(f"Saved country datasets to {COUNTRIES_DATA_FILE}")
 
+    unique_tags = sorted(list(set(r.get('Category', '').strip() for r in rows if r.get('Category', '').strip())))
+    cat_trans = extract_category_translations(unique_tags, TAXO_FILE)
+    print(f"Extracted translations for {len(cat_trans)} of {len(unique_tags)} unique categories")
+
+    with open(CATEGORY_TRANSLATIONS_FILE, 'w', encoding='utf-8') as f:
+        json.dump(cat_trans, f, indent=2, ensure_ascii=False)
+    print(f"Saved category translations to {CATEGORY_TRANSLATIONS_FILE}")
+
     for rel_path in [
         'photos-for-impact',
         os.path.join('release-website', 'photos-for-impact'),
@@ -189,6 +248,7 @@ def main():
         with open(js_dest, 'w', encoding='utf-8') as f:
             f.write("window.CAMPAIGN_STATS = " + json.dumps(stats, indent=2, ensure_ascii=False) + ";\n")
             f.write("window.COUNTRIES_DATA = " + json.dumps(country_data, indent=2, ensure_ascii=False) + ";\n")
+            f.write("window.CATEGORY_TRANSLATIONS = " + json.dumps(cat_trans, ensure_ascii=False) + ";\n")
         print(f"Exported data.js to {js_dest}")
 
 

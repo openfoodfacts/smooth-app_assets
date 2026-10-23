@@ -68,7 +68,7 @@
       },
       {
         "category_tag": "xx:tofu",
-        "category_name": "Xx:tofu",
+        "category_name": "Tofu",
         "code": "4066447506235",
         "has_code": true,
         "status": "In database",
@@ -908,7 +908,7 @@
       },
       {
         "category_tag": "xx:tofu",
-        "category_name": "Xx:tofu",
+        "category_name": "Tofu",
         "code": "4066447506235",
         "has_code": true,
         "status": "In database",
@@ -2428,7 +2428,7 @@
       },
       {
         "category_tag": "hr:vino-marsala",
-        "category_name": "Hr:vino marsala",
+        "category_name": "Vino marsala",
         "code": "",
         "has_code": false,
         "status": "Needs photo / barcode",
@@ -3248,7 +3248,7 @@
       },
       {
         "category_tag": "es:rulo-de-cabra",
-        "category_name": "Es:rulo de cabra",
+        "category_name": "Rulo de cabra",
         "code": "",
         "has_code": false,
         "status": "Needs photo / barcode",
@@ -6965,7 +6965,7 @@
       },
       {
         "category_tag": "xx:liverwurst",
-        "category_name": "Xx:liverwurst",
+        "category_name": "Liverwurst",
         "code": "",
         "has_code": false,
         "status": "Needs photo / barcode",
@@ -9174,7 +9174,7 @@
       },
       {
         "category_tag": "xx:viili",
-        "category_name": "Xx:viili",
+        "category_name": "Viili",
         "code": "6408430004324",
         "has_code": true,
         "status": "In database",
@@ -9583,7 +9583,7 @@
       },
       {
         "category_tag": "hr:vino-marsala",
-        "category_name": "Hr:vino marsala",
+        "category_name": "Vino marsala",
         "code": "",
         "has_code": false,
         "status": "Needs photo / barcode",
@@ -10403,7 +10403,7 @@
       },
       {
         "category_tag": "es:rulo-de-cabra",
-        "category_name": "Es:rulo de cabra",
+        "category_name": "Rulo de cabra",
         "code": "3523230028431",
         "has_code": true,
         "status": "In database",
@@ -11752,7 +11752,7 @@
       },
       {
         "category_tag": "xx:liverwurst",
-        "category_name": "Xx:liverwurst",
+        "category_name": "Liverwurst",
         "code": "4000405002063",
         "has_code": true,
         "status": "In database",
@@ -18088,7 +18088,7 @@
       },
       {
         "category_tag": "hr:vino-marsala",
-        "category_name": "Hr:vino marsala",
+        "category_name": "Vino marsala",
         "code": "",
         "has_code": false,
         "status": "Needs photo / barcode",
@@ -31463,7 +31463,7 @@
       },
       {
         "category_tag": "fr:sauces-puttanesca",
-        "category_name": "Fr:sauces puttanesca",
+        "category_name": "Sauces puttanesca",
         "code": "8076809541121",
         "has_code": true,
         "status": "In database",
