@@ -801,7 +801,10 @@
     "fr_FR": {
       "news": [
         {
-          "id": "donation_campaign_2026"
+          "id": "photos_for_impact_2026",
+          "override": {
+            "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fr"
+          }
         }
       ]
     },
@@ -942,9 +945,6 @@
           "override": {
             "url": "https://openfoodfacts.github.io/smooth-app_assets/photos-for-impact/?country=fr"
           }
-        },
-        {
-          "id": "donation_campaign_2026"
         }
       ]
     },
