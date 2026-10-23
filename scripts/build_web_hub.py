@@ -430,7 +430,7 @@ def build_data_detective_html():
         .brand-area {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none;
             color: var(--text-main);
             min-width: 0;
@@ -1070,6 +1070,7 @@ def build_data_detective_html():
         .empty-state-icon {
             font-size: 32px;
             margin-bottom: 6px;
+            display: block;
         }
 
         .empty-state-title {
