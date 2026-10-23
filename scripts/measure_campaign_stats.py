@@ -177,6 +177,8 @@ def main():
     for rel_path in [
         'photos-for-impact',
         os.path.join('release-website', 'photos-for-impact'),
+        'data-detective',
+        os.path.join('release-website', 'data-detective'),
         'taxonomy-wiz',
         os.path.join('release-website', 'taxonomy-wiz')
     ]:

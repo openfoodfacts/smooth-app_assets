@@ -3,9 +3,14 @@
 Build script to generate both web games:
 1. Scan Champion (photos-for-impact/index.html):
    Mobile-first, high density shopping list for in-store/pantry scanning with Open Food Facts.
-2. Taxonomy Wiz (taxonomy-wiz/index.html):
-   Desktop-friendly review checklist to improve language support for ingredients analysis,
-   linking directly to Open Food Facts category pages (e.g. /facets/categories/Liqueurs).
+2. Data Detective (data-detective/index.html):
+   Desktop-friendly checklist for completing products:
+   - Select & crop photos (ingredients & nutrition)
+   - OCR ingredients & verify text
+   - Enter nutrition table
+   - Enter packaging details
+   Linking directly to Open Food Facts category pages (e.g. /facets/categories/Liqueurs).
+3. Taxonomy Wiz legacy redirect (taxonomy-wiz/index.html -> data-detective/)
 """
 
 import os
@@ -50,7 +55,6 @@ LANGUAGE_NAMES = {
     "tr": "Türkçe"
 }
 
-# Complete translations covering all 32 official languages for both games
 TRANSLATIONS = {
     "en": {
         # Scan Champion
@@ -89,35 +93,36 @@ TRANSLATIONS = {
         "footer_citizen_link_en": "Citizen Science (EN)",
         "footer_citizen_link_fr": "Science Citoyenne (FR)",
         "footer_storage": "Ticks saved locally on your device",
-        "switch_to_wiz": "🧑💻 At home? Try Taxonomy Wiz",
-        "switch_to_scan": "🤳 In store? Try Scan Champion",
+        "switch_to_detective": "🕵️‍♂️ At home? Data Detective",
+        "switch_to_scan": "🤳 In store? Scan Champion",
 
-        # Taxonomy Wiz
-        "wiz_title": "Taxonomy Wiz",
-        "wiz_badge": "Open Food Facts",
-        "wiz_guide_title": "Taxonomy Wiz Instructions",
-        "wiz_guide_headline": "Help improve the support of your language for ingredients analysis",
-        "wiz_step1_title": "At Home with Computer",
-        "wiz_step1_desc": "Work comfortably from your desktop to inspect ingredient taxonomies and categories.",
-        "wiz_step2_title": "Add or Review Translations",
-        "wiz_step2_desc": "Review ingredient and category translations in your language for accuracy.",
-        "wiz_step3_title": "Taxonomy Editor & GitHub",
-        "wiz_step3_desc": "Use the web Taxonomy Editor or GitHub repository to propose and refine translations.",
-        "wiz_warning_title": "A bit more technical:",
-        "wiz_warning_desc": "Want guidance or to coordinate? Join us in #foodture and #ingredients on Slack!",
-        "wiz_slack_btn": "Join Slack",
-        "wiz_editor_btn": "Taxonomy Editor",
-        "wiz_github_btn": "GitHub Taxonomies",
-        "wiz_tip_text": "Pro-tip: Click any category to open its Open Food Facts category page and inspect ingredients!",
-        "wiz_tab_all": "All Categories",
-        "wiz_tab_priority": "High Priority",
-        "wiz_progress_summary": "{checked} of {total} reviewed ({pct}%)",
-        "wiz_completed_label": "Reviewed ({count})",
-        "wiz_empty_priority_title": "No high priority items right now",
-        "wiz_empty_priority_desc": "Switch to 'All Categories' to browse and review all categories in this country.",
-        "wiz_empty_all_done_title": "Taxonomy Wiz Champion! All {count} categories reviewed!",
-        "wiz_empty_all_done_desc": "Incredible contribution! You reviewed all categories in this list.",
-        "wiz_open_category": "Open category in Open Food Facts"
+        # Data Detective
+        "detective_title": "Data Detective",
+        "detective_badge": "Open Food Facts",
+        "detective_guide_title": "Data Detective Mission",
+        "detective_guide_headline": "Complete product data: photos, ingredients, nutrition, and packaging",
+        "detective_step1_title": "1. Select & Crop Photos",
+        "detective_step1_desc": "Select and crop clear photos for the ingredients list and nutrition facts table.",
+        "detective_step2_title": "2. OCR Ingredients & Verify",
+        "detective_step2_desc": "Run the OCR to extract ingredients from the photo, then verify and correct the text.",
+        "detective_step3_title": "3. Enter Nutrition Facts",
+        "detective_step3_desc": "Transcribe the nutrition table values (energy, fats, sugars, salt, proteins...).",
+        "detective_step4_title": "4. Enter Packaging",
+        "detective_step4_desc": "Add packaging shapes, materials, and recycling instructions.",
+        "detective_warning_title": "At home with your computer:",
+        "detective_warning_desc": "Completing products is much easier on a desktop computer. Need help? Join #ingredients and #packaging on Slack!",
+        "detective_slack_btn": "Join Slack",
+        "detective_wiki_btn": "How to edit products",
+        "detective_tip_text": "Pro-tip: Click any category to open its Open Food Facts page, find products to complete, and tick them off!",
+        "detective_tab_all": "All Categories",
+        "detective_tab_priority": "High Priority",
+        "detective_progress_summary": "{checked} of {total} completed ({pct}%)",
+        "detective_completed_label": "Completed ({count})",
+        "detective_empty_priority_title": "No high priority items right now",
+        "detective_empty_priority_desc": "Switch to 'All Categories' to browse and complete products in this country.",
+        "detective_empty_all_done_title": "Data Detective Champion! All {count} categories completed!",
+        "detective_empty_all_done_desc": "Incredible detective work! You reviewed and completed all categories in this list.",
+        "detective_open_category": "Open category in Open Food Facts"
     },
     "fr": {
         # Scan Champion
@@ -156,38 +161,38 @@ TRANSLATIONS = {
         "footer_citizen_link_en": "Citizen Science (EN)",
         "footer_citizen_link_fr": "Science Citoyenne (FR)",
         "footer_storage": "Coches enregistrées localement sur votre appareil",
-        "switch_to_wiz": "🧑💻 Sur ordinateur ? Découvrez Taxonomy Wiz",
-        "switch_to_scan": "🤳 En magasin ? Découvrez Scan Champion",
+        "switch_to_detective": "🕵️‍♂️ Sur ordi ? Data Detective",
+        "switch_to_scan": "🤳 En magasin ? Scan Champion",
 
-        # Taxonomy Wiz
-        "wiz_title": "Taxonomy Wiz",
-        "wiz_badge": "Open Food Facts",
-        "wiz_guide_title": "Instructions Taxonomy Wiz",
-        "wiz_guide_headline": "Aidez à améliorer le support de votre langue pour l'analyse des ingrédients",
-        "wiz_step1_title": "À la maison sur ordinateur",
-        "wiz_step1_desc": "Travaillez confortablement depuis votre ordinateur pour inspecter les taxonomies et catégories.",
-        "wiz_step2_title": "Ajoutez ou révisez les traductions",
-        "wiz_step2_desc": "Vérifiez les traductions des catégories et ingrédients dans votre langue.",
-        "wiz_step3_title": "Éditeur de taxonomie & GitHub",
-        "wiz_step3_desc": "Utilisez l'éditeur web de taxonomie ou GitHub pour proposer et corriger des traductions.",
-        "wiz_warning_title": "Un peu plus technique :",
-        "wiz_warning_desc": "Besoin d'aide ou envie d'échanger ? Rejoignez-nous sur Slack dans #foodture et #ingredients !",
-        "wiz_slack_btn": "Rejoindre Slack",
-        "wiz_editor_btn": "Éditeur de taxonomie",
-        "wiz_github_btn": "Taxonomies sur GitHub",
-        "wiz_tip_text": "Astuce : Cliquez sur une catégorie pour ouvrir sa page sur Open Food Facts et inspecter ses ingrédients !",
-        "wiz_tab_all": "Toutes les catégories",
-        "wiz_tab_priority": "Haute priorité",
-        "wiz_progress_summary": "{checked} sur {total} révisés ({pct}%)",
-        "wiz_completed_label": "Révisés ({count})",
-        "wiz_empty_priority_title": "Aucun élément hautement prioritaire pour l'instant",
-        "wiz_empty_priority_desc": "Basculez sur « Toutes les catégories » pour explorer et réviser les traductions.",
-        "wiz_empty_all_done_title": "Taxonomy Wiz Champion ! Les {count} catégories ont été révisées !",
-        "wiz_empty_all_done_desc": "Incroyable contribution ! Vous avez passé en revue toutes les catégories.",
-        "wiz_open_category": "Ouvrir la catégorie sur Open Food Facts"
+        # Data Detective
+        "detective_title": "Data Detective",
+        "detective_badge": "Open Food Facts",
+        "detective_guide_title": "Mission Data Detective",
+        "detective_guide_headline": "Complétez les données des produits : photos, ingrédients, nutrition et emballages",
+        "detective_step1_title": "1. Sélectionner les photos",
+        "detective_step1_desc": "Sélectionnez et cadrez les photos des ingrédients et du tableau nutritionnel.",
+        "detective_step2_title": "2. OCR & Ingrédients",
+        "detective_step2_desc": "Utilisez l'OCR pour extraire les ingrédients depuis la photo, puis vérifiez et corrigez le texte.",
+        "detective_step3_title": "3. Entrer la nutrition",
+        "detective_step3_desc": "Renseignez le tableau nutritionnel (énergie, matières grasses, sucres, sel, protéines...).",
+        "detective_step4_title": "4. Entrer le packaging",
+        "detective_step4_desc": "Indiquez les emballages, matériaux, formats et consignes de tri.",
+        "detective_warning_title": "À la maison sur votre ordinateur :",
+        "detective_warning_desc": "Éditer les produits est bien plus simple sur un ordinateur avec un grand écran et un clavier. Rejoignez #ingredients et #packaging sur Slack !",
+        "detective_slack_btn": "Rejoindre Slack",
+        "detective_wiki_btn": "Guide d'édition",
+        "detective_tip_text": "Astuce : Cliquez sur une catégorie pour ouvrir sa page sur Open Food Facts, complétez les produits et cochez la catégorie !",
+        "detective_tab_all": "Toutes les catégories",
+        "detective_tab_priority": "Haute priorité",
+        "detective_progress_summary": "{checked} sur {total} complétés ({pct}%)",
+        "detective_completed_label": "Complétés ({count})",
+        "detective_empty_priority_title": "Aucun élément hautement prioritaire pour l'instant",
+        "detective_empty_priority_desc": "Basculez sur « Toutes les catégories » pour explorer et compléter les produits.",
+        "detective_empty_all_done_title": "Data Detective Champion ! Les {count} catégories ont été complétées !",
+        "detective_empty_all_done_desc": "Formidable travail d'enquête ! Vous avez vérifié et complété toutes les catégories de la liste.",
+        "detective_open_category": "Ouvrir la catégorie sur Open Food Facts"
     },
     "de": {
-        # Scan Champion
         "app_title": "Scan Champion",
         "app_badge": "Open Food Facts",
         "guide_title": "Scan Champion Anleitung",
@@ -223,35 +228,35 @@ TRANSLATIONS = {
         "footer_citizen_link_en": "Citizen Science (EN)",
         "footer_citizen_link_fr": "Science Citoyenne (FR)",
         "footer_storage": "Häkchen lokal auf deinem Gerät gespeichert",
-        "switch_to_wiz": "🧑💻 Am Computer? Probiere Taxonomy Wiz",
-        "switch_to_scan": "🤳 Im Supermarkt? Probiere Scan Champion",
+        "switch_to_detective": "🕵️‍♂️ Am Computer? Data Detective",
+        "switch_to_scan": "🤳 Im Supermarkt? Scan Champion",
 
-        # Taxonomy Wiz
-        "wiz_title": "Taxonomy Wiz",
-        "wiz_badge": "Open Food Facts",
-        "wiz_guide_title": "Taxonomy Wiz Anleitung",
-        "wiz_guide_headline": "Hilf mit, deine Sprache bei der Zutatenanalyse zu verbessern",
-        "wiz_step1_title": "Zuhause am Computer",
-        "wiz_step1_desc": "Arbeite bequem am Desktop, um Taxonomien und Kategorien zu prüfen.",
-        "wiz_step2_title": "Übersetzungen prüfen & ergänzen",
-        "wiz_step2_desc": "Prüfe Übersetzungen für Zutaten und Kategorien in deiner Sprache.",
-        "wiz_step3_title": "Taxonomie-Editor & GitHub",
-        "wiz_step3_desc": "Nutze den Web-Taxonomie-Editor oder GitHub, um Begriffe zu pflegen.",
-        "wiz_warning_title": "Etwas technischer:",
-        "wiz_warning_desc": "Brauchst du Unterstützung? Triff uns auf Slack in #foodture und #ingredients!",
-        "wiz_slack_btn": "Slack beitreten",
-        "wiz_editor_btn": "Taxonomie-Editor",
-        "wiz_github_btn": "GitHub Taxonomien",
-        "wiz_tip_text": "Tipp: Klicke auf eine Kategorie, um ihre Open Food Facts Seite zu öffnen und Zutaten zu prüfen!",
-        "wiz_tab_all": "Alle Kategorien",
-        "wiz_tab_priority": "Hohe Priorität",
-        "wiz_progress_summary": "{checked} von {total} geprüft ({pct}%)",
-        "wiz_completed_label": "Geprüft ({count})",
-        "wiz_empty_priority_title": "Derzeit keine hochprioritären Einträge",
-        "wiz_empty_priority_desc": "Wechsle zu „Alle Kategorien“, um Einträge zu prüfen.",
-        "wiz_empty_all_done_title": "Taxonomy Wiz Champion! Alle {count} Kategorien geprüft!",
-        "wiz_empty_all_done_desc": "Tolle Leistung! Du hast alle Kategorien durchgesehen.",
-        "wiz_open_category": "Kategorie auf Open Food Facts öffnen"
+        "detective_title": "Data Detective",
+        "detective_badge": "Open Food Facts",
+        "detective_guide_title": "Data Detective Mission",
+        "detective_guide_headline": "Produktdaten vervollständigen: Fotos, Zutaten, Nährwerte und Verpackung",
+        "detective_step1_title": "1. Fotos auswählen",
+        "detective_step1_desc": "Wähle und schneide die Fotos für Zutatenliste und Nährwerttabelle passgenau zu.",
+        "detective_step2_title": "2. Zutaten-OCR & Prüfung",
+        "detective_step2_desc": "Nutze OCR, um Zutaten aus dem Foto zu extrahieren, und überprüfe den Text.",
+        "detective_step3_title": "3. Nährwerte eintragen",
+        "detective_step3_desc": "Trage die Nährwertangaben ein (Energie, Fett, Zucker, Salz, Eiweiß...).",
+        "detective_step4_title": "4. Verpackung erfassen",
+        "detective_step4_desc": "Erfasse Verpackungsmaterialien, Formen und Recyclinghinweise.",
+        "detective_warning_title": "Zuhause am Computer:",
+        "detective_warning_desc": "Am PC geht das Bearbeiten viel leichter von der Hand. Fragen? Triff uns auf Slack in #ingredients und #packaging!",
+        "detective_slack_btn": "Slack beitreten",
+        "detective_wiki_btn": "Bearbeitungs-Leitfaden",
+        "detective_tip_text": "Tipp: Klicke auf eine Kategorie, um Produkte auf Open Food Facts zu öffnen und zu vervollständigen!",
+        "detective_tab_all": "Alle Kategorien",
+        "detective_tab_priority": "Hohe Priorität",
+        "detective_progress_summary": "{checked} von {total} vervollständigt ({pct}%)",
+        "detective_completed_label": "Vervollständigt ({count})",
+        "detective_empty_priority_title": "Derzeit keine hochprioritären Einträge",
+        "detective_empty_priority_desc": "Wechsle zu „Alle Kategorien“, um Produkte zu vervollständigen.",
+        "detective_empty_all_done_title": "Data Detective Champion! Alle {count} Kategorien vervollständigt!",
+        "detective_empty_all_done_desc": "Tolle Detektivarbeit! Du hast alle Kategorien durchgesehen.",
+        "detective_open_category": "Kategorie auf Open Food Facts öffnen"
     },
     "es": {
         "app_title": "Scan Champion",
@@ -289,38 +294,38 @@ TRANSLATIONS = {
         "footer_citizen_link_en": "Citizen Science (EN)",
         "footer_citizen_link_fr": "Science Citoyenne (FR)",
         "footer_storage": "Marcas guardadas localmente en tu dispositivo",
-        "switch_to_wiz": "🧑💻 ¿En ordenador? Prueba Taxonomy Wiz",
-        "switch_to_scan": "🤳 ¿En el súper? Prueba Scan Champion",
+        "switch_to_detective": "🕵️‍♂️ ¿En ordenador? Data Detective",
+        "switch_to_scan": "🤳 ¿En el súper? Scan Champion",
 
-        "wiz_title": "Taxonomy Wiz",
-        "wiz_badge": "Open Food Facts",
-        "wiz_guide_title": "Instrucciones de Taxonomy Wiz",
-        "wiz_guide_headline": "Ayuda a mejorar el soporte de tu idioma para el análisis de ingredientes",
-        "wiz_step1_title": "En casa con ordenador",
-        "wiz_step1_desc": "Trabaja cómodamente desde tu ordenador para revisar taxonomías de categorías e ingredientes.",
-        "wiz_step2_title": "Añadir o revisar traducciones",
-        "wiz_step2_desc": "Revisa las traducciones de ingredientes y categorías en tu idioma.",
-        "wiz_step3_title": "Editor de taxonomías y GitHub",
-        "wiz_step3_desc": "Usa el editor web de taxonomías o GitHub para proponer y corregir términos.",
-        "wiz_warning_title": "Un poco más técnico:",
-        "wiz_warning_desc": "¿Necesitas ayuda o quieres coordinarte? ¡Únete en #foodture e #ingredients en Slack!",
-        "wiz_slack_btn": "Unirse a Slack",
-        "wiz_editor_btn": "Editor de taxonomías",
-        "wiz_github_btn": "Taxonomías en GitHub",
-        "wiz_tip_text": "Consejo: ¡Haz clic en cualquier categoría para abrir su página en Open Food Facts e inspeccionar ingredientes!",
-        "wiz_tab_all": "Todas las categorías",
-        "wiz_tab_priority": "Prioridad alta",
-        "wiz_progress_summary": "{checked} de {total} revisados ({pct}%)",
-        "wiz_completed_label": "Revisados ({count})",
-        "wiz_empty_priority_title": "No hay elementos de alta prioridad en este momento",
-        "wiz_empty_priority_desc": "Cambia a «Todas las categorías» para explorar y revisar términos.",
-        "wiz_empty_all_done_title": "¡Taxonomy Wiz Champion! ¡Las {count} categorías revisadas!",
-        "wiz_empty_all_done_desc": "¡Increíble aportación! Has revisado todas las categorías.",
-        "wiz_open_category": "Abrir categoría en Open Food Facts"
+        "detective_title": "Data Detective",
+        "detective_badge": "Open Food Facts",
+        "detective_guide_title": "Misión Data Detective",
+        "detective_guide_headline": "Completa los datos de productos: fotos, ingredientes, nutrición y envases",
+        "detective_step1_title": "1. Seleccionar fotos",
+        "detective_step1_desc": "Selecciona y encuadra las fotos de la lista de ingredientes y la tabla nutricional.",
+        "detective_step2_title": "2. OCR y verificar",
+        "detective_step2_desc": "Extrae los ingredientes con el OCR y revisa y corrige el texto.",
+        "detective_step3_title": "3. Introducir nutrición",
+        "detective_step3_desc": "Introduce la tabla nutricional (energía, grasas, azúcares, sal, proteínas...).",
+        "detective_step4_title": "4. Introducir envases",
+        "detective_step4_desc": "Añade formatos, materiales e instrucciones de reciclaje de los envases.",
+        "detective_warning_title": "En casa con tu ordenador:",
+        "detective_warning_desc": "Editar productos es mucho más cómodo en ordenador. ¿Dudas? ¡Únete a #ingredients y #packaging en Slack!",
+        "detective_slack_btn": "Unirse a Slack",
+        "detective_wiki_btn": "Guía de edición",
+        "detective_tip_text": "Consejo: ¡Haz clic en una categoría para abrirla en Open Food Facts, completar productos y marcarla!",
+        "detective_tab_all": "Todas las categorías",
+        "detective_tab_priority": "Prioridad alta",
+        "detective_progress_summary": "{checked} de {total} completados ({pct}%)",
+        "detective_completed_label": "Completados ({count})",
+        "detective_empty_priority_title": "No hay elementos de alta prioridad en este momento",
+        "detective_empty_priority_desc": "Cambia a «Todas las categorías» para explorar y completar productos.",
+        "detective_empty_all_done_title": "¡Data Detective Champion! ¡Las {count} categorías completadas!",
+        "detective_empty_all_done_desc": "¡Increíble labor detectivesca! Has completado todas las categorías de la lista.",
+        "detective_open_category": "Abrir categoría en Open Food Facts"
     }
 }
 
-# Auto-generate fallbacks for other languages by inheriting from English and localized titles
 OTHER_LANG_CODES = [
     "it", "nl", "pl", "pt", "ro", "cs", "sk", "hu", "el", "bg", "hr",
     "sr", "sl", "da", "sv", "fi", "no", "nb", "et", "lv", "lt", "ga",
@@ -329,28 +334,19 @@ OTHER_LANG_CODES = [
 
 for code in OTHER_LANG_CODES:
     if code not in TRANSLATIONS:
-        base = dict(TRANSLATIONS["en"])
-        # If we have existing translations from previous file, preserve them
-        TRANSLATIONS[code] = base
+        TRANSLATIONS[code] = dict(TRANSLATIONS["en"])
 
-# Alias nb to no
 TRANSLATIONS["nb"] = TRANSLATIONS.get("no", TRANSLATIONS["en"])
 
 
-def build_taxonomy_wiz_html():
-    """Build Taxonomy Wiz HTML file."""
-    # We use a template similar to Scan Champion, but adapted for Taxonomy Wiz:
-    # - Default active tab is 'all'
-    # - Links directly to Open Food Facts category pages: https://${langDomain}.openfoodfacts.org/facets/categories/${encodeURIComponent(item.category_name)}
-    # - Shows warning about technical work and Slack channels #foodture and #ingredients
-    # - Features computer icon and desktop focus
-
+def build_data_detective_html():
+    """Build Data Detective HTML file."""
     html = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Taxonomy Wiz 🧑💻 — Open Food Facts</title>
+    <title>Data Detective 🕵️‍♂️💻 — Open Food Facts</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -375,8 +371,9 @@ def build_taxonomy_wiz_html():
             --primary: #1b7340;
             --primary-dark: #12522c;
             --primary-light: #e8f5e9;
-            --accent-blue: #2563eb;
-            --accent-blue-light: #eff6ff;
+            --accent-detective: #0284c7;
+            --accent-detective-dark: #0369a1;
+            --accent-detective-light: #e0f2fe;
             --accent-gold: #f59e0b;
             --bg: #f8fafc;
             --card-bg: #ffffff;
@@ -463,7 +460,7 @@ def build_taxonomy_wiz_html():
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--accent-blue);
+            color: var(--accent-detective);
         }
 
         .header-actions {
@@ -521,7 +518,7 @@ def build_taxonomy_wiz_html():
 
         select.header-select:focus {
             outline: none;
-            border-color: var(--accent-blue);
+            border-color: var(--accent-detective);
         }
 
         .select-wrapper::after {
@@ -545,10 +542,10 @@ def build_taxonomy_wiz_html():
             padding: 12px 16px;
         }
 
-        /* Technical Warning Card */
-        .warning-card {
-            background: #eff6ff;
-            border: 1.5px solid #bfdbfe;
+        /* Computer Context Card */
+        .context-card {
+            background: #f0f9ff;
+            border: 1.5px solid #bae6fd;
             border-radius: var(--radius-md);
             padding: 12px 16px;
             margin-bottom: 12px;
@@ -559,29 +556,29 @@ def build_taxonomy_wiz_html():
             flex-wrap: wrap;
         }
 
-        .warning-left {
+        .context-left {
             display: flex;
             align-items: flex-start;
             gap: 10px;
             font-size: 13px;
-            color: #1e3a8a;
+            color: #0369a1;
             flex: 1;
             min-width: 240px;
         }
 
-        .warning-icon {
+        .context-icon {
             font-size: 20px;
             flex-shrink: 0;
             line-height: 1;
         }
 
-        .warning-text strong {
+        .context-text strong {
             display: block;
             margin-bottom: 2px;
-            color: #1e40af;
+            color: #075985;
         }
 
-        .warning-buttons {
+        .context-buttons {
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
@@ -610,22 +607,13 @@ def build_taxonomy_wiz_html():
             background: #611f69;
         }
 
-        .btn-editor {
-            background: #2563eb;
+        .btn-wiki {
+            background: #0284c7;
             color: #ffffff;
         }
 
-        .btn-editor:hover {
-            background: #1d4ed8;
-        }
-
-        .btn-github {
-            background: #1e293b;
-            color: #ffffff;
-        }
-
-        .btn-github:hover {
-            background: #0f172a;
+        .btn-wiki:hover {
+            background: #0369a1;
         }
 
         /* Mission / Guide Card */
@@ -640,7 +628,7 @@ def build_taxonomy_wiz_html():
 
         .guide-header {
             padding: 10px 16px;
-            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
             display: flex;
             align-items: center;
@@ -681,12 +669,13 @@ def build_taxonomy_wiz_html():
             font-weight: 700;
             font-size: 13.5px;
             margin-bottom: 10px;
-            color: #1e3a8a;
+            color: #0369a1;
         }
 
+        /* 4 Steps Grid: Photos, OCR, Nutrition, Packaging */
         .guide-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
             gap: 10px;
             margin-bottom: 10px;
         }
@@ -702,13 +691,13 @@ def build_taxonomy_wiz_html():
         }
 
         .guide-step-icon {
-            font-size: 18px;
+            font-size: 20px;
             flex-shrink: 0;
             margin-top: 1px;
         }
 
         .guide-step-text {
-            font-size: 12.5px;
+            font-size: 12px;
             line-height: 1.35;
         }
 
@@ -788,8 +777,8 @@ def build_taxonomy_wiz_html():
         }
 
         .tab-btn.active .badge-pill {
-            background: #dbeafe;
-            color: #1e40af;
+            background: var(--accent-detective-light);
+            color: var(--accent-detective-dark);
         }
 
         /* Search + Toolbar */
@@ -817,7 +806,7 @@ def build_taxonomy_wiz_html():
 
         .search-box-wrapper input:focus {
             outline: none;
-            border-color: var(--accent-blue);
+            border-color: var(--accent-detective);
         }
 
         .search-icon {
@@ -895,7 +884,7 @@ def build_taxonomy_wiz_html():
 
         .progress-bar-fill {
             height: 100%;
-            background: var(--accent-blue);
+            background: var(--accent-detective);
             border-radius: 10px;
             transition: width 0.3s ease;
         }
@@ -939,7 +928,7 @@ def build_taxonomy_wiz_html():
             background: #fdfdfd;
         }
 
-        /* Checkbox Box (clickable to tick review status) */
+        /* Checkbox Box (clickable to tick review/completion status) */
         .check-box {
             width: 19px;
             height: 19px;
@@ -956,8 +945,8 @@ def build_taxonomy_wiz_html():
         }
 
         .check-item.done .check-box {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
+            background: var(--accent-detective);
+            border-color: var(--accent-detective);
         }
 
         .check-box svg {
@@ -998,7 +987,7 @@ def build_taxonomy_wiz_html():
         }
 
         .check-label-link:hover {
-            color: var(--accent-blue);
+            color: var(--accent-detective);
             text-decoration: underline;
         }
 
@@ -1015,7 +1004,7 @@ def build_taxonomy_wiz_html():
         }
 
         .check-label-link:hover .ext-icon {
-            color: var(--accent-blue);
+            color: var(--accent-detective);
             opacity: 1;
         }
 
@@ -1194,14 +1183,14 @@ def build_taxonomy_wiz_html():
         }
 
         .country-grid-btn:hover {
-            border-color: var(--accent-blue);
-            background: var(--accent-blue-light);
+            border-color: var(--accent-detective);
+            background: var(--accent-detective-light);
         }
 
         .country-grid-btn.selected {
-            border-color: var(--accent-blue);
-            background: var(--accent-blue-light);
-            color: var(--accent-blue);
+            border-color: var(--accent-detective);
+            background: var(--accent-detective-light);
+            color: var(--accent-detective-dark);
             font-weight: 700;
         }
 
@@ -1286,7 +1275,7 @@ def build_taxonomy_wiz_html():
         }
 
         .citizen-link {
-            color: var(--accent-blue);
+            color: var(--accent-detective-dark);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
@@ -1315,9 +1304,9 @@ def build_taxonomy_wiz_html():
     <header>
         <div class="header-container">
             <div class="brand-area">
-                <span class="brand-emoji">🧑💻</span>
+                <span class="brand-emoji">🕵️‍♂️💻</span>
                 <div class="brand-text">
-                    <span class="brand-title" id="headerBrandTitle">Taxonomy Wiz</span>
+                    <span class="brand-title" id="headerBrandTitle">Data Detective</span>
                     <span class="brand-badge" id="headerBrandBadge">Open Food Facts</span>
                 </div>
             </div>
@@ -1338,67 +1327,70 @@ def build_taxonomy_wiz_html():
     </header>
 
     <main>
-        <!-- Warning / Tools Bar for Taxonomy Wiz -->
-        <section class="warning-card">
-            <div class="warning-left">
-                <span class="warning-icon">⚠️</span>
-                <div class="warning-text">
-                    <strong id="wizWarningTitle">A bit more technical:</strong>
-                    <span id="wizWarningDesc">Need guidance or want to collaborate? Join us in #foodture and #ingredients on Slack!</span>
+        <!-- Desktop Context & Slack Info Card -->
+        <section class="context-card">
+            <div class="context-left">
+                <span class="context-icon">💻</span>
+                <div class="context-text">
+                    <strong id="detectiveWarningTitle">At home with your computer:</strong>
+                    <span id="detectiveWarningDesc">Completing products is much easier on a desktop computer. Need help? Join #ingredients and #packaging on Slack!</span>
                 </div>
             </div>
-            <div class="warning-buttons">
+            <div class="context-buttons">
                 <a href="https://slack.openfoodfacts.org" target="_blank" rel="noopener" class="btn-tool btn-slack">
                     <span>💬</span>
                     <span id="btnSlackLabel">Join Slack</span>
                 </a>
-                <a href="https://taxonomy.openfoodfacts.org" target="_blank" rel="noopener" class="btn-tool btn-editor">
-                    <span>📝</span>
-                    <span id="btnEditorLabel">Taxonomy Editor</span>
-                </a>
-                <a href="https://github.com/openfoodfacts/openfoodfacts-server/tree/main/taxonomies" target="_blank" rel="noopener" class="btn-tool btn-github">
-                    <span>🐙</span>
-                    <span id="btnGithubLabel">GitHub Taxonomies</span>
+                <a href="https://wiki.openfoodfacts.org/How_to_edit_a_product" target="_blank" rel="noopener" class="btn-tool btn-wiki">
+                    <span>📖</span>
+                    <span id="btnWikiLabel">How to edit</span>
                 </a>
             </div>
         </section>
 
-        <!-- Instructions / Scanning Guide -->
+        <!-- Mission / Guide Card with the 4 Core Steps -->
         <section class="guide-card" id="guideCard">
             <div class="guide-header" id="guideToggle">
                 <div class="guide-header-title">
-                    <span id="guideTitleText">📖 Taxonomy Wiz Instructions</span>
+                    <span id="guideTitleText">🕵️‍♂️ Data Detective Mission</span>
                 </div>
                 <button class="guide-toggle-btn" id="guideToggleBtn">Hide tips</button>
             </div>
             <div class="guide-body" id="guideBody">
-                <div class="guide-headline" id="guideHeadline">Help improve the support of your language for ingredients analysis</div>
+                <div class="guide-headline" id="guideHeadline">Complete product data: photos, ingredients, nutrition, and packaging</div>
                 <div class="guide-steps">
                     <div class="guide-step">
-                        <span class="guide-step-icon">💻</span>
+                        <span class="guide-step-icon">📸</span>
                         <div class="guide-step-text">
-                            <strong id="step1Title">At Home with Computer</strong>
-                            <span id="step1Desc">Work comfortably from your desktop to inspect ingredient taxonomies and categories.</span>
+                            <strong id="step1Title">1. Select & Crop Photos</strong>
+                            <span id="step1Desc">Select and crop clear photos for the ingredients list and nutrition facts table.</span>
                         </div>
                     </div>
                     <div class="guide-step">
-                        <span class="guide-step-icon">🗂️</span>
+                        <span class="guide-step-icon">🔤</span>
                         <div class="guide-step-text">
-                            <strong id="step2Title">Add or Review Translations</strong>
-                            <span id="step2Desc">Review ingredient and category translations in your language for accuracy.</span>
+                            <strong id="step2Title">2. OCR Ingredients & Verify</strong>
+                            <span id="step2Desc">Run the OCR to extract ingredients from the photo, then verify and correct the text.</span>
                         </div>
                     </div>
                     <div class="guide-step">
-                        <span class="guide-step-icon">🛠️</span>
+                        <span class="guide-step-icon">📊</span>
                         <div class="guide-step-text">
-                            <strong id="step3Title">Taxonomy Editor & GitHub</strong>
-                            <span id="step3Desc">Use the web Taxonomy Editor or GitHub repository to propose and refine translations.</span>
+                            <strong id="step3Title">3. Enter Nutrition Facts</strong>
+                            <span id="step3Desc">Transcribe the nutrition table values (energy, fats, sugars, salt, proteins...).</span>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="guide-step-icon">📦</span>
+                        <div class="guide-step-text">
+                            <strong id="step4Title">4. Enter Packaging</strong>
+                            <span id="step4Desc">Add packaging shapes, materials, and recycling instructions.</span>
                         </div>
                     </div>
                 </div>
                 <div class="guide-tip-banner">
                     <span>💡</span>
-                    <span id="guideTipText"><strong>Pro-tip:</strong> Click any category to open its Open Food Facts category page and inspect ingredients!</span>
+                    <span id="guideTipText"><strong>Pro-tip:</strong> Click any category to open its Open Food Facts page, find products to complete, and tick them off!</span>
                 </div>
             </div>
         </section>
@@ -1421,10 +1413,10 @@ def build_taxonomy_wiz_html():
             <div class="toolbar-row">
                 <div class="search-box-wrapper">
                     <span class="search-icon">🔍</span>
-                    <input type="search" id="searchInput" placeholder="Filter categories (e.g. liqueur, bread, cheese)..." autocomplete="off" />
+                    <input type="search" id="searchInput" placeholder="Filter categories (e.g. beer, bread, cheese)..." autocomplete="off" />
                     <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">✕</button>
                 </div>
-                <button class="btn-reset" id="btnReset" title="Clear all reviews for this country">
+                <button class="btn-reset" id="btnReset" title="Clear all completed categories for this country">
                     <span>↺</span>
                     <span id="btnResetLabel">Reset</span>
                 </button>
@@ -1435,23 +1427,23 @@ def build_taxonomy_wiz_html():
                 <div class="progress-bar-track">
                     <div class="progress-bar-fill" id="progressBarFill" style="width: 0%;"></div>
                 </div>
-                <span class="progress-text" id="progressSummary">0 / 0 reviewed</span>
+                <span class="progress-text" id="progressSummary">0 / 0 completed</span>
             </div>
         </div>
 
-        <!-- Active Unreviewed Items (High Density Checklist with links to Open Food Facts categories) -->
+        <!-- Active Categories Checklist with Links to Open Food Facts Category Pages -->
         <div class="checklist-container" id="activeChecklist">
             <!-- Items rendered via JS -->
         </div>
 
-        <!-- Reviewed Items Section (Google Keep Style) -->
+        <!-- Completed Categories Section (Google Keep Style) -->
         <section class="completed-section" id="completedSection" style="display: none;">
             <div class="completed-header" id="completedHeader">
-                <span id="completedHeaderLabel">✓ Reviewed (0 items)</span>
+                <span id="completedHeaderLabel">✓ Completed (0 items)</span>
                 <span class="chevron">▾</span>
             </div>
             <div class="checklist-container completed-items-list" id="completedChecklist">
-                <!-- Reviewed items rendered via JS -->
+                <!-- Completed items rendered via JS -->
             </div>
         </section>
 
@@ -1488,7 +1480,7 @@ def build_taxonomy_wiz_html():
             </div>
 
             <div class="footer-bottom-note">
-                <span>Open Food Facts · Taxonomy Wiz · <span id="footerStorageLabel">Reviewed items saved locally on your device</span></span>
+                <span>Open Food Facts · Data Detective · <span id="footerStorageLabel">Completed items saved locally on your device</span></span>
             </div>
         </footer>
     </main>
@@ -1518,7 +1510,7 @@ def build_taxonomy_wiz_html():
         // State
         let currentCountry = null;
         let currentLang = 'en';
-        let currentTab = 'all'; // Default active tab is 'all' for Taxonomy Wiz!
+        let currentTab = 'all'; // Default active tab is 'all' for Data Detective!
         let currentSearch = '';
         let completedCollapsed = false;
 
@@ -1532,12 +1524,16 @@ def build_taxonomy_wiz_html():
         }
 
         function getStorageKey(country) {
-            return 'taxonomy_wiz_done_' + country;
+            return 'data_detective_done_' + country;
         }
 
         function getCheckedTags(country) {
             try {
-                const stored = localStorage.getItem(getStorageKey(country));
+                // Check new key first, fallback to previous taxonomy key if available
+                let stored = localStorage.getItem(getStorageKey(country));
+                if (!stored) {
+                    stored = localStorage.getItem('taxonomy_wiz_done_' + country);
+                }
                 return stored ? new Set(JSON.parse(stored)) : new Set();
             } catch (e) {
                 return new Set();
@@ -1689,13 +1685,12 @@ def build_taxonomy_wiz_html():
                 }
             }
 
-            // Sync switch link with current country
             updateSwitchLink();
 
             if (window._paq) {
                 const countries = window.CAMPAIGN_STATS.countries;
                 _paq.push(['setCustomUrl', window.location.href]);
-                _paq.push(['setDocumentTitle', 'Taxonomy Wiz - ' + (countries[code] ? countries[code].name : code.toUpperCase())]);
+                _paq.push(['setDocumentTitle', 'Data Detective - ' + (countries[code] ? countries[code].name : code.toUpperCase())]);
                 _paq.push(['trackPageView']);
             }
 
@@ -1739,31 +1734,33 @@ def build_taxonomy_wiz_html():
         }
 
         function applyTranslations() {
-            document.title = `${t('wiz_title')} 🧑💻 — Open Food Facts`;
-            document.getElementById('headerBrandTitle').textContent = t('wiz_title');
-            document.getElementById('headerBrandBadge').textContent = t('wiz_badge');
-            document.getElementById('guideTitleText').textContent = t('wiz_guide_title');
+            document.title = `${t('detective_title')} 🕵️‍♂️💻 — Open Food Facts`;
+            document.getElementById('headerBrandTitle').textContent = t('detective_title');
+            document.getElementById('headerBrandBadge').textContent = t('detective_badge');
+            document.getElementById('guideTitleText').textContent = t('detective_guide_title');
 
             const isCollapsed = document.getElementById('guideBody').classList.contains('collapsed');
             document.getElementById('guideToggleBtn').textContent = isCollapsed ? t('guide_show') : t('guide_hide');
 
-            document.getElementById('wizWarningTitle').textContent = t('wiz_warning_title');
-            document.getElementById('wizWarningDesc').textContent = t('wiz_warning_desc');
-            document.getElementById('btnSlackLabel').textContent = t('wiz_slack_btn');
-            document.getElementById('btnEditorLabel').textContent = t('wiz_editor_btn');
-            document.getElementById('btnGithubLabel').textContent = t('wiz_github_btn');
+            document.getElementById('detectiveWarningTitle').textContent = t('detective_warning_title');
+            document.getElementById('detectiveWarningDesc').textContent = t('detective_warning_desc');
+            document.getElementById('btnSlackLabel').textContent = t('detective_slack_btn');
+            document.getElementById('btnWikiLabel').textContent = t('detective_wiki_btn');
 
-            document.getElementById('guideHeadline').textContent = t('wiz_guide_headline');
-            document.getElementById('step1Title').textContent = t('wiz_step1_title');
-            document.getElementById('step1Desc').textContent = t('wiz_step1_desc');
-            document.getElementById('step2Title').textContent = t('wiz_step2_title');
-            document.getElementById('step2Desc').textContent = t('wiz_step2_desc');
-            document.getElementById('step3Title').textContent = t('wiz_step3_title');
-            document.getElementById('step3Desc').textContent = t('wiz_step3_desc');
-            document.getElementById('guideTipText').innerHTML = `<strong>${t('wiz_tip_text').split(':')[0]}:</strong> ${t('wiz_tip_text').split(':').slice(1).join(':') || t('wiz_tip_text')}`;
+            document.getElementById('guideHeadline').textContent = t('detective_guide_headline');
+            document.getElementById('step1Title').textContent = t('detective_step1_title');
+            document.getElementById('step1Desc').textContent = t('detective_step1_desc');
+            document.getElementById('step2Title').textContent = t('detective_step2_title');
+            document.getElementById('step2Desc').textContent = t('detective_step2_desc');
+            document.getElementById('step3Title').textContent = t('detective_step3_title');
+            document.getElementById('step3Desc').textContent = t('detective_step3_desc');
+            document.getElementById('step4Title').textContent = t('detective_step4_title');
+            document.getElementById('step4Desc').textContent = t('detective_step4_desc');
 
-            document.getElementById('tabAllLabel').textContent = t('wiz_tab_all');
-            document.getElementById('tabMissingLabel').textContent = t('wiz_tab_priority');
+            document.getElementById('guideTipText').innerHTML = `<strong>${t('detective_tip_text').split(':')[0]}:</strong> ${t('detective_tip_text').split(':').slice(1).join(':') || t('detective_tip_text')}`;
+
+            document.getElementById('tabAllLabel').textContent = t('detective_tab_all');
+            document.getElementById('tabMissingLabel').textContent = t('detective_tab_priority');
             document.getElementById('searchInput').placeholder = t('search_placeholder');
             document.getElementById('btnResetLabel').textContent = t('reset_btn');
 
@@ -1862,7 +1859,6 @@ def build_taxonomy_wiz_html():
                 renderModalCountryGrid();
             });
 
-            // Tab Buttons
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1902,7 +1898,7 @@ def build_taxonomy_wiz_html():
             const guideToggle = document.getElementById('guideToggle');
             const guideToggleBtn = document.getElementById('guideToggleBtn');
 
-            const isGuideCollapsed = localStorage.getItem('taxonomy_wiz_guide_collapsed') === 'true';
+            const isGuideCollapsed = localStorage.getItem('data_detective_guide_collapsed') === 'true';
             if (isGuideCollapsed) {
                 guideBody.classList.add('collapsed');
             }
@@ -1911,7 +1907,7 @@ def build_taxonomy_wiz_html():
                 const collapsed = guideBody.classList.toggle('collapsed');
                 guideToggleBtn.textContent = collapsed ? t('guide_show') : t('guide_hide');
                 try {
-                    localStorage.setItem('taxonomy_wiz_guide_collapsed', collapsed ? 'true' : 'false');
+                    localStorage.setItem('data_detective_guide_collapsed', collapsed ? 'true' : 'false');
                 } catch (e) {}
             });
 
@@ -1931,13 +1927,13 @@ def build_taxonomy_wiz_html():
             const catUrl = getCategoryUrl(item.category_name);
 
             div.innerHTML = `
-                <div class="check-box" aria-label="Mark as reviewed">
+                <div class="check-box" aria-label="Mark category as completed">
                     <svg viewBox="0 0 24 24">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                 </div>
                 <div class="check-label-wrap">
-                    <a href="${catUrl}" target="_blank" rel="noopener" class="check-label-link" title="${t('wiz_open_category')}">
+                    <a href="${catUrl}" target="_blank" rel="noopener" class="check-label-link" title="${t('detective_open_category')}">
                         <span>${item.category_name}</span>
                         <span class="ext-icon" aria-hidden="true">↗</span>
                     </a>
@@ -1945,7 +1941,6 @@ def build_taxonomy_wiz_html():
                 </div>
             `;
 
-            // Clicking the checkbox toggles reviewed state
             div.querySelector('.check-box').addEventListener('click', (e) => {
                 e.stopPropagation();
                 toggleItem(item.category_tag);
@@ -1972,14 +1967,13 @@ def build_taxonomy_wiz_html():
             document.getElementById('badgeMissing').textContent = `${checkedMissing}/${totalMissing}`;
             document.getElementById('badgeAll').textContent = `${checkedAll}/${totalAll}`;
 
-            // Tab filtering: 'all' is default
             const sourcePool = (currentTab === 'missing') ? missingCategories : allCategories;
             const currentCheckedCount = (currentTab === 'missing') ? checkedMissing : checkedAll;
             const currentTotalCount = sourcePool.length;
 
             const pct = currentTotalCount > 0 ? Math.round((currentCheckedCount / currentTotalCount) * 100) : 0;
             document.getElementById('progressBarFill').style.width = `${pct}%`;
-            document.getElementById('progressSummary').textContent = t('wiz_progress_summary', {
+            document.getElementById('progressSummary').textContent = t('detective_progress_summary', {
                 checked: currentCheckedCount,
                 total: currentTotalCount,
                 pct: pct
@@ -2017,7 +2011,7 @@ def build_taxonomy_wiz_html():
 
             if (completedItems.length > 0) {
                 completedSection.style.display = 'block';
-                completedHeaderLabel.textContent = `✓ ${t('wiz_completed_label', { count: completedItems.length })}`;
+                completedHeaderLabel.textContent = `✓ ${t('detective_completed_label', { count: completedItems.length })}`;
                 completedListEl.innerHTML = '';
                 completedItems.forEach(item => {
                     completedListEl.appendChild(createItemNode(item, true, !item.has_code));
@@ -2041,8 +2035,8 @@ def build_taxonomy_wiz_html():
                     emptyStateEl.innerHTML = `
                         <div class="empty-state">
                             <div class="empty-state-icon">🎉</div>
-                            <div class="empty-state-title">${t('wiz_empty_priority_title')}</div>
-                            <div class="empty-state-desc">${t('wiz_empty_priority_desc')}</div>
+                            <div class="empty-state-title">${t('detective_empty_priority_title')}</div>
+                            <div class="empty-state-desc">${t('detective_empty_priority_desc')}</div>
                         </div>
                     `;
                 }
@@ -2051,8 +2045,8 @@ def build_taxonomy_wiz_html():
                 emptyStateEl.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon">🏆</div>
-                        <div class="empty-state-title">${t('wiz_empty_all_done_title', { count: completedItems.length })}</div>
-                        <div class="empty-state-desc">${t('wiz_empty_all_done_desc')}</div>
+                        <div class="empty-state-title">${t('detective_empty_all_done_title', { count: completedItems.length })}</div>
+                        <div class="empty-state-desc">${t('detective_empty_all_done_desc')}</div>
                     </div>
                 `;
             } else {
@@ -2074,49 +2068,76 @@ def build_taxonomy_wiz_html():
     )
 
 
+def build_redirect_html(target_url):
+    """Build redirect HTML for legacy URLs."""
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting to Data Detective...</title>
+    <script>
+        const currentUrl = new URL(window.location.href);
+        const target = new URL("{target_url}", window.location.href);
+        for (const [key, val] of currentUrl.searchParams.entries()) {{
+            target.searchParams.set(key, val);
+        }}
+        window.location.replace(target.href);
+    </script>
+</head>
+<body>
+    <p>Redirecting to <a href="{target_url}">Data Detective</a>...</p>
+</body>
+</html>
+"""
+
+
 def build_scan_champion_html():
-    """Build Scan Champion HTML file (with link to Taxonomy Wiz in header)."""
-    # Read the template from current build_web_hub or reuse
+    """Build Scan Champion HTML file (with link to Data Detective in header)."""
     with open(os.path.join(BASE_DIR, 'photos-for-impact', 'index.html'), 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Ensure header has switch to Taxonomy Wiz link if not already present
-    if 'switchGameLink' not in content:
-        target = '<div class="header-actions">'
-        replacement = """<div class="header-actions">
-                <a href="../taxonomy-wiz/" id="switchGameLink" class="switch-game-link" style="font-size: 11.5px; font-weight: 600; color: #2563eb; text-decoration: none; background: #eff6ff; padding: 6px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">
-                    <span>🧑💻 At home? Taxonomy Wiz</span>
-                </a>"""
-        content = content.replace(target, replacement, 1)
+    # Ensure link points to Data Detective
+    content = content.replace('../taxonomy-wiz/', '../data-detective/')
+    content = content.replace('Taxonomy Wiz', 'Data Detective')
+    content = content.replace('🧑💻 At home? Data Detective', '🕵️‍♂️ At home? Data Detective')
 
     return content
 
 
 def main():
-    print("Building Scan Champion and Taxonomy Wiz web hubs...")
+    print("Building Scan Champion and Data Detective web hubs...")
 
-    # 1. Build Taxonomy Wiz HTML
-    wiz_html = build_taxonomy_wiz_html()
-    wiz_dest_files = [
-        os.path.join(BASE_DIR, 'taxonomy-wiz', 'index.html'),
-        os.path.join(BASE_DIR, 'release-website', 'taxonomy-wiz', 'index.html')
+    # 1. Build Data Detective HTML
+    detective_html = build_data_detective_html()
+    detective_dest_files = [
+        os.path.join(BASE_DIR, 'data-detective', 'index.html'),
+        os.path.join(BASE_DIR, 'release-website', 'data-detective', 'index.html'),
     ]
-    for dest in wiz_dest_files:
+    for dest in detective_dest_files:
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, 'w', encoding='utf-8') as f:
-            f.write(wiz_html.strip() + '\n')
+            f.write(detective_html.strip() + '\n')
         print(f"Generated {dest} successfully!")
 
-    # 2. Copy data.js to taxonomy-wiz folders
+    # 2. Copy data.js to data-detective folders
     src_data_js = os.path.join(BASE_DIR, 'photos-for-impact', 'data.js')
     if os.path.exists(src_data_js):
-        for wiz_dir in ['taxonomy-wiz', os.path.join('release-website', 'taxonomy-wiz')]:
-            dst = os.path.join(BASE_DIR, wiz_dir, 'data.js')
+        for det_dir in ['data-detective', os.path.join('release-website', 'data-detective')]:
+            dst = os.path.join(BASE_DIR, det_dir, 'data.js')
             os.makedirs(os.path.dirname(dst), exist_ok=True)
             shutil.copyfile(src_data_js, dst)
             print(f"Copied data.js to {dst}")
 
-    # 3. Update Scan Champion with switch link
+    # 3. Update legacy taxonomy-wiz folders with redirect to data-detective
+    redirect_html = build_redirect_html('../data-detective/')
+    for wiz_dir in ['taxonomy-wiz', os.path.join('release-website', 'taxonomy-wiz')]:
+        dst = os.path.join(BASE_DIR, wiz_dir, 'index.html')
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        with open(dst, 'w', encoding='utf-8') as f:
+            f.write(redirect_html.strip() + '\n')
+        print(f"Generated legacy redirect {dst}")
+
+    # 4. Update Scan Champion with Data Detective switch link
     scan_html = build_scan_champion_html()
     scan_dest_files = [
         os.path.join(BASE_DIR, 'photos-for-impact', 'index.html'),
