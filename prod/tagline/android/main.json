@@ -3,6 +3,9 @@
     "donation_campaign_2026": {
       "count": 1081,
       "currency": "EUR",
+      "donation_ab_new_percent": 50,
+      "donation_reminder_every": 3,
+      "donation_strip_hide_days": 14,
       "end_date": "2027-01-31 23:59:59",
       "goal": 170000.0,
       "min_launches": 5,
