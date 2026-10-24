@@ -1,12 +1,12 @@
 {
   "news": {
     "donation_campaign_2026": {
-      "count": 1073,
+      "count": 1081,
       "currency": "EUR",
       "end_date": "2027-01-31 23:59:59",
       "goal": 170000.0,
       "min_launches": 5,
-      "raised": 50833.99,
+      "raised": 51054.62,
       "start_date": "2025-10-25 00:00:00",
       "translations": {
         "ar": {
@@ -239,11 +239,11 @@
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026"
     },
     "donation_banner_2026": {
-      "count": 1073,
+      "count": 1081,
       "currency": "EUR",
       "end_date": "2027-01-31 23:59:59",
       "goal": 170000.0,
-      "raised": 50833.99,
+      "raised": 51054.62,
       "start_date": "2026-02-01 00:00:00",
       "translations": {
         "default": {
@@ -254,11 +254,11 @@
       "url": "https://world.openfoodfacts.org/donate-to-open-food-facts"
     },
     "donation_quiet_2026": {
-      "count": 1073,
+      "count": 1081,
       "currency": "EUR",
       "end_date": "2026-10-31 23:59:59",
       "goal": 170000.0,
-      "raised": 50833.99,
+      "raised": 51054.62,
       "start_date": "2026-02-01 00:00:00",
       "translations": {
         "default": {
