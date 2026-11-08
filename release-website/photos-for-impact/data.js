@@ -1,7 +1,7 @@
 window.CAMPAIGN_STATS = {
   "campaign_id": "photos_for_impact_2026",
   "baseline_date": "2026-09-18",
-  "last_updated": "2026-11-01 00:15:14",
+  "last_updated": "2026-11-08 00:13:29",
   "total_countries": 33,
   "total_items": 3272,
   "total_with_code": 2091,
