@@ -1608,13 +1608,17 @@
                     </svg>
                 </div>
                 <div class="check-label-wrap">
-                    <a href="${catUrl}" target="_blank" rel="noopener" class="check-label-link" title="${t('detective_open_category')}">
-                        <span>${displayName}</span>
+                    <a target="_blank" rel="noopener" class="check-label-link" title="${t('detective_open_category')}">
+                        <span class="check-label-text"></span>
                         <span class="ext-icon" aria-hidden="true">↗</span>
                     </a>
                     ${(currentTab === 'all' && isMissing) ? '<span class="item-priority-dot" title="High Priority"></span>' : ''}
                 </div>
             `;
+
+            // Set the link and the name through the DOM, so that they are never interpreted as HTML
+            div.querySelector('.check-label-link').href = catUrl;
+            div.querySelector('.check-label-text').textContent = displayName;
 
             div.querySelector('.check-box').addEventListener('click', (e) => {
                 e.stopPropagation();
