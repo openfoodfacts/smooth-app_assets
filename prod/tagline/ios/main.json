@@ -799,7 +799,7 @@
           "button_label": "Voir la liste"
         }
       },
-      "url": "https://static.openfoodfacts.org/data/foodture/"
+      "url": "https://world.openfoodfacts.org/data/foodture/"
     }
   },
   "tagline_feed": {
@@ -818,7 +818,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/fr.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/fr.html"
           }
         },
         {
@@ -831,11 +831,8 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/at.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/at.html"
           }
-        },
-        {
-          "id": "donation_campaign_2026"
         }
       ]
     },
@@ -844,7 +841,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/be.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/be.html"
           }
         }
       ]
@@ -854,7 +851,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/bg.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/bg.html"
           }
         }
       ]
@@ -864,7 +861,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/hr.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/hr.html"
           }
         }
       ]
@@ -874,7 +871,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/cy.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/cy.html"
           }
         }
       ]
@@ -884,7 +881,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/cz.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/cz.html"
           }
         }
       ]
@@ -894,7 +891,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/cz.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/cz.html"
           }
         }
       ]
@@ -904,7 +901,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/dk.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/dk.html"
           }
         }
       ]
@@ -914,7 +911,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/ee.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/ee.html"
           }
         }
       ]
@@ -924,7 +921,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/fi.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/fi.html"
           }
         }
       ]
@@ -934,7 +931,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/fr.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/fr.html"
           }
         },
         {
@@ -947,7 +944,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/de.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/de.html"
           }
         },
         {
@@ -960,7 +957,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/gr.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/gr.html"
           }
         }
       ]
@@ -970,7 +967,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/gr.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/gr.html"
           }
         }
       ]
@@ -980,7 +977,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/hu.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/hu.html"
           }
         }
       ]
@@ -990,7 +987,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/ie.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/ie.html"
           }
         }
       ]
@@ -1000,7 +997,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/it.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/it.html"
           }
         },
         {
@@ -1013,7 +1010,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/lv.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/lv.html"
           }
         }
       ]
@@ -1023,7 +1020,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/lt.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/lt.html"
           }
         }
       ]
@@ -1033,7 +1030,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/lu.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/lu.html"
           }
         }
       ]
@@ -1043,7 +1040,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/mt.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/mt.html"
           }
         }
       ]
@@ -1053,7 +1050,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/me.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/me.html"
           }
         }
       ]
@@ -1063,8 +1060,11 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/nl.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/nl.html"
           }
+        },
+        {
+          "id": "donation_campaign_2026"
         }
       ]
     },
@@ -1073,7 +1073,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/no.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/no.html"
           }
         }
       ]
@@ -1083,7 +1083,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/pl.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/pl.html"
           }
         }
       ]
@@ -1093,7 +1093,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/pt.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/pt.html"
           }
         }
       ]
@@ -1103,7 +1103,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/ro.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/ro.html"
           }
         }
       ]
@@ -1113,7 +1113,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/rs.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/rs.html"
           }
         }
       ]
@@ -1123,7 +1123,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/sk.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/sk.html"
           }
         }
       ]
@@ -1133,7 +1133,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/si.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/si.html"
           }
         }
       ]
@@ -1143,7 +1143,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/si.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/si.html"
           }
         }
       ]
@@ -1153,7 +1153,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/es.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/es.html"
           }
         },
         {
@@ -1166,7 +1166,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/se.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/se.html"
           }
         }
       ]
@@ -1176,11 +1176,8 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/ch.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/ch.html"
           }
-        },
-        {
-          "id": "donation_campaign_2026"
         }
       ]
     },
@@ -1189,7 +1186,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/uk.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/uk.html"
           }
         }
       ]
@@ -1199,7 +1196,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/uk.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/uk.html"
           }
         }
       ]
@@ -1209,7 +1206,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/ca.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/ca.html"
           }
         },
         {
@@ -1222,7 +1219,7 @@
         {
           "id": "photos_for_impact_2026",
           "override": {
-            "url": "https://static.openfoodfacts.org/data/foodture/is.html"
+            "url": "https://world.openfoodfacts.org/data/foodture/is.html"
           }
         }
       ]
